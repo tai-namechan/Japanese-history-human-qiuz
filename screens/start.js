@@ -37,7 +37,7 @@ export default class Start extends Component {
               rightComponent={{
                 icon: 'login',
                 color: 'brown',
-                //onPress: () => this.props.navigation.navigate('Defult')
+                onPress: () => this.props.navigation.navigate('Defult')
               }}
               containerStyle={{
                 backgroundColor: '',
