@@ -57,9 +57,7 @@ export default class Start extends Component {
               />
               <Button
                 title="ランキング"
-                onPress={() => {
-                  this.props.navigation.navigate('Signup')
-                }}
+                
                 containerStyle={{ width: '45%' }}
               />
             </View>
