@@ -15,13 +15,13 @@ class App extends Component {
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
-      apiKey: "AIzaSyBnhRdmw8zEMPf1rrqsiRyxeHq4bceNh-Y",
-      authDomain: "logintry-9fc99.firebaseapp.com",
-      databaseURL: "https://logintry-9fc99-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "logintry-9fc99",
-      storageBucket: "logintry-9fc99.appspot.com",
-      messagingSenderId: "856169166658",
-      appId: "1:856169166658:web:8a576746ed66149432badb"
+      apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
+      authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
+      databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
+      projectId: "japanese-history-quiz-518c2",
+      storageBucket: "japanese-history-quiz-518c2.appspot.com",
+      messagingSenderId: "833552253127",
+      appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
       firebase.initializeApp(firebaseConfig);
