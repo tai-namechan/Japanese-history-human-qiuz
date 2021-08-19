@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
+import * as Speech from 'expo-speech';
 
 // スタイルシート関連
 const theme = {
@@ -63,6 +64,17 @@ export default function Question(props) {
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
 
+        // expo speech
+        Speech.speak(setAnswerText, 
+            { 
+                "language": "ja", 
+                // 低い声
+                "pitch": -1,
+                // 高い声
+                // "pitch": 1,
+            }
+        );
+
         // 質問ボタンを全て押し切る前
         if (score > 1) {
             // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
@@ -107,6 +119,18 @@ export default function Question(props) {
         // モーダルの非表示
         toggleOverlay();
     }    
+
+    // // expo speech
+    // const playSpeech = (setAnswerText) => {
+    //     // const textToSpeak = "こんにちは";
+    //         Speech.speak(setAnswerText, 
+    //         { 
+    //             "language": "ja", 
+    //             "pitch": -1,
+    //         }
+    //     );
+    // }
+    
 
     return (
         <ThemeProvider theme={theme}>
