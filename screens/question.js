@@ -120,18 +120,6 @@ export default function Question(props) {
         toggleOverlay();
     }    
 
-    // // expo speech
-    // const playSpeech = (setAnswerText) => {
-    //     // const textToSpeak = "こんにちは";
-    //         Speech.speak(setAnswerText, 
-    //         { 
-    //             "language": "ja", 
-    //             "pitch": -1,
-    //         }
-    //     );
-    // }
-    
-
     return (
         <ThemeProvider theme={theme}>
             <View >
