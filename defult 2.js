@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import LoginForm from './screens/LoginForm';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import Start from './screens/Start.js';
+import Start from './screens/start.js';
 // import  Question  from './screens/question.js';
 // import  Answer  from './screens/answer.js';
 import { Button, Image, Header,ThemeProvider } from 'react-native-elements';
@@ -39,13 +39,13 @@ class App extends Component {
   renderForm() {
     if (this.state.loggedIn) {
       return(
-
+        
         <View style={styles.wrap}>
           <TouchableOpacity onPress={() => firebase.auth().signOut()} style={styles.button}>
             <Text style={styles.logout }>ログアウト</Text>
           </TouchableOpacity>
         </View>
-
+        
       )
     } else {
       return(<LoginForm />)
@@ -72,7 +72,7 @@ const styles = {
     padding: 24,
   },
   button: {
-    height: 48,
+    height: 48, 
     borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
