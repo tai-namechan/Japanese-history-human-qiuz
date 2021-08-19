@@ -4,7 +4,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Start from './screens/Start.js';
 import  Question  from './screens/SelectQuestion.js';
 import  Answer  from './screens/Answer.js';
-
 import firebase from 'firebase';
 import env from './env.json';
 import  Signup  from './screens/SignUpScreen.js';
