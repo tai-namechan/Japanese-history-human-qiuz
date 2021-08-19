@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
+import * as Speech from 'expo-speech';
 
 // スタイルシート関連
 const theme = {
@@ -62,6 +63,17 @@ export default function Question(props) {
         //　質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
+
+        // expo speech
+        Speech.speak(setAnswerText, 
+            { 
+                "language": "ja", 
+                // 低い声
+                "pitch": -1,
+                // 高い声
+                // "pitch": 1,
+            }
+        );
 
         // 質問ボタンを全て押し切る前
         if (score > 1) {
