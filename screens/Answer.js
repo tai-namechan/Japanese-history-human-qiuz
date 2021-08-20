@@ -26,7 +26,7 @@ export default function Answer({ navigation }) {
     // 正誤表示
     const answerWord = {
         seikai : "正解おめでとう！",
-        huseikai : "残念"
+        huseikai : "何でわしに気づかなかったんじゃ。出直して来い！"
     }
 
     useEffect(() => {
@@ -123,12 +123,12 @@ export default function Answer({ navigation }) {
                             justifyContent: 'space-around',
                         }}
                     />
-                    <Text>
+                    {/* <Text>
                         正誤：{correctness}
-                    </Text>
-                    <Text>
+                    </Text> */}
+                    {/* <Text>
                         コメント：{answerText}
-                    </Text>
+                    </Text> */}
                     <Text>
                         {/* 不正解の場合も点数は０ではない値(5-質問数) */}
                         点数：{score}
@@ -145,7 +145,7 @@ export default function Answer({ navigation }) {
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.徳川家光</Animated.Text>
+                            }}>A.行川太盛</Animated.Text>
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -154,7 +154,7 @@ export default function Answer({ navigation }) {
                         }}>
                             <Animated.Image
                                 //白黒
-                                source={require('../assets/img/iemitu-sihouette.png')}
+                                source={require('../assets/img/person.png')}
                                 style={{
                                     width: 300,
                                     height: 300,
@@ -167,7 +167,7 @@ export default function Answer({ navigation }) {
                                 }} />
                             <Animated.Image
                                 //カラー
-                                source={require('../assets/img/iemitu.png')}
+                                source={require('../assets/img/person2.png')}
                                 style={{
                                     width: 300,
                                     height: 300,
@@ -197,7 +197,9 @@ export default function Answer({ navigation }) {
                                 opacity
                             }}
                             >
-                                私は江戸幕府三代将軍徳川家光じゃ
+                                {correctness}じゃ。
+                                {answerText}
+                                私はseedkのログインエンジニア行川太盛じゃ
                             </Animated.Text>
                         </Balloon>
 
@@ -220,8 +222,8 @@ export default function Answer({ navigation }) {
                             <Animated.View 
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
-                                <Text>三代将軍徳川家光</Text>
-                                <Text>二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された
+                                <Text>seedk行川太盛</Text>
+                                <Text>
                                 </Text>
                             </Animated.View>
                         </View>
