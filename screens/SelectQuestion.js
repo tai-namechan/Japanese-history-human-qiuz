@@ -33,19 +33,68 @@ const styles = StyleSheet.create({
 export default function Question(props) {
     // 値を次のページに送る
     const { navigation } = props;
+    
 
     // 質問
     const questions = [
         {
             human: '家光',
             questionOptions: [
-                { questionText: 'あなたは何年生まれですか？', answerText: 'わしは1604年にこの地に誕生した' },
-                { questionText: 'あなたは何をした人ですか？', answerText: 'わしは実は将軍じゃったんじゃ' },
-                { questionText: 'あなたが行なった政治は文治政治ですか？', answerText: 'わしはたしか...武断政治を行っていたな' },
-                { questionText: 'あなたが農民に出した規制は何ですか？', answerText: 'わしが出した規制は[1643年]田畑永代売買の禁令と[同年]田畑勝手作りの禁じゃ' },
+                { 
+                    questionText: 'どこで生まれましたか？', 
+                    answerText: '武蔵国といって現在の埼玉県にあたる場所で生まれたよ。' 
+                },
+                { 
+                    questionText: 'あなたのやってることは現代の職業で言ったら何になる？', 
+                    answerText: '経営者もやったことの一つだな' 
+                },
+                { 
+                    questionText: '西暦何年生まれですか？', 
+                    answerText: '1840年に生まれたよ。' 
+                },
+                { 
+                    questionText: '実は〇〇な話ある？', 
+                    answerText: '実は68歳で側室との間に子供ができたんじゃ' 
+                },
+            ],
+            questionOptionsSecond: [
+                { 
+                    questionText: '人生のターニングポイントは？', 
+                    answerText: 'いくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
+                },
+                { 
+                    questionText: '何を経営してた？', 
+                    answerText: '第一国立銀行はそのうちの一つだ。国立銀行条例をもとにして私が設立したよ。' 
+                },
+                { 
+                    questionText: '尊敬している人は？', 
+                    answerText: '尊敬している人のうちの1人は平岡円四郎様だな。' 
+                },
+                { 
+                    questionText: '特技はなんですか？', 
+                    answerText: 'そろばんが得意だよ。' 
+                },
+            ],
+            questionOptionsThird: [
+                { 
+                    questionText: '異名はありますか？', 
+                    answerText: '日本資本主義の父と言われているらしいな。' 
+                },
+                { 
+                    questionText: '有名な知り合いを教えて?', 
+                    answerText: '西郷隆盛殿や大久保利通殿は知り合いだぞ。' 
+                },
+            ],
+            questionOptionsFourth: [
+                { 
+                    questionText: '何か自慢できることはある？', 
+                    answerText: '私がもうじき１万円札の顔になるらしいぞ。' 
+                },
             ],
         },
     ]
+
+    const [showQuestions, setShowQuestions] = useState(questions);
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -75,6 +124,12 @@ export default function Question(props) {
             }
         );
 
+        // 質問ボタンの切り替え
+        questions[currentQuestion].questionOptions.splice(0,1,questions[currentQuestion].questionOptionsSecond[0]);
+        // console.log(questions[currentQuestion].questionOptions);
+        setShowQuestions(questions);
+        // console.log(showQuestions);
+
         // 質問ボタンを全て押し切る前
         if (score > 1) {
             // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
@@ -98,7 +153,9 @@ export default function Question(props) {
         // Textinputで入力されtextに代入された値をinputTextに代入
         const inputText = text;
         // humanに答えとなる人物を設定する
-        const human = '徳川家光';
+
+        const human = '渋沢栄一';
+
         // console.log(human);
         // console.log(inputText);
 
@@ -179,7 +236,7 @@ export default function Question(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {questions[currentQuestion].questionOptions.map((questionOption) => (
+                            {showQuestions[currentQuestion].questionOptions.map((questionOption) => (
                                 <Button title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption)}
                                 />
