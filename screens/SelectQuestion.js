@@ -108,7 +108,7 @@ export default function Question(props) {
     const [visible, setVisible] = useState(false);
 
     // 質問ボタンを押した後
-    const handleQuestionOptionClick = (questionOption) => {
+    const handleQuestionOptionClick = (questionOption, i) => {
         //　質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
@@ -125,7 +125,8 @@ export default function Question(props) {
         );
 
         // 質問ボタンの切り替え
-        setNewQuestionText(questionOption);
+        // console.log(i);
+        setNewQuestionText(questionOption, i);
 
         // 質問ボタンを全て押し切る前
         if (score > 1) {
@@ -133,7 +134,7 @@ export default function Question(props) {
             var currectScore = score - 1;
             // 最新のスコアを設定する
             setScore(currectScore);
-            console.log(score);
+            // console.log(score);
         } else {
             // 用意された質問が全部終わった後
 
@@ -141,13 +142,14 @@ export default function Question(props) {
     }
 
     // 質問ボタンの切り替え
-    const setNewQuestionText = (questionOption) => {
-        console.log(Object.keys(questions[currentQuestion].questionOptions));
+    const setNewQuestionText = (questionOption, i) => {
+        // console.log(Object.keys(questions[currentQuestion].questionOptions));
         // console.log(questions[currentQuestion].questionOptions);
-        questions[currentQuestion].questionOptions.splice(0, 1,questions[currentQuestion].questionOptionsSecond[0]);
+        let number = i;
+        showQuestions[currentQuestion].questionOptions.splice(number, 1,questions[currentQuestion].questionOptionsSecond[number]);
         // console.log(questions[currentQuestion].questionOptions);
-        setShowQuestions(questions);
-        // console.log(showQuestions);
+        setShowQuestions(showQuestions);
+        console.log(showQuestions[currentQuestion].questionOptions);
     }
     
     // モーダルの表示・非表示
@@ -243,9 +245,11 @@ export default function Question(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {showQuestions[currentQuestion].questionOptions.map((questionOption) => (
-                                <Button title={questionOption.questionText}
-                                    onPress={() => handleQuestionOptionClick(questionOption)}
+                            {showQuestions[currentQuestion].questionOptions.map(( questionOption, i) => (
+                                <Button 
+                                    title={questionOption.questionText}
+                                    onPress={() => handleQuestionOptionClick(questionOption, i)
+                                    }
                                 />
                             ))}
                         </View>
