@@ -8,7 +8,9 @@ import firebase from 'firebase';
 import env from './env.json';
 import  Signup  from './screens/SignUpScreen.js';
 import  Login  from './screens/LoginScreen.js';
-import  Defult  from './defult.js';
+import Defult from './defult.js';
+import SelectNumber from './screens/Select1or10';
+import SelectEra from './screens/SelectEra';
 
 
 
@@ -16,6 +18,8 @@ import  Defult  from './defult.js';
 const MainStack = createStackNavigator(
   {
     Start: Start,
+    SelectNumber: SelectNumber,
+    SelectEra: SelectEra,
     Defult:Defult,
     Signup:Signup,
     Login:Login,
@@ -37,6 +41,7 @@ export default class App extends Component {
   render() {
     return (
       <AppContainer />
+      // <SelectNumber />
     )
   }
 }
