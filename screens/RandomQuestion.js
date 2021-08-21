@@ -3,7 +3,7 @@ import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-na
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
-
+import questions from './question';
 // スタイルシート関連
 const theme = {
     Button: {
@@ -47,7 +47,7 @@ export default function Question(props) {
 
     // 質問ボタンを押した後
     const handleQuestionOptionClick = (questionOption) => {
-        //　質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
+        // 質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
 
