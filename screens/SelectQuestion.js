@@ -3,6 +3,7 @@ import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-na
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
+import questions from './question';
 
 // スタイルシート関連
 const theme = {
@@ -33,19 +34,6 @@ const styles = StyleSheet.create({
 export default function Question(props) {
     // 値を次のページに送る
     const { navigation } = props;
-
-    // 質問
-    const questions = [
-        {
-            human: '家光',
-            questionOptions: [
-                { questionText: 'あなたは何年生まれですか？', answerText: 'わしは1604年にこの地に誕生した' },
-                { questionText: 'あなたは何をした人ですか？', answerText: 'わしは実は将軍じゃったんじゃ' },
-                { questionText: 'あなたが行なった政治は文治政治ですか？', answerText: 'わしはたしか...武断政治を行っていたな' },
-                { questionText: 'あなたが農民に出した規制は何ですか？', answerText: 'わしが出した規制は[1643年]田畑永代売買の禁令と[同年]田畑勝手作りの禁じゃ' },
-            ],
-        },
-    ]
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
