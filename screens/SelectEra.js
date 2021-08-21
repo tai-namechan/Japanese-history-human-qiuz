@@ -49,6 +49,14 @@ export default class SelectEra extends Component {
               <Text h1>時代の選択</Text>
               <Text h1>時代を選べ！</Text>
               <Button
+                title="ランダム"
+                onPress={() => {
+                  this.props.navigation.navigate('Question')
+                }}
+                containerStyle={{ width: '45%', marginBottom: 50, }}
+              />
+
+              <Button
                 title="江戸時代"
                 onPress={() => {
                   this.props.navigation.navigate('Question')
