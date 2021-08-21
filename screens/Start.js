@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ImageBackground } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
+import questions from './question';
 
 const theme = {
   Button: {
@@ -17,6 +18,8 @@ const theme = {
   },
 };
 
+
+const questionRandom = Math.floor(Math.random() * questions.length);
 
 export default class Start extends Component {
   render() {
@@ -51,7 +54,7 @@ export default class Start extends Component {
               <Button
                 title="始める"
                 onPress={() => {
-                  this.props.navigation.navigate('Question')
+                  this.props.navigation.navigate('Question', { questionRandom: questionRandom })
                 }}
                 containerStyle={{ width: '45%', marginBottom: 50, }}
               />

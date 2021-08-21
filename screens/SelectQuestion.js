@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
@@ -35,6 +35,12 @@ export default function Question(props) {
     // 値を次のページに送る
     const { navigation } = props;
 
+    useEffect(() => {
+        const questionRandom = props.navigation.state.params.questionRandom;
+        setCurrentQuestion(questionRandom);
+        // setCurrentQuestion(1);
+    },[]);
+
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
     // answerTextの設定
@@ -70,6 +76,7 @@ export default function Question(props) {
             // 最新のスコアを設定する
             setScore(currectScore);
             console.log(score);
+            console.log(props.navigation);
         } else {
             // 用意された質問が全部終わった後
 
