@@ -125,10 +125,7 @@ export default function Question(props) {
         );
 
         // 質問ボタンの切り替え
-        questions[currentQuestion].questionOptions.splice(0,1,questions[currentQuestion].questionOptionsSecond[0]);
-        // console.log(questions[currentQuestion].questionOptions);
-        setShowQuestions(questions);
-        // console.log(showQuestions);
+        setNewQuestionText(questionOption);
 
         // 質問ボタンを全て押し切る前
         if (score > 1) {
@@ -141,6 +138,16 @@ export default function Question(props) {
             // 用意された質問が全部終わった後
 
         }
+    }
+
+    // 質問ボタンの切り替え
+    const setNewQuestionText = (questionOption) => {
+        console.log(Object.keys(questions[currentQuestion].questionOptions));
+        // console.log(questions[currentQuestion].questionOptions);
+        questions[currentQuestion].questionOptions.splice(0, 1,questions[currentQuestion].questionOptionsSecond[0]);
+        // console.log(questions[currentQuestion].questionOptions);
+        setShowQuestions(questions);
+        // console.log(showQuestions);
     }
     
     // モーダルの表示・非表示
