@@ -101,7 +101,7 @@ const questions = [
         questionOptionsSecond: [
             { 
                 questionText: 'A人生のターニングポイントは？', 
-                answerText: '会長早く来て' 
+                answerText: 'いくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
             },
             { 
                 questionText: 'A何を経営してた？', 
