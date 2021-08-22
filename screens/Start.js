@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, ImageBackground } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
-import questions from './question';
 
 const theme = {
   Button: {
@@ -19,8 +18,6 @@ const theme = {
 };
 
 
-const questionRandom = Math.floor(Math.random() * questions.length);
-
 export default class Start extends Component {
   render() {
     return (
@@ -34,7 +31,7 @@ export default class Start extends Component {
             <Header
               placement="left"
               leftComponent={{ icon: 'menu', color: 'brown' }}
-              centerComponent={{ text: '日本史', style: { color: 'brown' }, 
+              centerComponent={{ text: '日本史', style: { color: 'brown' },
               // onPress: () => this.props.navigation.navigate('Signup')
             }}
               rightComponent={{
@@ -47,20 +44,20 @@ export default class Start extends Component {
                 justifyContent: 'space-around',
               }}
             />
-            
+
             <View style={{ flex: 1, alignItems: 'center' }}>
               <Text h1>スタート画面</Text>
               <Text h1>覚えろ日本史!</Text>
               <Button
                 title="始める"
                 onPress={() => {
-                  this.props.navigation.navigate('Question', { questionRandom: questionRandom })
+                  this.props.navigation.navigate('SelectNumber');
                 }}
                 containerStyle={{ width: '45%', marginBottom: 50, }}
               />
               <Button
                 title="ランキング"
-                
+
                 containerStyle={{ width: '45%' }}
               />
             </View>

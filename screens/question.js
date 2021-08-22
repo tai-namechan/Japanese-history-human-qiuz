@@ -1,5 +1,7 @@
 const questions = [
     {
+        id: 0,
+        period: '明治時代',
         human: '家光',
         questionOptions: [
             { questionText: 'あなたは何年生まれですか？', answerText: 'わしは1604年にこの地に誕生した' },
@@ -9,6 +11,8 @@ const questions = [
         ],
     },
     {
+        id: 1,
+        period: '江戸時代',
         human: 'AAA家光',
         questionOptions: [
             { questionText: 'AAAあなたは何年生まれですか？', answerText: 'わしは1604年にこの地に誕生した' },
@@ -18,6 +22,8 @@ const questions = [
         ],
     },
     {
+        id: 2,
+        period: '明治時代',
         human: 'CCC家光',
         questionOptions: [
             { questionText: 'CCCあなたは何年生まれですか？', answerText: 'わしは1604年にこの地に誕生した' },

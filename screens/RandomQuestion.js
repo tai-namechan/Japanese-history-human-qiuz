@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 
 export default function Question(props) {
     useEffect(() => {
-        setCurrentQuestion(this.props.navigation.state.params.questionRandom);
+        setCurrentQuestion(props.navigation.state.params.questionRandom);
     });
 
     // 値を次のページに送る
