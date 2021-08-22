@@ -3,11 +3,11 @@ import { View, TouchableOpacity, Text, TextInput, ActivityIndicator } from 'reac
 import firebase from 'firebase';
 
 class LoginForm extends Component {
-  state = { email: '', password: '', error: '', loading: false};
+  state = { username: '', email: '', password: '', error: '', loading: false };
 
   onButtonPress() {
-    const { email, password } = this.state;
-    this.setState({error: '', loading: true});
+    const { username, email, password } = this.state;
+    this.setState({ error: '', loading: true });
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((this.onLoginSuccess.bind(this)))
@@ -16,10 +16,28 @@ class LoginForm extends Component {
           .then((this.onLoginSuccess.bind(this)))
           .catch((this.onLoginFail.bind(this)));
       });
+
+    // firestoreにユーザー情報を登録
+    firebase
+      .firestore()
+      .collection('nicknameuser')
+      .add({
+        // DBに登録したい情報
+        username,
+        email,
+        password,
+      })
+      .then(() => {
+        console.log('Add Firestore Success');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   onLoginSuccess() {
     this.setState({
+      // username: '',
       email: '',
       password: '',
       loading: false,
@@ -40,9 +58,9 @@ class LoginForm extends Component {
     }
 
     return (
-      
+
       <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={styles.button}>
-        <Text style={styles.buttonTitle }>
+        <Text style={styles.buttonTitle}>
           新規登録 or ログイン
         </Text>
       </TouchableOpacity>
@@ -54,27 +72,37 @@ class LoginForm extends Component {
       <View style={styles.container}>
         <View>
           <TextInput
-              placeholder="user@gmail.com"
-              autoCorrect={false}
-              value={this.state.email}
-              onChangeText={email => this.setState({ email })}
-              style={styles.input}
-            />
+            placeholder="ユーザー名"
+            autoCorrect={false}
+            value={this.state.username}
+            onChangeText={username => this.setState({ username })}
+            style={styles.input}
+          />
+        </View>
+        <View>
+          <TextInput
+            placeholder="user@gmail.com"
+            autoCorrect={false}
+            value={this.state.email}
+            onChangeText={email => this.setState({ email })}
+            style={styles.input}
+          />
         </View>
         <View style={styles.wrap}>
           <TextInput
-              secureTextEntry
-              placeholder="password"
-              autoCorrect={false}
-              value={this.state.password}
-              onChangeText={password => this.setState({ password })}
-              style={styles.input}
-            />
+            secureTextEntry
+            placeholder="password"
+            autoCorrect={false}
+            value={this.state.password}
+            onChangeText={password => this.setState({ password })}
+            style={styles.input}
+          />
         </View>
 
         <View style={styles.wrap}>
           {this.loadSpinner()}
         </View>
+        
       </View>
     )
   }
@@ -113,6 +141,20 @@ const styles = {
     fontSize: 18,
     color: '#fff',
   },
+  button2: {
+    height: 48,
+    borderRadius: 4,
+    margin: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'gray',
+    width: '60%',
+    alignSelf: 'center',
+  },
+  tokumeibutton: {
+    fontSize: 18,
+    color: 'white',
+  }
 }
 
 export default LoginForm;

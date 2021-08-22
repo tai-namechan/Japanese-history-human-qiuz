@@ -11,6 +11,7 @@ import  Login  from './screens/LoginScreen.js';
 import Defult from './defult.js';
 import SelectNumber from './screens/Select1or10';
 import SelectEra from './screens/SelectEra';
+// import Tokumei from './auth/Tokumei.js';
 
 
 
@@ -23,6 +24,7 @@ const MainStack = createStackNavigator(
     Defult:Defult,
     Signup:Signup,
     Login:Login,
+    // Tokumei:Tokumei,
 
     Question: Question,
     Answer: Answer,
