@@ -37,8 +37,8 @@ export default function Question(props) {
 
     useEffect(() => {
         const questionRandom = props.navigation.state.params.questionRandom;
-        setCurrentQuestion(questionRandom);
-        // setCurrentQuestion(1);
+        //setCurrentQuestion(questionRandom);
+         setCurrentQuestion(0);
         // console.log(questionRandom);
     },[]);
 
@@ -212,18 +212,18 @@ export default function Question(props) {
                             marginRight: '25%',
                         }}>
                             <Text h3 style={{ display: "none", }}>家光コメント</Text>
-                            {/* <Image
-                                source={require('../assets/img/iemitu-sihouette.png')}
+                            { <Image
+                                source={require('../assets/img/kuromaku.jpg')}
                                 style={{
-                                    width: 300,
-                                    height: 300,
+                                    width: 225,
+                                    height: 225,
                                     top: 0,
                                     left: 0,
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
                                     lignItems: 'center'
-                                }} /> */}
+                                }} /> }
                         </View>
                         <Balloon
                             borderColor="#CCC"

@@ -201,7 +201,7 @@ export default function Answer({ navigation }) {
                             </Animated.Text>
                         </Balloon>
 
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                             style={{ flexDirection: 'row', }}>
                             <Button
                                 //「消す」ボタンを押すと白黒に変わる
@@ -213,14 +213,14 @@ export default function Answer({ navigation }) {
                                 style={{ marginLeft: 30, }}
                                 title="出現させる"
                             />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
                         {/* 解説文 */}
                         <View style={styles.container} >
                             <Animated.View 
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
-                                <Text>三代将軍徳川家光</Text>
+                                <Text>渋沢栄一</Text>
                                 <Text>二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された
                                 </Text>
                             </Animated.View>
