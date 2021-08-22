@@ -154,7 +154,7 @@ export default function Answer({ navigation }) {
                         }}>
                             <Animated.Image
                                 //白黒
-                                source={require('../assets/img/kuromaku.png')}
+                                source={require('../assets/img/kuromaku.jpg')}
                                 style={{
                                     width: 300,
                                     height: 300,
@@ -167,7 +167,7 @@ export default function Answer({ navigation }) {
                                 }} />
                             <Animated.Image
                                 //カラー
-                                source={require('../assets/img/sibusawaeiichi.JPG')}
+                                source={require('../assets/img/sibusawaeiichi.jpg')}
                                 style={{
                                     width: 300,
                                     height: 300,
