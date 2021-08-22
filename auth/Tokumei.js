@@ -67,7 +67,7 @@ class App extends Component {
 
             )
         } else {
-            return (<LoginForm />)
+            // return (<LoginForm />)
         }
     }
 
@@ -113,7 +113,21 @@ const styles = {
     },
     logout: {
         color: 'white',
-    }
+    },
+    button2: {
+        height: 48,
+        borderRadius: 4,
+        margin: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'gray',
+        width: '60%',
+        alignSelf: 'center',
+      },
+      toppagebutton: {
+        fontSize: 18,
+        color: 'white',
+      },
 }
 
 export default App;

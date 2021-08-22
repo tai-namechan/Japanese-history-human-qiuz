@@ -60,7 +60,7 @@ class App extends Component {
         {this.renderForm()}
         {/* 匿名ログインのページへ遷移 */}
         <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Start')
+          this.props.navigation.navigate('Tokumei')
         }}>
           <Text style={styles.tokumeibutton}>
             匿名認証ページへ進む
