@@ -39,7 +39,15 @@ export default function Question(props) {
         const questionRandom = props.navigation.state.params.questionRandom;
         setCurrentQuestion(questionRandom);
         // setCurrentQuestion(1);
+        // console.log(questionRandom);
     },[]);
+
+    const [showQuestions, setShowQuestions] = useState(questions);
+
+    const [countQuestionOne, setCountQuestionOne] = useState(1);
+    const [countQuestionTwo, setCountQuestionTwo] = useState(1);
+    const [countQuestionThree, setCountQuestionThree] = useState(1);
+    const [countQuestionFour, setCountQuestionFour] = useState(1);
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -53,7 +61,7 @@ export default function Question(props) {
     const [visible, setVisible] = useState(false);
 
     // 質問ボタンを押した後
-    const handleQuestionOptionClick = (questionOption) => {
+    const handleQuestionOptionClick = (questionOption, i) => {
         //　質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
@@ -69,6 +77,10 @@ export default function Question(props) {
             }
         );
 
+        // 質問ボタンの切り替え
+        // console.log(i);
+        setNewQuestionText(questionOption, i);
+
         // 質問ボタンを全て押し切る前
         if (score > 1) {
             // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
@@ -82,6 +94,64 @@ export default function Question(props) {
 
         }
     }
+
+    // 質問ボタンの切り替え
+    const setNewQuestionText = (questionOption, i) => {
+        let number = i;
+        // console.log(number);
+
+        if(i === 0) {
+            setCountQuestionOne(countQuestionOne + 1);
+            // console.log(countQuestionOne);
+            var countQuestionButton = countQuestionOne;
+            // console.log(countQuestionButton);
+        } 
+        else if(i === 1) {
+            setCountQuestionTwo(countQuestionTwo + 1);
+            // console.log(countQuestionTwo);
+            var countQuestionButton = countQuestionTwo;
+        } 
+        else if(i === 2) {
+            setCountQuestionThree(countQuestionThree + 1);
+            // console.log(countQuestionThree);
+            var countQuestionButton = countQuestionThree;
+        } 
+        else if(i === 3) {
+            setCountQuestionFour(countQuestionFour + 1);
+            // console.log(countQuestionFour);
+            var countQuestionButton = countQuestionFour;
+        }
+
+        if(countQuestionButton == 1) {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
+
+        } 
+        else if(countQuestionButton == 2) {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
+        }
+        else {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
+            // console.log(questionOptionsStock);
+        } 
+
+        if (questionTextStock == '') {
+            // showQuestions[currentQuestion].questionOptions.splice(number, 1);
+            setShowQuestions(showQuestions);
+            console.log(showQuestions[currentQuestion].questionOptions);
+        } else {
+            showQuestions[currentQuestion].questionOptions.splice(number, 1, questionOptionsStock);
+            // console.log(questions[currentQuestion].questionOptions);
+            setShowQuestions(showQuestions);
+            // console.log(showQuestions[currentQuestion].questionOptions);
+        }
+    }
     
     // モーダルの表示・非表示
     const toggleOverlay = () => {
@@ -93,7 +163,7 @@ export default function Question(props) {
         // Textinputで入力されtextに代入された値をinputTextに代入
         const inputText = text;
         // humanに答えとなる人物を設定する
-        const human = '徳川家光';
+        const human = '渋沢栄一';
         // console.log(human);
         // console.log(inputText);
 
@@ -174,9 +244,9 @@ export default function Question(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {questions[currentQuestion].questionOptions.map((questionOption) => (
+                            {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button title={questionOption.questionText}
-                                    onPress={() => handleQuestionOptionClick(questionOption)}
+                                    onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
                             ))}
                         </View>
