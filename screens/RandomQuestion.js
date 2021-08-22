@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
 });
 
 export default function Question(props) {
+    useEffect(() => {
+        setCurrentQuestion(props.navigation.state.params.questionRandom);
+    });
+
     // 値を次のページに送る
     const { navigation } = props;
 
@@ -166,7 +170,7 @@ export default function Question(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {questions[currentQuestion].questionOptions.map((questionOption) => (
+                            {questions[questionRandom].questionOptions.map((questionOption) => (
                                 <Button title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption)}
                                 />

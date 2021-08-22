@@ -51,7 +51,7 @@ export default class Start extends Component {
               <Button
                 title="始める"
                 onPress={() => {
-                  this.props.navigation.navigate('SelectNumber')
+                  this.props.navigation.navigate('SelectNumber');
                 }}
                 containerStyle={{ width: '45%', marginBottom: 50, }}
               />
