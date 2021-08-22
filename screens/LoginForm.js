@@ -102,13 +102,7 @@ class LoginForm extends Component {
         <View style={styles.wrap}>
           {this.loadSpinner()}
         </View>
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Start')
-        }}>
-          <Text style={styles.tokumeibutton}>
-            匿名認証ページへ進む
-          </Text>
-        </TouchableOpacity>
+        
       </View>
     )
   }

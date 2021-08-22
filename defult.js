@@ -58,6 +58,14 @@ class App extends Component {
           <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
         </View>
         {this.renderForm()}
+        {/* 匿名ログインのページへ遷移 */}
+        <TouchableOpacity style={styles.button2} onPress={() => {
+          this.props.navigation.navigate('Start')
+        }}>
+          <Text style={styles.tokumeibutton}>
+            匿名認証ページへ進む
+          </Text>
+        </TouchableOpacity>
         {/* ログイン後Topページに戻るボタン */}
         <TouchableOpacity style={styles.button2} onPress={() => {
           this.props.navigation.navigate('Start')
@@ -74,7 +82,7 @@ class App extends Component {
 const styles = {
   // スタイルを記述
   container: {
-    marginTop: '50%',
+    marginTop: '25%',
     width: '100%',
     padding: 24,
   },
