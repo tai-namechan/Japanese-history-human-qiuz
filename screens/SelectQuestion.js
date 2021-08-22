@@ -173,50 +173,53 @@ export default function Question(props) {
         if(i === 0) {
             setCountQuestionOne(countQuestionOne + 1);
             // console.log(countQuestionOne);
-            var b = countQuestionOne;
-            // console.log(b);
+            var countQuestionButton = countQuestionOne;
+            // console.log(countQuestionButton);
         } 
         else if(i === 1) {
             setCountQuestionTwo(countQuestionTwo + 1);
             // console.log(countQuestionTwo);
-            var b = countQuestionTwo;
+            var countQuestionButton = countQuestionTwo;
         } 
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
             // console.log(countQuestionThree);
-            var b = countQuestionThree;
+            var countQuestionButton = countQuestionThree;
         } 
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
             // console.log(countQuestionFour);
-            var b = countQuestionFour;
+            var countQuestionButton = countQuestionFour;
         }
 
-        if(b == 1) {
-            var a = questions[currentQuestion].questionOptionsSecond[number];
-            // console.log(a);
-            // console.log(b);
+        if(countQuestionButton == 1) {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
             
         } 
-        else if(b == 2) {
-            var a = questions[currentQuestion].questionOptionsThird[number];
-            // console.log(a);
-            console.log(b);
+        else if(countQuestionButton == 2) {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
         }
         else {
-            var a = questions[currentQuestion].questionOptionsFourth[number];
-            // console.log(a);
+            var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
+            // console.log(questionOptionsStock);
         } 
 
-        if (a == '') {
-            showQuestions[currentQuestion].questionOptions.splice(number, 1);
+        if (questionTextStock == '') {
+            // showQuestions[currentQuestion].questionOptions.splice(number, 1);
             setShowQuestions(showQuestions);
             console.log(showQuestions[currentQuestion].questionOptions);
         } else {
-            showQuestions[currentQuestion].questionOptions.splice(number, 1, a);
+            showQuestions[currentQuestion].questionOptions.splice(number, 1, questionOptionsStock);
             // console.log(questions[currentQuestion].questionOptions);
             setShowQuestions(showQuestions);
-            console.log(showQuestions[currentQuestion].questionOptions);
+            // console.log(showQuestions[currentQuestion].questionOptions);
         }
     }
     
