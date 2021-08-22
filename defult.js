@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, TouchableOpacity, SafeAreaView} from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import firebase from 'firebase';
 import LoginForm from './screens/LoginForm';
 import { createAppContainer } from 'react-navigation';
@@ -7,7 +7,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Start from './screens/Start.js';
 // import  Question  from './screens/question.js';
 // import  Answer  from './screens/answer.js';
-import { Button, Image, Header,ThemeProvider } from 'react-native-elements';
+import { Button, Image, Header, ThemeProvider } from 'react-native-elements';
 
 class App extends Component {
   state = { loggedIn: null };
@@ -26,7 +26,7 @@ class App extends Component {
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
       firebase.initializeApp(firebaseConfig);
     }
-
+    // メールログイン
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ loggedIn: true });
@@ -38,17 +38,16 @@ class App extends Component {
 
   renderForm() {
     if (this.state.loggedIn) {
-      return(
+      return (
 
         <View style={styles.wrap}>
           <TouchableOpacity onPress={() => firebase.auth().signOut()} style={styles.button}>
-            <Text style={styles.logout }>ログアウト</Text>
+            <Text style={styles.logout}>ログアウト</Text>
           </TouchableOpacity>
         </View>
-
       )
     } else {
-      return(<LoginForm />)
+      return (<LoginForm />)
     }
   }
 
@@ -56,9 +55,17 @@ class App extends Component {
     return (
       <SafeAreaView>
         <View style={styles.container}>
-          <Text style={styles.buttonTitle }>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
+          <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
         </View>
         {this.renderForm()}
+        {/* ログイン後Topページに戻るボタン */}
+        <TouchableOpacity style={styles.button2} onPress={() => {
+          this.props.navigation.navigate('Start')
+        }}>
+          <Text style={styles.toppagebutton}>
+            Topページに戻る
+          </Text>
+        </TouchableOpacity>
       </SafeAreaView>
     )
   }
@@ -67,7 +74,7 @@ class App extends Component {
 const styles = {
   // スタイルを記述
   container: {
-    marginTop:'50%',
+    marginTop: '50%',
     width: '100%',
     padding: 24,
   },
@@ -85,9 +92,23 @@ const styles = {
     marginLeft: '30%',
     marginRight: '25%',
   },
-  logout:{
-    color:'white',
-  }
+  logout: {
+    color: 'white',
+  },
+  button2: {
+    height: 48,
+    borderRadius: 4,
+    margin: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'gray',
+    width: '60%',
+    alignSelf: 'center',
+  },
+  toppagebutton: {
+    fontSize: 18,
+    color: 'white',
+  },
 }
 
 export default App;
