@@ -33,12 +33,11 @@ const styles = StyleSheet.create({
 export default function Question(props) {
     // 値を次のページに送る
     const { navigation } = props;
-    
 
     // 質問
     const questions = [
         {
-            human: '家光',
+            human: '渋沢栄一',
             questionOptions: [
                 { 
                     questionText: 'どこで生まれましたか？', 
@@ -68,7 +67,7 @@ export default function Question(props) {
                 },
                 { 
                     questionText: '尊敬している人は？', 
-                    answerText: '尊敬している人のうちの1人は平岡円四郎様だな。' 
+                    answerText: '尊敬している人のうちの1人は平岡えん四郎様だな。' 
                 },
                 { 
                     questionText: '特技はなんですか？', 
@@ -77,6 +76,10 @@ export default function Question(props) {
             ],
             questionOptionsThird: [
                 { 
+                    questionText: '', 
+                    answerText: '' 
+                },
+                { 
                     questionText: '異名はありますか？', 
                     answerText: '日本資本主義の父と言われているらしいな。' 
                 },
@@ -84,17 +87,38 @@ export default function Question(props) {
                     questionText: '有名な知り合いを教えて?', 
                     answerText: '西郷隆盛殿や大久保利通殿は知り合いだぞ。' 
                 },
+                { 
+                    questionText: 'あなたの偉業を教えてください。', 
+                    answerText: '現在のJR東日本、NHK、サッポロビールなど500以上の会社の設立に関わったよ。' 
+                },
             ],
             questionOptionsFourth: [
                 { 
+                    questionText: '', 
+                    answerText: '' 
+                },
+                { 
                     questionText: '何か自慢できることはある？', 
                     answerText: '私がもうじき１万円札の顔になるらしいぞ。' 
+                },
+                { 
+                    questionText: '', 
+                    answerText: '' 
+                },
+                { 
+                    questionText: '', 
+                    answerText: '' 
                 },
             ],
         },
     ]
 
     const [showQuestions, setShowQuestions] = useState(questions);
+
+    const [countQuestionOne, setCountQuestionOne] = useState(1);
+    const [countQuestionTwo, setCountQuestionTwo] = useState(1);
+    const [countQuestionThree, setCountQuestionThree] = useState(1);
+    const [countQuestionFour, setCountQuestionFour] = useState(1);
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -143,13 +167,57 @@ export default function Question(props) {
 
     // 質問ボタンの切り替え
     const setNewQuestionText = (questionOption, i) => {
-        // console.log(Object.keys(questions[currentQuestion].questionOptions));
-        // console.log(questions[currentQuestion].questionOptions);
         let number = i;
-        showQuestions[currentQuestion].questionOptions.splice(number, 1,questions[currentQuestion].questionOptionsSecond[number]);
-        // console.log(questions[currentQuestion].questionOptions);
-        setShowQuestions(showQuestions);
-        console.log(showQuestions[currentQuestion].questionOptions);
+        // console.log(number);
+
+        if(i === 0) {
+            setCountQuestionOne(countQuestionOne + 1);
+            // console.log(countQuestionOne);
+            var b = countQuestionOne;
+            // console.log(b);
+        } 
+        else if(i === 1) {
+            setCountQuestionTwo(countQuestionTwo + 1);
+            // console.log(countQuestionTwo);
+            var b = countQuestionTwo;
+        } 
+        else if(i === 2) {
+            setCountQuestionThree(countQuestionThree + 1);
+            // console.log(countQuestionThree);
+            var b = countQuestionThree;
+        } 
+        else if(i === 3) {
+            setCountQuestionFour(countQuestionFour + 1);
+            // console.log(countQuestionFour);
+            var b = countQuestionFour;
+        }
+
+        if(b == 1) {
+            var a = questions[currentQuestion].questionOptionsSecond[number];
+            // console.log(a);
+            // console.log(b);
+            
+        } 
+        else if(b == 2) {
+            var a = questions[currentQuestion].questionOptionsThird[number];
+            // console.log(a);
+            console.log(b);
+        }
+        else {
+            var a = questions[currentQuestion].questionOptionsFourth[number];
+            // console.log(a);
+        } 
+
+        if (a == '') {
+            showQuestions[currentQuestion].questionOptions.splice(number, 1);
+            setShowQuestions(showQuestions);
+            console.log(showQuestions[currentQuestion].questionOptions);
+        } else {
+            showQuestions[currentQuestion].questionOptions.splice(number, 1, a);
+            // console.log(questions[currentQuestion].questionOptions);
+            setShowQuestions(showQuestions);
+            console.log(showQuestions[currentQuestion].questionOptions);
+        }
     }
     
     // モーダルの表示・非表示
