@@ -43,7 +43,7 @@ export default function Question(props) {
     // answerTextの設定
     const [answerText, showAnswerText] = useState("");
     // 点数の初期値（プロトタイプでは４問しかないため、初期の点数は5に設定しておく）
-    const [score, setScore] = useState(5);
+    const [score, setScore] = useState(12);
     // モーダルの入力されたTextInputの値
     const [text, setText] = useState("");
     // モーダルの表示

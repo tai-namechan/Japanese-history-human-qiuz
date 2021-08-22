@@ -145,7 +145,7 @@ export default function Answer({ navigation }) {
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.徳川家光</Animated.Text>
+                            }}>A.渋沢栄一</Animated.Text>
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -197,7 +197,7 @@ export default function Answer({ navigation }) {
                                 opacity
                             }}
                             >
-                                私は江戸幕府三代将軍徳川家光じゃ
+                                私は明治・大正期の実業家、財界の指導者の渋沢栄一じゃ
                             </Animated.Text>
                         </Balloon>
 
