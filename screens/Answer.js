@@ -7,6 +7,7 @@ import { TouchableOpacity } from 'react-native';
 // import useWindowSize from 'react-use/lib/useWindowSize'
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
+import firebase from 'firebase';
 
 const theme = {
     colors: {
@@ -22,6 +23,14 @@ export default function Answer({ navigation }) {
     const [lastScore, setlastScore] = useState("");
     const [answerText, setAnswerText] = useState("");
 
+    // 現在ログインしているユーザーを取得する
+    const user = firebase.auth().currentUser;
+    if (user !== null) {
+        const email = user.email;
+        const uid = user.uid;
+        console.log(email);
+        console.log(uid);
+    }
 
     // 正誤表示
     const answerWord = {
