@@ -38,10 +38,10 @@ class SignupForm extends Component {
           // })
           .doc(user.uid)
           .set({
-            username: user.username,
-            email: user.email,
-            password: user.password,
-            score: '0',
+            username,
+            email,
+            password,
+            score,
           })
           .then(() => {
             console.log('Add Firestore Success');
