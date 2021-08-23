@@ -219,9 +219,9 @@ export default function Answer({ navigation }) {
                         <View style={styles.container} >
                             <Animated.View 
                                 //解説文をフェードインさせる
-                                style={{ opacity, }}>
+                                style={{ opacity,}}>
                                 <Text>渋沢栄一</Text>
-                                <Text>二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された
+                                <Text>埼玉県の豪農出身。一橋家・幕府に仕え、1867年に欧州視察。明治政府の大蔵省に出仕、財制・幣制改革にあたる。退官後、第一国立銀行・大阪紡績会社創立など実業界で活躍。教育・社会事業にも尽力。
                                 </Text>
                             </Animated.View>
                         </View>

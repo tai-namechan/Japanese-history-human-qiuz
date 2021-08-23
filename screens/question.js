@@ -9,8 +9,8 @@ const questions = [
                 answerText: '武蔵国といって現在の埼玉県にあたる場所で生まれたよ。' 
             },
             { 
-                questionText: 'あなたのやってることは現代の職業で言ったら何になる？', 
-                answerText: '経営者もやったことの一つだな' 
+                questionText: '何か自慢できることはある？', 
+                answerText: '私がもうじきお札の顔になるらしいぞ。' 
             },
             { 
                 questionText: '西暦何年生まれですか？', 
@@ -27,16 +27,16 @@ const questions = [
                 answerText: 'いくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
             },
             { 
-                questionText: '何を経営してた？', 
-                answerText: '第一国立銀行はそのうちの一つだ。国立銀行条例をもとにして私が設立したよ。' 
+                questionText: '有名な知り合いを教えて?', 
+                answerText: '西郷隆盛殿や大久保利通殿は知り合いだぞ。' 
             },
             { 
                 questionText: '尊敬している人は？', 
                 answerText: '尊敬している人のうちの1人は平岡えん四郎様だな。' 
             },
             { 
-                questionText: '特技はなんですか？', 
-                answerText: 'そろばんが得意だよ。' 
+                questionText: 'あなたの偉業を教えてください。', 
+                answerText: '現在のJR東日本、NHK、サッポロビールなど500以上の会社の設立に関わったよ。' 
             },
         ],
         questionOptionsThird: [
@@ -53,8 +53,8 @@ const questions = [
                 answerText: '西郷隆盛殿や大久保利通殿は知り合いだぞ。' 
             },
             { 
-                questionText: 'あなたの偉業を教えてください。', 
-                answerText: '現在のJR東日本、NHK、サッポロビールなど500以上の会社の設立に関わったよ。' 
+                questionText: '人生のターニングポイントは？', 
+                answerText: 'いくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
             },
         ],
         questionOptionsFourth: [
