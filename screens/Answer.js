@@ -19,9 +19,9 @@ export default function Answer({ navigation }) {
     //question.jsからcorrectness(正誤)とscore(5点満点)の値を受け取る
     const correctness = navigation.state.params.correctness;
     const score = navigation.state.params.score;
-    const human = navigation.state.params.human;
+    //const human = navigation.state.params.human;
     const number = navigation.state.params.number;
-    //const questionRandom = navigation.state.params.questionRandom;
+    
 
     const [lastScore, setlastScore] = useState("");
     //const [human1, setHuman1] = useState('');
@@ -64,6 +64,8 @@ export default function Answer({ navigation }) {
       
       //const izin = human;
       //setHuman1('徳川家康');
+      
+      //const human = questions[number].human;
       //const img = '../assets/img/'+human+'.jpg';
       const img = '../assets/img/'+'徳川家康'+'.jpg';
       console.log(img);
@@ -119,7 +121,7 @@ export default function Answer({ navigation }) {
 
     return (
         <ThemeProvider theme={theme}>
-            <View> 
+            <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
                     style={{ height: 1000, }}>
                     
@@ -212,11 +214,11 @@ export default function Answer({ navigation }) {
                                 opacity
                             }}
                             >
-                                私は江戸幕府三代将軍徳川家光じゃ
+                                {questions[number].dialogue}
                             </Animated.Text>
                         </Balloon>
 
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                             style={{ flexDirection: 'row', }}>
                             <Button
                                 //「消す」ボタンを押すと白黒に変わる
@@ -228,15 +230,15 @@ export default function Answer({ navigation }) {
                                 style={{ marginLeft: 30, }}
                                 title="出現させる"
                             />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
                         {/* 解説文 */}
                         <View style={styles.container} >
                             <Animated.View 
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
-                                <Text>三代将軍徳川家光</Text>
-                                <Text>二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された
+                                <Text>{questions[number].explanationTitle}</Text>
+                                <Text>{questions[number].explanationDetail}
                                 </Text>
                             </Animated.View>
                         </View>

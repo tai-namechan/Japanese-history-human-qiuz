@@ -182,7 +182,7 @@ export default function Question(props) {
         }
         console.log(score);
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
-        navigation.navigate('Answer', { correctness: correctness, score: score, human: human, number: number});
+        navigation.navigate('Answer', { correctness: correctness, score: score, number: number});
 
         // モーダルの非表示
         toggleOverlay();
