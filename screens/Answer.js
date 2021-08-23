@@ -37,7 +37,7 @@ export default function Answer({ navigation }) {
     useEffect(() => {
         console.log(correctness);
         console.log(score);
-        console.log(human);
+        //console.log(human);
         console.log(number);
 
         //console.log(questionRandom);
@@ -62,13 +62,7 @@ export default function Answer({ navigation }) {
         }
       }, []);
       
-      //const izin = human;
-      //setHuman1('徳川家康');
       
-      //const human = questions[number].human;
-      //const img = '../assets/img/'+human+'.jpg';
-      const img = '../assets/img/'+'徳川家康'+'.jpg';
-      console.log(img);
 
     // 画像フェードインアウト
     const opacity = useState(new Animated.Value(0))[0]
@@ -119,7 +113,16 @@ export default function Answer({ navigation }) {
         },
     });
 
+    //const img = questions[number].img;
+    const image = questions[number].image;
+    //const human = questions[number].human;
+    //const img = `../assets/img/${human}.jpg`;
+    //const img = '../assets/img/徳川家康.jpg';
+    //const image = require('../assets/img/徳川家康.jpg');
+    //console.log(img);
+    
     return (
+        
         <ThemeProvider theme={theme}>
             <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
@@ -162,7 +165,7 @@ export default function Answer({ navigation }) {
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.{human}</Animated.Text>
+                            }}>A.{questions[number].human}</Animated.Text>
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -171,7 +174,7 @@ export default function Answer({ navigation }) {
                         }}>
                             <Animated.Image
                                 //白黒
-                                source={require('../assets/img/iemitu-sihouette.png')}
+                                source={require('../assets/img/kuromaku.jpg')}
                                 style={{
                                     width: 300,
                                     height: 300,
@@ -184,7 +187,10 @@ export default function Answer({ navigation }) {
                                 }} />
                             <Animated.Image
                                 //カラー
-                                source={require(img)}
+                                 //source={require(`../assets/img/${human}.jpg`)}
+                                
+                                //source={require(img)}
+                                source = {image}
                                 style={{
                                     width: 300,
                                     height: 300,

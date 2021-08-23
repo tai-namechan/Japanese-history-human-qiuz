@@ -31,12 +31,12 @@ const MainStack = createStackNavigator(
 
   },
   // デフォルトでつくページ名
-  //   {
-  //   headerMode: 'none',
-  //   navigationOptions: {
-  //     headerVisible: true,
-  //   },
-  // }
+     {
+     headerMode: 'none',
+     navigationOptions: {
+       headerVisible: true,
+     },
+   }
 )
 const AppContainer = createAppContainer(MainStack)
 export default class App extends Component {
