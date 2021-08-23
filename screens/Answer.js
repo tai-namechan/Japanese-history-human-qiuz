@@ -4,6 +4,7 @@ import { View, ImageBackground, StyleSheet, Animated } from 'react-native';
 import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
+import questions from './question';
 // import useWindowSize from 'react-use/lib/useWindowSize'
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
@@ -18,8 +19,12 @@ export default function Answer({ navigation }) {
     //question.jsからcorrectness(正誤)とscore(5点満点)の値を受け取る
     const correctness = navigation.state.params.correctness;
     const score = navigation.state.params.score;
+    const human = navigation.state.params.human;
+    const number = navigation.state.params.number;
+    //const questionRandom = navigation.state.params.questionRandom;
 
     const [lastScore, setlastScore] = useState("");
+    //const [human1, setHuman1] = useState('');
     const [answerText, setAnswerText] = useState("");
 
 
@@ -32,6 +37,10 @@ export default function Answer({ navigation }) {
     useEffect(() => {
         console.log(correctness);
         console.log(score);
+        console.log(human);
+        console.log(number);
+
+        //console.log(questionRandom);
     }, []);
 
     useEffect(() => {
@@ -52,6 +61,12 @@ export default function Answer({ navigation }) {
             setAnswerText(answerWord.huseikai);
         }
       }, []);
+      
+      //const izin = human;
+      //setHuman1('徳川家康');
+      //const img = '../assets/img/'+human+'.jpg';
+      const img = '../assets/img/'+'徳川家康'+'.jpg';
+      console.log(img);
 
     // 画像フェードインアウト
     const opacity = useState(new Animated.Value(0))[0]
@@ -145,7 +160,7 @@ export default function Answer({ navigation }) {
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.徳川家光</Animated.Text>
+                            }}>A.{human}</Animated.Text>
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -167,7 +182,7 @@ export default function Answer({ navigation }) {
                                 }} />
                             <Animated.Image
                                 //カラー
-                                source={require('../assets/img/iemitu.png')}
+                                source={require(img)}
                                 style={{
                                     width: 300,
                                     height: 300,

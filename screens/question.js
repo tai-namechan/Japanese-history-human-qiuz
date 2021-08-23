@@ -2,7 +2,7 @@ const questions = [
     {
         id: 1,
         period: '江戸時代',
-        human: '渋沢栄一',
+        human: '徳川家光',
         questionOptions: [
             { 
                 questionText: 'どこで生まれましたか？', 
@@ -78,8 +78,8 @@ const questions = [
     },
     {
         id: 1,
-        period: '江戸時代',
-        human: 'A渋沢栄一',
+        period: '明治時代',
+        human: '渋沢栄一',
         questionOptions: [
             { 
                 questionText: 'Aどこで生まれましたか？', 
@@ -156,7 +156,7 @@ const questions = [
     {
         id: 1,
         period: '江戸時代',
-        human: 'B渋沢栄一',
+        human: '徳川家康',
         questionOptions: [
             { 
                 questionText: 'Bどこで生まれましたか？', 
