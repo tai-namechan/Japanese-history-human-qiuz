@@ -113,13 +113,9 @@ export default function Answer({ navigation }) {
         },
     });
 
-    //const img = questions[number].img;
+  
     const image = questions[number].image;
-    //const human = questions[number].human;
-    //const img = `../assets/img/${human}.jpg`;
-    //const img = '../assets/img/徳川家康.jpg';
-    //const image = require('../assets/img/徳川家康.jpg');
-    //console.log(img);
+    
     
     return (
         
@@ -187,9 +183,6 @@ export default function Answer({ navigation }) {
                                 }} />
                             <Animated.Image
                                 //カラー
-                                 //source={require(`../assets/img/${human}.jpg`)}
-                                
-                                //source={require(img)}
                                 source = {image}
                                 style={{
                                     width: 300,
