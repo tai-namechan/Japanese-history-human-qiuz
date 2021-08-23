@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import React from 'react';
 import firebase from 'firebase';
-import LoginForm from './screens/LoginForm';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Start from './screens/Start.js';
-// import  Question  from './screens/question.js';
-// import  Answer  from './screens/answer.js';
-import { Button, Image, Header, ThemeProvider } from 'react-native-elements';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView  } from 'react-native';
+import LoginForm from './LoginForm.js';
 
-class App extends Component {
+class LoginScreen extends React.Component {
+  // どっちかわからん
+  state = {
+    email: '',
+    password: '',
+  }
   state = { loggedIn: null };
-
+  
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
@@ -35,7 +34,18 @@ class App extends Component {
       }
     });
   }
-
+  // handleSubmit() {
+  //   firebase.auth().signInWithEmailAndPassword(
+  //     this.state.email,
+  //     this.state.password,
+  //   ).then((user) => {
+  //     console.log(user);
+  //     this.props.navigation.navigate('Home');
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+  // }
+  // ログインフォームとログアウトボタン
   renderForm() {
     if (this.state.loggedIn) {
       return (
@@ -58,14 +68,7 @@ class App extends Component {
           <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
         </View>
         {this.renderForm()}
-        {/* 匿名ログインのページへ遷移 */}
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Tokumei')
-        }}>
-          <Text style={styles.tokumeibutton}>
-            匿名認証ページへ進む
-          </Text>
-        </TouchableOpacity>
+        
         {/* ログイン後Topページに戻るボタン */}
         <TouchableOpacity style={styles.button2} onPress={() => {
           this.props.navigation.navigate('Start')
@@ -75,7 +78,7 @@ class App extends Component {
           </Text>
         </TouchableOpacity>
       </SafeAreaView>
-    )
+    );
   }
 }
 
@@ -119,4 +122,4 @@ const styles = {
   },
 }
 
-export default App;
+export default LoginScreen;

@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, TextInput, ActivityIndicator } from 'react-native';
 import firebase from 'firebase';
 
-class LoginForm extends Component {
+class SignupForm extends Component {
   state = { username: '', email: '', password: '', error: '', loading: false };
 
   onButtonPress() {
     const { username, email, password } = this.state;
     this.setState({ error: '', loading: true });
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((this.onLoginSuccess.bind(this)))
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((this.onSignupSuccess.bind(this)))
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then((this.onLoginSuccess.bind(this)))
-          .catch((this.onLoginFail.bind(this)));
+          .then((this.onSignupSuccess.bind(this)))
+          .catch((this.onSignupFail.bind(this)));
       });
 
     // firestoreにユーザー情報を登録
@@ -33,9 +33,24 @@ class LoginForm extends Component {
       .catch((error) => {
         console.log(error);
       });
+      
+  //   // 新規登録ボタンを押した時の処理
+  // handleSubmit() {
+  //   // このメソッドを呼ぶだけ
+  //   firebase.auth().createUserWithEmailAndPassword(
+  //     this.state.email,
+  //     this.state.password,
+  //   ).then((user) => {
+  //     console.log(user);
+  //     // 完了時の処理
+  //   }).catch((error) => {
+  //     console.log(error);
+  //     // 失敗時の処理
+  //   });
+  // }
   }
 
-  onLoginSuccess() {
+  onSignupSuccess() {
     this.setState({
       // username: '',
       email: '',
@@ -45,7 +60,7 @@ class LoginForm extends Component {
     });
   }
 
-  onLoginFail() {
+  onSignupFail() {
     this.setState({
       loading: false,
       error: 'Authentication Failed'
@@ -61,7 +76,7 @@ class LoginForm extends Component {
 
       <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={styles.button}>
         <Text style={styles.buttonTitle}>
-          新規登録 or ログイン
+          新規登録
         </Text>
       </TouchableOpacity>
     )
@@ -156,5 +171,4 @@ const styles = {
     color: 'white',
   }
 }
-
-export default LoginForm;
+export default SignupForm;
