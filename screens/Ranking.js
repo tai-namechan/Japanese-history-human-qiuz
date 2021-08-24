@@ -64,7 +64,7 @@ export default function Answer({ navigation }) {
 
     Animated.timing(firstOpacity, {
         toValue: 1,
-        duration: 10000,
+        duration: 11000,
         useNativeDriver: true
     }).start()
 
