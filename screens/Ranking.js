@@ -64,13 +64,13 @@ export default function Answer({ navigation }) {
 
     Animated.timing(firstOpacity, {
         toValue: 1,
-        duration: 11000,
+        duration: 2000,
         useNativeDriver: true
     }).start()
 
     Animated.timing(secondOpacity, {
         toValue: 1,
-        duration: 8000,
+        duration: 4000,
         useNativeDriver: true
     }).start()
 
@@ -82,13 +82,13 @@ export default function Answer({ navigation }) {
 
     Animated.timing(fourthOpacity, {
         toValue: 1,
-        duration: 4000,
+        duration: 8000,
         useNativeDriver: true
     }).start()
 
     Animated.timing(fifthOpacity, {
         toValue: 1,
-        duration: 2000,
+        duration: 10000,
         useNativeDriver: true
     }).start()
 
