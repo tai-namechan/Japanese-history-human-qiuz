@@ -29,11 +29,28 @@ const styles = StyleSheet.create({
         marginTop: 20,
         justifyContent: 'space-evenly',
         flexDirection: 'row',
-    }
+    },
 });
 export default function Answer({ navigation }) {
+    const firstOpacity = useState(
+        new Animated.Value(0)
+    )[0]
 
-    // 紙吹雪
+    const secondOpacity = useState(
+        new Animated.Value(0)
+    )[0]
+
+    const thirdOpacity = useState(
+        new Animated.Value(0)
+    )[0]
+
+    const fourthOpacity = useState(
+        new Animated.Value(0)
+    )[0]
+
+    const fifthOpacity = useState(
+        new Animated.Value(0)
+    )[0]
 
     // 画像フェードインアウト
     const opacity = useState(new Animated.Value(0))[0]
@@ -41,7 +58,37 @@ export default function Answer({ navigation }) {
     // 遷移したら自動的に黒幕が姿あらわす
     Animated.timing(opacity, {
         toValue: 1,
-        duration: 3000,
+        duration: 1000,
+        useNativeDriver: true
+    }).start()
+
+    Animated.timing(firstOpacity, {
+        toValue: 1,
+        duration: 10000,
+        useNativeDriver: true
+    }).start()
+
+    Animated.timing(secondOpacity, {
+        toValue: 1,
+        duration: 8000,
+        useNativeDriver: true
+    }).start()
+
+    Animated.timing(thirdOpacity, {
+        toValue: 1,
+        duration: 6000,
+        useNativeDriver: true
+    }).start()
+
+    Animated.timing(fourthOpacity, {
+        toValue: 1,
+        duration: 4000,
+        useNativeDriver: true
+    }).start()
+
+    Animated.timing(fifthOpacity, {
+        toValue: 1,
+        duration: 2000,
         useNativeDriver: true
     }).start()
 
@@ -97,29 +144,29 @@ export default function Answer({ navigation }) {
                                 <Text>Score</Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>1位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>1位</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>2位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>2位</Animated.Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>3位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>3位</Animated.Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>4位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>4位</Animated.Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>5位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>5位</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
                             </View>
                         </View>
 
@@ -140,29 +187,29 @@ export default function Answer({ navigation }) {
                                 <Text>Score</Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>1位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>1位</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>2位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>2位</Animated.Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>3位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>3位</Animated.Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>4位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>4位</Animated.Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
-                                <Text>5位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>5位</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
                             </View>
                         </View>
                     </View>
