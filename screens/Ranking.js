@@ -62,9 +62,43 @@ export default function Answer({ navigation }) {
         firebase.initializeApp(firebaseConfig);
     }
 
-    console.log('=============!!');
-    const ff = firebase.firestore().collection('nicknameuser').orderBy("score", "desc").limit(1);
-    console.log(ff);
+    // const [rankingInfo, setRankingInfo] = useState([]);
+
+    // const onpress = () => {
+    //     console.log('=============!!');
+    //     var ff = firebase.firestore().collection('nicknameuser').orderBy("score", "desc").limit(2).get();
+    //     console.log(ff);
+    //     console.log('=============!!');
+    //     setRankingInfo(ff);
+    //     // console.log(rankingInfo);
+    // }
+
+    const [text, setText] = useState([]);
+    const [text2, setText2] = useState([]);
+    const [text3, setText3] = useState([]);
+    const [text4, setText4] = useState([]);
+    const [text5, setText5] = useState([]);
+
+
+    
+    firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+        const docs = querySnapshot.docs.map(doc => doc.data());
+        // console.log(docs);
+        // console.log(text);
+        const posts = docs;
+        // console.log(posts[0]);
+        setText(posts[0]);
+        setText2(posts[1]);
+        setText3(posts[2]);
+        setText4(posts[3]);
+        setText5(posts[4]);
+
+        // console.log('=============!!');
+        // console.log(text);
+    });
+    // console.log(text);
+    
+
 
     return (
 
@@ -91,6 +125,11 @@ export default function Answer({ navigation }) {
 
                     <View style={{ flex: 1, alignItems: 'center' }}>
                         {/* 紙吹雪 */}
+
+                        {/* <Button 
+                            title="ランキング" 
+                            // onPress={onpress}
+                        /> */}
 
                         {/* ランキング */}
                         <Animated.Text
@@ -119,28 +158,28 @@ export default function Answer({ navigation }) {
                             </View>
                             <View style={styles.item1}>
                                 <Text>1位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Text>{text.username}</Text>
+                                <Text>{text.score}point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>2位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Text>{text2.username}</Text>
+                                <Text>{text2.score}point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>3位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Text>{text3.username}</Text>
+                                <Text>{text3.score}point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>4位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Text>{text4.username}</Text>
+                                <Text>{text4.score}point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>5位</Text>
-                                <Text>ユーザー名</Text>
-                                <Text>〇〇point</Text>
+                                <Text>{text5.username}</Text>
+                                <Text>{text5.score}point</Text>
                             </View>
                         </View>
 

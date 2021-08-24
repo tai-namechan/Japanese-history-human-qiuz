@@ -39,7 +39,7 @@ export default function Question(props) {
         const questionRandom = props.navigation.state.params.questionRandom;
         setCurrentQuestion(questionRandom);
          //setCurrentQuestion(1);
-         console.log(questionRandom);
+        //  console.log(questionRandom);
     },[]);
 
     const [showQuestions, setShowQuestions] = useState(questions);
@@ -87,8 +87,8 @@ export default function Question(props) {
             var currectScore = score - 1;
             // 最新のスコアを設定する
             setScore(currectScore);
-            console.log(score);
-            console.log(props.navigation);
+            // console.log(score);
+            // console.log(props.navigation);
         } else {
             // 用意された質問が全部終わった後
 
@@ -126,25 +126,26 @@ export default function Question(props) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
             var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
             // console.log(questionOptionsStock);
-            // console.log(countQuestionButton);
+            console.log(countQuestionButton);
 
         } 
         else if(countQuestionButton == 2) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
             var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
             // console.log(questionOptionsStock);
-            // console.log(countQuestionButton);
+            console.log(countQuestionButton);
         }
         else {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
             // console.log(questionOptionsStock);
+            console.log(countQuestionButton);
         } 
 
         if (questionTextStock == '') {
             // showQuestions[currentQuestion].questionOptions.splice(number, 1);
             setShowQuestions(showQuestions);
-            console.log(showQuestions[currentQuestion].questionOptions);
+            // console.log(showQuestions[currentQuestion].questionOptions);
         } else {
             showQuestions[currentQuestion].questionOptions.splice(number, 1, questionOptionsStock);
             // console.log(questions[currentQuestion].questionOptions);
@@ -173,14 +174,14 @@ export default function Question(props) {
         // 入力した値が答えと一致している場合
         if (inputText == human) {
             var correctness = '正解';
-            console.log(correctness);
+            // console.log(correctness);
         } 
         // 入力した値が答えと不一致の場合
         else {
             var correctness = '不正解';
-            console.log(correctness);
+            // console.log(correctness);
         }
-        console.log(score);
+        // console.log(score);
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
         navigation.navigate('Answer', { correctness: correctness, score: score, number: number});
 
