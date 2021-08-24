@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         padding: 24,
         marginTop: 20,
         width: '62.5%',
-        height: '30%',
+        height: '35%',
         backgroundColor: 'white',
     },
     category: {
@@ -92,24 +92,34 @@ export default function Answer({ navigation }) {
                                 </Animated.Text>
                             </View>
                             <View style={styles.item1}>
+                                <Text></Text>
+                                <Text>お名前</Text>
+                                <Text>Score</Text>
+                            </View>
+                            <View style={styles.item1}>
                                 <Text>1位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>2位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>3位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>4位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>5位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                         </View>
 
@@ -125,24 +135,34 @@ export default function Answer({ navigation }) {
                                 </Animated.Text>
                             </View>
                             <View style={styles.item1}>
+                                <Text></Text>
+                                <Text>お名前</Text>
+                                <Text>Score</Text>
+                            </View>
+                            <View style={styles.item1}>
                                 <Text>1位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>2位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>3位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>4位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Text>5位</Text>
                                 <Text>ユーザー名</Text>
+                                <Text>〇〇point</Text>
                             </View>
                         </View>
                     </View>
