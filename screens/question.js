@@ -1,8 +1,9 @@
 const questions = [
+    
     {
         id: 1,
-        period: '江戸時代',
-        human: '徳川家光',
+        period: '明治時代',
+        human: '渋沢栄一',
         questionOptions: [
             { 
                 questionText: 'どこで生まれましたか？', 
@@ -75,148 +76,68 @@ const questions = [
                 answerText: '' 
             },
         ],
-        image: require('../assets/img/徳川家光.jpg'),
-        dialogue: 'ワシは徳川家光じゃぼけ',
-        explanationTitle: '三代将軍徳川家光',
-        explanationDetail: '二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された',
-    },
-    {
-        id: 1,
-        period: '明治時代',
-        human: '渋沢栄一',
-        questionOptions: [
-            { 
-                questionText: 'Aどこで生まれましたか？', 
-                answerText: 'A武蔵国といって現在の埼玉県にあたる場所で生まれたよ。' 
-            },
-            { 
-                questionText: 'Aあなたのやってることは現代の職業で言ったら何になる？', 
-                answerText: 'A経営者もやったことの一つだな' 
-            },
-            { 
-                questionText: 'A西暦何年生まれですか？', 
-                answerText: 'A1840年に生まれたよ。' 
-            },
-            { 
-                questionText: 'A実は〇〇な話ある？', 
-                answerText: 'A実は68歳で側室との間に子供ができたんじゃ' 
-            },
-        ],
-        questionOptionsSecond: [
-            { 
-                questionText: 'A人生のターニングポイントは？', 
-                answerText: 'いくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
-            },
-            { 
-                questionText: 'A何を経営してた？', 
-                answerText: 'A第一国立銀行はそのうちの一つだ。国立銀行条例をもとにして私が設立したよ。' 
-            },
-            { 
-                questionText: 'A尊敬している人は？', 
-                answerText: 'A尊敬している人のうちの1人は平岡えん四郎様だな。' 
-            },
-            { 
-                questionText: 'A特技はなんですか？', 
-                answerText: 'Aそろばんが得意だよ。' 
-            },
-        ],
-        questionOptionsThird: [
-            { 
-                questionText: '', 
-                answerText: '' 
-            },
-            { 
-                questionText: 'A異名はありますか？', 
-                answerText: 'A日本資本主義の父と言われているらしいな。' 
-            },
-            { 
-                questionText: 'A有名な知り合いを教えて?', 
-                answerText: 'A西郷隆盛殿や大久保利通殿は知り合いだぞ。' 
-            },
-            { 
-                questionText: 'Aあなたの偉業を教えてください。', 
-                answerText: 'A現在のJR東日本、NHK、サッポロビールなど500以上の会社の設立に関わったよ。' 
-            },
-        ],
-        questionOptionsFourth: [
-            { 
-                questionText: '', 
-                answerText: '' 
-            },
-            { 
-                questionText: 'A何か自慢できることはある？', 
-                answerText: 'A私がもうじき１万円札の顔になるらしいぞ。' 
-            },
-            { 
-                questionText: '', 
-                answerText: '' 
-            },
-            { 
-                questionText: '', 
-                answerText: '' 
-            },
-        ],
         image: require('../assets/img/渋沢栄一.jpg'),
-        dialogue: 'ワシは渋沢栄一じゃぼけ',
-        explanationTitle: 'ワイは渋沢栄一',
-        explanationDetail: '渋沢栄一渋沢栄一渋沢栄一',
+        dialogue: 'ワシは渋沢栄一じゃ覚えとけおら',
+        explanationTitle: '明治の実業家、渋沢栄一',
+        explanationDetail: '埼玉県の豪農出身。一橋家・幕府に仕え、1867年に欧州視察。明治政府の大蔵省に出仕、財制・幣制改革にあたる。退官後、第一国立銀行・大阪紡績会社創立など実業界で活躍。教育・社会事業にも尽力。',
     },
+   
     {
         id: 1,
         period: '江戸時代',
-        human: '徳川家康',
+        human: '葛飾北斎',
         questionOptions: [
             { 
-                questionText: 'Bどこで生まれましたか？', 
-                answerText: 'B武蔵国といって現在の埼玉県にあたる場所で生まれたよ。' 
+                questionText: '西暦何年生まれですか？', 
+                answerText: '1760年に生まれたよ。' 
             },
             { 
-                questionText: 'Bあなたのやってることは現代の職業で言ったら何になる？', 
-                answerText: 'B経営者もやったことの一つだな' 
+                questionText: 'あなたのやってることは現代の職業で言ったら何になりますか？', 
+                answerText: 'アーティストやの。' 
             },
             { 
-                questionText: 'B西暦何年生まれですか？', 
-                answerText: 'B1840年に生まれたよ。' 
+                questionText: '苦手なことはありますか？', 
+                answerText: '片付けをするのが苦手で部屋が汚くなると引越しを繰り返しておった。' 
             },
             { 
-                questionText: 'B実は〇〇な話ある？', 
-                answerText: 'B実は68歳で側室との間に子供ができたんじゃ' 
+                questionText: '尊敬している人は誰ですか？', 
+                answerText: '勝川春章先生じゃ。19歳の時に弟子入りしたぞ。' 
             },
         ],
         questionOptionsSecond: [
             { 
-                questionText: 'B人生のターニングポイントは？', 
-                answerText: 'Bいくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
+                questionText: 'あなたはどの分野に影響を与えましたか？', 
+                answerText: '化政文化に影響を与えたよ。（しっくりきていない）' 
             },
             { 
-                questionText: 'B何を経営してた？', 
-                answerText: 'B第一国立銀行はそのうちの一つだ。国立銀行条例をもとにして私が設立したよ。' 
+                questionText: '作品を作るときに拘っていたことは何ですか？', 
+                answerText: '遠近法や配色に拘っていたよ。' 
             },
             { 
-                questionText: 'B尊敬している人は？', 
-                answerText: 'B尊敬している人のうちの1人は平岡えん四郎様だな。' 
+                questionText: '何か自慢できることありますか？', 
+                answerText: 'この1000年で最も偉大な業績を残した世界の100人という特集に選出されたことがあるらしいよ。' 
             },
             { 
-                questionText: 'B特技はなんですか？', 
-                answerText: 'Bそろばんが得意だよ。' 
+                questionText: '実は〇〇な話ありますか？', 
+                answerText: '実は改名を30回したんじゃ。卍を名前の中に入れたこともあるぞ。' 
             },
         ],
         questionOptionsThird: [
+            { 
+                questionText: 'あなたは有名な人物に影響を与えましたか？', 
+                answerText: '歌川広重やヨーロッパのゴッホ、モネにも影響を与えたよ。' 
+            },
+            { 
+                questionText: 'どういう作品を作りましたか？', 
+                answerText: '富士山を各地から眺めた46枚の図を作ったよ。' 
+            },
             { 
                 questionText: '', 
                 answerText: '' 
             },
             { 
-                questionText: 'B異名はありますか？', 
-                answerText: 'B日本資本主義の父と言われているらしいな。' 
-            },
-            { 
-                questionText: 'B有名な知り合いを教えて?', 
-                answerText: 'B西郷隆盛殿や大久保利通殿は知り合いだぞ。' 
-            },
-            { 
-                questionText: 'Bあなたの偉業を教えてください。', 
-                answerText: 'B現在のJR東日本、NHK、サッポロビールなど500以上の会社の設立に関わったよ。' 
+                questionText: '', 
+                answerText: '' 
             },
         ],
         questionOptionsFourth: [
@@ -225,8 +146,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'B何か自慢できることはある？', 
-                answerText: 'B私がもうじき１万円札の顔になるらしいぞ。' 
+                questionText: '具体的な作品名はなんですか？', 
+                answerText: '富嶽三十六景だよ。その中でも凱風快晴、俗に言う赤富士が有名だな。評判が良かったから予定より10枚増やしたんじゃ。' 
             },
             { 
                 questionText: '', 
@@ -237,10 +158,10 @@ const questions = [
                 answerText: '' 
             },
         ],
-        image: require('../assets/img/徳川家康.jpg'),
-        dialogue: 'ワシは徳川家康じゃぼけ',
-        explanationTitle: 'ワイは徳川家康',
-        explanationDetail: '徳川家康徳川家康徳川家康',
+        image: require('../assets/img/葛飾北斎.jpg'),
+        dialogue: 'わしは江戸の浮世絵師、葛飾北斎じゃ。',
+        explanationTitle: '江戸の浮世絵師、葛飾北斎',
+        explanationDetail: '1760~1849 浮世絵師、江戸の人。勝川春章に学び、狩野派・洋画など各種の画法も習得して独自の画風を開く。風景版画の「富嶽三十六景」などは、ヨーロッパ後期印象派の画家に影響を与え、ジャポニズムをうんだ。「北斎漫画」「画本東都遊」などの作品がある。',
     },
 ]
 export default questions;
