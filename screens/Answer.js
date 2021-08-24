@@ -113,11 +113,23 @@ export default function Answer({ navigation }) {
             backgroundColor: 'orange',
         },
     });
-
   
     const image = questions[number].image;
 
-
+    const firebaseConfig = {
+        // 各自生成された値を入れる
+        apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
+        authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
+        databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
+        projectId: "japanese-history-quiz-518c2",
+        storageBucket: "japanese-history-quiz-518c2.appspot.com",
+        messagingSenderId: "833552253127",
+        appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+    }
+    if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
+        firebase.initializeApp(firebaseConfig);
+    }
+    
     // 現在ログインしているユーザーを取得する
     const user = firebase.auth().currentUser;
     if (user !== null) {

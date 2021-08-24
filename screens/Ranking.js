@@ -5,7 +5,6 @@ import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'reac
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
 import questions from './question';
-import firebase from 'firebase';
 
 const theme = {
     colors: {
@@ -46,13 +45,20 @@ export default function Answer({ navigation }) {
         useNativeDriver: true
     }).start()
 
-    console.log('=============!!!');
-    // ランキング表示
-    let ff = firebase.firestore().collection("nicknameuser").orderBy("score", "desc").limit(3).get();
-    
-    // setRankingScore(ff);
-    // console.log(setRankingScore);
-    console.log(ff);
+    // ランキング
+    const firebaseConfig = {
+        // 各自生成された値を入れる
+        apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
+        authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
+        databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
+        projectId: "japanese-history-quiz-518c2",
+        storageBucket: "japanese-history-quiz-518c2.appspot.com",
+        messagingSenderId: "833552253127",
+        appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+    }
+    if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
+        firebase.initializeApp(firebaseConfig);
+    }
 
 
     return (
