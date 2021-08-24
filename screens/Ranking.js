@@ -50,13 +50,13 @@ export default function Answer({ navigation }) {
     // ランキング
     const firebaseConfig = {
         // 各自生成された値を入れる
-        apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
-        authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
-        databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
-        projectId: "japanese-history-quiz-518c2",
-        storageBucket: "japanese-history-quiz-518c2.appspot.com",
-        messagingSenderId: "833552253127",
-        appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+        apiKey: "AIzaSyAH4YeRPvUMVJOMfTc29bpUJJtsi7Ehsik",
+        authDomain: "history-quiz-112eb.firebaseapp.com",
+        projectId: "history-quiz-112eb",
+        storageBucket: "history-quiz-112eb.appspot.com",
+        messagingSenderId: "84366476538",
+        appId: "1:84366476538:web:bb54d4267b33769217b543",
+        databaseURL: "https://history-quiz-112eb-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
         firebase.initializeApp(firebaseConfig);
@@ -77,10 +77,10 @@ export default function Answer({ navigation }) {
 
     firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
         const docs = querySnapshot.docs.map(doc => doc.data());
-        // console.log(docs[0].username);
+        console.log(docs);
         // const posts = docs;
         // console.log(posts[0]);
-        setText(docs[0]);
+        setText(doc[0]);
 
         // console.log('=============!!');
         // console.log(text);
