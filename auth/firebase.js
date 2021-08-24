@@ -39,6 +39,7 @@ export const signUp = (mailAddress, password) => {
         username,
         email,
         password,
+        
       })
       .then(() => {
         console.log('Add Firestore Success');

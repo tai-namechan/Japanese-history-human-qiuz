@@ -170,14 +170,14 @@ export default function Question(props) {
         // 入力した値が答えと一致している場合
         if (inputText == human) {
             var correctness = '正解';
-            console.log(correctness);
+            // console.log(correctness);
         } 
         // 入力した値が答えと不一致の場合
         else {
             var correctness = '不正解';
-            console.log(correctness);
+            // console.log(correctness);
         }
-        console.log(score);
+        // console.log(score);
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
         navigation.navigate('Answer', { correctness: correctness, score: score, });
 

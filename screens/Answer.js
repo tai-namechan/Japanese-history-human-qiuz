@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // usestateが使える
 import { View, ImageBackground, StyleSheet, Animated } from 'react-native';
 import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'react-native-elements';
@@ -22,28 +22,28 @@ export default function Answer({ navigation }) {
 
     const [lastScore, setlastScore] = useState("");
     const [answerText, setAnswerText] = useState("");
-    // const [dataScore, setDataScore] = useState([]);
+    const [databaseScore, setDatabaseScore] = useState("");
 
     // 正誤表示
     const answerWord = {
-        seikai : "正解おめでとう！",
-        huseikai : "残念"
+        seikai: "正解おめでとう！",
+        huseikai: "残念"
     }
 
     useEffect(() => {
-        console.log(correctness);
-        console.log(score);
+        // console.log(correctness);
+        // console.log(score);
     }, []);
 
     useEffect(() => {
-        console.log(correctness);
+        // console.log(correctness);
         //正解だった場合
-        if(correctness=="正解") {
+        if (correctness == "正解") {
             //最終点数：score
             setlastScore(score);
             //コメント：正解おめでとう！
             setAnswerText(answerWord.seikai);
-            console.log(answerText);
+            // console.log(answerText);
         }
         //不正解だった場合
         else {
@@ -52,7 +52,7 @@ export default function Answer({ navigation }) {
             //正誤：残念
             setAnswerText(answerWord.huseikai);
         }
-      }, []);
+    }, []);
 
     // 画像フェードインアウト
     const opacity = useState(new Animated.Value(0))[0]
@@ -108,45 +108,53 @@ export default function Answer({ navigation }) {
     if (user !== null) {
         const email = user.email;
         const uid = user.uid;
-        console.log(email);
-        console.log(uid);
+        // console.log(email);
+        // console.log(uid);
 
         const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
 
-        userInfomation.get().then((doc) => {
-            if (doc.exists) {
+        // if (lastScore !== 0) {
+            userInfomation.get().then((doc) => {
                 // console.log(doc.data('score'));
-                // const data = doc.data();
+                const data = doc.data();
                 // setDataScore(data);
-                // const datascore = data.score;
-                // console.log(dataScore);
-                // setDataScore(datascore);
-            }
-        });
-        // console.log(userInfomation.get('score'));
+                const datascore = data.score;
+                // console.log(datascore);
+                
+                let cc = Number(lastScore) + Number(datascore);
+                // setDatabaseScore(cc);
+                console.log('スコア：', cc);
 
-        // firebaseのデータ更新（スコアの更新）
-        firebase
-          .firestore()
-          .collection('nicknameuser')
-          .doc(user.uid)
-          .update({
-            score: dataScore + lastScore,
-          })
-          .then(() => {
-            // console.log('Add Firestore Success');
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+                const datatimes = data.times;
+                // console.log('回数：',datatimes);
+                let dd = 1 + Number(datatimes);
+                console.log(dd);
+
+                // firebaseのデータ更新（スコアの更新）
+                firebase
+                    .firestore()
+                    .collection('nicknameuser')
+                    .doc(user.uid)
+                    .update({
+                        score: cc,
+                        times: dd,
+                    })
+                    .then(() => {
+                        // console.log('Add Firestore Success');
+                    })
+                    .catch((error) => {
+                        // console.log(error);
+                    });
+            });
+        // }
     }
 
     return (
         <ThemeProvider theme={theme}>
-            <View> 
+            <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
                     style={{ height: 1000, }}>
-                    
+
                     <Header
                         placement="left"
                         leftComponent={{ icon: 'menu', color: 'brown' }}
@@ -256,7 +264,7 @@ export default function Answer({ navigation }) {
 
                         {/* 解説文 */}
                         <View style={styles.container} >
-                            <Animated.View 
+                            <Animated.View
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
                                 <Text>三代将軍徳川家光</Text>
