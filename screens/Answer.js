@@ -4,6 +4,7 @@ import { View, ImageBackground, StyleSheet, Animated } from 'react-native';
 import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
+import questions from './question';
 // import useWindowSize from 'react-use/lib/useWindowSize'
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
@@ -18,8 +19,12 @@ export default function Answer({ navigation }) {
     //question.jsからcorrectness(正誤)とscore(5点満点)の値を受け取る
     const correctness = navigation.state.params.correctness;
     const score = navigation.state.params.score;
+    //const human = navigation.state.params.human;
+    const number = navigation.state.params.number;
+    
 
     const [lastScore, setlastScore] = useState("");
+    //const [human1, setHuman1] = useState('');
     const [answerText, setAnswerText] = useState("");
 
 
@@ -32,6 +37,10 @@ export default function Answer({ navigation }) {
     useEffect(() => {
         console.log(correctness);
         console.log(score);
+        //console.log(human);
+        console.log(number);
+
+        //console.log(questionRandom);
     }, []);
 
     useEffect(() => {
@@ -52,6 +61,8 @@ export default function Answer({ navigation }) {
             setAnswerText(answerWord.huseikai);
         }
       }, []);
+      
+      
 
     // 画像フェードインアウト
     const opacity = useState(new Animated.Value(0))[0]
@@ -102,9 +113,14 @@ export default function Answer({ navigation }) {
         },
     });
 
+  
+    const image = questions[number].image;
+    
+    
     return (
+        
         <ThemeProvider theme={theme}>
-            <View> 
+            <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
                     style={{ height: 1000, }}>
                     
@@ -145,7 +161,7 @@ export default function Answer({ navigation }) {
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.徳川家光</Animated.Text>
+                            }}>A.{questions[number].human}</Animated.Text>
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -154,7 +170,7 @@ export default function Answer({ navigation }) {
                         }}>
                             <Animated.Image
                                 //白黒
-                                source={require('../assets/img/iemitu-sihouette.png')}
+                                source={require('../assets/img/kuromaku.jpg')}
                                 style={{
                                     width: 300,
                                     height: 300,
@@ -167,7 +183,7 @@ export default function Answer({ navigation }) {
                                 }} />
                             <Animated.Image
                                 //カラー
-                                source={require('../assets/img/iemitu.png')}
+                                source = {image}
                                 style={{
                                     width: 300,
                                     height: 300,
@@ -197,11 +213,11 @@ export default function Answer({ navigation }) {
                                 opacity
                             }}
                             >
-                                私は江戸幕府三代将軍徳川家光じゃ
+                                {questions[number].dialogue}
                             </Animated.Text>
                         </Balloon>
 
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                             style={{ flexDirection: 'row', }}>
                             <Button
                                 //「消す」ボタンを押すと白黒に変わる
@@ -213,15 +229,15 @@ export default function Answer({ navigation }) {
                                 style={{ marginLeft: 30, }}
                                 title="出現させる"
                             />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
                         {/* 解説文 */}
                         <View style={styles.container} >
                             <Animated.View 
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
-                                <Text>三代将軍徳川家光</Text>
-                                <Text>二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された
+                                <Text>{questions[number].explanationTitle}</Text>
+                                <Text>{questions[number].explanationDetail}
                                 </Text>
                             </Animated.View>
                         </View>

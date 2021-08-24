@@ -2,7 +2,7 @@ const questions = [
     {
         id: 1,
         period: '江戸時代',
-        human: '渋沢栄一',
+        human: '徳川家光',
         questionOptions: [
             { 
                 questionText: 'どこで生まれましたか？', 
@@ -75,11 +75,15 @@ const questions = [
                 answerText: '' 
             },
         ],
+        image: require('../assets/img/徳川家光.jpg'),
+        dialogue: 'ワシは徳川家光じゃぼけ',
+        explanationTitle: '三代将軍徳川家光',
+        explanationDetail: '二代将軍秀忠に続き、武断主義政策をとり浪人が大量に発生。1635年、林羅山[道春]が起草した武家諸法度寛永令が出された。また、強力な領主権を持つ公儀権力[幕府と藩]が全国の土地と人民を直接統括支配する幕藩体制が確立された',
     },
     {
         id: 1,
-        period: '江戸時代',
-        human: 'A渋沢栄一',
+        period: '明治時代',
+        human: '渋沢栄一',
         questionOptions: [
             { 
                 questionText: 'Aどこで生まれましたか？', 
@@ -152,11 +156,15 @@ const questions = [
                 answerText: '' 
             },
         ],
+        image: require('../assets/img/渋沢栄一.jpg'),
+        dialogue: 'ワシは渋沢栄一じゃぼけ',
+        explanationTitle: 'ワイは渋沢栄一',
+        explanationDetail: '渋沢栄一渋沢栄一渋沢栄一',
     },
     {
         id: 1,
         period: '江戸時代',
-        human: 'B渋沢栄一',
+        human: '徳川家康',
         questionOptions: [
             { 
                 questionText: 'Bどこで生まれましたか？', 
@@ -229,6 +237,10 @@ const questions = [
                 answerText: '' 
             },
         ],
+        image: require('../assets/img/徳川家康.jpg'),
+        dialogue: 'ワシは徳川家康じゃぼけ',
+        explanationTitle: 'ワイは徳川家康',
+        explanationDetail: '徳川家康徳川家康徳川家康',
     },
 ]
 export default questions;

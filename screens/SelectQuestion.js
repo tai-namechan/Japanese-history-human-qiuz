@@ -34,16 +34,16 @@ const styles = StyleSheet.create({
 export default function Question(props) {
     // 値を次のページに送る
     const { navigation } = props;
-
+    const number = props.navigation.state.params.questionRandom;
     useEffect(() => {
         const questionRandom = props.navigation.state.params.questionRandom;
         setCurrentQuestion(questionRandom);
-        // setCurrentQuestion(1);
-        // console.log(questionRandom);
+         //setCurrentQuestion(1);
+         console.log(questionRandom);
     },[]);
 
     const [showQuestions, setShowQuestions] = useState(questions);
-
+    //console.log(questionRandom);
     const [countQuestionOne, setCountQuestionOne] = useState(1);
     const [countQuestionTwo, setCountQuestionTwo] = useState(1);
     const [countQuestionThree, setCountQuestionThree] = useState(1);
@@ -54,7 +54,7 @@ export default function Question(props) {
     // answerTextの設定
     const [answerText, showAnswerText] = useState("");
     // 点数の初期値（プロトタイプでは４問しかないため、初期の点数は5に設定しておく）
-    const [score, setScore] = useState(5);
+    const [score, setScore] = useState(12);
     // モーダルの入力されたTextInputの値
     const [text, setText] = useState("");
     // モーダルの表示
@@ -163,7 +163,10 @@ export default function Question(props) {
         // Textinputで入力されtextに代入された値をinputTextに代入
         const inputText = text;
         // humanに答えとなる人物を設定する
-        const human = '渋沢栄一';
+        //const human = '渋沢栄一';
+        const human = questions[currentQuestion].human;
+        //const number = questions[currentQuestion];
+
         // console.log(human);
         // console.log(inputText);
 
@@ -179,7 +182,7 @@ export default function Question(props) {
         }
         console.log(score);
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
-        navigation.navigate('Answer', { correctness: correctness, score: score, });
+        navigation.navigate('Answer', { correctness: correctness, score: score, number: number});
 
         // モーダルの非表示
         toggleOverlay();
@@ -212,18 +215,18 @@ export default function Question(props) {
                             marginRight: '25%',
                         }}>
                             <Text h3 style={{ display: "none", }}>家光コメント</Text>
-                            {/* <Image
-                                source={require('../assets/img/iemitu-sihouette.png')}
+                            { <Image
+                                source={require('../assets/img/kuromaku.jpg')}
                                 style={{
-                                    width: 300,
-                                    height: 300,
+                                    width: 225,
+                                    height: 225,
                                     top: 0,
                                     left: 0,
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
                                     lignItems: 'center'
-                                }} /> */}
+                                }} /> }
                         </View>
                         <Balloon
                             borderColor="#CCC"
