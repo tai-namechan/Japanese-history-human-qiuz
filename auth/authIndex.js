@@ -5,46 +5,7 @@ import LoginForm from './LoginForm.js';
 import { Button, Image, Header, ThemeProvider } from 'react-native-elements';
 
 class App extends Component {
-  // state = { loggedIn: null };
 
-  // componentDidMount() {
-  //   const firebaseConfig = {
-  //     // 各自生成された値を入れる
-  //     apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
-  //     authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
-  //     databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
-  //     projectId: "japanese-history-quiz-518c2",
-  //     storageBucket: "japanese-history-quiz-518c2.appspot.com",
-  //     messagingSenderId: "833552253127",
-  //     appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
-  //   }
-  //   if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
-  //     firebase.initializeApp(firebaseConfig);
-  //   }
-  //   // メールログイン
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       this.setState({ loggedIn: true });
-  //     } else {
-  //       this.setState({ loggedIn: false });
-  //     }
-  //   });
-  // }
-
-  // renderForm() {
-  //   if (this.state.loggedIn) {
-  //     return (
-
-  //       <View style={styles.wrap}>
-  //         <TouchableOpacity onPress={() => firebase.auth().signOut()} style={styles.button}>
-  //           <Text style={styles.logout}>ログアウト</Text>
-  //         </TouchableOpacity>
-  //       </View>
-  //     )
-  //   } else {
-  //     return (<LoginForm />)
-  //   }
-  // }
 
   render() {
     return (

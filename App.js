@@ -13,6 +13,7 @@ import Auth from './auth/authIndex.js';
 import SelectNumber from './screens/Select1or10';
 import SelectEra from './screens/SelectEra';
 // import Tokumei from './auth/Tokumei.js';
+import Ranking from './screens/Ranking.js';
 
 
 
@@ -26,6 +27,7 @@ const MainStack = createStackNavigator(
     Signup:Signup,
     Login:Login,
     Index:Index,
+    Ranking:Ranking,
     // Tokumei:Tokumei,
 
     Question: Question,
