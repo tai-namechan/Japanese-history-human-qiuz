@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, TextInput, ActivityIndicator } from 'reac
 import firebase from 'firebase';
 
 class SignupForm extends Component {
-  state = { username: '', email: '', password: '', error: '', loading: false, score: '0', uid: '',　times: '0' };
+  state = { username: '', email: '', password: '', error: '', loading: false, score: 0, uid: '',　times: 0 };
 
   onButtonPress() {
     const { username, email, password, score, uid, times } = this.state;

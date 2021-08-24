@@ -83,18 +83,18 @@ export default function Answer({ navigation }) {
     
     firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
         const docs = querySnapshot.docs.map(doc => doc.data());
-        // console.log(docs);
-        // console.log(text);
-        const posts = docs;
-        // console.log(posts[0]);
-        setText(posts[0]);
-        setText2(posts[1]);
-        setText3(posts[2]);
-        setText4(posts[3]);
-        setText5(posts[4]);
+        console.log(docs);
+    //     // console.log(text);
+    //     const posts = docs;
+    //     // console.log(posts[0]);
+    //     setText(posts[0]);
+    //     setText2(posts[1]);
+    //     setText3(posts[2]);
+    //     setText4(posts[3]);
+    //     setText5(posts[4]);
 
-        // console.log('=============!!');
-        // console.log(text);
+    //     // console.log('=============!!');
+    //     // console.log(text);
     });
     // console.log(text);
     
