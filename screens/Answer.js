@@ -22,15 +22,7 @@ export default function Answer({ navigation }) {
 
     const [lastScore, setlastScore] = useState("");
     const [answerText, setAnswerText] = useState("");
-
-    // 現在ログインしているユーザーを取得する
-    const user = firebase.auth().currentUser;
-    if (user !== null) {
-        const email = user.email;
-        const uid = user.uid;
-        console.log(email);
-        console.log(uid);
-    }
+    // const [dataScore, setDataScore] = useState([]);
 
     // 正誤表示
     const answerWord = {
@@ -110,6 +102,44 @@ export default function Answer({ navigation }) {
             backgroundColor: 'orange',
         },
     });
+
+    // 現在ログインしているユーザーを取得する
+    const user = firebase.auth().currentUser;
+    if (user !== null) {
+        const email = user.email;
+        const uid = user.uid;
+        console.log(email);
+        console.log(uid);
+
+        const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
+
+        userInfomation.get().then((doc) => {
+            if (doc.exists) {
+                // console.log(doc.data('score'));
+                // const data = doc.data();
+                // setDataScore(data);
+                // const datascore = data.score;
+                // console.log(dataScore);
+                // setDataScore(datascore);
+            }
+        });
+        // console.log(userInfomation.get('score'));
+
+        // firebaseのデータ更新（スコアの更新）
+        firebase
+          .firestore()
+          .collection('nicknameuser')
+          .doc(user.uid)
+          .update({
+            score: dataScore + lastScore,
+          })
+          .then(() => {
+            // console.log('Add Firestore Success');
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
 
     return (
         <ThemeProvider theme={theme}>

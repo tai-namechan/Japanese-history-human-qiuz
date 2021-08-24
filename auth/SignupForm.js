@@ -20,22 +20,13 @@ class SignupForm extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ uid: user.uid });
-        // this.state.uid = user.uid;
-        // let uid = user.uid;
-        console.log(user.uid);
-        console.log(uid);
-        // var uid = user.uid;
+        // console.log(user.uid);
+        // console.log(uid);
+
         // firestoreにユーザー情報を登録
         firebase
           .firestore()
           .collection('nicknameuser')
-          // .add({
-          //   // DBに登録したい情報
-          //   username,
-          //   email,
-          //   password,
-          //   score,
-          // })
           .doc(user.uid)
           .set({
             username,
@@ -49,13 +40,9 @@ class SignupForm extends Component {
           .catch((error) => {
             console.log(error);
           });
-        } else {
-          // this.setState({ loggedIn: false });
-        }
+        } 
     });
-
-    
-      
+  
   //   // 新規登録ボタンを押した時の処理
   // handleSubmit() {
   //   // このメソッドを呼ぶだけ
