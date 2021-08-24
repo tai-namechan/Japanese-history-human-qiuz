@@ -187,14 +187,28 @@ export default function Question(props) {
         // モーダルの非表示
         toggleOverlay();
     }    
+    //const testrandom = [1,2];
+    //const testarray = ['a','b'];
+    //console.log(testarray[testrandom[1]]);
+    //console.log(testarray)
+    // const buttonOrder = () => {
+    //     let buttonrandom = [3,1,0,2];
+    //     for (let j=0; j<=3; j++)
+    //     {
+    //         <Button title={showQuestions[currentQuestion].questionOptions[buttonrandom[j]].questionText}
+    //             onPress={() => handleQuestionOptionClick(showQuestions[currentQuestion].questionOptions[buttonrandom[j]],random[j])}
+    //         />
+    //     }
+    // }
+    console.log(showQuestions[currentQuestion].questionOptions[1].questionText);
     const buttonOrder = () => {
-        let buttonrandom = [3,1,0,2];
-        for (let j=0; j<=3; j++)
-        {
-            <Button title={showQuestions[currentQuestion].questionOptions[buttonrandom[j]].questionText}
-                onPress={() => handleQuestionOptionClick(showQuestions[currentQuestion].questionOptions[buttonrandom[j]],random[j], i)}
+        //console.log(showQuestions[currentQuestion].questionOptions[1].questionText);
+        //for (let j=0; j<=3; j++)
+        //{
+            <Button title={showQuestions[currentQuestion].questionOptions[1].questionText}
+                //onPress={() => handleQuestionOptionClick(showQuestions[currentQuestion].questionOptions[j],j)}
             />
-        }
+        //}
     }
 
     return (
@@ -259,7 +273,7 @@ export default function Question(props) {
                         <View style={styles.container}>
                             
                             
-                            {buttonOrder()}
+                            {buttonOrder}
                             {/* {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 
                                 <Button title={questionOption.questionText}
