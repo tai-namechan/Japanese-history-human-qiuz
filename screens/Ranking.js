@@ -5,6 +5,7 @@ import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'reac
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
 import questions from './question';
+import firebase from 'firebase';
 
 const theme = {
     colors: {
@@ -44,6 +45,15 @@ export default function Answer({ navigation }) {
         duration: 3000,
         useNativeDriver: true
     }).start()
+
+    console.log('=============!!!');
+    // ランキング表示
+    let ff = firebase.firestore().collection("nicknameuser").orderBy("score", "desc").limit(3).get();
+    
+    // setRankingScore(ff);
+    // console.log(setRankingScore);
+    console.log(ff);
+
 
     return (
 
