@@ -187,6 +187,15 @@ export default function Question(props) {
         // モーダルの非表示
         toggleOverlay();
     }    
+    const buttonOrder = () => {
+        let buttonrandom = [3,1,0,2];
+        for (let j=0; j<=3; j++)
+        {
+            <Button title={showQuestions[currentQuestion].questionOptions[buttonrandom[j]].questionText}
+                onPress={() => handleQuestionOptionClick(showQuestions[currentQuestion].questionOptions[buttonrandom[j]],random[j], i)}
+            />
+        }
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -246,12 +255,17 @@ export default function Question(props) {
 
                         {/* 質問 */}
                         <Text h3>質問</Text>
+                        
                         <View style={styles.container}>
-                            {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
+                            
+                            
+                            {buttonOrder()}
+                            {/* {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
+                                
                                 <Button title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
-                            ))}
+                            ))} */}
                         </View>
                         <View style={{ marginTop: 30 }}>
                             <Button
