@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Start from './screens/Start.js';
-import  Question  from './screens/SelectQuestion.js';
+import  SelectQuestion  from './screens/SelectQuestion.js';
+import  RandomQuestion  from './screens/RandomQuestion.js';
 import  Answer  from './screens/Answer.js';
 import firebase from 'firebase';
 import env from './env.json';
@@ -30,24 +31,24 @@ const MainStack = createStackNavigator(
     Ranking:Ranking,
     // Tokumei:Tokumei,
 
-    Question: Question,
+    SelectQuestion: SelectQuestion,
+    RandomQuestion: RandomQuestion,
     Answer: Answer,
 
   },
   // デフォルトでつくページ名
-     {
-     headerMode: 'none',
-     navigationOptions: {
-       headerVisible: true,
-     },
-   }
+    {
+    headerMode: 'none',
+      navigationOptions: {
+        headerVisible: true,
+    },
+  }
 )
 const AppContainer = createAppContainer(MainStack)
 export default class App extends Component {
   render() {
     return (
       <AppContainer />
-      // <SelectNumber />
     )
   }
 }

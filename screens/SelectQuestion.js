@@ -31,15 +31,18 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function Question(props) {
+export default function SelectQuestion(props) {
     // 値を次のページに送る
     const { navigation } = props;
     const number = props.navigation.state.params.questionRandom;
     useEffect(() => {
         const questionRandom = props.navigation.state.params.questionRandom;
+        // 選択された時代をSelectEraから受け取る
+        const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);
          //setCurrentQuestion(1);
-         console.log(questionRandom);
+        console.log(questionRandom);
+        console.log(period);
     },[]);
 
     const [showQuestions, setShowQuestions] = useState(questions);
@@ -62,14 +65,14 @@ export default function Question(props) {
 
     // 質問ボタンを押した後
     const handleQuestionOptionClick = (questionOption, i) => {
-        //　質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
+        // 質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
 
         // expo speech
-        Speech.speak(setAnswerText, 
-            { 
-                "language": "ja", 
+        Speech.speak(setAnswerText,
+            {
+                "language": "ja",
                 // 低い声
                 "pitch": -1,
                 // 高い声
@@ -105,17 +108,17 @@ export default function Question(props) {
             // console.log(countQuestionOne);
             var countQuestionButton = countQuestionOne;
             // console.log(countQuestionButton);
-        } 
+        }
         else if(i === 1) {
             setCountQuestionTwo(countQuestionTwo + 1);
             // console.log(countQuestionTwo);
             var countQuestionButton = countQuestionTwo;
-        } 
+        }
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
             // console.log(countQuestionThree);
             var countQuestionButton = countQuestionThree;
-        } 
+        }
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
             // console.log(countQuestionFour);
@@ -128,7 +131,7 @@ export default function Question(props) {
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
 
-        } 
+        }
         else if(countQuestionButton == 2) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
             var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
@@ -139,7 +142,7 @@ export default function Question(props) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
             // console.log(questionOptionsStock);
-        } 
+        }
 
         if (questionTextStock == '') {
             // showQuestions[currentQuestion].questionOptions.splice(number, 1);
@@ -152,7 +155,7 @@ export default function Question(props) {
             // console.log(showQuestions[currentQuestion].questionOptions);
         }
     }
-    
+
     // モーダルの表示・非表示
     const toggleOverlay = () => {
         setVisible(!visible);
@@ -174,7 +177,7 @@ export default function Question(props) {
         if (inputText == human) {
             var correctness = '正解';
             console.log(correctness);
-        } 
+        }
         // 入力した値が答えと不一致の場合
         else {
             var correctness = '不正解';
@@ -186,7 +189,7 @@ export default function Question(props) {
 
         // モーダルの非表示
         toggleOverlay();
-    }    
+    }
 
     return (
         <ThemeProvider theme={theme}>
