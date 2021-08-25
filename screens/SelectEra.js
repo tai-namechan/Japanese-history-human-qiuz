@@ -64,7 +64,9 @@ export default function SelectEra(props) {
             <Button
               title="ランダム"
               onPress={() => {
-                props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
+                //props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
+                //↑ランダム　↓とりあえずSelectEra.js
+                props.navigation.navigate('SelectQuestion', { questionRandom: questionRandom });
                 random();
               }}
               containerStyle={{ width: '50%', marginBottom: 50, }}
