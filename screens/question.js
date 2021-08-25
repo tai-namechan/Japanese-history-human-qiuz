@@ -75,6 +75,24 @@ const questions = [
                 answerText: ''
             },
         ],
+        questionOptionsFifth: [
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+        ],
         image: require('../assets/img/徳川家光.jpg'),
         dialogue: 'ワシは徳川家光じゃぼけ',
         explanationTitle: '三代将軍徳川家光',
@@ -156,6 +174,24 @@ const questions = [
                 answerText: ''
             },
         ],
+        questionOptionsFifth: [
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+        ],
         image: require('../assets/img/渋沢栄一.jpg'),
         dialogue: 'ワシは渋沢栄一じゃぼけ',
         explanationTitle: 'ワイは渋沢栄一',
@@ -235,6 +271,24 @@ const questions = [
             {
                 questionText: '',
                 answerText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
             },
         ],
         image: require('../assets/img/徳川家康.jpg'),
