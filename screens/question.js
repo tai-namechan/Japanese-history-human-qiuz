@@ -63,8 +63,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'あああ', 
-                answerText: '' 
+                questionText: '何か自慢できることはある？', 
+                answerText: '私がもうじき１万円札の顔になるらしいぞ。' 
             },
             { 
                 questionText: '', 
@@ -162,8 +162,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'あああ', 
-                answerText: '' 
+                questionText: 'A何か自慢できることはある？', 
+                answerText: 'A私がもうじき１万円札の顔になるらしいぞ。' 
             },
             { 
                 questionText: '', 
@@ -261,8 +261,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'B何を経営してた？', 
-                answerText: '' 
+                questionText: 'B何か自慢できることはある？', 
+                answerText: 'B私がもうじき１万円札の顔になるらしいぞ。' 
             },
             { 
                 questionText: '', 
@@ -279,7 +279,7 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'あああ', 
+                questionText: '', 
                 answerText: '' 
             },
             { 
