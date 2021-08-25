@@ -36,14 +36,14 @@ export default function SelectNumber(props) {
         >
             <Header
             placement="left"
-            leftComponent={{ icon: 'menu', color: 'brown' }}
-            centerComponent={{ text: '日本史', style: { color: 'brown' },
+            rightComponent={{ icon: 'menu', color: 'brown' }}
+            centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
             // onPress: () => this.props.navigation.navigate('Signup')
             }}
-            rightComponent={{
+            leftComponent={{
                 icon: 'login',
                 color: 'brown',
-                onPress: () => this.props.navigation.navigate('Defult')
+                onPress: () => props.navigation.navigate('Start')
             }}
             containerStyle={{
                 backgroundColor: '',
