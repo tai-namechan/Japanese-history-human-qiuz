@@ -95,28 +95,28 @@ export default function Question(props) {
             var countQuestionButton = countQuestionOne;
              //console.log(countQuestionButton);
             var A_temp = aButton + 1;
-            console.log("A"+A_temp);
+            //console.log("A"+A_temp);
         } 
         else if(i === 1) {
             setCountQuestionTwo(countQuestionTwo + 1);
             // console.log(countQuestionTwo);
             var countQuestionButton = countQuestionTwo;
             var B_temp = bButton + 1;
-            console.log("B"+B_temp);
+            //console.log("B"+B_temp);
         } 
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
             // console.log(countQuestionThree);
             var countQuestionButton = countQuestionThree;
             var C_temp = cButton + 1;
-            console.log("C"+C_temp);
+            //console.log("C"+C_temp);
         } 
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
             // console.log(countQuestionFour);
             var countQuestionButton = countQuestionFour;
             var D_temp = dButton + 1;
-            console.log("D"+D_temp);
+            //console.log("D"+D_temp);
         }
 
         if(countQuestionButton == 1) {
@@ -292,7 +292,6 @@ export default function Question(props) {
         // モーダルの非表示
         toggleOverlay();
     }    
-    let random = [2,0,1,3];
 
     return (
         <ThemeProvider theme={theme}>
