@@ -221,7 +221,7 @@ const questions = [
         ],
         questionOptionsSecond: [
             { 
-                questionText: '', 
+                questionText: 'B人生のターニングポイントは？', 
                 answerText: 'Bいくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
             },
             { 
@@ -243,7 +243,7 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'B何を経営してた？', 
+                questionText: 'B異名はありますか？', 
                 answerText: 'B日本資本主義の父と言われているらしいな。' 
             },
             { 
