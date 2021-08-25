@@ -196,13 +196,7 @@ export default function RandomQuestion(props) {
 
                     <Header
                         placement="left"
-                        leftComponent={{ icon: 'menu', color: 'brown' }}
-                        centerComponent={{ text: '日本史', style: { color: 'brown' } }}
-                        rightComponent={{
-                            icon: 'home',
-                            color: 'brown',
-                            onPress: () => navigation.navigate('Start')
-                        }}
+                        centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' } }}
                         containerStyle={{
                             backgroundColor: '',
                             justifyContent: 'space-around',
