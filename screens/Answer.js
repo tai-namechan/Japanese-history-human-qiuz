@@ -8,6 +8,7 @@ import questions from './question';
 // import useWindowSize from 'react-use/lib/useWindowSize'
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
+import firebase from 'firebase';
 
 const theme = {
     colors: {
@@ -113,8 +114,62 @@ export default function Answer({ navigation }) {
         },
     });
 
-  
     const image = questions[number].image;
+
+    const firebaseConfig = {
+        // 各自生成された値を入れる
+        apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
+        authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
+        projectId: "japan-history-quiz-6e89d",
+        storageBucket: "japan-history-quiz-6e89d.appspot.com",
+        messagingSenderId: "1037148992157",
+        appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
+        databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
+    }
+    if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
+        firebase.initializeApp(firebaseConfig);
+    }
+    
+    // 現在ログインしているユーザーを取得する
+    const user = firebase.auth().currentUser;
+    if (user !== null) {
+        const uid = user.uid;
+        // console.log(uid);
+
+        const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
+
+        userInfomation.get().then((doc) => {
+            // console.log(doc.data('score'));
+            const data = doc.data();
+            // setDataScore(data);
+            const datascore = data.score;
+            // console.log(datascore);
+            let cc = Number(lastScore) + Number(datascore);
+            // setDatabaseScore(cc);
+            // console.log('スコア：', cc);
+
+            const datatimes = data.times;
+            // console.log('回数：',datatimes);
+            let dd = 1 + Number(datatimes);
+            // console.log(dd);
+
+            // firebaseのデータ更新（スコアの更新）
+            firebase
+                .firestore()
+                .collection('nicknameuser')
+                .doc(user.uid)
+                .update({
+                    score: cc,
+                    times: dd,
+                })
+                .then(() => {
+                    // console.log('Add Firestore Success');
+                })
+                .catch((error) => {
+                    // console.log(error);
+                });
+        });
+    }
     
     
     return (

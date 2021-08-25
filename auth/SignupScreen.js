@@ -15,13 +15,13 @@ class SignupScreen extends React.Component {
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
-      apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
-      authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
-      databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
-      projectId: "japanese-history-quiz-518c2",
-      storageBucket: "japanese-history-quiz-518c2.appspot.com",
-      messagingSenderId: "833552253127",
-      appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+      apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
+      authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
+      projectId: "japan-history-quiz-6e89d",
+      storageBucket: "japan-history-quiz-6e89d.appspot.com",
+      messagingSenderId: "1037148992157",
+      appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
+      databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
       firebase.initializeApp(firebaseConfig);
