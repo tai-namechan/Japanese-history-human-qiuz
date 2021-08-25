@@ -63,6 +63,24 @@ const questions = [
                 answerText: '' 
             },
             { 
+                questionText: 'あああ', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+        ],
+        questionOptionsFifth: [
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
                 questionText: '', 
                 answerText: '' 
             },
@@ -139,6 +157,24 @@ const questions = [
             },
         ],
         questionOptionsFourth: [
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: 'あああ', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+        ],
+        questionOptionsFifth: [
             { 
                 questionText: '', 
                 answerText: '' 
@@ -226,6 +262,24 @@ const questions = [
             },
             { 
                 questionText: 'B何を経営してた？', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+        ],
+        questionOptionsFifth: [
+            { 
+                questionText: '', 
+                answerText: '' 
+            },
+            { 
+                questionText: 'あああ', 
                 answerText: '' 
             },
             { 

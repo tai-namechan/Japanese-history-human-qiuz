@@ -138,9 +138,17 @@ export default function Question(props) {
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
         }
-        else {
+        else if(countQuestionButton == 3) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
+            
+            //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
+        }
+        else {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsFifth[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsFifth[number].questionText;
             
             //var questionPreTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
             // console.log(questionOptionsStock);
