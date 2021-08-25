@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
 import questions from './question';
+
 // スタイルシート関連
 const theme = {
     Button: {
@@ -30,41 +31,55 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function Question(props) {
-    useEffect(() => {
-        setCurrentQuestion(props.navigation.state.params.questionRandom);
-    });
-
+export default function RandomQuestion(props) {
     // 値を次のページに送る
     const { navigation } = props;
+    const number = props.navigation.state.params.questionRandom;
+    useEffect(() => {
+        const questionRandom = props.navigation.state.params.questionRandom;
+        setCurrentQuestion(questionRandom);
+         //setCurrentQuestion(1);
+        console.log(questionRandom);
+    },[]);
+
+    const [showQuestions, setShowQuestions] = useState(questions);
+    //console.log(questionRandom);
+    const [countQuestionOne, setCountQuestionOne] = useState(1);
+    const [countQuestionTwo, setCountQuestionTwo] = useState(1);
+    const [countQuestionThree, setCountQuestionThree] = useState(1);
+    const [countQuestionFour, setCountQuestionFour] = useState(1);
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
     // answerTextの設定
     const [answerText, showAnswerText] = useState("");
     // 点数の初期値（プロトタイプでは４問しかないため、初期の点数は5に設定しておく）
-    const [score, setScore] = useState(5);
+    const [score, setScore] = useState(12);
     // モーダルの入力されたTextInputの値
     const [text, setText] = useState("");
     // モーダルの表示
     const [visible, setVisible] = useState(false);
 
     // 質問ボタンを押した後
-    const handleQuestionOptionClick = (questionOption) => {
+    const handleQuestionOptionClick = (questionOption, i) => {
         // 質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
 
         // expo speech
-        Speech.speak(setAnswerText, 
-            { 
-                "language": "ja", 
+        Speech.speak(setAnswerText,
+            {
+                "language": "ja",
                 // 低い声
                 "pitch": -1,
                 // 高い声
                 // "pitch": 1,
             }
         );
+
+        // 質問ボタンの切り替え
+        // console.log(i);
+        setNewQuestionText(questionOption, i);
 
         // 質問ボタンを全て押し切る前
         if (score > 1) {
@@ -73,9 +88,68 @@ export default function Question(props) {
             // 最新のスコアを設定する
             setScore(currectScore);
             console.log(score);
+            console.log(props.navigation);
         } else {
             // 用意された質問が全部終わった後
 
+        }
+    }
+
+    // 質問ボタンの切り替え
+    const setNewQuestionText = (questionOption, i) => {
+        let number = i;
+        // console.log(number);
+
+        if(i === 0) {
+            setCountQuestionOne(countQuestionOne + 1);
+            // console.log(countQuestionOne);
+            var countQuestionButton = countQuestionOne;
+            // console.log(countQuestionButton);
+        }
+        else if(i === 1) {
+            setCountQuestionTwo(countQuestionTwo + 1);
+            // console.log(countQuestionTwo);
+            var countQuestionButton = countQuestionTwo;
+        }
+        else if(i === 2) {
+            setCountQuestionThree(countQuestionThree + 1);
+            // console.log(countQuestionThree);
+            var countQuestionButton = countQuestionThree;
+        }
+        else if(i === 3) {
+            setCountQuestionFour(countQuestionFour + 1);
+            // console.log(countQuestionFour);
+            var countQuestionButton = countQuestionFour;
+        }
+
+        if(countQuestionButton == 1) {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
+
+        }
+        else if(countQuestionButton == 2) {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
+            // console.log(questionOptionsStock);
+            // console.log(countQuestionButton);
+        }
+        else {
+            var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
+            var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
+            // console.log(questionOptionsStock);
+        }
+
+        if (questionTextStock == '') {
+            // showQuestions[currentQuestion].questionOptions.splice(number, 1);
+            setShowQuestions(showQuestions);
+            console.log(showQuestions[currentQuestion].questionOptions);
+        } else {
+            showQuestions[currentQuestion].questionOptions.splice(number, 1, questionOptionsStock);
+            // console.log(questions[currentQuestion].questionOptions);
+            setShowQuestions(showQuestions);
+            // console.log(showQuestions[currentQuestion].questionOptions);
         }
     }
 
@@ -89,7 +163,10 @@ export default function Question(props) {
         // Textinputで入力されtextに代入された値をinputTextに代入
         const inputText = text;
         // humanに答えとなる人物を設定する
-        const human = '徳川家光';
+        //const human = '渋沢栄一';
+        const human = questions[currentQuestion].human;
+        //const number = questions[currentQuestion];
+
         // console.log(human);
         // console.log(inputText);
 
@@ -105,7 +182,7 @@ export default function Question(props) {
         }
         console.log(score);
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
-        navigation.navigate('Answer', { correctness: correctness, score: score, });
+        navigation.navigate('Answer', { correctness: correctness, score: score, number: number});
 
         // モーダルの非表示
         toggleOverlay();
@@ -164,9 +241,9 @@ export default function Question(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {questions[questionRandom].questionOptions.map((questionOption) => (
+                            {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button title={questionOption.questionText}
-                                    onPress={() => handleQuestionOptionClick(questionOption)}
+                                    onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
                             ))}
                         </View>
