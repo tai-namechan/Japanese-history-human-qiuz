@@ -37,10 +37,10 @@ class SignupForm extends Component {
             times,
           })
           .then(() => {
-            console.log('Add Firestore Success');
+            // console.log('Add Firestore Success');
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
         } 
     });

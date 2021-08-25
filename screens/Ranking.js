@@ -50,13 +50,13 @@ export default function Answer({ navigation }) {
     // ランキング
     const firebaseConfig = {
         // 各自生成された値を入れる
-        apiKey: "AIzaSyAH4YeRPvUMVJOMfTc29bpUJJtsi7Ehsik",
-        authDomain: "history-quiz-112eb.firebaseapp.com",
-        projectId: "history-quiz-112eb",
-        storageBucket: "history-quiz-112eb.appspot.com",
-        messagingSenderId: "84366476538",
-        appId: "1:84366476538:web:bb54d4267b33769217b543",
-        databaseURL: "https://history-quiz-112eb-default-rtdb.firebaseio.com/",
+        apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
+        authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
+        projectId: "japan-history-quiz-6e89d",
+        storageBucket: "japan-history-quiz-6e89d.appspot.com",
+        messagingSenderId: "1037148992157",
+        appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
+        databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
         firebase.initializeApp(firebaseConfig);
@@ -77,15 +77,19 @@ export default function Answer({ navigation }) {
 
     firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
         const docs = querySnapshot.docs.map(doc => doc.data());
-        console.log(docs);
+        // console.log(docs);
         // const posts = docs;
         // console.log(posts[0]);
-        setText(doc[0]);
+        // console.log('=============!!');
+        const posts = docs;
+        console.log(posts);
+        // setText(posts);
 
+        setText(posts);
         // console.log('=============!!');
         // console.log(text);
     });
-    // console.log(text);
+    // console.log("名前：", text.username);
     
 
 
@@ -147,15 +151,18 @@ export default function Answer({ navigation }) {
                             </View>
                             <View style={styles.item1}>
                                 <Text>1位</Text>
-                                <Text>{text.username} </Text>
-                                <Text>{text.score} points</Text>
+                                {/* <Text>{text[0].username} </Text> */}
+                                {/* <Text>{text[0].score} points</Text> */}
+                                {text.map((questionOption, i) => (
+                                <Text>{text.score}</Text>
+                            ))}
                             </View>
                             {/* <View style={styles.item1}>
                                 <Text>2位</Text>
                                 <Text>{text[1].username} </Text>
                                 <Text>{text[1].score} points</Text>
-                            </View>
-                            <View style={styles.item1}>
+                            </View> */}
+                            {/* <View style={styles.item1}>
                                 <Text>3位</Text>
                                 <Text>{text3.username}</Text>
                                 <Text>{text3.score}point</Text>

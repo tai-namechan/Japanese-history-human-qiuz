@@ -118,13 +118,13 @@ export default function Answer({ navigation }) {
 
     const firebaseConfig = {
         // 各自生成された値を入れる
-        apiKey: "AIzaSyAH4YeRPvUMVJOMfTc29bpUJJtsi7Ehsik",
-        authDomain: "history-quiz-112eb.firebaseapp.com",
-        projectId: "history-quiz-112eb",
-        storageBucket: "history-quiz-112eb.appspot.com",
-        messagingSenderId: "84366476538",
-        appId: "1:84366476538:web:bb54d4267b33769217b543",
-        databaseURL: "https://history-quiz-112eb-default-rtdb.firebaseio.com/",
+        apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
+        authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
+        projectId: "japan-history-quiz-6e89d",
+        storageBucket: "japan-history-quiz-6e89d.appspot.com",
+        messagingSenderId: "1037148992157",
+        appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
+        databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
         firebase.initializeApp(firebaseConfig);
@@ -146,12 +146,12 @@ export default function Answer({ navigation }) {
             // console.log(datascore);
             let cc = Number(lastScore) + Number(datascore);
             // setDatabaseScore(cc);
-            console.log('スコア：', cc);
+            // console.log('スコア：', cc);
 
             const datatimes = data.times;
             // console.log('回数：',datatimes);
             let dd = 1 + Number(datatimes);
-            console.log(dd);
+            // console.log(dd);
 
             // firebaseのデータ更新（スコアの更新）
             firebase
