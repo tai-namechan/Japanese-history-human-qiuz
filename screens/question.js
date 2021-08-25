@@ -63,8 +63,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: '何か自慢できることはある？', 
-                answerText: '私がもうじき１万円札の顔になるらしいぞ。' 
+                questionText: '', 
+                answerText: '' 
             },
             { 
                 questionText: '', 
@@ -144,8 +144,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'A何か自慢できることはある？', 
-                answerText: 'A私がもうじき１万円札の顔になるらしいぞ。' 
+                questionText: '', 
+                answerText: '' 
             },
             { 
                 questionText: '', 
@@ -185,7 +185,7 @@ const questions = [
         ],
         questionOptionsSecond: [
             { 
-                questionText: 'B人生のターニングポイントは？', 
+                questionText: '', 
                 answerText: 'Bいくつかあるが27歳の時のパリへの渡航がなければ今の私はなかったと思う' 
             },
             { 
@@ -207,7 +207,7 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'B異名はありますか？', 
+                questionText: 'B何を経営してた？', 
                 answerText: 'B日本資本主義の父と言われているらしいな。' 
             },
             { 
@@ -225,8 +225,8 @@ const questions = [
                 answerText: '' 
             },
             { 
-                questionText: 'B何か自慢できることはある？', 
-                answerText: 'B私がもうじき１万円札の顔になるらしいぞ。' 
+                questionText: 'B何を経営してた？', 
+                answerText: '' 
             },
             { 
                 questionText: '', 

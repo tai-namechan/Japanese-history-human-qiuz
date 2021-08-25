@@ -48,13 +48,18 @@ export default function Question(props) {
     const [countQuestionTwo, setCountQuestionTwo] = useState(1);
     const [countQuestionThree, setCountQuestionThree] = useState(1);
     const [countQuestionFour, setCountQuestionFour] = useState(1);
+    const [aButton,setAButton] = useState(0);
+    const [bButton,setBButton] = useState(0);
+    const [cButton,setCButton] = useState(0);
+    const [dButton,setDButton] = useState(0);
+
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
     // answerTextの設定
     const [answerText, showAnswerText] = useState("");
     // 点数の初期値（プロトタイプでは４問しかないため、初期の点数は5に設定しておく）
-    const [score, setScore] = useState(12);
+    const [score, setScore] = useState(15);
     // モーダルの入力されたTextInputの値
     const [text, setText] = useState("");
     // モーダルの表示
@@ -76,55 +81,60 @@ export default function Question(props) {
                 // "pitch": 1,
             }
         );
-
+  
         // 質問ボタンの切り替え
         // console.log(i);
-        setNewQuestionText(questionOption, i);
-
-        // 質問ボタンを全て押し切る前
-        if (score > 1) {
-            // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-            var currectScore = score - 1;
-            // 最新のスコアを設定する
-            setScore(currectScore);
-            console.log(score);
-            console.log(props.navigation);
-        } else {
-            // 用意された質問が全部終わった後
-
-        }
-    }
-
-    // 質問ボタンの切り替え
-    const setNewQuestionText = (questionOption, i) => {
+        //setNewQuestionText(questionOption, i);
         let number = i;
-        // console.log(number);
+        // if (number == 0)
+        // {
+        //     let prenumber = 0;
+        // }else 
+        // {
+        //     prenumber = i - 1;
+        // }
+         //console.log(number);
 
         if(i === 0) {
+            //console.log(countQuestionOne);
             setCountQuestionOne(countQuestionOne + 1);
-            // console.log(countQuestionOne);
+             //console.log(countQuestionOne);
             var countQuestionButton = countQuestionOne;
-            // console.log(countQuestionButton);
+             //console.log(countQuestionButton);
+             //console.log(aButton);
+            //var NewAButton = aButton + 1;
+            setAButton(aButton + 1);
+            console.log("A"+aButton);
         } 
         else if(i === 1) {
             setCountQuestionTwo(countQuestionTwo + 1);
             // console.log(countQuestionTwo);
             var countQuestionButton = countQuestionTwo;
+            setBButton(bButton + 1);
+            console.log("B"+bButton);
         } 
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
             // console.log(countQuestionThree);
             var countQuestionButton = countQuestionThree;
+            setCButton(cButton + 1);
+            console.log("C"+cButton);
         } 
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
             // console.log(countQuestionFour);
             var countQuestionButton = countQuestionFour;
+            setDButton(dButton + 1);
+            console.log("D"+dButton);
         }
 
         if(countQuestionButton == 1) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
             var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
+            
+            //var questionPreTextStock = questions[currentQuestion].questionOptions[number].questionText;
+           
+            
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
 
@@ -132,25 +142,175 @@ export default function Question(props) {
         else if(countQuestionButton == 2) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
             var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
+            
+            //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
         }
         else {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
+            
+            //var questionPreTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
             // console.log(questionOptionsStock);
         } 
 
         if (questionTextStock == '') {
-            // showQuestions[currentQuestion].questionOptions.splice(number, 1);
+            //showQuestions[currentQuestion].questionOptions.splice(number, 1);
             setShowQuestions(showQuestions);
-            console.log(showQuestions[currentQuestion].questionOptions);
+            //console.log(showQuestions[currentQuestion].questionOptions);
         } else {
             showQuestions[currentQuestion].questionOptions.splice(number, 1, questionOptionsStock);
             // console.log(questions[currentQuestion].questionOptions);
             setShowQuestions(showQuestions);
             // console.log(showQuestions[currentQuestion].questionOptions);
         }
+        //console.log(aButton);
+        // 質問ボタンを全て押し切る前
+        if (i === 0){
+        if (aButton == 1) {
+            //console.log('ok');
+            if (score > 1) {
+                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                var currectScore = score - 1;
+                // 最新のスコアを設定する
+                setScore(currectScore);
+            }
+            if (questionTextStock == '') {
+                //setAButton(1);
+                
+            } else {
+                setAButton(0);
+            }
+         }else if (aButton >= 2) {
+             //先がnullの時これ以上減点されない。
+         }
+         else {
+            //一番最初はゼロでaButtonの値が入ってくる
+            if (score > 1) {
+                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                var currectScore = score - 1;
+                // 最新のスコアを設定する
+                setScore(currectScore);
+            }
+         }
+        }
+
+        if (i === 1) {
+         if (bButton == 1) {
+            //console.log('ok');
+            if (score > 1) {
+                //console.log('ok');
+                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                var currectScore = score - 1;
+                // 最新のスコアを設定する
+                setScore(currectScore);
+            }
+            if (questionTextStock == '') {
+                //setAButton(1);
+                
+            } else {
+                setBButton(0);
+            }
+         }else if (bButton >= 2) {
+             //先がnullの時これ以上減点されない。
+         }
+         else {
+            //console.log('ok');
+            //一番最初はゼロでaButtonの値が入ってくる
+            if (score > 1) {
+                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                var currectScore = score - 1;
+                // 最新のスコアを設定する
+                setScore(currectScore);
+            }
+         }
+        }
+
+
+
+
+        if (i === 2) {
+            if (cButton == 1) {
+               //console.log('ok');
+               if (score > 1) {
+                   //console.log('ok');
+                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                   var currectScore = score - 1;
+                   // 最新のスコアを設定する
+                   setScore(currectScore);
+               }
+               if (questionTextStock == '') {
+                   //setAButton(1);
+                   
+               } else {
+                   setCButton(0);
+               }
+            }else if (cButton >= 2) {
+                //先がnullの時これ以上減点されない。
+            }
+            else {
+               console.log('ok');
+               //一番最初はゼロでaButtonの値が入ってくる
+               if (score > 1) {
+                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                   var currectScore = score - 1;
+                   // 最新のスコアを設定する
+                   setScore(currectScore);
+               }
+            }
+           }
+
+           if (i === 3) {
+            if (dButton == 1) {
+               //console.log('ok');
+               if (score > 1) {
+                   //console.log('ok');
+                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                   var currectScore = score - 1;
+                   // 最新のスコアを設定する
+                   setScore(currectScore);
+               }
+               if (questionTextStock == '') {
+                   //setAButton(1);
+                   
+               } else {
+                   setDButton(0);
+               }
+            }else if (dButton >= 2) {
+                //先がnullの時これ以上減点されない。
+            }
+            else {
+               //console.log('ok');
+               //一番最初はゼロでaButtonの値が入ってくる
+               if (score > 1) {
+                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                   var currectScore = score - 1;
+                   // 最新のスコアを設定する
+                   setScore(currectScore);
+               }
+            }
+           }
+            
+           
+        
+        /*if (questionTextStock == '') {
+        } 
+        else
+        {
+            if (score > 1) {
+                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                var currectScore = score - 1;
+                // 最新のスコアを設定する
+                setScore(currectScore);
+                //console.log(score);
+                //console.log(props.navigation);
+            } else {
+                // 用意された質問が全部終わった後
+                
+            }
+        }*/
+        
     }
     
     // モーダルの表示・非表示
@@ -187,6 +347,7 @@ export default function Question(props) {
         // モーダルの非表示
         toggleOverlay();
     }    
+    let random = [2,0,1,3];
 
     return (
         <ThemeProvider theme={theme}>
@@ -247,11 +408,11 @@ export default function Question(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
+                             {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
-                            ))}
+                            ))} 
                         </View>
                         <View style={{ marginTop: 30 }}>
                             <Button
