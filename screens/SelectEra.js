@@ -3,6 +3,7 @@ import { View, ImageBackground } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import questions from './question';
 
+
 const theme = {
   Button: {
     containerStyle: {
@@ -52,32 +53,70 @@ export default function SelectEra(props) {
           />
 
           <View style={{ flex: 1, alignItems: 'center' }}>
-            <Text h1>時代の選択</Text>
-            <Text h1>時代を選べ！</Text>
+            {/* <Text h1>時代の選択</Text> */}
+            <Text
+            h1
+            style={{ marginTop:20 }}
+            >
+              時代を選べ！
+            </Text>
+
             <Button
               title="ランダム"
               onPress={() => {
-                props.navigation.navigate('Question', { questionRandom: questionRandom });
+                props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
                 random();
               }}
-              containerStyle={{ width: '45%', marginBottom: 50, }}
+              containerStyle={{ width: '50%', marginBottom: 50, }}
             />
 
             <Button
-              title="江戸時代"
+              title="大正時代"
               onPress={() => {
-                props.navigation.navigate('Question', { questionRandom: questionRandom });
+                props.navigation.navigate('SelectQuestion', {
+                  questionRandom: questionRandom,
+                  period: '大正時代'
+                }
+                );
                 random();
               }}
-              containerStyle={{ width: '45%', marginBottom: 50, }}
+              containerStyle={{ width: '50%', marginBottom: 50, }}
             />
             <Button
               title="明治時代"
               onPress={() => {
-                props.navigation.navigate('Question', { questionRandom: questionRandom });
+                props.navigation.navigate('SelectQuestion', {
+                  questionRandom: questionRandom,
+                  period: '明治時代'
+                }
+                );
                 random();
               }}
-              containerStyle={{ width: '45%' }}
+              containerStyle={{ width: '50%', marginBottom: 50, }}
+            />
+            <Button
+              title="江戸時代"
+              onPress={() => {
+                props.navigation.navigate('SelectQuestion', {
+                  questionRandom: questionRandom,
+                  period: '江戸時代'
+                }
+                );
+                random();
+              }}
+              containerStyle={{ width: '50%', marginBottom: 50, }}
+            />
+            <Button
+              title="室町・戦国時代"
+              onPress={() => {
+                props.navigation.navigate('SelectQuestion', {
+                  questionRandom: questionRandom,
+                  period: '室町・戦国時代'
+                }
+                );
+                random();
+              }}
+              containerStyle={{ width: '50%', marginBottom: 50, }}
             />
           </View>
         </ImageBackground>
