@@ -86,14 +86,7 @@ export default function Question(props) {
         // console.log(i);
         //setNewQuestionText(questionOption, i);
         let number = i;
-        // if (number == 0)
-        // {
-        //     let prenumber = 0;
-        // }else 
-        // {
-        //     prenumber = i - 1;
-        // }
-         //console.log(number);
+
 
         if(i === 0) {
             //console.log(countQuestionOne);
@@ -101,31 +94,29 @@ export default function Question(props) {
              //console.log(countQuestionOne);
             var countQuestionButton = countQuestionOne;
              //console.log(countQuestionButton);
-             //console.log(aButton);
-            //var NewAButton = aButton + 1;
-            setAButton(aButton + 1);
-            console.log("A"+aButton);
+            var A_temp = aButton + 1;
+            console.log("A"+A_temp);
         } 
         else if(i === 1) {
             setCountQuestionTwo(countQuestionTwo + 1);
             // console.log(countQuestionTwo);
             var countQuestionButton = countQuestionTwo;
-            setBButton(bButton + 1);
-            console.log("B"+bButton);
+            var B_temp = bButton + 1;
+            console.log("B"+B_temp);
         } 
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
             // console.log(countQuestionThree);
             var countQuestionButton = countQuestionThree;
-            setCButton(cButton + 1);
-            console.log("C"+cButton);
+            var C_temp = cButton + 1;
+            console.log("C"+C_temp);
         } 
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
             // console.log(countQuestionFour);
             var countQuestionButton = countQuestionFour;
-            setDButton(dButton + 1);
-            console.log("D"+dButton);
+            var D_temp = dButton + 1;
+            console.log("D"+D_temp);
         }
 
         if(countQuestionButton == 1) {
@@ -165,11 +156,12 @@ export default function Question(props) {
             setShowQuestions(showQuestions);
             // console.log(showQuestions[currentQuestion].questionOptions);
         }
-        //console.log(aButton);
+
+
         // 質問ボタンを全て押し切る前
         if (i === 0){
-        if (aButton == 1) {
-            //console.log('ok');
+        if (A_temp == 1) {
+            //一度もnullに当たったことがない時
             if (score > 1) {
                 // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
                 var currectScore = score - 1;
@@ -177,139 +169,84 @@ export default function Question(props) {
                 setScore(currectScore);
             }
             if (questionTextStock == '') {
-                //setAButton(1);
-                
+                //もし次がnullだったらaButtonの値を１に変える。
+                setAButton(1);
             } else {
+                //もし次がnullじゃなかったら次押された時も点数がへる。
                 setAButton(0);
             }
-         }else if (aButton >= 2) {
-             //先がnullの時これ以上減点されない。
-         }
-         else {
-            //一番最初はゼロでaButtonの値が入ってくる
-            if (score > 1) {
-                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                var currectScore = score - 1;
-                // 最新のスコアを設定する
-                setScore(currectScore);
-            }
+         }else if (A_temp >= 2) {
+             //前回までにnullに当たったことがある時これ以上減点されない。
+             setAButton(A_temp);
          }
         }
 
-        if (i === 1) {
-         if (bButton == 1) {
-            //console.log('ok');
-            if (score > 1) {
+        if (i === 1){
+            if (B_temp == 1) {
                 //console.log('ok');
-                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                var currectScore = score - 1;
-                // 最新のスコアを設定する
-                setScore(currectScore);
-            }
-            if (questionTextStock == '') {
-                //setAButton(1);
-                
-            } else {
-                setBButton(0);
-            }
-         }else if (bButton >= 2) {
-             //先がnullの時これ以上減点されない。
-         }
-         else {
-            //console.log('ok');
-            //一番最初はゼロでaButtonの値が入ってくる
-            if (score > 1) {
-                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                var currectScore = score - 1;
-                // 最新のスコアを設定する
-                setScore(currectScore);
-            }
-         }
+                if (score > 1) {
+                    // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                    var currectScore = score - 1;
+                    // 最新のスコアを設定する
+                    setScore(currectScore);
+                }
+                if (questionTextStock == '') {
+                    setBButton(1);
+                } else {
+                    setBButton(0);
+                }
+             }else if (B_temp >= 2) {
+                 //先がnullの時これ以上減点されない。
+                 setBButton(B_temp);
+             }
+        }
+    
+
+
+
+        if (i === 2){
+            if (C_temp == 1) {
+                //console.log('ok');
+                if (score > 1) {
+                    // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                    var currectScore = score - 1;
+                    // 最新のスコアを設定する
+                    setScore(currectScore);
+                }
+                if (questionTextStock == '') {
+                    //setAButton(1);
+                    setCButton(1);
+                } else {
+                    setCButton(0);
+                }
+             }else if (C_temp >= 2) {
+                 //先がnullの時これ以上減点されない。
+                 setCButton(C_temp);
+             }
         }
 
 
 
-
-        if (i === 2) {
-            if (cButton == 1) {
-               //console.log('ok');
-               if (score > 1) {
-                   //console.log('ok');
-                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                   var currectScore = score - 1;
-                   // 最新のスコアを設定する
-                   setScore(currectScore);
-               }
-               if (questionTextStock == '') {
-                   //setAButton(1);
-                   
-               } else {
-                   setCButton(0);
-               }
-            }else if (cButton >= 2) {
-                //先がnullの時これ以上減点されない。
-            }
-            else {
-               console.log('ok');
-               //一番最初はゼロでaButtonの値が入ってくる
-               if (score > 1) {
-                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                   var currectScore = score - 1;
-                   // 最新のスコアを設定する
-                   setScore(currectScore);
-               }
-            }
-           }
-
-           if (i === 3) {
-            if (dButton == 1) {
-               //console.log('ok');
-               if (score > 1) {
-                   //console.log('ok');
-                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                   var currectScore = score - 1;
-                   // 最新のスコアを設定する
-                   setScore(currectScore);
-               }
-               if (questionTextStock == '') {
-                   //setAButton(1);
-                   
-               } else {
-                   setDButton(0);
-               }
-            }else if (dButton >= 2) {
-                //先がnullの時これ以上減点されない。
-            }
-            else {
-               //console.log('ok');
-               //一番最初はゼロでaButtonの値が入ってくる
-               if (score > 1) {
-                   // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                   var currectScore = score - 1;
-                   // 最新のスコアを設定する
-                   setScore(currectScore);
-               }
-            }
-           }
-            
-           
-        
-        /*if (questionTextStock == '') {
-        } 
-        else
-        {
-            if (score > 1) {
-                // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
-                var currectScore = score - 1;
-                // 最新のスコアを設定する
-                setScore(currectScore);
-                //console.log(score);
-                //console.log(props.navigation);
-            } else {
-                // 用意された質問が全部終わった後
-                
-            }
-        }*/
+        if (i === 3){
+            if (D_temp == 1) {
+                //console.log('ok');
+                if (score > 1) {
+                    // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
+                    var currectScore = score - 1;
+                    // 最新のスコアを設定する
+                    setScore(currectScore);
+                }
+                if (questionTextStock == '') {
+                    //setAButton(1);
+                    setDButton(1);
+                } else {
+                    setDButton(0);
+                }
+             }else if (D_temp >= 2) {
+                 //先がnullの時これ以上減点されない。
+                 setDButton(D_temp);
+             }
+        }
         
     }
     
