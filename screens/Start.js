@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, ImageBackground } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
+import firebase from 'firebase';
 
 const theme = {
   Button: {
@@ -18,8 +19,31 @@ const theme = {
 };
 
 
-export default class Start extends Component {
-  render() {
+export default function Start(props) {
+  const firebaseConfig = {
+    // 各自生成された値を入れる
+    apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
+    authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
+    projectId: "japan-history-quiz-6e89d",
+    storageBucket: "japan-history-quiz-6e89d.appspot.com",
+    messagingSenderId: "1037148992157",
+    appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
+    databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
+  }
+  if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
+      firebase.initializeApp(firebaseConfig);
+  }
+
+  const [info, setInfo] = useState("");
+
+  firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+    const docs = querySnapshot.docs.map(doc => doc.data());
+    setInfo(docs);
+    // console.log(info);
+  });
+  // console.log(info);
+  // console.log(info[1].username);
+  
     return (
       <ThemeProvider theme={theme}>
         <View >
@@ -37,7 +61,7 @@ export default class Start extends Component {
               rightComponent={{
                 icon: 'login',
                 color: 'brown',
-                onPress: () => this.props.navigation.navigate('Auth')
+                onPress: () => props.navigation.navigate('Auth')
               }}
               containerStyle={{
                 backgroundColor: '',
@@ -51,14 +75,26 @@ export default class Start extends Component {
               <Button
                 title="始める"
                 onPress={() => {
-                  this.props.navigation.navigate('SelectNumber');
+                  props.navigation.navigate('SelectNumber');
                 }}
                 containerStyle={{ width: '45%', marginBottom: 50, }}
               />
               <Button
                 title="ランキング"
                 onPress={() => {
-                  this.props.navigation.navigate('Ranking');
+                  props.navigation.navigate(
+                    'Ranking', { 
+                      username1: info[0].username, 
+                      score1: info[0].score, 
+                      username2: info[1].username, 
+                      score2: info[1].score, 
+                      username3: info[2].username, 
+                      score3: info[2].score, 
+                      username4: info[3].username, 
+                      score4: info[3].score, 
+                      username5: info[4].username, 
+                      score5: info[4].score, 
+                    });
                 }}
                 containerStyle={{ width: '45%' }}
               />
@@ -68,4 +104,3 @@ export default class Start extends Component {
       </ThemeProvider>
     )
   }
-}
