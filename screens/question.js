@@ -134,7 +134,7 @@ const questions = [
             { 
                 questionText: '尊敬している人は誰ですか？', 
                 answerText: '勝川春章先生じゃ。19歳の時に弟子入りしたぞ。', 
-                readText: '勝川春章先生じゃ。19歳の時に弟子入りしたぞ。' 
+                readText: 'かつ川しゅん章先生じゃ。19歳の時に弟子入りしたぞ。' 
             },
         ],
         questionOptionsSecond: [
