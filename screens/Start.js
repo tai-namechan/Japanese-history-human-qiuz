@@ -78,7 +78,7 @@ export default function Start(props) {
               rightComponent={{
                 icon: 'login',
                 color: 'brown',
-                onPress: () => this.props.navigation.navigate('Auth')
+                onPress: () => props.navigation.navigate('Auth')
               }}
               containerStyle={{
                 backgroundColor: '',
