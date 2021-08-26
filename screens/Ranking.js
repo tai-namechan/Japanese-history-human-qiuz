@@ -120,22 +120,22 @@ export default function Answer({ navigation }) {
     //     // console.log(rankingInfo);
     // }
 
-    const [text, setText] = useState([]);
+    // const [text, setText] = useState([]);
 
-    firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-        const docs = querySnapshot.docs.map(doc => doc.data());
-        // console.log(docs);
-        // const posts = docs;
-        // console.log(posts[0]);
-        // console.log('=============!!');
-        const posts = docs;
-        console.log(posts);
-        // setText(posts);
+    // firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+    //     const docs = querySnapshot.docs.map(doc => doc.data());
+    //     // console.log(docs);
+    //     // const posts = docs;
+    //     // console.log(posts[0]);
+    //     // console.log('=============!!');
+    //     const posts = docs;
+    //     // console.log(posts);
+    //     // setText(posts);
 
-        setText(posts);
-        // console.log('=============!!');
-        // console.log(text);
-    });
+    //     setText(posts);
+    //     // console.log('=============!!');
+    //     // console.log(text);
+    // });
     // console.log("名前：", text.username);
     
 
