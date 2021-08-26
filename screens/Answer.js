@@ -8,6 +8,7 @@ import questions from './question';
 // import useWindowSize from 'react-use/lib/useWindowSize'
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
+import firebase from 'firebase';
 
 const theme = {
     colors: {
@@ -26,7 +27,7 @@ export default function Answer({ navigation }) {
     const [lastScore, setlastScore] = useState("");
     //const [human1, setHuman1] = useState('');
     const [answerText, setAnswerText] = useState("");
-
+    const [databaseScore, setDatabaseScore] = useState("");
 
     // 正誤表示
     const answerWord = {
@@ -114,8 +115,70 @@ export default function Answer({ navigation }) {
     });
 
 
+
+    // const image = questions[number].image;
+
+
+
+  
     const image = questions[number].image;
 
+    const firebaseConfig = {
+        // 各自生成された値を入れる
+        apiKey: "AIzaSyAlFs-hQv_K-11iiZxtRuWprNdt_Wexb38",
+        authDomain: "japa-his-quiz.firebaseapp.com",
+        projectId: "japa-his-quiz",
+        storageBucket: "japa-his-quiz.appspot.com",
+        messagingSenderId: "488843376693",
+        appId: "1:488843376693:web:0ac02be9f4c44634ab197c",
+        databaseURL: "https://japa-his-quiz-default-rtdb.firebaseio.com/",
+    }
+    if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
+        firebase.initializeApp(firebaseConfig);
+    }
+    
+    // 現在ログインしているユーザーを取得する
+    const user = firebase.auth().currentUser;
+    if (user !== null) {
+        const uid = user.uid;
+        // console.log(uid);
+
+        const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
+
+        userInfomation.get().then((doc) => {
+            // console.log(doc.data('score'));
+            const data = doc.data();
+            // setDataScore(data);
+            const datascore = data.score;
+            // console.log(datascore);
+            let cc = Number(lastScore) + Number(datascore);
+            // setDatabaseScore(cc);
+            // console.log('スコア：', cc);
+
+            const datatimes = data.times;
+            // console.log('回数：',datatimes);
+            let dd = 1 + Number(datatimes);
+            // console.log(dd);
+
+            // firebaseのデータ更新（スコアの更新）
+            firebase
+                .firestore()
+                .collection('nicknameuser')
+                .doc(user.uid)
+                .update({
+                    score: cc,
+                    times: dd,
+                })
+                .then(() => {
+                    // console.log('Add Firestore Success');
+                })
+                .catch((error) => {
+                    // console.log(error);
+                });
+        });
+    }
+    
+    
 
     return (
 
