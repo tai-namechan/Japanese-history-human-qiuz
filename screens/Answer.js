@@ -5,7 +5,7 @@ import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'reac
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
 import questions from './question';
-import * as Speech from 'expo-speech';
+//import * as Speech from 'expo-speech';
 // import useWindowSize from 'react-use/lib/useWindowSize'
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
