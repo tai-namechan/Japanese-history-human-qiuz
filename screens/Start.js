@@ -62,47 +62,54 @@ export default function Start(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <View >
-        <ImageBackground
-          source={require('../assets/img/background.png')}
-          resizeMode="cover"
-          style={{ height: 1000, }}
-        >
-          <Header
-            placement="left"
-            rightComponent={{ icon: 'menu', color: 'brown' }}
-            centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
-            // onPress: () => this.props.navigation.navigate('Signup')
-          }}
-            leftComponent={{
-              icon: 'login',
-              color: 'brown',
-              onPress: () => props.navigation.navigate('Auth')
+        <View >
+          <ImageBackground
+            source={require('../assets/img/background.png')}
+            resizeMode="cover"
+            style={{ height: 1000, }}
+          >
+            <Header
+              // authは右にあった方がいい気がしたため、iconの左右入れ替えた
+              placement="left"
+              leftComponent={{ icon: 'menu', color: 'brown' }}
+              centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
+              // onPress: () => this.props.navigation.navigate('Signup')
             }}
-            containerStyle={{
-              backgroundColor: '',
-              justifyContent: 'space-around',
-            }}
-          />
-
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            <Text h1>スタート画面</Text>
-            <Text h1>覚えろ日本史!</Text>
-            <Button
-              title="始める"
-              onPress={() => {
-                props.navigation.navigate('SelectNumber')
+              rightComponent={{
+                icon: 'login',
+                color: 'brown',
+                onPress: () => this.props.navigation.navigate('Auth')
               }}
-              containerStyle={{ width: '45%', marginBottom: 50, }}
+              containerStyle={{
+                backgroundColor: '',
+                justifyContent: 'space-around',
+              }}
             />
-            <Button
-              title="ランキング"
-              onPress={getDatabaseData}
-              containerStyle={{ width: '45%' }}
-            />
-          </View>
-        </ImageBackground>
-      </View>
-    </ThemeProvider>
+
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              {/* <Text h1>スタート画面</Text> */}
+              <Text
+                h1
+                style={{ marginTop:30,}}
+              >
+                歴史の壁
+              </Text>
+              <Text h1>〜正解を衝け〜</Text>
+              <Button
+                title="始める"
+                onPress={() => {
+                  props.navigation.navigate('SelectNumber');
+                }}
+                containerStyle={{ width: '50%', marginBottom: 50, marginTop:100, }}
+              />
+              <Button
+                title="ランキング"
+                onPress={getDatabaseData}
+                containerStyle={{ width: '50%' }}
+              />
+            </View>
+          </ImageBackground>
+        </View>
+      </ThemeProvider>
   )
 }
