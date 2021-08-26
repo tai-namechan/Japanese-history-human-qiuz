@@ -8,7 +8,7 @@ const theme = {
       margin: '6%',
     },
     titleStyle: {
-      fontSize: 36.2
+      fontSize: 40
     },
     raised: true,
   },
@@ -29,7 +29,9 @@ export default class Start extends Component {
             style={{ height: 1000, }}
           >
             <Header
+              // authは右にあった方がいい気がしたため、iconの左右入れ替えた
               placement="left"
+              leftComponent={{ icon: 'menu', color: 'brown' }}
               centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
               // onPress: () => this.props.navigation.navigate('Signup')
             }}
@@ -45,21 +47,27 @@ export default class Start extends Component {
             />
 
             <View style={{ flex: 1, alignItems: 'center' }}>
-              <Text h1>スタート画面</Text>
-              <Text h1>覚えろ日本史!</Text>
+              {/* <Text h1>スタート画面</Text> */}
+              <Text
+                h1
+                style={{ marginTop:30,}}
+              >
+                歴史の壁
+              </Text>
+              <Text h1>〜正解を衝け〜</Text>
               <Button
                 title="始める"
                 onPress={() => {
                   this.props.navigation.navigate('SelectNumber');
                 }}
-                containerStyle={{ width: '45%', marginBottom: 50, }}
+                containerStyle={{ width: '50%', marginBottom: 50, marginTop:100, }}
               />
               <Button
                 title="ランキング"
                 onPress={() => {
                   this.props.navigation.navigate('Ranking');
                 }}
-                containerStyle={{ width: '45%' }}
+                containerStyle={{ width: '50%' }}
               />
             </View>
           </ImageBackground>

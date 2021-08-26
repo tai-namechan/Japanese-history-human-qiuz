@@ -22,7 +22,7 @@ export default function Answer({ navigation }) {
     const score = navigation.state.params.score;
     //const human = navigation.state.params.human;
     const number = navigation.state.params.number;
-    
+
 
     const [lastScore, setlastScore] = useState("");
     //const [human1, setHuman1] = useState('');
@@ -61,9 +61,9 @@ export default function Answer({ navigation }) {
             //正誤：残念
             setAnswerText(answerWord.huseikai);
         }
-      }, []);
-      
-      
+    }, []);
+
+
 
     // 画像フェードインアウト
     const opacity = useState(new Animated.Value(0))[0]
@@ -113,6 +113,13 @@ export default function Answer({ navigation }) {
             backgroundColor: 'orange',
         },
     });
+
+
+
+    // const image = questions[number].image;
+
+
+
   
     const image = questions[number].image;
 
@@ -172,17 +179,18 @@ export default function Answer({ navigation }) {
     }
     
     
+
     return (
-        
+
         <ThemeProvider theme={theme}>
             <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
                     style={{ height: 1000, }}>
-                    
+
                     <Header
                         placement="left"
                         leftComponent={{ icon: 'menu', color: 'brown' }}
-                        centerComponent={{ text: '日本史', style: { color: 'brown' } }}
+                        centerComponent={{ text: '日本史の壁〜正解を衝け〜', style: { color: 'brown' } }}
                         //ホームボタン
                         rightComponent={{
                             icon: 'home',
@@ -288,7 +296,7 @@ export default function Answer({ navigation }) {
 
                         {/* 解説文 */}
                         <View style={styles.container} >
-                            <Animated.View 
+                            <Animated.View
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
                                 <Text>{questions[number].explanationTitle}</Text>
