@@ -14,13 +14,13 @@ class LoginScreen extends React.Component {
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
-      apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
-      authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
-      projectId: "japan-history-quiz-6e89d",
-      storageBucket: "japan-history-quiz-6e89d.appspot.com",
-      messagingSenderId: "1037148992157",
-      appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
-      databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
+      apiKey: "AIzaSyAlFs-hQv_K-11iiZxtRuWprNdt_Wexb38",
+      authDomain: "japa-his-quiz.firebaseapp.com",
+      projectId: "japa-his-quiz",
+      storageBucket: "japa-his-quiz.appspot.com",
+      messagingSenderId: "488843376693",
+      appId: "1:488843376693:web:0ac02be9f4c44634ab197c",
+      databaseURL: "https://japa-his-quiz-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
       firebase.initializeApp(firebaseConfig);
