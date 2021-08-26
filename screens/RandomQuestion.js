@@ -280,7 +280,10 @@ export default function SelectQuestion(props) {
         //const human = '渋沢栄一';
         const human = questions[currentQuestion].human;
         //const number = questions[currentQuestion];
-
+        setCountQuestionOne(1);
+        setCountQuestionTwo(1);
+        setCountQuestionThree(1);
+        setCountQuestionFour(1);
         // console.log(human);
         // console.log(inputText);
 
