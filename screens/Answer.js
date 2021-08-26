@@ -177,7 +177,7 @@ export default function Answer({ navigation }) {
                                 }} /> }
                     <Text h2>
                         {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
-                        {lastScore}点
+                        {lastScore}点/15点中
                     </Text>
                         {/* 偉人の名前 */}
                         {/* <Animated.Text
