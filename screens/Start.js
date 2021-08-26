@@ -64,7 +64,7 @@ export default function Start(props) {
     <ThemeProvider theme={theme}>
         <View >
           <ImageBackground
-            source={require('../assets/img/background.png')}
+            source={require('../assets/img/sakura-change.jpg')}
             resizeMode="cover"
             style={{ height: 1000, }}
           >
@@ -85,16 +85,53 @@ export default function Start(props) {
                 justifyContent: 'space-around',
               }}
             />
-
+            {/* <Image source={require('../assets/img/歴史の壁.png')}
+                                style={{
+                                    // width: 300,
+                                    height: 90,
+                                    marginTop: 50,
+                                    marginLeft:'20%',
+                                    marginRight:'20%',
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    justifyContent: 'center',
+                                    lignItems: 'center'
+                                }} />
+              <Image source={require('../assets/img/タイトル.png')}
+                                style={{
+                                    // width: 300,
+                                    height: 90,
+                                    marginTop: 30,
+                                    marginLeft:'20%',
+                                    marginRight:'20%',
+                                    bottom: 0,
+                                    justifyContent: 'center',
+                                    lignItems: 'center'
+                                }} /> */}
             <View style={{ flex: 1, alignItems: 'center' }}>
-              {/* <Text h1>スタート画面</Text> */}
-              <Text
-                h1
-                style={{ marginTop:30,}}
-              >
-                歴史の壁
-              </Text>
-              <Text h1>〜正解を衝け〜</Text>
+              <Image source={require('../assets/img/歴史の壁.png')}
+                                style={{
+                                    width: 300,
+                                    height: 90,
+                                    marginTop: 40,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    justifyContent: 'center',
+                                    lignItems: 'center'
+                                }} />
+              <Image source={require('../assets/img/タイトル.png')}
+                                style={{
+                                    width: 300,
+                                    height: 90,
+                                    marginTop: 40,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    justifyContent: 'center',
+                                    lignItems: 'center'
+                                }} />
               <Button
                 title="始める"
                 onPress={() => {
