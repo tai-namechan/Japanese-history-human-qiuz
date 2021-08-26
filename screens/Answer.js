@@ -29,7 +29,6 @@ export default function Answer({ navigation }) {
     
 
     const [lastScore, setlastScore] = useState("");
-    //const [human1, setHuman1] = useState('');
     const [answerText, setAnswerText] = useState("");
     const [correctImg, setCorrectImg] = useState("");
 
@@ -122,7 +121,12 @@ export default function Answer({ navigation }) {
             marginHorizontal: 'auto',
             padding: 24,
             marginTop: 10,
-            backgroundColor: 'orange',
+            //backgroundColor: 'peru',
+            //backgroundColor: 'darkgoldenrod',
+            //backgroundColor: 'rosybrown',
+            //backgroundColor: 'saddlebrown',
+            backgroundColor: 'maroon',
+            //backgroundColor: 'sienna',
         },
     });
     
@@ -263,8 +267,8 @@ export default function Answer({ navigation }) {
                             <Animated.View 
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
-                                <Text>{questions[number].explanationTitle}</Text>
-                                <Text>{questions[number].explanationDetail}
+                                <Text style={{ color: 'white' }}>{questions[number].explanationTitle}</Text>
+                                <Text style={{ color: 'white' }}>{questions[number].explanationDetail}
                                 </Text>
                             </Animated.View>
                         </View>
