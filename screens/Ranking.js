@@ -94,54 +94,19 @@ export default function Answer({ navigation }) {
         useNativeDriver: true
     }).start()
 
-    // ランキング
-    const firebaseConfig = {
-        // 各自生成された値を入れる
-        apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
-        authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
-        projectId: "japan-history-quiz-6e89d",
-        storageBucket: "japan-history-quiz-6e89d.appspot.com",
-        messagingSenderId: "1037148992157",
-        appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
-        databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
-    }
-    if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
-        firebase.initializeApp(firebaseConfig);
-    }
-
-    // const [rankingInfo, setRankingInfo] = useState([]);
-
-    // const onpress = () => {
-    //     console.log('=============!!');
-    //     var ff = firebase.firestore().collection('nicknameuser').orderBy("score", "desc").limit(2).get();
-    //     console.log(ff);
-    //     console.log('=============!!');
-    //     setRankingInfo(ff);
-    //     // console.log(rankingInfo);
-    // }
-
-    // const [text, setText] = useState([]);
-
-    // firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-    //     const docs = querySnapshot.docs.map(doc => doc.data());
-    //     // console.log(docs);
-    //     // const posts = docs;
-    //     // console.log(posts[0]);
-    //     // console.log('=============!!');
-    //     const posts = docs;
-    //     // console.log(posts);
-    //     // setText(posts);
-
-    //     setText(posts);
-    //     // console.log('=============!!');
-    //     // console.log(text);
-    // });
-    // console.log("名前：", text.username);
-    
-
+    // 前の画面（Start.js,Answer.js）からランキング上位5位を取得
+    const username1 = navigation.state.params.username1;
+    const score1 = navigation.state.params.score1;
+    const username2 = navigation.state.params.username2;
+    const score2 = navigation.state.params.score2;
+    const username3 = navigation.state.params.username3;
+    const score3 = navigation.state.params.score3;
+    const username4 = navigation.state.params.username4;
+    const score4 = navigation.state.params.score4;
+    const username5 = navigation.state.params.username5;
+    const score5 = navigation.state.params.score5;
 
     return (
-
         <ThemeProvider theme={theme}>
             <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
@@ -199,28 +164,28 @@ export default function Answer({ navigation }) {
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: firstOpacity, }}>🥇1位</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>アストラゼネカ田中</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>{username1}</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>{score1}point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: secondOpacity, }}>🥈2位</Animated.Text>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>ユーザー名</Animated.Text>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>{username2}</Animated.Text>
+                                <Animated.Text style={{ opacity: secondOpacity, }}>{score2}point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: thirdOpacity, }}>🥉3位</Animated.Text>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>ユーザー名</Animated.Text>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>{username3}</Animated.Text>
+                                <Animated.Text style={{ opacity: thirdOpacity, }}>{score3}point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: fourthOpacity, }}>💮4位</Animated.Text>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>ユーザー名</Animated.Text>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>{username4}</Animated.Text>
+                                <Animated.Text style={{ opacity: fourthOpacity, }}>{score4}point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>💮5位</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>{username5}</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>{score5}point</Animated.Text>
                             </View>
 
                             {/* ログインユーザーの記録 */}
