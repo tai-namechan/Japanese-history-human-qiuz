@@ -50,24 +50,27 @@ export default function Answer({ navigation }) {
 
 
     useEffect(() => {
-        console.log(correctness);
-        console.log(score);
+        // console.log(correctness);
+        // console.log(score);
         //console.log(human);
-        console.log(number);
+        // console.log(number);
 
         //console.log(questionRandom);
     }, []);
 
     useEffect(() => {
-        console.log(correctness);
+        // console.log(correctness);
         //正解だった場合
         if(correctness=="正解") {
             //最終点数：score
             setlastScore(score);
             //コメント：正解おめでとう！
             setAnswerText(answerWord.seikai);
-            console.log(answerText);
+
             setCorrectImg(marubatsu.seikai);
+
+            // console.log(answerText);
+
         }
         //不正解だった場合
         else {
