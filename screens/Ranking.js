@@ -5,6 +5,8 @@ import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'reac
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
 import questions from './question';
+import { Divider } from 'react-native-elements';
+
 
 const theme = {
     colors: {
@@ -17,8 +19,8 @@ const styles = StyleSheet.create({
         marginVertical: 'auto',
         marginHorizontal: 'auto',
         padding: 24,
-        marginTop: 20,
-        width: '62.5%',
+        marginTop: 18,
+        width: '75%',
         height: '35%',
         backgroundColor: 'white',
     },
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     },
     item1: {
         marginTop: 20,
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         flexDirection: 'row',
     },
 });
@@ -134,10 +136,11 @@ export default function Answer({ navigation }) {
                                     style={{
                                         opacity,
                                         alignItems: 'center',
-                                        fontSize: 24
+                                        fontSize: 24,
                                     }}>総獲得ポイント
                                 </Animated.Text>
                             </View>
+                            
                             <View style={styles.item1}>
                                 <Text></Text>
                                 <Text>お名前</Text>
@@ -145,7 +148,7 @@ export default function Answer({ navigation }) {
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: firstOpacity, }}>1位</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: firstOpacity, }}>アストラゼネカ田中</Animated.Text>
                                 <Animated.Text style={{ opacity: firstOpacity, }}>〇〇point</Animated.Text>
                             </View>
                             <View style={styles.item1}>
@@ -168,8 +171,13 @@ export default function Answer({ navigation }) {
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
                             </View>
+                            {/* ログインユーザーの記録 */}
+                            <View style={styles.item1}>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>私or〇〇位</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
+                            </View>
                         </View>
-
                         <View style={styles.container}>
 
                             <View style={styles.category}>
@@ -208,6 +216,13 @@ export default function Answer({ navigation }) {
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>5位</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
+                            </View>
+
+                            {/* ログインユーザーの記録 */}
+                            <View style={styles.item1}>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>私or〇〇位</Animated.Text>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
                             </View>
