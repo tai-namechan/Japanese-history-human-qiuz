@@ -64,7 +64,6 @@ export default function Answer({ navigation }) {
             setAnswerText(answerWord.seikai);
             console.log(answerText);
             setCorrectImg(marubatsu.seikai);
-            //let marubatsu = require('../assets/img/正解.png');
         }
         //不正解だった場合
         else {
@@ -73,7 +72,6 @@ export default function Answer({ navigation }) {
             //正誤：残念
             setAnswerText(answerWord.huseikai);
             setCorrectImg(marubatsu.huseikai);
-            //let marubatsu = require('../assets/img/不正解.png');
         }
       }, []);
       
@@ -235,8 +233,8 @@ export default function Answer({ navigation }) {
                             
                         >
                             <Animated.Text style={{
-                                fontSize: 25,
-                                height: 30,
+                                fontSize: 22,
+                                height: 27,
                                 
                                 //吹き出し内の文字をフェードインさせる
                                 opacity
