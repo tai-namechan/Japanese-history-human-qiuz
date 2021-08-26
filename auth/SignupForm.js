@@ -146,7 +146,7 @@ const styles = {
     borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: 'olivedrab',
     width: '60%',
     alignSelf: 'center',
   },
