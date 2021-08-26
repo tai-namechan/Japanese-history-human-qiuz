@@ -209,28 +209,48 @@ export default function Answer({ navigation }) {
 
         const getDatabaseData = async() => {
             await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-              // console.log("bbb");
-              const docs = querySnapshot.docs.map(doc => doc.data());
+            //   console.log("bbb");
+              const scoreDocs = querySnapshot.docs.map(doc => doc.data());
               // console.log("ccc");
               // console.log(docs);
-              const info = docs;
-              // console.log(info[0].username);
-              return info;
-            }).then((info) => {
-              // console.log("eee");
+              const scoreInfo = scoreDocs;
+              // console.log(scoreInfo[0].username);
+              return scoreInfo;
+            })
+            await firebase.firestore().collection("nicknameuser").orderBy('average', 'desc').limit(5).get().then((querySnapshot) => {
+                // console.log("bbbbb");
+                const averageDocs = querySnapshot.docs.map(doc => doc.data());
+                // console.log("ccc");
+                // console.log(averageDocs);
+                const scoreInfo = averageDocs;
+                // console.log(averageInfo[0]);
+                return scoreInfo;
+              }).then((scoreInfo) => {
+              console.log(scoreInfo);
               navigation.navigate(
-                'Ranking', { 
-                  username1: info[0].username, 
-                  score1: info[0].score, 
-                  username2: info[1].username, 
-                  score2: info[1].score, 
-                  username3: info[2].username, 
-                  score3: info[2].score, 
-                  username4: info[3].username, 
-                  score4: info[3].score, 
-                  username5: info[4].username, 
-                  score5: info[4].score, 
+                'Ranking', {
+                  username1: scoreInfo[0].username, 
+                  score1: scoreInfo[0].score, 
+                  username2: scoreInfo[1].username, 
+                  score2: scoreInfo[1].score, 
+                  username3: scoreInfo[2].username, 
+                  score3: scoreInfo[2].score, 
+                  username4: scoreInfo[3].username, 
+                  score4: scoreInfo[3].score, 
+                  username5: scoreInfo[4].username, 
+                  score5: scoreInfo[4].score, 
+                //   average_username1: averageInfo[0].username,
+                //   average_score1: averageInfo[0].average,
+                //   average_username2: averageInfo[1].username,
+                //   average_score2: averageInfo[1].average,
+                //   average_username3: averageInfo[2].username,
+                //   average_score3: averageInfo[2].average,
+                //   average_username4: averageInfo[3].username,
+                //   average_score4: averageInfo[3].average,
+                //   average_username5: averageInfo[4].username,
+                //   average_score5: averageInfo[4].average,
                 });
+                console.log("aaaaaaaaaa");
             });
           }
 
