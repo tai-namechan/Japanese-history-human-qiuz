@@ -95,22 +95,22 @@ export default function Answer({ navigation }) {
     }).start()
 
     // フェードイン
-    function fadeInBall() {
-        Animated.timing(opacity, {
-            toValue: 1,
-            //2sかけて現れる
-            duration: 2000,
-            useNativeDriver: true
-        }).start()
-    }
-    // フェードアウト
-    function fadeOutBall() {
-        Animated.timing(opacity, {
-            toValue: 0,
-            duration: 1000,
-            useNativeDriver: true
-        }).start()
-    }
+    // function fadeInBall() {
+    //     Animated.timing(opacity, {
+    //         toValue: 1,
+    //         //2sかけて現れる
+    //         duration: 2000,
+    //         useNativeDriver: true
+    //     }).start()
+    // }
+    // // フェードアウト
+    // function fadeOutBall() {
+    //     Animated.timing(opacity, {
+    //         toValue: 0,
+    //         duration: 1000,
+    //         useNativeDriver: true
+    //     }).start()
+    // }
 
     // 関数の準備
     const [visible, setVisible] = useState(false);
@@ -207,34 +207,33 @@ export default function Answer({ navigation }) {
             });
         }
 
-    const [info, setInfo] = useState("");
-    
-    const getDatabaseData = async() => {
-        await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-          // console.log("bbb");
-          const docs = querySnapshot.docs.map(doc => doc.data());
-          // console.log("ccc");
-          // console.log(docs);
-          const info = docs;
-          // console.log(info[0].username);
-          return info;
-        }).then((info) => {
-          // console.log("eee");
-          navigation.navigate(
-            'Ranking', { 
-              username1: info[0].username, 
-              score1: info[0].score, 
-              username2: info[1].username, 
-              score2: info[1].score, 
-              username3: info[2].username, 
-              score3: info[2].score, 
-              username4: info[3].username, 
-              score4: info[3].score, 
-              username5: info[4].username, 
-              score5: info[4].score, 
+        const getDatabaseData = async() => {
+            await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+              // console.log("bbb");
+              const docs = querySnapshot.docs.map(doc => doc.data());
+              // console.log("ccc");
+              // console.log(docs);
+              const info = docs;
+              // console.log(info[0].username);
+              return info;
+            }).then((info) => {
+              // console.log("eee");
+              navigation.navigate(
+                'Ranking', { 
+                  username1: info[0].username, 
+                  score1: info[0].score, 
+                  username2: info[1].username, 
+                  score2: info[1].score, 
+                  username3: info[2].username, 
+                  score3: info[2].score, 
+                  username4: info[3].username, 
+                  score4: info[3].score, 
+                  username5: info[4].username, 
+                  score5: info[4].score, 
+                });
             });
-        });
-      }
+          }
+
     
     
 
@@ -379,7 +378,7 @@ export default function Answer({ navigation }) {
                         <Button
                             title="ランキング"
                             onPress={getDatabaseData}
-                            containerStyle={{ width: '45%' }}
+                            containerStyle={{ width: '50%' }}
                         />
                     </View>
                 </ImageBackground>
