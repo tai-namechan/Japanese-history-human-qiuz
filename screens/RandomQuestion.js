@@ -300,6 +300,17 @@ export default function SelectQuestion(props) {
 
         // モーダルの非表示
         toggleOverlay();
+        
+        Speech.speak(questions[currentQuestion].readDialogue,
+            {
+                
+                "language": "ja",
+                // 低い声
+                "pitch": -1,
+                // 高い声
+                // "pitch": 1,
+            }
+        );
     }
 
     return (
