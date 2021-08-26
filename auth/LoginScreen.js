@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView  } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView , ImageBackground } from 'react-native';
 import LoginForm from './LoginForm.js';
 
 class LoginScreen extends React.Component {
@@ -63,21 +63,27 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
-        </View>
-        {this.renderForm()}
-        
-        {/* ログイン後Topページに戻るボタン */}
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Start')
-        }}>
-          <Text style={styles.toppagebutton}>
-            Topページに戻る
-          </Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <ImageBackground
+        source={require('../assets/img/auth_background.png')}
+        resizeMode="cover"
+        style={{ height: '100%', }}
+      >
+        <SafeAreaView>
+          <View style={styles.container}>
+            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
+          </View>
+          {this.renderForm()}
+          
+          {/* ログイン後Topページに戻るボタン */}
+          <TouchableOpacity style={styles.button2} onPress={() => {
+            this.props.navigation.navigate('Start')
+          }}>
+            <Text style={styles.toppagebutton}>
+              Topページに戻る
+            </Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </ImageBackground>
     );
   }
 }

@@ -30,11 +30,10 @@ export default class Start extends Component {
           >
             <Header
               placement="left"
-              rightComponent={{ icon: 'menu', color: 'brown' }}
               centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
               // onPress: () => this.props.navigation.navigate('Signup')
             }}
-              leftComponent={{
+              rightComponent={{
                 icon: 'login',
                 color: 'brown',
                 onPress: () => this.props.navigation.navigate('Auth')
