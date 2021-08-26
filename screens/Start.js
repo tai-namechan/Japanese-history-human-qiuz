@@ -34,31 +34,93 @@ export default function Start(props) {
   }
 
   const getDatabaseData = async() => {
+    // console.log("================");
+    // 総合スコアの降順の取得
     await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-      // console.log("bbb");
-      const docs = querySnapshot.docs.map(doc => doc.data());
-      // console.log("ccc");
-      // console.log(docs);
-      const info = docs;
-      // console.log(info[0].username);
-      return info;
-    }).then((info) => {
-      // console.log("eee");
-      props.navigation.navigate(
-        'Ranking', { 
-          username1: info[0].username, 
-          score1: info[0].score, 
-          username2: info[1].username, 
-          score2: info[1].score, 
-          username3: info[2].username, 
-          score3: info[2].score, 
-          username4: info[3].username, 
-          score4: info[3].score, 
-          username5: info[4].username, 
-          score5: info[4].score, 
+      console.log("bbb");
+      const scoreDocs = querySnapshot.docs.map(doc => doc.data());
+    //   console.log("ccc");
+    //   console.log(scoreDocs);
+      const scoreInfo = scoreDocs;
+      // console.log(scoreInfo[0].username);
+      return scoreInfo;
+    }).then((scoreInfo) => {
+        let uu = scoreInfo;
+        // console.log(uu);
+        return uu;
+    })
+    // 平均スコアの降順の取得
+    .then((uu) =>{
+        firebase.firestore().collection("nicknameuser").orderBy('average', 'desc').limit(5).get().then((querySnapshot) => {
+            // console.log("bbbbb");
+            const averageDocs = querySnapshot.docs.map(doc => doc.data());
+            // console.log("ccc");
+            // console.log(averageDocs);
+            const averageInfo = averageDocs;
+            const rr = uu.concat(averageInfo);
+            console.log(rr);
+            // setRrr(rr);
+            // return rr;
+
+            props.navigation.navigate(
+                'Ranking', {
+                // 遷移時に値を受け渡す
+                username1: rr[0].username, 
+                score1: rr[0].score, 
+                username2: rr[1].username, 
+                score2: rr[1].score, 
+                username3: rr[2].username, 
+                score3: rr[2].score, 
+                username4: rr[3].username, 
+                score4: rr[3].score, 
+                username5: rr[4].username, 
+                score5: rr[4].score, 
+
+                average_username1: rr[5].username,
+                average_score1: rr[5].average,
+                average_username2: rr[6].username,
+                average_score2: rr[6].average,
+                average_username3: rr[7].username,
+                average_score3: rr[7].average,
+                average_username4: rr[8].username,
+                average_score4: rr[8].average,
+                average_username5: rr[9].username,
+                average_score5: rr[9].average,
+                });
+        })
+    })
+}
+
+const navChange = async(rr) => {
+    await getDatabaseData(rr).then((rr)=>{
+        navigation.navigate(
+            'Ranking', {
+            // 遷移時に値を受け渡す
+              username1: rr[0].username, 
+              score1: rr[0].score, 
+              username2: rr[1].username, 
+              score2: rr[1].score, 
+              username3: rr[2].username, 
+              score3: rr[2].score, 
+              username4: rr[3].username, 
+              score4: rr[3].score, 
+              username5: rr[4].username, 
+              score5: rr[4].score, 
+
+              average_username1: rr[5].username,
+              average_score1: rr[5].average,
+              average_username2: rr[6].username,
+              average_score2: rr[6].average,
+              average_username3: rr[7].username,
+              average_score3: rr[7].average,
+              average_username4: rr[8].username,
+              average_score4: rr[8].average,
+              average_username5: rr[9].username,
+              average_score5: rr[9].average,
         });
-    });
-  }
+    })
+      
+}
 
   return (
     <ThemeProvider theme={theme}>
@@ -141,7 +203,7 @@ export default function Start(props) {
               />
               <Button
                 title="ランキング"
-                onPress={getDatabaseData}
+                onPress={navChange}
                 containerStyle={{ width: '50%' }}
               />
             </View>
