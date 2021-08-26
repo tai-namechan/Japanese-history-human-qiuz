@@ -161,6 +161,11 @@ export default function Answer({ navigation }) {
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
         firebase.initializeApp(firebaseConfig);
     }
+
+    const [databaseUserName, setDatabaseUserName] = useState("");
+    const [databaseUserScore, setDatabaseUserScore] = useState("");
+    const [databaseUserAverage, setDatabaseUserAverage] = useState("");
+
     
         // 現在ログインしているユーザーを取得する
         const user = firebase.auth().currentUser;
@@ -173,7 +178,21 @@ export default function Answer({ navigation }) {
             userInfomation.get().then((doc) => {
                 // console.log(doc.data('score'));
                 const data = doc.data();
+
+                const datausername = data.username;
+                // setDatabaseUserName(datausername);
+                // console.log("名前", databaseUserName);
+
+                
+                // const databaseuseraverage = datauseraverage;
+                // console.log(datauseraverage);
+                // setDatabaseUserAverage(databaseuseraverage);
+                // console.log("平均点", databaseUserAverage);
+
                 const datascore = data.score;
+
+                // setDatabaseUserScore(datascore);
+                // console.log("スコア", databaseUserScore);
                 // console.log(datascore);
                 let cc = Number(lastScore) + Number(datascore);
                 // setDatabaseScore(cc);
@@ -204,8 +223,15 @@ export default function Answer({ navigation }) {
                     .catch((error) => {
                         // console.log(error);
                     });
+                
+                // const datauseraverage = data.average;
+                // return datauseraverage;
             });
+            // setDatabaseUserAverage(datauseraverage);
+            // console.log(datauseraverage);
         }
+        // console.log(datauseraverage);
+
 
         const getDatabaseData = async() => {
             // console.log("================");
@@ -234,72 +260,59 @@ export default function Answer({ navigation }) {
                     const rr = uu.concat(averageInfo);
                     console.log(rr);
                     // setRrr(rr);
-                    // return rr;
+                    return rr;
+            })
+            .then((rr)=>{
+                const user = firebase.auth().currentUser;
+                // console.log(user);
+                if (user !== null){
+                    const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
 
-                    navigation.navigate(
-                        'Ranking', {
-                        // 遷移時に値を受け渡す
-                        username1: rr[0].username, 
-                        score1: rr[0].score, 
-                        username2: rr[1].username, 
-                        score2: rr[1].score, 
-                        username3: rr[2].username, 
-                        score3: rr[2].score, 
-                        username4: rr[3].username, 
-                        score4: rr[3].score, 
-                        username5: rr[4].username, 
-                        score5: rr[4].score, 
+                    userInfomation.get().then((doc) => {
+                        const data = doc.data();
+                        const loginusername = data.username;
+                        // console.log(datausername);
 
-                        average_username1: rr[5].username,
-                        average_score1: rr[5].average,
-                        average_username2: rr[6].username,
-                        average_score2: rr[6].average,
-                        average_username3: rr[7].username,
-                        average_score3: rr[7].average,
-                        average_username4: rr[8].username,
-                        average_score4: rr[8].average,
-                        average_username5: rr[9].username,
-                        average_score5: rr[9].average,
+                        const loginscore = data.score;
+                        // console.log(datascore);
+
+                        const loginaverage = data.average;
+                        // console.log(datatimes);
+
+                        navigation.navigate(
+                            'Ranking', {
+                            // 遷移時に値を受け渡す
+                            username1: rr[0].username, 
+                            score1: rr[0].score, 
+                            username2: rr[1].username, 
+                            score2: rr[1].score, 
+                            username3: rr[2].username, 
+                            score3: rr[2].score, 
+                            username4: rr[3].username, 
+                            score4: rr[3].score, 
+                            username5: rr[4].username, 
+                            score5: rr[4].score, 
+    
+                            average_username1: rr[5].username,
+                            average_score1: rr[5].average,
+                            average_username2: rr[6].username,
+                            average_score2: rr[6].average,
+                            average_username3: rr[7].username,
+                            average_score3: rr[7].average,
+                            average_username4: rr[8].username,
+                            average_score4: rr[8].average,
+                            average_username5: rr[9].username,
+                            average_score5: rr[9].average,
+    
+                            login_username: loginusername,
+                            login_score: loginscore,
+                            login_average : loginaverage,
                         });
-                })
+                    })
+                }
             })
-        }
-
-        const navChange = async(rr) => {
-            await getDatabaseData(rr).then((rr)=>{
-                navigation.navigate(
-                    'Ranking', {
-                    // 遷移時に値を受け渡す
-                      username1: rr[0].username, 
-                      score1: rr[0].score, 
-                      username2: rr[1].username, 
-                      score2: rr[1].score, 
-                      username3: rr[2].username, 
-                      score3: rr[2].score, 
-                      username4: rr[3].username, 
-                      score4: rr[3].score, 
-                      username5: rr[4].username, 
-                      score5: rr[4].score, 
-    
-                      average_username1: rr[5].username,
-                      average_score1: rr[5].average,
-                      average_username2: rr[6].username,
-                      average_score2: rr[6].average,
-                      average_username3: rr[7].username,
-                      average_score3: rr[7].average,
-                      average_username4: rr[8].username,
-                      average_score4: rr[8].average,
-                      average_username5: rr[9].username,
-                      average_score5: rr[9].average,
-                });
-            })
-              
-        }
-
-        
-
-    
-    
+        });
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -441,7 +454,7 @@ export default function Answer({ navigation }) {
                         </View>
                         <Button
                             title="ランキング"
-                            onPress={navChange}
+                            onPress={getDatabaseData}
                             containerStyle={{ width: '50%' }}
                         />
                     </View>
