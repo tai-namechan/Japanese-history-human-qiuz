@@ -29,12 +29,13 @@ export default class Start extends Component {
             style={{ height: 1000, }}
           >
             <Header
+              // authは右にあった方がいい気がしたため、iconの左右入れ替えた
               placement="left"
-              rightComponent={{ icon: 'menu', color: 'brown' }}
+              leftComponent={{ icon: 'menu', color: 'brown' }}
               centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
               // onPress: () => this.props.navigation.navigate('Signup')
             }}
-              leftComponent={{
+              rightComponent={{
                 icon: 'login',
                 color: 'brown',
                 onPress: () => this.props.navigation.navigate('Auth')

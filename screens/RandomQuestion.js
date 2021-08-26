@@ -309,6 +309,12 @@ export default function SelectQuestion(props) {
                     style={{ height: 1000, }}>
 
                     <Header
+                        // 問題画面にはstart.jsに戻るボタンはいらない？
+                        // leftComponent={{
+                        //     icon: 'home',
+                        //     color: 'brown',
+                        //     onPress: () => props.navigation.navigate('Start')
+                        // }}
                         placement="left"
                         centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' } }}
                         containerStyle={{

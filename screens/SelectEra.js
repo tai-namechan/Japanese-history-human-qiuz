@@ -42,9 +42,9 @@ export default function SelectEra(props) {
             // onPress: () => this.props.navigation.navigate('Signup')
           }}
             leftComponent={{
-              icon: 'login',
+              icon: 'home',
               color: 'brown',
-              onPress: () => props.navigation.navigate('SelectNumber')
+              onPress: () => props.navigation.navigate('Start')
             }}
             containerStyle={{
               backgroundColor: '',
