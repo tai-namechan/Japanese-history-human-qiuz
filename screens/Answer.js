@@ -13,6 +13,11 @@ const theme = {
     colors: {
         primary: 'brown',
     },
+    Button: {
+        containerStyle: {
+          margin: '6%',
+        },
+    }
 };
 
 export default function Answer({ navigation }) {
@@ -108,10 +113,11 @@ export default function Answer({ navigation }) {
             marginVertical: 'auto',
             marginHorizontal: 'auto',
             padding: 24,
-            marginTop: 40,
+            marginTop: 10,
             backgroundColor: 'orange',
         },
     });
+    
 
   
     const image = questions[number].image;
@@ -139,29 +145,39 @@ export default function Answer({ navigation }) {
                             justifyContent: 'space-around',
                         }}
                     />
-                    <Text>
+                    
+                    {/* <Text>
                         正誤：{correctness}
                     </Text>
                     <Text>
                         コメント：{answerText}
-                    </Text>
-                    <Text>
-                        {/* 不正解の場合も点数は０ではない値(5-質問数) */}
-                        点数：{score}
-                    </Text>
-                    <Text>
-                        {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
-                        最終点数：{lastScore}
-                    </Text>
+                    </Text> */}
+                    
+                    
                     <View style={{ flex: 1, alignItems: 'center' }}>
-
+                    { <Image
+                                source={require('../assets/img/正解.png')}
+                                style={{
+                                    width: 210,
+                                    height: 150,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    justifyContent: 'center',
+                                    lignItems: 'center'
+                                }} /> }
+                    <Text h2>
+                        {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
+                        {lastScore}点
+                    </Text>
                         {/* 偉人の名前 */}
-                        <Animated.Text
+                        {/* <Animated.Text
                             style={{
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.{questions[number].human}</Animated.Text>
+                            }}>A.{questions[number].human}</Animated.Text> */}
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -206,9 +222,12 @@ export default function Answer({ navigation }) {
                             borderWidth={1}
                             borderRadius={10}
                             triangleDirection='top'
+                            
                         >
                             <Animated.Text style={{
-                                height: 60,
+                                fontSize: 25,
+                                height: 30,
+                                
                                 //吹き出し内の文字をフェードインさせる
                                 opacity
                             }}
@@ -241,6 +260,13 @@ export default function Answer({ navigation }) {
                                 </Text>
                             </Animated.View>
                         </View>
+                        <Button
+                            title="ランキング"
+                            onPress={() => {
+                            this.props.navigation.navigate('Ranking');
+                            }}
+                            containerStyle={{ width: '45%' }}
+                        />
 
                     </View>
 
