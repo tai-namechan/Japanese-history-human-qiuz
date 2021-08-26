@@ -31,6 +31,7 @@ export default function Answer({ navigation }) {
     const [lastScore, setlastScore] = useState("");
     //const [human1, setHuman1] = useState('');
     const [answerText, setAnswerText] = useState("");
+    const [correctImg, setCorrectImg] = useState("");
 
 
     // 正誤表示
@@ -38,6 +39,11 @@ export default function Answer({ navigation }) {
         seikai : "正解おめでとう！",
         huseikai : "残念"
     }
+    const marubatsu = {
+        seikai : require('../assets/img/正解.png'),
+        huseikai : require('../assets/img/不正解.png')
+    }
+
 
     useEffect(() => {
         console.log(correctness);
@@ -57,6 +63,8 @@ export default function Answer({ navigation }) {
             //コメント：正解おめでとう！
             setAnswerText(answerWord.seikai);
             console.log(answerText);
+            setCorrectImg(marubatsu.seikai);
+            //let marubatsu = require('../assets/img/正解.png');
         }
         //不正解だった場合
         else {
@@ -64,6 +72,8 @@ export default function Answer({ navigation }) {
             setlastScore(0);
             //正誤：残念
             setAnswerText(answerWord.huseikai);
+            setCorrectImg(marubatsu.huseikai);
+            //let marubatsu = require('../assets/img/不正解.png');
         }
       }, []);
       
@@ -156,9 +166,9 @@ export default function Answer({ navigation }) {
                     
                     <View style={{ flex: 1, alignItems: 'center' }}>
                     { <Image
-                                source={require('../assets/img/正解.png')}
+                                source={correctImg}
                                 style={{
-                                    width: 210,
+                                    width:220,
                                     height: 150,
                                     top: 0,
                                     left: 0,
