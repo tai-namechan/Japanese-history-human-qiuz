@@ -109,38 +109,68 @@ export default function Start(props) {
                   login_average: loginaverage,
                 });
               })
+            } else {
+              props.navigation.navigate(
+                'Ranking', {
+                // 遷移時に値を受け渡す
+                username1: rr[0].username,
+                score1: rr[0].score,
+                username2: rr[1].username,
+                score2: rr[1].score,
+                username3: rr[2].username,
+                score3: rr[2].score,
+                username4: rr[3].username,
+                score4: rr[3].score,
+                username5: rr[4].username,
+                score5: rr[4].score,
+
+                average_username1: rr[5].username,
+                average_score1: rr[5].average,
+                average_username2: rr[6].username,
+                average_score2: rr[6].average,
+                average_username3: rr[7].username,
+                average_score3: rr[7].average,
+                average_username4: rr[8].username,
+                average_score4: rr[8].average,
+                average_username5: rr[9].username,
+                average_score5: rr[9].average,
+
+                login_username: "（ログインしてね！）",
+                login_score: "??",
+                login_average: "??",
+              });
             }
           })
-      })
+      });
   }
 
-    return (
-      <ThemeProvider theme={theme}>
-        <View >
-          <ImageBackground
-            source={require('../assets/img/sakura-change.jpg')}
-            resizeMode="cover"
-            style={{ height: 1000, }}
-          >
-            <Header
-              // authは右にあった方がいい気がしたため、iconの左右入れ替えた
-              placement="left"
-              leftComponent={{ icon: 'menu', color: 'brown' }}
-              centerComponent={{
-                text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
-                // onPress: () => this.props.navigation.navigate('Signup')
-              }}
-              rightComponent={{
-                icon: 'login',
-                color: 'brown',
-                onPress: () => props.navigation.navigate('Auth')
-              }}
-              containerStyle={{
-                backgroundColor: '',
-                justifyContent: 'space-around',
-              }}
-            />
-            {/* <Image source={require('../assets/img/歴史の壁.png')}
+  return (
+    <ThemeProvider theme={theme}>
+      <View >
+        <ImageBackground
+          source={require('../assets/img/sakura-change.jpg')}
+          resizeMode="cover"
+          style={{ height: 1000, }}
+        >
+          <Header
+            // authは右にあった方がいい気がしたため、iconの左右入れ替えた
+            placement="left"
+            leftComponent={{ icon: 'menu', color: 'brown' }}
+            centerComponent={{
+              text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
+              // onPress: () => this.props.navigation.navigate('Signup')
+            }}
+            rightComponent={{
+              icon: 'login',
+              color: 'brown',
+              onPress: () => props.navigation.navigate('Auth')
+            }}
+            containerStyle={{
+              backgroundColor: '',
+              justifyContent: 'space-around',
+            }}
+          />
+          {/* <Image source={require('../assets/img/歴史の壁.png')}
                                 style={{
                                     // width: 300,
                                     height: 90,
@@ -164,44 +194,44 @@ export default function Start(props) {
                                     justifyContent: 'center',
                                     lignItems: 'center'
                                 }} /> */}
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              <Image source={require('../assets/img/歴史の壁.png')}
-                style={{
-                  width: 300,
-                  height: 90,
-                  marginTop: 40,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  justifyContent: 'center',
-                  lignItems: 'center'
-                }} />
-              <Image source={require('../assets/img/タイトル.png')}
-                style={{
-                  width: 300,
-                  height: 90,
-                  marginTop: 40,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  justifyContent: 'center',
-                  lignItems: 'center'
-                }} />
-              <Button
-                title="始める"
-                onPress={() => {
-                  props.navigation.navigate('SelectNumber');
-                }}
-                containerStyle={{ width: '50%', marginBottom: 50, marginTop: 100, }}
-              />
-              <Button
-                title="ランキング"
-                onPress={getDatabaseData}
-                containerStyle={{ width: '50%' }}
-              />
-            </View>
-          </ImageBackground>
-        </View>
-      </ThemeProvider>
-    )
-  }
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <Image source={require('../assets/img/歴史の壁.png')}
+              style={{
+                width: 300,
+                height: 90,
+                marginTop: 40,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'center',
+                lignItems: 'center'
+              }} />
+            <Image source={require('../assets/img/タイトル.png')}
+              style={{
+                width: 300,
+                height: 90,
+                marginTop: 40,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'center',
+                lignItems: 'center'
+              }} />
+            <Button
+              title="始める"
+              onPress={() => {
+                props.navigation.navigate('SelectNumber');
+              }}
+              containerStyle={{ width: '50%', marginBottom: 50, marginTop: 100, }}
+            />
+            <Button
+              title="ランキング"
+              onPress={getDatabaseData}
+              containerStyle={{ width: '50%' }}
+            />
+          </View>
+        </ImageBackground>
+      </View>
+    </ThemeProvider>
+  )
+}

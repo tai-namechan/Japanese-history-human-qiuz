@@ -309,6 +309,36 @@ export default function Answer({ navigation }) {
                             login_average : loginaverage,
                         });
                     })
+                } else {
+                    navigation.navigate(
+                        'Ranking', {
+                        // 遷移時に値を受け渡す
+                        username1: rr[0].username, 
+                        score1: rr[0].score, 
+                        username2: rr[1].username, 
+                        score2: rr[1].score, 
+                        username3: rr[2].username, 
+                        score3: rr[2].score, 
+                        username4: rr[3].username, 
+                        score4: rr[3].score, 
+                        username5: rr[4].username, 
+                        score5: rr[4].score, 
+
+                        average_username1: rr[5].username,
+                        average_score1: rr[5].average,
+                        average_username2: rr[6].username,
+                        average_score2: rr[6].average,
+                        average_username3: rr[7].username,
+                        average_score3: rr[7].average,
+                        average_username4: rr[8].username,
+                        average_score4: rr[8].average,
+                        average_username5: rr[9].username,
+                        average_score5: rr[9].average,
+
+                        login_username: "（ログインしてね！）",
+                        login_score: "??",
+                        login_average : "??",
+                    });
                 }
             })
         });
