@@ -4,18 +4,18 @@ import { Button, Text, Image, Header, ThemeProvider } from 'react-native-element
 import questions from './question';
 
 const theme = {
-  Button: {
-    containerStyle: {
-      margin: '6%',
+    Button: {
+        containerStyle: {
+        margin: '6%',
     },
-    titleStyle: {
-      fontSize: 36.2
+        titleStyle: {
+        fontSize: 40
     },
-    raised: true,
-  },
-  colors: {
-    primary: 'brown',
-  },
+        raised: true,
+    },
+        colors: {
+        primary: 'brown',
+    },
 };
 
     let questionRandom = Math.floor(Math.random() * questions.length);
@@ -41,7 +41,7 @@ export default function SelectNumber(props) {
             // onPress: () => this.props.navigation.navigate('Signup')
             }}
             leftComponent={{
-                icon: 'login',
+                icon: 'home',
                 color: 'brown',
                 onPress: () => props.navigation.navigate('Start')
             }}
@@ -52,14 +52,14 @@ export default function SelectNumber(props) {
             />
 
             <View style={{ flex: 1, alignItems: 'center' }}>
-            <Text h1>問題数を選択</Text>
-            <Text h1>選べ！1問 or 10問</Text>
+                        <Text h1 style={{ marginTop: 30 }}>問題数を選択！</Text>
+             {/* <Text h1 style={{ marginTop:20 }}>選べ！1問 or 10問</Text> */}
             <Button
                 title="1問"
                 onPress={() => {
                     props.navigation.navigate('SelectEra');
                 }}
-                containerStyle={{ width: '45%', marginBottom: 50, }}
+                containerStyle={{ width: '50%', marginBottom: 50, marginTop:100 }}
             />
             <Button
                 title="10問"
@@ -67,7 +67,7 @@ export default function SelectNumber(props) {
                     props.navigation.navigate('Question', { questionRandom: questionRandom });
                     random();
                 }}
-                containerStyle={{ width: '45%' }}
+                containerStyle={{ width: '50%' }}
             />
             </View>
         </ImageBackground>

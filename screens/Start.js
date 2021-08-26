@@ -9,7 +9,7 @@ const theme = {
       margin: '6%',
     },
     titleStyle: {
-      fontSize: 36.2
+      fontSize: 40
     },
     raised: true,
   },

@@ -62,7 +62,7 @@ export default function SelectQuestion(props) {
     // answerTextの設定
     const [answerText, showAnswerText] = useState("");
     // 点数の初期値（プロトタイプでは４問しかないため、初期の点数は5に設定しておく）
-    const [score, setScore] = useState(15);
+    const [score, setScore] = useState(16);
     // モーダルの入力されたTextInputの値
     const [text, setText] = useState("");
     // モーダルの表示
@@ -84,7 +84,7 @@ export default function SelectQuestion(props) {
                 // "pitch": 1,
             }
         );
-  
+
         // 質問ボタンの切り替え
         // console.log(i);
         setNewQuestionText(questionOption, i);
@@ -118,7 +118,7 @@ export default function SelectQuestion(props) {
              //console.log(countQuestionButton);
             var A_temp = aButton + 1;
             //console.log("A"+A_temp);
-        } 
+        }
 
 
         else if(i === 1) {
@@ -128,7 +128,7 @@ export default function SelectQuestion(props) {
 
             var B_temp = bButton + 1;
             //console.log("B"+B_temp);
-        } 
+        }
 
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
@@ -137,7 +137,7 @@ export default function SelectQuestion(props) {
 
             var C_temp = cButton + 1;
             //console.log("C"+C_temp);
-        } 
+        }
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
             // console.log(countQuestionFour);
@@ -149,10 +149,10 @@ export default function SelectQuestion(props) {
         if(countQuestionButton == 1) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
             var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
-            
+
             //var questionPreTextStock = questions[currentQuestion].questionOptions[number].questionText;
-           
-            
+
+
             // console.log(questionOptionsStock);
             console.log(countQuestionButton);
 
@@ -160,7 +160,7 @@ export default function SelectQuestion(props) {
         else if(countQuestionButton == 2) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
             var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
-            
+
             //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
             // console.log(questionOptionsStock);
             console.log(countQuestionButton);
@@ -168,7 +168,7 @@ export default function SelectQuestion(props) {
         else if(countQuestionButton == 3) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
-            
+
             //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
@@ -176,7 +176,7 @@ export default function SelectQuestion(props) {
         else {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFifth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFifth[number].questionText;
-            
+
             //var questionPreTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
             // console.log(questionOptionsStock);
         }
@@ -211,10 +211,10 @@ export default function SelectQuestion(props) {
                 //もし次がnullじゃなかったら次押された時も点数がへる。
                 setAButton(0);
             }
-         }else if (A_temp >= 2) {
+        }else if (A_temp >= 2) {
              //前回までにnullに当たったことがある時これ以上減点されない。
-             setAButton(A_temp);
-         }
+            setAButton(A_temp);
+        }
         }
 
         if (i === 1){
@@ -231,12 +231,12 @@ export default function SelectQuestion(props) {
                 } else {
                     setBButton(0);
                 }
-             }else if (B_temp >= 2) {
+            }else if (B_temp >= 2) {
                  //先がnullの時これ以上減点されない。
-                 setBButton(B_temp);
-             }
+                setBButton(B_temp);
+            }
         }
-    
+
 
 
 
@@ -255,10 +255,10 @@ export default function SelectQuestion(props) {
                 } else {
                     setCButton(0);
                 }
-             }else if (C_temp >= 2) {
+            }else if (C_temp >= 2) {
                  //先がnullの時これ以上減点されない。
-                 setCButton(C_temp);
-             }
+                setCButton(C_temp);
+            }
         }
 
 
@@ -278,12 +278,12 @@ export default function SelectQuestion(props) {
                 } else {
                     setDButton(0);
                 }
-             }else if (D_temp >= 2) {
+            }else if (D_temp >= 2) {
                  //先がnullの時これ以上減点されない。
-                 setDButton(D_temp);
-             }
+                setDButton(D_temp);
+            }
         }
-        
+
     }
 
     // モーダルの表示・非表示
@@ -328,6 +328,12 @@ export default function SelectQuestion(props) {
                     style={{ height: 1000, }}>
 
                     <Header
+                        // 問題画面にはstart.jsに戻るボタンはいらない？
+                        // leftComponent={{
+                        //     icon: 'home',
+                        //     color: 'brown',
+                        //     onPress: () => props.navigation.navigate('Start')
+                        // }}
                         placement="left"
                         centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' } }}
                         containerStyle={{
@@ -335,11 +341,12 @@ export default function SelectQuestion(props) {
                             justifyContent: 'space-around',
                         }}
                     />
-                    <Text>インプット：{text}</Text>
+                    {/* <Text>インプット：{text}</Text> */}
                     <View style={{ flex: 1, alignItems: 'center' }}>
                         <View style={{
                             marginLeft: '25%',
                             marginRight: '25%',
+                            marginTop: 15,
                         }}>
                             <Text h3 style={{ display: "none", }}>家光コメント</Text>
                             { <Image
@@ -374,11 +381,11 @@ export default function SelectQuestion(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                             {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
+                            {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
-                            ))} 
+                            ))}
                         </View>
                         <View style={{ marginTop: 30 }}>
                             <Button
@@ -388,16 +395,18 @@ export default function SelectQuestion(props) {
                             <Overlay isVisible={visible} >
                                 {/* 回答フォーム */}
                                 <TextInput
-                                    style={{ height: 40 }}
-                                    placeholder="Type here to translate!"
+                                    style={{ height: 55, width: 160}}
+                                    placeholder="ここに入力するのじゃ！"
+                                    placeholderTextColor="#4A4444"
                                     // 入力された値をtextに代入する
                                     onChangeText={text => setText(text)}
                                     defaultValue={text}
                                 />
                                 <View
-                                    style={{ flexDirection: 'row', }}>
+                                    style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                                     <Button
                                         title="閉じる" onPress={toggleOverlay}
+                                        // style={{ marginRight: 30, }}
                                     />
                                     <Button
                                         title="回答"

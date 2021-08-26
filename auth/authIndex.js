@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView , ImageBackground } from 'react-native';
 import firebase from 'firebase';
 import LoginForm from './LoginForm.js';
 import { Button, Image, Header, ThemeProvider } from 'react-native-elements';
@@ -9,42 +9,38 @@ class App extends Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          {/* <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text> */}
-        </View>
-        {/* {this.renderForm()} */}
-        {/* 匿名ログインのページへ遷移 */}
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Signup')
-        }}>
-          <Text style={styles.tokumeibutton}>
-          新規登録はこちら
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Login')
-        }}>
-          <Text style={styles.tokumeibutton}>
-            ログインはこちら
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Tokumei')
-        }}>
-          <Text style={styles.tokumeibutton}>
-            匿名認証ページへ進む
-          </Text>
-        </TouchableOpacity>
-        {/* ログイン後Topページに戻るボタン */}
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Start')
-        }}>
-          <Text style={styles.toppagebutton}>
-            Topページに戻る
-          </Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <ImageBackground
+        source={require('../assets/img/auth_background.png')}
+        resizeMode="cover"
+        style={{ height: '100%', }}
+      >
+        <SafeAreaView style={styles.container}>
+          {/* {this.renderForm()} */}
+          {/* 匿名ログインのページへ遷移 */}
+          <TouchableOpacity style={styles.button2} onPress={() => {
+            this.props.navigation.navigate('Signup')
+          }}>
+            <Text style={styles.tokumeibutton}>
+            新規登録はこちら
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button2} onPress={() => {
+            this.props.navigation.navigate('Login')
+          }}>
+            <Text style={styles.tokumeibutton}>
+              ログインはこちら
+            </Text>
+          </TouchableOpacity>
+          {/* ログイン後Topページに戻るボタン */}
+          <TouchableOpacity style={styles.button} onPress={() => {
+            this.props.navigation.navigate('Start')
+          }}>
+            <Text style={styles.toppagebutton}>
+              Topページに戻る
+            </Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </ImageBackground>
     )
   }
 }
@@ -52,18 +48,9 @@ class App extends Component {
 const styles = {
   // スタイルを記述
   container: {
-    marginTop: '25%',
+    marginTop: '70%',
     width: '100%',
-    padding: 24,
-  },
-  button: {
-    height: 48,
-    borderRadius: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
-    width: '60%',
-    alignSelf: 'center',
+    padding: '25%',
   },
   buttonTitle: {
     fontSize: 17,
@@ -79,9 +66,24 @@ const styles = {
     margin: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'gray',
+    backgroundColor: 'brown',
     width: '60%',
     alignSelf: 'center',
+  },
+  button: {
+    backgroundColor: 'grey',
+    height: 48,
+    borderRadius: 4,
+    margin: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '60%',
+    alignSelf: 'center',
+
+  },
+  tokumeibutton: {
+    color: 'white',
+    fontSize: 18,
   },
   toppagebutton: {
     fontSize: 18,
