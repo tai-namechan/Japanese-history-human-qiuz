@@ -208,7 +208,8 @@ export default function Answer({ navigation }) {
                                     bottom: 0,
                                     justifyContent: 'center',
                                     lignItems: 'center'
-                                }} />
+                                }} 
+                            />
                             <Animated.Image
                                 //カラー
                                 source = {image}
@@ -223,7 +224,8 @@ export default function Answer({ navigation }) {
                                     bottom: 0,
                                     justifyContent: 'center',
                                     alignItems: 'center'
-                                }} />
+                                }} 
+                            />
                         </View>
 
                         {/* 関数を入れる */}
