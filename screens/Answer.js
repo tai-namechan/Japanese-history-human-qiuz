@@ -207,7 +207,12 @@ export default function Answer({ navigation }) {
             });
         }
 
+        const [databaseScore, setDatabaseScore] = useState("");
+        const [databaseAverage, setDatabaseAverage] = useState("");
+
         const getDatabaseData = async() => {
+            console.log("================");
+            // 総合スコアの降順の取得
             await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
             //   console.log("bbb");
               const scoreDocs = querySnapshot.docs.map(doc => doc.data());
@@ -216,43 +221,63 @@ export default function Answer({ navigation }) {
               const scoreInfo = scoreDocs;
               // console.log(scoreInfo[0].username);
               return scoreInfo;
+            }).then((scoreInfo) => {
+                setDatabaseScore(scoreInfo);
+                // let databaseScore = [];
+                // let gg = databaseScore.push(scoreInfo);
+                console.log(databaseScore);
             })
+            // 平均スコアの降順の取得
             await firebase.firestore().collection("nicknameuser").orderBy('average', 'desc').limit(5).get().then((querySnapshot) => {
                 // console.log("bbbbb");
                 const averageDocs = querySnapshot.docs.map(doc => doc.data());
                 // console.log("ccc");
                 // console.log(averageDocs);
-                const scoreInfo = averageDocs;
+                const averageInfo = averageDocs;
                 // console.log(averageInfo[0]);
-                return scoreInfo;
-              }).then((scoreInfo) => {
-              console.log(scoreInfo);
+                return averageInfo;
+            }).then((averageInfo) => {
+                // console.log(averageInfo);
+                // const tt = databaseScore.push(averageInfo);
+                setDatabaseAverage(averageInfo);
+                // console.log(tt);
+                // console.log(databaseScore);
+
+                // console.log(databaseAverage);
+                const rr = databaseScore.concat(databaseAverage);
+                console.log(rr);
+                return rr;
+            }).then((rr) => {
+                //   画面遷移
+                // console.log(rr);
               navigation.navigate(
                 'Ranking', {
-                  username1: scoreInfo[0].username, 
-                  score1: scoreInfo[0].score, 
-                  username2: scoreInfo[1].username, 
-                  score2: scoreInfo[1].score, 
-                  username3: scoreInfo[2].username, 
-                  score3: scoreInfo[2].score, 
-                  username4: scoreInfo[3].username, 
-                  score4: scoreInfo[3].score, 
-                  username5: scoreInfo[4].username, 
-                  score5: scoreInfo[4].score, 
-                //   average_username1: averageInfo[0].username,
-                //   average_score1: averageInfo[0].average,
-                //   average_username2: averageInfo[1].username,
-                //   average_score2: averageInfo[1].average,
-                //   average_username3: averageInfo[2].username,
-                //   average_score3: averageInfo[2].average,
-                //   average_username4: averageInfo[3].username,
-                //   average_score4: averageInfo[3].average,
-                //   average_username5: averageInfo[4].username,
-                //   average_score5: averageInfo[4].average,
+                // 遷移時に値を受け渡す
+                //   username1: rr[0].username, 
+                //   score1: rr[0].score, 
+                //   username2: rr[1].username, 
+                //   score2: rr[1].score, 
+                //   username3: rr[2].username, 
+                //   score3: rr[2].score, 
+                //   username4: rr[3].username, 
+                //   score4: rr[3].score, 
+                //   username5: rr[4].username, 
+                //   score5: rr[4].score, 
+
+                //   average_username1: rr[5].username,
+                //   average_score1: rr[5].average,
+                //   average_username2: rr[6].username,
+                //   average_score2: rr[6].average,
+                //   average_username3: rr[7].username,
+                //   average_score3: rr[7].average,
+                //   average_username4: rr[8].username,
+                //   average_score4: rr[8].average,
+                //   average_username5: rr[9].username,
+                //   average_score5: rr[9].average,
                 });
                 console.log("aaaaaaaaaa");
             });
-          }
+        }
 
     
     
