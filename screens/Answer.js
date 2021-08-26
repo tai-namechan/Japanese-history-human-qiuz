@@ -35,7 +35,7 @@ export default function Answer({ navigation }) {
     const [correctImg, setCorrectImg] = useState("");
 
 
-    const [databaseScore, setDatabaseScore] = useState("");
+    //const [databaseScore, setDatabaseScore] = useState("");
 
 
     // 正誤表示
