@@ -5,6 +5,8 @@ import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'reac
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
 import questions from './question';
+import firebase from 'firebase';
+
 
 const theme = {
     colors: {
@@ -92,6 +94,52 @@ export default function Answer({ navigation }) {
         useNativeDriver: true
     }).start()
 
+    // ランキング
+    const firebaseConfig = {
+        // 各自生成された値を入れる
+        apiKey: "AIzaSyA66EPDb9OKHJAHNtJtLSX20OLZJlXbyOs",
+        authDomain: "japan-history-quiz-6e89d.firebaseapp.com",
+        projectId: "japan-history-quiz-6e89d",
+        storageBucket: "japan-history-quiz-6e89d.appspot.com",
+        messagingSenderId: "1037148992157",
+        appId: "1:1037148992157:web:03e6d263a4a2521f4d9a74",
+        databaseURL: "https://japan-history-quiz-6e89d-default-rtdb.firebaseio.com/",
+    }
+    if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    // const [rankingInfo, setRankingInfo] = useState([]);
+
+    // const onpress = () => {
+    //     console.log('=============!!');
+    //     var ff = firebase.firestore().collection('nicknameuser').orderBy("score", "desc").limit(2).get();
+    //     console.log(ff);
+    //     console.log('=============!!');
+    //     setRankingInfo(ff);
+    //     // console.log(rankingInfo);
+    // }
+
+    const [text, setText] = useState([]);
+
+    firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+        const docs = querySnapshot.docs.map(doc => doc.data());
+        // console.log(docs);
+        // const posts = docs;
+        // console.log(posts[0]);
+        // console.log('=============!!');
+        const posts = docs;
+        console.log(posts);
+        // setText(posts);
+
+        setText(posts);
+        // console.log('=============!!');
+        // console.log(text);
+    });
+    // console.log("名前：", text.username);
+    
+
+
     return (
 
         <ThemeProvider theme={theme}>
@@ -118,6 +166,11 @@ export default function Answer({ navigation }) {
                     <View style={{ flex: 1, alignItems: 'center' }}>
                         {/* 紙吹雪 */}
 
+                        {/* <Button 
+                            title="ランキング" 
+                            // onPress={onpress}
+                        /> */}
+
                         {/* ランキング */}
                         <Animated.Text
                             style={{
@@ -140,8 +193,8 @@ export default function Answer({ navigation }) {
                             </View>
                             <View style={styles.item1}>
                                 <Text></Text>
-                                <Text>お名前</Text>
-                                <Text>Score</Text>
+                                <Text>名前</Text>
+                                <Text>点数</Text>
                             </View>
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: firstOpacity, }}>1位</Animated.Text>

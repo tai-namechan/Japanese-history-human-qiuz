@@ -10,7 +10,7 @@ const theme = {
       margin: '6%',
     },
     titleStyle: {
-      fontSize: 36.2
+      fontSize: 40
     },
     raised: true,
   },
@@ -42,9 +42,9 @@ export default function SelectEra(props) {
             // onPress: () => this.props.navigation.navigate('Signup')
           }}
             leftComponent={{
-              icon: 'login',
+              icon: 'home',
               color: 'brown',
-              onPress: () => props.navigation.navigate('SelectNumber')
+              onPress: () => props.navigation.navigate('Start')
             }}
             containerStyle={{
               backgroundColor: '',
@@ -56,7 +56,7 @@ export default function SelectEra(props) {
             {/* <Text h1>時代の選択</Text> */}
             <Text
             h1
-            style={{ marginTop:20 }}
+            style={{ marginTop:30 }}
             >
               時代を選べ！
             </Text>
@@ -65,8 +65,9 @@ export default function SelectEra(props) {
               title="ランダム"
               onPress={() => {
                 //props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
-                //↑ランダム　↓とりあえずSelectEra.js
-                props.navigation.navigate('SelectQuestion', { questionRandom: questionRandom });
+                //↑ランダム ↓とりあえずSelectEra.js
+                // 画面遷移先はボタンに応じるように変更（どちらも同じ処理が走るようにしているため, RandomQuestion.js内の処理も正常に動くコードにしておきたいため）by.Daisuke 8/26
+                props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
                 random();
               }}
               containerStyle={{ width: '50%', marginBottom: 50, }}
