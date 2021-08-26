@@ -150,13 +150,13 @@ export default function Answer({ navigation }) {
 
     const firebaseConfig = {
         // 各自生成された値を入れる
-        apiKey: "AIzaSyAlFs-hQv_K-11iiZxtRuWprNdt_Wexb38",
-        authDomain: "japa-his-quiz.firebaseapp.com",
-        projectId: "japa-his-quiz",
-        storageBucket: "japa-his-quiz.appspot.com",
-        messagingSenderId: "488843376693",
-        appId: "1:488843376693:web:0ac02be9f4c44634ab197c",
-        databaseURL: "https://japa-his-quiz-default-rtdb.firebaseio.com/",
+        apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
+        authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
+        databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com",
+        projectId: "japanese-history-quiz-518c2",
+        storageBucket: "japanese-history-quiz-518c2.appspot.com",
+        messagingSenderId: "833552253127",
+        appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
         firebase.initializeApp(firebaseConfig);
@@ -207,77 +207,96 @@ export default function Answer({ navigation }) {
             });
         }
 
-        const [databaseScore, setDatabaseScore] = useState("");
-        const [databaseAverage, setDatabaseAverage] = useState("");
-
         const getDatabaseData = async() => {
-            console.log("================");
+            // console.log("================");
             // 総合スコアの降順の取得
             await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-            //   console.log("bbb");
+              console.log("bbb");
               const scoreDocs = querySnapshot.docs.map(doc => doc.data());
-              // console.log("ccc");
-              // console.log(docs);
+            //   console.log("ccc");
+            //   console.log(scoreDocs);
               const scoreInfo = scoreDocs;
               // console.log(scoreInfo[0].username);
               return scoreInfo;
             }).then((scoreInfo) => {
-                setDatabaseScore(scoreInfo);
-                // let databaseScore = [];
-                // let gg = databaseScore.push(scoreInfo);
-                console.log(databaseScore);
+                let uu = scoreInfo;
+                // console.log(uu);
+                return uu;
             })
             // 平均スコアの降順の取得
-            await firebase.firestore().collection("nicknameuser").orderBy('average', 'desc').limit(5).get().then((querySnapshot) => {
-                // console.log("bbbbb");
-                const averageDocs = querySnapshot.docs.map(doc => doc.data());
-                // console.log("ccc");
-                // console.log(averageDocs);
-                const averageInfo = averageDocs;
-                // console.log(averageInfo[0]);
-                return averageInfo;
-            }).then((averageInfo) => {
-                // console.log(averageInfo);
-                // const tt = databaseScore.push(averageInfo);
-                setDatabaseAverage(averageInfo);
-                // console.log(tt);
-                // console.log(databaseScore);
+            .then((uu) =>{
+                firebase.firestore().collection("nicknameuser").orderBy('average', 'desc').limit(5).get().then((querySnapshot) => {
+                    // console.log("bbbbb");
+                    const averageDocs = querySnapshot.docs.map(doc => doc.data());
+                    // console.log("ccc");
+                    // console.log(averageDocs);
+                    const averageInfo = averageDocs;
+                    const rr = uu.concat(averageInfo);
+                    console.log(rr);
+                    // setRrr(rr);
+                    // return rr;
 
-                // console.log(databaseAverage);
-                const rr = databaseScore.concat(databaseAverage);
-                console.log(rr);
-                return rr;
-            }).then((rr) => {
-                //   画面遷移
-                // console.log(rr);
-              navigation.navigate(
-                'Ranking', {
-                // 遷移時に値を受け渡す
-                //   username1: rr[0].username, 
-                //   score1: rr[0].score, 
-                //   username2: rr[1].username, 
-                //   score2: rr[1].score, 
-                //   username3: rr[2].username, 
-                //   score3: rr[2].score, 
-                //   username4: rr[3].username, 
-                //   score4: rr[3].score, 
-                //   username5: rr[4].username, 
-                //   score5: rr[4].score, 
+                    navigation.navigate(
+                        'Ranking', {
+                        // 遷移時に値を受け渡す
+                        username1: rr[0].username, 
+                        score1: rr[0].score, 
+                        username2: rr[1].username, 
+                        score2: rr[1].score, 
+                        username3: rr[2].username, 
+                        score3: rr[2].score, 
+                        username4: rr[3].username, 
+                        score4: rr[3].score, 
+                        username5: rr[4].username, 
+                        score5: rr[4].score, 
 
-                //   average_username1: rr[5].username,
-                //   average_score1: rr[5].average,
-                //   average_username2: rr[6].username,
-                //   average_score2: rr[6].average,
-                //   average_username3: rr[7].username,
-                //   average_score3: rr[7].average,
-                //   average_username4: rr[8].username,
-                //   average_score4: rr[8].average,
-                //   average_username5: rr[9].username,
-                //   average_score5: rr[9].average,
-                });
-                console.log("aaaaaaaaaa");
-            });
+                        average_username1: rr[5].username,
+                        average_score1: rr[5].average,
+                        average_username2: rr[6].username,
+                        average_score2: rr[6].average,
+                        average_username3: rr[7].username,
+                        average_score3: rr[7].average,
+                        average_username4: rr[8].username,
+                        average_score4: rr[8].average,
+                        average_username5: rr[9].username,
+                        average_score5: rr[9].average,
+                        });
+                })
+            })
         }
+
+        const navChange = async(rr) => {
+            await getDatabaseData(rr).then((rr)=>{
+                navigation.navigate(
+                    'Ranking', {
+                    // 遷移時に値を受け渡す
+                      username1: rr[0].username, 
+                      score1: rr[0].score, 
+                      username2: rr[1].username, 
+                      score2: rr[1].score, 
+                      username3: rr[2].username, 
+                      score3: rr[2].score, 
+                      username4: rr[3].username, 
+                      score4: rr[3].score, 
+                      username5: rr[4].username, 
+                      score5: rr[4].score, 
+    
+                      average_username1: rr[5].username,
+                      average_score1: rr[5].average,
+                      average_username2: rr[6].username,
+                      average_score2: rr[6].average,
+                      average_username3: rr[7].username,
+                      average_score3: rr[7].average,
+                      average_username4: rr[8].username,
+                      average_score4: rr[8].average,
+                      average_username5: rr[9].username,
+                      average_score5: rr[9].average,
+                });
+            })
+              
+        }
+
+        
 
     
     
@@ -422,7 +441,7 @@ export default function Answer({ navigation }) {
                         </View>
                         <Button
                             title="ランキング"
-                            onPress={getDatabaseData}
+                            onPress={navChange}
                             containerStyle={{ width: '50%' }}
                         />
                     </View>
