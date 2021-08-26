@@ -162,67 +162,78 @@ export default function Answer({ navigation }) {
         firebase.initializeApp(firebaseConfig);
     }
     
-        // // 現在ログインしているユーザーを取得する
-        // const user = firebase.auth().currentUser;
-        // if (user !== null) {
-        //     const uid = user.uid;
-        //     // console.log(uid);
+        // 現在ログインしているユーザーを取得する
+        const user = firebase.auth().currentUser;
+        if (user !== null) {
+            const uid = user.uid;
+            // console.log(uid);
 
-        //     const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
+            const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
 
-        //     userInfomation.get().then((doc) => {
-        //         // console.log(doc.data('score'));
-        //         const data = doc.data();
-        //         const datascore = data.score;
-        //         // console.log(datascore);
-        //         let cc = Number(lastScore) + Number(datascore);
-        //         // setDatabaseScore(cc);
-        //         // console.log('スコア：', cc);
+            userInfomation.get().then((doc) => {
+                // console.log(doc.data('score'));
+                const data = doc.data();
+                const datascore = data.score;
+                // console.log(datascore);
+                let cc = Number(lastScore) + Number(datascore);
+                // setDatabaseScore(cc);
+                // console.log('スコア：', cc);
 
-        //         const datatimes = data.times;
-        //         // console.log('回数：',datatimes);
-        //         let dd = 1 + Number(datatimes);
-        //         // console.log(dd);
+                const datatimes = data.times;
+                // console.log('回数：',datatimes);
+                let dd = 1 + Number(datatimes);
+                // console.log(dd);
 
-        //         // firebaseのデータ更新（スコアの更新）
-        //         firebase
-        //             .firestore()
-        //             .collection('nicknameuser')
-        //             .doc(user.uid)
-        //             .update({
-        //                 score: cc,
-        //                 times: dd,
-        //             })
-        //             .then(() => {
-        //                 // console.log('Add Firestore Success');
-        //             })
-        //             .catch((error) => {
-        //                 // console.log(error);
-        //             });
-        //     });
-        // }
+                let ee = Number(cc)/Number(dd);
+                let ff = Math.round(ee * 100) / 100;
+                // console.log(ff);
+
+                // firebaseのデータ更新（スコアの更新）
+                firebase
+                    .firestore()
+                    .collection('nicknameuser')
+                    .doc(user.uid)
+                    .update({
+                        score: cc,
+                        times: dd,
+                        average: ff,
+                    })
+                    .then(() => {
+                        // console.log('Add Firestore Success');
+                    })
+                    .catch((error) => {
+                        // console.log(error);
+                    });
+            });
+        }
 
     const [info, setInfo] = useState("");
     
-    const getDatabaseData = () => {
-        firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+    const getDatabaseData = async() => {
+        await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+          // console.log("bbb");
           const docs = querySnapshot.docs.map(doc => doc.data());
-          setInfo(docs);
-          console.log(info);
+          // console.log("ccc");
+          // console.log(docs);
+          const info = docs;
+          // console.log(info[0].username);
+          return info;
+        }).then((info) => {
+          // console.log("eee");
+          navigation.navigate(
+            'Ranking', { 
+              username1: info[0].username, 
+              score1: info[0].score, 
+              username2: info[1].username, 
+              score2: info[1].score, 
+              username3: info[2].username, 
+              score3: info[2].score, 
+              username4: info[3].username, 
+              score4: info[3].score, 
+              username5: info[4].username, 
+              score5: info[4].score, 
+            });
         });
-        navigation.navigate(
-          'Ranking', { 
-            username1: info[0].username, 
-            score1: info[0].score, 
-            username2: info[1].username, 
-            score2: info[1].score, 
-            username3: info[2].username, 
-            score3: info[2].score, 
-            username4: info[3].username, 
-            score4: info[3].score, 
-            username5: info[4].username, 
-            score5: info[4].score, 
-          });
       }
     
     
@@ -367,9 +378,7 @@ export default function Answer({ navigation }) {
                         </View>
                         <Button
                             title="ランキング"
-                            onPress={() => {
-                            this.props.navigation.navigate('Ranking');
-                            }}
+                            onPress={getDatabaseData}
                             containerStyle={{ width: '45%' }}
                         />
                     </View>
