@@ -3,10 +3,10 @@ import { View, TouchableOpacity, Text, TextInput, ActivityIndicator } from 'reac
 import firebase from 'firebase';
 
 class SignupForm extends Component {
-  state = { username: '', email: '', password: '', error: '', loading: false };
+  state = { username: '', email: '', password: '', error: '', loading: false, score: 0, uid: '',　times: 0 };
 
   onButtonPress() {
-    const { username, email, password } = this.state;
+    const { username, email, password, score, uid, times } = this.state;
     this.setState({ error: '', loading: true });
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -18,36 +18,32 @@ class SignupForm extends Component {
       });
 
     // firestoreにユーザー情報を登録
-    firebase
-      .firestore()
-      .collection('nicknameuser')
-      .add({
-        // DBに登録したい情報
-        username,
-        email,
-        password,
-      })
-      .then(() => {
-        console.log('Add Firestore Success');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      
-  //   // 新規登録ボタンを押した時の処理
-  // handleSubmit() {
-  //   // このメソッドを呼ぶだけ
-  //   firebase.auth().createUserWithEmailAndPassword(
-  //     this.state.email,
-  //     this.state.password,
-  //   ).then((user) => {
-  //     console.log(user);
-  //     // 完了時の処理
-  //   }).catch((error) => {
-  //     console.log(error);
-  //     // 失敗時の処理
-  //   });
-  // }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ uid: user.uid });
+        // console.log(user.uid);
+        // console.log(uid);
+
+        // firestoreにユーザー情報を登録
+        firebase
+          .firestore()
+          .collection('nicknameuser')
+          .doc(user.uid)
+          .set({
+            username,
+            email,
+            password,
+            score,
+            times,
+          })
+          .then(() => {
+            // console.log('Add Firestore Success');
+          })
+          .catch((error) => {
+            // console.log(error);
+          });
+        } 
+    });
   }
 
   onSignupSuccess() {
@@ -56,7 +52,9 @@ class SignupForm extends Component {
       email: '',
       password: '',
       loading: false,
-      error: ''
+      error: '',
+      score: '',
+      times: '',
     });
   }
 
@@ -148,7 +146,7 @@ const styles = {
     borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: 'olivedrab',
     width: '60%',
     alignSelf: 'center',
   },

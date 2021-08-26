@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView  } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView , ImageBackground } from 'react-native';
 import LoginForm from './LoginForm.js';
 
 class LoginScreen extends React.Component {
@@ -14,13 +14,13 @@ class LoginScreen extends React.Component {
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
-      apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
-      authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
-      databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
-      projectId: "japanese-history-quiz-518c2",
-      storageBucket: "japanese-history-quiz-518c2.appspot.com",
-      messagingSenderId: "833552253127",
-      appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+      apiKey: "AIzaSyAlFs-hQv_K-11iiZxtRuWprNdt_Wexb38",
+      authDomain: "japa-his-quiz.firebaseapp.com",
+      projectId: "japa-his-quiz",
+      storageBucket: "japa-his-quiz.appspot.com",
+      messagingSenderId: "488843376693",
+      appId: "1:488843376693:web:0ac02be9f4c44634ab197c",
+      databaseURL: "https://japa-his-quiz-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
       firebase.initializeApp(firebaseConfig);
@@ -63,21 +63,27 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
-        </View>
-        {this.renderForm()}
-        
-        {/* ログイン後Topページに戻るボタン */}
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Start')
-        }}>
-          <Text style={styles.toppagebutton}>
-            Topページに戻る
-          </Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <ImageBackground
+        source={require('../assets/img/auth_background.png')}
+        resizeMode="cover"
+        style={{ height: '100%', }}
+      >
+        <SafeAreaView>
+          <View style={styles.container}>
+            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
+          </View>
+          {this.renderForm()}
+          
+          {/* ログイン後Topページに戻るボタン */}
+          <TouchableOpacity style={styles.button2} onPress={() => {
+            this.props.navigation.navigate('Start')
+          }}>
+            <Text style={styles.toppagebutton}>
+              Topページに戻る
+            </Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </ImageBackground>
     );
   }
 }
@@ -94,7 +100,7 @@ const styles = {
     borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: 'brown',
     width: '60%',
     alignSelf: 'center',
   },

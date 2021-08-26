@@ -30,7 +30,6 @@ const MainStack = createStackNavigator(
     Index:Index,
     Ranking:Ranking,
     // Tokumei:Tokumei,
-
     SelectQuestion: SelectQuestion,
     RandomQuestion: RandomQuestion,
     Answer: Answer,

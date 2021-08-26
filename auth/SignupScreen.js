@@ -1,27 +1,21 @@
 import React from 'react';
 import firebase from 'firebase';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView , ImageBackground } from 'react-native';
 import { Button, Image, Overlay, Input, Header, ThemeProvider } from 'react-native-elements';
 import SignupForm from './SignupForm.js';
 
 class SignupScreen extends React.Component {
-  // emailとpasswordのstateを用意
-  // state = {
-  //   username: '',
-  //   email: '',
-  //   password: '',
-  // }
   state = { username: '', email: '', password: '', error: '', loading: false };
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
-      apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
-      authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
-      databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com/",
-      projectId: "japanese-history-quiz-518c2",
-      storageBucket: "japanese-history-quiz-518c2.appspot.com",
-      messagingSenderId: "833552253127",
-      appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+      apiKey: "AIzaSyAlFs-hQv_K-11iiZxtRuWprNdt_Wexb38",
+      authDomain: "japa-his-quiz.firebaseapp.com",
+      projectId: "japa-his-quiz",
+      storageBucket: "japa-his-quiz.appspot.com",
+      messagingSenderId: "488843376693",
+      appId: "1:488843376693:web:0ac02be9f4c44634ab197c",
+      databaseURL: "https://japa-his-quiz-default-rtdb.firebaseio.com/",
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
       firebase.initializeApp(firebaseConfig);
@@ -65,40 +59,30 @@ class SignupScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-          <Header
-              placement="left"
-              leftComponent={{ icon: 'menu', color: 'brown' }}
-              centerComponent={{ text: 'ログイン', style: { color: 'brown' }, 
-            //   onPress: () => this.props.navigation.navigate('Signup')
-            }}
-              rightComponent={{
-                icon: 'home',
-                color: 'brown',
-                // onPress: () => this.props.navigation.navigate('Start')
-              }}
-              containerStyle={{
-                backgroundColor: '',
-                justifyContent: 'space-around',
-              }}
-            />
-        <Text style={styles.title}>新規登録</Text>
-        <SafeAreaView>
+      <ImageBackground
+        source={require('../assets/img/auth_background.png')}
+        resizeMode="cover"
+        style={{ height: '100%', }}
+      >
         <View style={styles.container}>
-          <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "登録しろよ"}</Text>
+          <Text style={styles.title}>新規登録</Text>
+          <SafeAreaView>
+          <View style={styles.container}>
+            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "登録しろよ"}</Text>
+          </View>
+          {this.renderForm()}
+          
+          {/* ログイン後Topページに戻るボタン */}
+          <TouchableOpacity style={styles.button2} onPress={() => {
+            this.props.navigation.navigate('Start')
+          }}>
+            <Text style={styles.toppagebutton}>
+              Topページに戻る
+            </Text>
+          </TouchableOpacity>
+        </SafeAreaView>
         </View>
-        {this.renderForm()}
-        
-        {/* ログイン後Topページに戻るボタン */}
-        <TouchableOpacity style={styles.button2} onPress={() => {
-          this.props.navigation.navigate('Start')
-        }}>
-          <Text style={styles.toppagebutton}>
-            Topページに戻る
-          </Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -106,9 +90,7 @@ class SignupScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    padding: 24,
-    backgroundColor: '#fff',
+    paddingTop: 100,
   },
   title: {
     fontSize: 28,
@@ -131,7 +113,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: 'brown',
     width: '60%',
     alignSelf: 'center',
   },
