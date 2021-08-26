@@ -14,6 +14,11 @@ const theme = {
     colors: {
         primary: 'brown',
     },
+    Button: {
+        containerStyle: {
+          margin: '6%',
+        },
+    }
 };
 
 export default function Answer({ navigation }) {
@@ -25,34 +30,47 @@ export default function Answer({ navigation }) {
 
 
     const [lastScore, setlastScore] = useState("");
-    //const [human1, setHuman1] = useState('');
     const [answerText, setAnswerText] = useState("");
-    const [databaseScore, setDatabaseScore] = useState("");
+
+    const [correctImg, setCorrectImg] = useState("");
+
+
+    //const [databaseScore, setDatabaseScore] = useState("");
+
 
     // 正誤表示
     const answerWord = {
         seikai : "正解おめでとう！",
         huseikai : "残念"
     }
+    const marubatsu = {
+        seikai : require('../assets/img/正解.png'),
+        huseikai : require('../assets/img/不正解.png')
+    }
+
 
     useEffect(() => {
-        console.log(correctness);
-        console.log(score);
+        // console.log(correctness);
+        // console.log(score);
         //console.log(human);
-        console.log(number);
+        // console.log(number);
 
         //console.log(questionRandom);
     }, []);
 
     useEffect(() => {
-        console.log(correctness);
+        // console.log(correctness);
         //正解だった場合
         if(correctness=="正解") {
             //最終点数：score
             setlastScore(score);
             //コメント：正解おめでとう！
             setAnswerText(answerWord.seikai);
-            console.log(answerText);
+
+            setCorrectImg(marubatsu.seikai);
+
+            // console.log(answerText);
+
         }
         //不正解だった場合
         else {
@@ -60,6 +78,7 @@ export default function Answer({ navigation }) {
             setlastScore(0);
             //正誤：残念
             setAnswerText(answerWord.huseikai);
+            setCorrectImg(marubatsu.huseikai);
         }
     }, []);
 
@@ -109,10 +128,16 @@ export default function Answer({ navigation }) {
             marginVertical: 'auto',
             marginHorizontal: 'auto',
             padding: 24,
-            marginTop: 40,
-            backgroundColor: 'orange',
+            marginTop: 10,
+            //backgroundColor: 'peru',
+            //backgroundColor: 'darkgoldenrod',
+            //backgroundColor: 'rosybrown',
+            //backgroundColor: 'saddlebrown',
+            backgroundColor: 'maroon',
+            //backgroundColor: 'sienna',
         },
     });
+    
 
 
 
@@ -137,51 +162,72 @@ export default function Answer({ navigation }) {
         firebase.initializeApp(firebaseConfig);
     }
     
-    // 現在ログインしているユーザーを取得する
-    const user = firebase.auth().currentUser;
-    if (user !== null) {
-        const uid = user.uid;
-        // console.log(uid);
+        // // 現在ログインしているユーザーを取得する
+        // const user = firebase.auth().currentUser;
+        // if (user !== null) {
+        //     const uid = user.uid;
+        //     // console.log(uid);
 
-        const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
+        //     const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
 
-        userInfomation.get().then((doc) => {
-            // console.log(doc.data('score'));
-            const data = doc.data();
-            // setDataScore(data);
-            const datascore = data.score;
-            // console.log(datascore);
-            let cc = Number(lastScore) + Number(datascore);
-            // setDatabaseScore(cc);
-            // console.log('スコア：', cc);
+        //     userInfomation.get().then((doc) => {
+        //         // console.log(doc.data('score'));
+        //         const data = doc.data();
+        //         const datascore = data.score;
+        //         // console.log(datascore);
+        //         let cc = Number(lastScore) + Number(datascore);
+        //         // setDatabaseScore(cc);
+        //         // console.log('スコア：', cc);
 
-            const datatimes = data.times;
-            // console.log('回数：',datatimes);
-            let dd = 1 + Number(datatimes);
-            // console.log(dd);
+        //         const datatimes = data.times;
+        //         // console.log('回数：',datatimes);
+        //         let dd = 1 + Number(datatimes);
+        //         // console.log(dd);
 
-            // firebaseのデータ更新（スコアの更新）
-            firebase
-                .firestore()
-                .collection('nicknameuser')
-                .doc(user.uid)
-                .update({
-                    score: cc,
-                    times: dd,
-                })
-                .then(() => {
-                    // console.log('Add Firestore Success');
-                })
-                .catch((error) => {
-                    // console.log(error);
-                });
+        //         // firebaseのデータ更新（スコアの更新）
+        //         firebase
+        //             .firestore()
+        //             .collection('nicknameuser')
+        //             .doc(user.uid)
+        //             .update({
+        //                 score: cc,
+        //                 times: dd,
+        //             })
+        //             .then(() => {
+        //                 // console.log('Add Firestore Success');
+        //             })
+        //             .catch((error) => {
+        //                 // console.log(error);
+        //             });
+        //     });
+        // }
+
+    const [info, setInfo] = useState("");
+    
+    const getDatabaseData = () => {
+        firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
+          const docs = querySnapshot.docs.map(doc => doc.data());
+          setInfo(docs);
+          console.log(info);
         });
-    }
+        navigation.navigate(
+          'Ranking', { 
+            username1: info[0].username, 
+            score1: info[0].score, 
+            username2: info[1].username, 
+            score2: info[1].score, 
+            username3: info[2].username, 
+            score3: info[2].score, 
+            username4: info[3].username, 
+            score4: info[3].score, 
+            username5: info[4].username, 
+            score5: info[4].score, 
+          });
+      }
     
     
 
     return (
-
         <ThemeProvider theme={theme}>
             <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
@@ -202,29 +248,39 @@ export default function Answer({ navigation }) {
                             justifyContent: 'space-around',
                         }}
                     />
-                    <Text>
+                    
+                    {/* <Text>
                         正誤：{correctness}
                     </Text>
                     <Text>
                         コメント：{answerText}
-                    </Text>
-                    <Text>
-                        {/* 不正解の場合も点数は０ではない値(5-質問数) */}
-                        点数：{score}
-                    </Text>
-                    <Text>
-                        {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
-                        最終点数：{lastScore}
-                    </Text>
+                    </Text> */}
+                    
+                    
                     <View style={{ flex: 1, alignItems: 'center' }}>
-
+                    { <Image
+                                source={correctImg}
+                                style={{
+                                    width:220,
+                                    height: 150,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    justifyContent: 'center',
+                                    lignItems: 'center'
+                                }} /> }
+                    <Text h2>
+                        {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
+                        {lastScore}点/15点中
+                    </Text>
                         {/* 偉人の名前 */}
-                        <Animated.Text
+                        {/* <Animated.Text
                             style={{
                                 opacity,
                                 alignItems: 'center',
                                 fontSize: 30
-                            }}>A.{questions[number].human}</Animated.Text>
+                            }}>A.{questions[number].human}</Animated.Text> */}
 
                         {/* 偉人の画像 */}
                         <View style={{
@@ -243,7 +299,8 @@ export default function Answer({ navigation }) {
                                     bottom: 0,
                                     justifyContent: 'center',
                                     lignItems: 'center'
-                                }} />
+                                }} 
+                            />
                             <Animated.Image
                                 //カラー
                                 source = {image}
@@ -258,7 +315,8 @@ export default function Answer({ navigation }) {
                                     bottom: 0,
                                     justifyContent: 'center',
                                     alignItems: 'center'
-                                }} />
+                                }} 
+                            />
                         </View>
 
                         {/* 関数を入れる */}
@@ -269,9 +327,12 @@ export default function Answer({ navigation }) {
                             borderWidth={1}
                             borderRadius={10}
                             triangleDirection='top'
+                            
                         >
                             <Animated.Text style={{
-                                height: 60,
+                                fontSize: 22,
+                                height: 27,
+                                
                                 //吹き出し内の文字をフェードインさせる
                                 opacity
                             }}
@@ -299,14 +360,19 @@ export default function Answer({ navigation }) {
                             <Animated.View
                                 //解説文をフェードインさせる
                                 style={{ opacity, }}>
-                                <Text>{questions[number].explanationTitle}</Text>
-                                <Text>{questions[number].explanationDetail}
+                                <Text style={{ color: 'white' }}>{questions[number].explanationTitle}</Text>
+                                <Text style={{ color: 'white' }}>{questions[number].explanationDetail}
                                 </Text>
                             </Animated.View>
                         </View>
-
+                        <Button
+                            title="ランキング"
+                            onPress={() => {
+                            this.props.navigation.navigate('Ranking');
+                            }}
+                            containerStyle={{ width: '45%' }}
+                        />
                     </View>
-
                 </ImageBackground>
             </View>
         </ThemeProvider>

@@ -3,10 +3,10 @@ import { View, TouchableOpacity, Text, TextInput, ActivityIndicator } from 'reac
 import firebase from 'firebase';
 
 class SignupForm extends Component {
-  state = { username: '', email: '', password: '', error: '', loading: false, score: 0, uid: '',　times: 0 };
+  state = { username: '', email: '', password: '', error: '', loading: false, score: 0, uid: '',　times: 0, average: 0 };
 
   onButtonPress() {
-    const { username, email, password, score, uid, times } = this.state;
+    const { username, email, password, score, uid, times, average } = this.state;
     this.setState({ error: '', loading: true });
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -35,6 +35,7 @@ class SignupForm extends Component {
             password,
             score,
             times,
+            average,
           })
           .then(() => {
             // console.log('Add Firestore Success');
@@ -55,6 +56,7 @@ class SignupForm extends Component {
       error: '',
       score: '',
       times: '',
+      average: '',
     });
   }
 
