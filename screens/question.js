@@ -603,7 +603,7 @@ const questions = [
             {
                 questionText: '悔しかったことはありますか？',
                 answerText: '日本に国書を送ったが、なかなか返信をくれなかったことだな。その出来事を機に日本を征服しようと決意したな。',
-                readText: 
+                readText: '日本にこくしょを送ったが、なかなか返信をくれなかったことだな。その出来事を機に日本を征服しようと決意したな。',
             },
         ],
         questionOptionsThird: [
@@ -614,17 +614,17 @@ const questions = [
             {
                 questionText: '何か成し遂げたことはありますか？',
                 answerText: '現在の北京に「元」を建国し、皇帝となったことだな。「皇帝」という肩書きがカッコ良くって気に入っていたな',
-                readText: 
+                readText: '現在のぺきんにげんを建国し、皇帝となったことだな。「皇帝」という肩書きがカッコ良くって気に入っていたな',
             },
             {
                 questionText: '苦手なことは？',
                 answerText: '大雨の日にはあの日を思い出して、今でも苦しい気持ちになるな。',
-                readText: 
+                readText: '大雨の日にはあの日を思い出して、今でも苦しい気持ちになるな。',
             },
             {
                 questionText: 'あなたの人生におけるライバルは？',
                 answerText: '鎌倉幕府８代執権北条時宗じゃの。彼は防衛についての知恵もあり、運の強い奴であったのお。',
-                readText: 
+                readText: '鎌倉幕府８代しっけん、ほうじょうときむねじゃの。彼は防衛についての知恵もあり、運の強い奴であったのお。',
             },
         ],
         questionOptionsFourth: [
@@ -643,7 +643,7 @@ const questions = [
             {
                 questionText: 'あなたが関わる大きな出来事はなんですか？',
                 answerText: '日本と争った「元寇」であるな。日本では「文永の役」と「弘安の役」というらしいな。ぜひワシの血と汗と涙の戦乱を忘れないでくれ',
-                readText: 
+                readText: '日本と争ったげんこうであるな。日本ではぶんえいのえきとこうあんのえきというらしいな。ぜひワシの血と汗と涙の戦乱を忘れないでくれ',
             },
         ],
         questionOptionsFifth: [
@@ -678,50 +678,51 @@ const questions = [
             {
                 questionText: '何か名言を残しましたか？',
                 answerText: '「功は焦らなくても良い。自分に実力がありさえすれば、運は必ず回って来る。」さ',
-                readText: 
+                readText: '「こうは焦らなくても良い。自分に実力がありさえすれば、運は必ず回って来る。」さ',
             },
             {
                 questionText: '若い頃は何をやっていましたか？',
                 answerText: '土木会社を設立し、成功を納めたわい。もしかしたら人生軌道に乗り始めたのは、この頃からかもしれないな。',
-                readText: 
+                readText: 'どぼくがいしゃを設立し、成功を納めたわい。もしかしたら人生軌道に乗り始めたのは、この頃からかもしれないな。',
             },
             {
                 questionText: '何か自慢できることある？',
-                answerText: '自慢というほどでもないが、逮捕経験豊富な人間じゃ。',
-                readText: 
+                answerText: '自慢というほどでもないが、逮捕された経験豊富な人間じゃ。',
+                readText: '自慢というほどでもないが、逮捕された経験豊富な人間じゃ。',
             },
             {
                 questionText: '西暦何年生まれですか？',
                 answerText: 'ワシは1918年生まれだ。',
-                readText: 
+                readText: 'ワシは1918年生まれだ。',
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: '実は〇〇な話教えて？',
                 answerText: 'ワシは悪人のイメージが強いが、実は礼儀正しく心優しいんだ。ワシのいい人エピソードを聞いてくれるか？',
-                readText: 
+                readText: 'ワシは悪人のイメージが強いが、実は礼儀正しく心優しいんだ。ワシのいい人エピソードを聞いてくれるか？',
             },
             {
                 questionText: '尊敬している人は？',
                 answerText: '吉田茂先生であるな。とてもお世話になったから、本当に感謝しているな。',
-                readText: 
+                readText: '吉田しげる先生であるな。とてもお世話になったから、本当に感謝しているな。',
             },
             {
                 questionText: '逮捕歴以外の経歴はありますか？',
                 answerText: '郵政大臣、国務大臣、大蔵大臣、通商産業大臣を勤めた経験もあるな。これも自慢じゃな',
-                readText: 
+                readText: '郵政大臣、こくむ大臣、おおくら大臣、つうしょう産業大臣を勤めた経験もあるな。これも自慢じゃな',
             },
             {
                 questionText: '異名はありますか？',
                 answerText: '皆ワシを今太閤や闇将軍と呼んでおった。これらの異名からもわかると思うが、ワシはかなり影響力を持っていたということだな。',
-                readText: 
+                readText: 'みなワシをいまたいこうややみ将軍と呼んでおった。これらのいみょうからもわかると思うが、ワシはかなり影響力を持っていたということだな。',
             },
         ],
         questionOptionsThird: [
             {
                 questionText: '',
-                answerText: ''
+                answerText: '',
+                readText: '',
             },
             {
                 questionText: '',
@@ -730,12 +731,12 @@ const questions = [
             {
                 questionText: '人生最高の成功体験はありますか？',
                 answerText: '貧相な家庭出身のワシが、最年少で総理大臣になった。支持率70%越えのかっこいい総理をしていたな。',
-                readText: 
+                readText: '貧相な家庭出身のワシが、最年少で総理大臣になった。支持率70%越えのかっこいい総理をしていたな。',
             },
             {
                 questionText: 'あなたは社会にどのような影響を与えましたか？',
                 answerText: '影響力を持っていたワシは日本列島改造論を発表し、国民の関心を引きつけたな。',
-                readText: 
+                readText: '影響力を持っていたワシは日本列島かいぞう論を発表し、国民の関心を引きつけたな。',
             },
         ],
         questionOptionsFourth: [
@@ -750,12 +751,12 @@ const questions = [
             {
                 questionText: '何か成し遂げたことはありますか？',
                 answerText: '総理になった時、日中国交正常化をすると決め、それを成し遂げたな。',
-                readText: 
+                readText: '総理になった時、にっちゅうこっこう正常化をすると決め、それを成し遂げたな。',
             },
             {
                 questionText: 'あなたが関わる大きな出来事はなんですか？',
                 answerText: 'やはりワシと言ったらロッキード事件じゃ。ロッキード社の旅客機受注をめぐる汚職事件で世間を騒がせてしまったな...',
-                readText: 
+                readText: 'やはりワシと言ったらロッキード事件じゃ。ロッキード社の旅客機受注をめぐる汚職事件でせけんを騒がせてしまったな...',
             },
         ],
         questionOptionsFifth: [
@@ -778,7 +779,7 @@ const questions = [
         ],
         image: require('../assets/img/田中角栄.png'),
         dialogue: 'わしの名前は田中角栄じゃ。',
-        readDialogue: 'わしのっ、名前はっ、田中角栄じゃ。',
+        readDialogue: 'わしのっ、名前はっ、田中かくえいじゃ。',
         explanationTitle: '第64、65代内閣総理大臣、田中角栄',
         explanationDetail: '第一次政権では『日本列島改造論』を掲げ、1972年日中共同声明にて、中国との国交が正式に開かれた。第二次政権では第四次中東戦争からの第一次石油危機【オイルショック】が発生',
     },
@@ -790,66 +791,66 @@ const questions = [
             {
                 questionText: '何か自慢できることある？',
                 answerText: '自分で言うのもなんじゃが容姿が整っており、周りからまるでスーパースターかのようにモテていたんじゃ🤪',
-                readText: 
+                readText: '自分で言うのもなんじゃが容姿が整っており、周りからまるでスーパースターかのようにモテていたんじゃ',
             },
             {
                 questionText: '何か名言を残しましたか？',
                 answerText: '大事を思ひはからふ者、物とがめをせず、事ならぬことを事になさず。',
-                readText: 
+                readText: 'だいじをおもひはからふもの、ものとがめをせず、ことならぬことをことになさず。',
             },
             {
                 questionText: '何年に生まれた？',
                 answerText: '1147年に生まれたよ',
-                readText: 
+                readText: '1147年に生まれたよ',
             },
             {
                 questionText: 'あなたのやってることは現代の職業で言ったら何になる？',
                 answerText: '総理大臣か、大統領やな',
-                readText: 
+                readText: '総理大臣か、大統領やな',
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: '身内で有名人おる？',
                 answerText: '妻が北条政子である',
-                readText: 
+                readText: '妻がほうじょうまさこである',
             },
             {
                 questionText: '何か成し遂げたことはありますか？',
                 answerText: '初の征夷大将軍になったことじゃ',
-                readText: 
+                readText: '初のせいいたいしょうぐんになったことじゃ',
             },
             {
                 questionText: 'あなたは社会にどのような影響を与えましたか？',
-                answerText: '幕府を開き武士による政治が始まったんじゃ',
-                readText: 
+                answerText: '幕府を開き、武士による政治が始まったんじゃ',
+                readText: '幕府を開き、武士による政治が始まったんじゃ',
             },
             {
                 questionText: 'あなたが関わる大きな出来事はなんですか？',
-                answerText: '御恩と奉公封建体制の成立じゃな',
-                readText: 
+                answerText: '御恩と奉公、封建体制の成立じゃな',
+                readText: 'ごおんとほうこう、ほうけん体制の成立じゃな',
             },
         ],
         questionOptionsThird: [
             {
                 questionText: 'あなたの人生におけるライバルは？',
                 answerText: '主に平家だと思うとる',
-                readText: 
+                readText: '主にへいけだと思うとる',
             },
             {
                 questionText: '他に何か成し遂げたことはありますか？',
                 answerText: '1185 年に鎌倉幕府をつくった',
-                readText: 
+                readText: '1185 年にかまくら幕府をつくった',
             },
             {
                 questionText: 'ゆかりの地は？',
                 answerText: '相模国、鎌倉の地じゃな',
-                readText: 
+                readText: 'さがみのくに、かまくらのちじゃな',
             },
             {
                 questionText: '実は〇〇な話教えて？',
                 answerText: '実はわしは平家との戦いには参加しておらず弟の義経や範頼が戦っておった',
-                readText: 
+                readText: '実はわしはへいけとの戦いには参加しておらず弟のよしつねやのりよりが戦っておった',
             },
         ],
         questionOptionsFourth: [
@@ -890,7 +891,7 @@ const questions = [
         ],
         image: require('../assets/img/源頼朝.png'),
         dialogue: 'わしの名前は源頼朝じゃ。',
-        readDialogue: 'わしのっ、名前はっ、源頼朝じゃ。',
+        readDialogue: 'わしのっ、名前はっ、みなもとのよりともじゃ。',
         explanationTitle: '鎌倉幕府の初代征夷大将軍、源頼朝',
         explanationDetail: '平安時代末期から鎌倉時代初期の日本の武将。北条時政や北条義時などと平家打倒を試み、鎌倉を本拠地として占拠した。藤原氏を滅ぼし、1192年に征夷大将軍に任命された。',
     },
@@ -902,61 +903,61 @@ const questions = [
             {
                 questionText: '何年にうまれた？',
                 answerText: 'ワシは574年にうまれた',
-                readText: 
+                readText: 'ワシは574年にうまれた',
             },
             {
                 questionText: 'なんと呼ばれていましたか？',
                 answerText: '厩戸皇子と呼ばれていたぜ',
-                readText: 
+                readText: 'うまやどのおうじと呼ばれていたぜ',
             },
             {
                 questionText: 'あなたはどんな書物を残したの？',
                 answerText: '蘇我馬子と共同で『天皇紀』と『国記』を編纂したよ',
-                readText: 
+                readText: 'そがのうまこと共同でてんのうきと、こきを編纂したよ',
             },
             {
                 questionText: 'あなたは社会にどのような影響を与えましたか？',
                 answerText: '倭の国が日本になるための土台を作ったな',
-                readText: 
+                readText: 'わの国が日本になるための土台を作ったな',
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: 'あなたが関わる大きな出来事はなんですか？',
                 answerText: '寺を作ったな',
-                readText: 
+                readText: '寺を作ったな',
             },
             {
                 questionText: 'あなたは誰の知り合いですか',
                 answerText: '蘇我馬子じゃ',
-                readText: 
+                readText: 'そがのうまこじゃ',
             },
             {
                 questionText: '何か成し遂げたことはありますか？',
-                answerText: '603年冠位十二階の制という出世システムを作りだした',
-                readText: 
+                answerText: '603年に冠位十二階の制という出世システムを作りだした',
+                readText: '603年にかんいじゅうにかいのせいという出世システムを作りだした',
             },
             {
                 questionText: '何か自慢できることある？',
                 answerText: '10人の話を同時に聞けたんじゃ',
-                readText: 
+                readText: '10人の話を同時に聞けたんじゃ',
             },
         ],
         questionOptionsThird: [
             {
                 questionText: 'あなたの仕事は？',
                 answerText: '政治の補佐じゃな',
-                readText: 
+                readText: '政治の補佐じゃな',
             },
             {
                 questionText: '誰の右腕として活躍しましたか？',
                 answerText: '推古天皇だな',
-                readText: 
+                readText: 'すいこ天皇だな',
             },
             {
                 questionText: '他には何成し遂げた？',
-                answerText: '604年我が国初の成文法、憲法十七条を制定した',
-                readText: 
+                answerText: '604年に我が国初の成文法、憲法十七条を制定した',
+                readText: '604年に我が国、初のせいぶんほう、けんぽうじゅうななじょうを制定した',
             },
             {
                 questionText: '',
@@ -975,7 +976,7 @@ const questions = [
             {
                 questionText: 'あなたといえば？',
                 answerText: '小野妹子を遣隋使として派遣したな',
-                readText: 
+                readText: 'おののいもこをけんずいしとして派遣したな',
             },
             {
                 questionText: '',
@@ -1002,7 +1003,7 @@ const questions = [
         ],
         image: require('../assets/img/聖徳太子.png'),
         dialogue: 'わしの名前は聖徳太子じゃ。',
-        readDialogue: 'わしのっ、名前はっ、聖徳太子じゃ。',
+        readDialogue: 'わしのっ、名前はっ、しょうとくたいしじゃ。',
         explanationTitle: '飛鳥時代の皇族・政治家、聖徳太子',
         explanationDetail: '推古天皇と蘇我馬子と協力し、遣隋使を派遣し大陸の文化や制度を日本に取り入れた。階位十二階や十七条憲法を定め、中央集権国家体制を確立した。',
     },
@@ -1014,66 +1015,66 @@ const questions = [
             {
                 questionText: '西暦何年生まれですか？',
                 answerText: '1745年生まれじゃ',
-                readText: 
+                readText: '1745年生まれじゃ',
             },
             {
                 questionText: '実は○◯な話ある？',
                 answerText: '実はわしは商才があったんじゃ',
-                readText: 
+                readText: '実はわしはしょうさいがあったんじゃ',
             },
             {
                 questionText: 'あなたの仕事は？',
                 answerText: 'いろいろやったが、天文学者もやったなぁ',
-                readText: 
+                readText: 'いろいろやったが、てんもんがくしゃもやったなぁ',
             },
             {
                 questionText: '何かエピソードある？',
                 answerText: '今でいうと定年退職後に大学に入学するようなことをやっていたのお',
-                readText: 
+                readText: '今でいうと定年退職後に大学に入学するようなことをやっていたのお',
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: 'どんな性格だったの？',
                 answerText: '厳格な性格じゃったよ',
-                readText: 
+                readText: '厳格な性格じゃったよ',
             },
             {
                 questionText: '実は〇〇、もっと聞きたい！',
                 answerText: 'あることをするために3.5万キロ歩いたことがあるのじゃ',
-                readText: 
+                readText: 'あることをするためにさんてんご万キロ歩いたことがあるのじゃ',
             },
             {
                 questionText: '天文学で有名になった人？',
                 answerText: 'わしは別のことで有名じゃな',
-                readText: 
+                readText: 'わしは別のことで有名じゃな',
             },
             {
                 questionText: 'それって具体的にどんなこと？',
-                answerText: '四十九歳に隠居をして江戸に移りすんだんじゃ',
-                readText: 
+                answerText: '四十九歳に隠居をして江戸に移り住んだんじゃ',
+                readText: '四十九歳に隠居をしてえどに移りすんだんじゃ',
             },
         ],
         questionOptionsThird: [
             {
                 questionText: '偉業はなんかある？',
                 answerText: '大日本沿海輿地全図を作ったことじゃ。（伊能図とも言われてる）',
-                readText: 
+                readText: 'だいにほんえんかいよちぜんずを作ったことじゃ。',
             },
             {
                 questionText: 'なんのために歩いたの？',
                 answerText: '測量をしたんじゃ',
-                readText: 
+                readText: '測量をしたんじゃ',
             },
             {
                 questionText: 'それは天文学に関係する？',
                 answerText: '距離を測ったりするという意味では関係あるのう',
-                readText: 
+                readText: '距離を測ったりするという意味では関係あるのう',
             },
             {
                 questionText: '江戸に移り住んでなにしてた？',
                 answerText: '19歳年下のやつから天文学を教わったのう',
-                readText: 
+                readText: '19歳年下のやつからてんもんがくを教わったのう',
             },
         ],
         questionOptionsFourth: [
@@ -1088,12 +1089,12 @@ const questions = [
             {
                 questionText: '距離を測ってなにしてたの？',
                 answerText: '日本中を歩き回って測量したのお',
-                readText: 
+                readText: '日本中を歩き回って測量したのお',
             },
             {
                 questionText: '誰に天文学を教わったの？',
                 answerText: '高橋至時くんじゃ',
-                readText: 
+                readText: '高橋よしときくんじゃ', 
             },
         ],
         questionOptionsFifth: [
@@ -1116,129 +1117,122 @@ const questions = [
         ],
         image: require('../assets/img/伊能忠敬.png'),
         dialogue: 'わしの名前は伊能忠敬じゃ。',
-        readDialogue: 'わしのっ、名前はっ、伊能忠敬じゃ。',
+        readDialogue: 'わしのっ、名前はっ、いのうただたかじゃ。',
         explanationTitle: '江戸時代の測量家、伊能忠敬',
         explanationDetail: '55~71歳の時、日本中を歩き回りながら測量し、日本地図を完成した。作成した地図はヨーロッパでも高く評価され、明治以降には日本地図として使われることになった。',
     },
     {
         id: 1,
-        period: '鎌倉時代',
+        period: '平安時代',
         human: '源義経',
         questionOptions: [
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '西暦何年生まれですか？',
+                answerText: '1159年に生まれたよ。',
+                readText: '1159年に生まれたよ。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '小さい頃のエピソードを教えてください。',
+                answerText: '赤ん坊の時に敵に殺されかけたが母親が懇願して見逃してくれたんだ。',
+                readText: '赤ん坊の時に敵に殺されかけたが母親が懇願して見逃してくれたんだ。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: 'あなたは社会にどのような影響を与えましたか？',
+                answerText: '日本に幕府というものを作るきっかけとなったな。',
+                readText: '日本に幕府というものを作るきっかけとなったな。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '何をしている人ですか？',
+                answerText: '武将であるよ。',
+                readText: '武将であるよ。'
             },
         ],
         questionOptionsSecond: [
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '有名な知り合いはいますか？',
+                answerText: '知り合いと言うのは気が引けるが、後白河上皇に直接命を受けたことがあるぞ。',
+                readText: '知り合いと言うのは気が引けるが、ごしらかわじょうこうに直接めいを受けたことがあるぞ。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '死因は何ですか？',
+                answerText: '共に仲間として戦ってきた兄に攻められたんだ。一切戦うことはせず、妻と４歳の娘を殺害した後に自害したよ。',
+                readText: '共に仲間として戦ってきた兄に攻められたんだ。一切戦うことはせず、妻と４歳の娘を殺害した後に自害したよ。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: 'ゆかりの地はどこですか？',
+                answerText: '奥州平泉であるな。今も堂が残っていて2011年に世界遺産に登録されたらしいな。',
+                readText: 'おうしゅうひらいずみであるな。今も堂が残っていて2011年に世界遺産に登録されたらしいな。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: 'どういう戦い方をしていましたか？',
+                answerText: '突然崖を駆け下りて奇襲をしたり船の操縦員を矢で射止めたりして敵の隙をつく戦い方をして大勝利を収めていたよ。',
+                readText: '突然崖を駆け下りて奇襲をしたり船の操縦員を矢で射止めたりして敵の隙をつく戦い方をして大勝利を収めていたよ。'
             },
         ],
         questionOptionsThird: [
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: 'あなたが関わる大きな出来事はなんですか？',
+                answerText: '治承・寿永の乱であるぞ。一般的には源平合戦と言われているな。',
+                readText: 'じしょう・じゅえいの乱であるぞ。一般的にはげんぺい合戦と言われているな。'
             },
             {
                 questionText: '',
-                answerText: '',
-                readText: 
+                answerText: ''
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: 'あなたが信頼する人は誰ですか？',
+                answerText: '部下の弁慶じゃ。',
+                readText: '部下のべんけいじゃ。'
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '具体的には何の戦いで勝利しましたか？',
+                answerText: '一ノ谷の戦い、屋島の戦い、そして壇ノ浦の戦いで勝利を収めたよ。',
+                readText: 'いちのたにの戦い、やしまの戦い、そしてだんのうらの戦いで勝利を収めたよ。'
             },
         ],
         questionOptionsFourth: [
             {
                 questionText: '',
                 answerText: '',
-                readText: 
+                readText: ''
             },
             {
                 questionText: '',
-                answerText: '',
-                readText: 
+                answerText: ''
             },
             {
                 questionText: '',
-                answerText: '',
-                readText: 
+                answerText: ''
             },
             {
-                questionText: '',
-                answerText: '',
-                readText: 
+                questionText: '異名はありますか？',
+                answerText: '牛若丸と呼ばれておった。',
+                readText: 'うしわかまると呼ばれておった。'
             },
         ],
         questionOptionsFifth: [
-            { 
-                questionText: '', 
-                answerText: '' ,
-                readText: 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' ,
-                readText: 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' ,
-                readText: 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' ,
-                readText: 
+            {
+                questionText: '',
+                answerText: ''
             },
         ],
         image: require('../assets/img/源義経.png'),
-        dialogue: 'わしの名前は源義経じゃ。',
-        readDialogue: 'わしのっ、名前はっ、源義経じゃ。',
+        dialogue: 'わしの名前は武田信玄じゃ。',
+        readDialogue: 'わしのっ、名前はっ、みなもとのよしつねじゃ。',
         explanationTitle: '平安時代末期の武将、源義経',
-        explanationDetail: '兄は鎌倉幕府初代将軍・源頼朝。平治の乱後、平泉で藤原秀衡の庇護を受ける。頼朝が平氏打倒の兵（治承・寿永の乱）を挙げた際に参戦した。一ノ谷の戦い、屋島の戦い、壇ノ浦の戦いを経て、平氏を滅ぼした。',
+        explanationDetail: '1159~89　頼朝の弟。幼名牛若丸。奥州に下り藤原秀衡（ふじわらのひでひら）の下で成長。頼朝挙兵に参じ、義仲（よしなか）・兵士討伐に功をあげた。後に頼朝と不仲になり、奥州に潜伏中、秀衡の子泰衡（やすひら）に攻められて自殺した。',
     },
     {
         id: 1,
@@ -1248,56 +1242,56 @@ const questions = [
             {
                 questionText: '西暦何年生まれですか？',
                 answerText: '1369年生まれだよ',
-                readText: 
+                readText: '1369年生まれだよ'
             },
             {
                 questionText: 'あなたの仕事は？',
                 answerText: '将軍様じゃー！',
-                readText: 
+                readText: 'しょうぐんさまじゃー！'
             },
             {
                 questionText: 'どこで生まれたの？',
                 answerText: '京都どすえぇ〜',
-                readText: 
+                readText: '京都どすえぇ〜'
             },
             {
                 questionText: '実はな話ってある？',
                 answerText: '10歳で将軍になったって話かな',
-                readText: 
+                readText: '10歳で将軍になったって話かな'
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: '誰かに尊敬とかされたことある？',
                 answerText: 'だいぶ後の人やけど、織田信長くんに尊敬されちゃったみたいやな',
-                readText: 
+                readText: 'だいぶ後の人やけど、織田信長くんに尊敬されちゃったみたいやな'
             },
             {
                 questionText: 'あなたの地位は？',
                 answerText: '平清盛に次いで２人目の太政大臣にまで登りつめたよ',
-                readText: 
+                readText:  'たいらのきよもりに次いで２人目のたいじょうだいじんにまで登りつめたよ'
             },
             {
                 questionText: '一昔前にテレビに出てなかった？',
                 answerText: '一休さんに出たよ！',
-                readText: 
+                readText: 'いっきゅうさんに出たよ！'
             },
             {
                 questionText: 'なんか作ってないん？',
                 answerText: '20歳の時に花の御所作ったったわい',
-                readText: 
+                readText: '20歳の時に花のごしょ作ったったわい'
             },
         ],
         questionOptionsThird: [
             {
                 questionText: 'あだ名は？',
                 answerText: '室町殿と呼ばれておった',
-                readText: 
+                readText: '室町どのと呼ばれておった'
             },
             {
                 questionText: '何か誇れることは？',
                 answerText: 'まあ、わいが将軍してた頃が室町時代で１番栄えてたってことかね',
-                readText: 
+                readText: 'まあ、わいが将軍してた頃が室町時代で１番栄えてたってことかね'
             },
             {
                 questionText: '',
@@ -1306,19 +1300,19 @@ const questions = [
             {
                 questionText: '他にどんなこと行ってたの？',
                 answerText: '「明」（中国）と勘合貿易を始めたよ',
-                readText: 
+                readText: '「みん」（中国）とかんごう貿易を始めたよ'
             },
         ],
         questionOptionsFourth: [
             {
                 questionText: '偉業はなんかある？',
                 answerText: '南北朝合一したったわい。あと、金があまっとったけん別荘建てたったわい！チナそれが、金閣なんよな〜',
-                readText: 
+                readText: 'なんぼくちょうごういつしたったわい。あと、金があまっとったけんべっそう建てたったわい！チナそれが、金閣なんよな〜'
             },
             {
                 questionText: 'おじいちゃん誰？',
                 answerText: '足利尊氏といって、誇り高い祖父であったな',
-                readText: 
+                readText: 'あしかがたかうじといって、ほこり高い祖父であったな'
             },
             {
                 questionText: '',
@@ -1330,26 +1324,26 @@ const questions = [
             },
         ],
         questionOptionsFifth: [
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
         ],
         image: require('../assets/img/足利義満.png'),
         dialogue: 'わしの名前は足利義満じゃ。',
-        readDialogue: 'わしのっ、名前はっ、足利義満じゃ。',
+        readDialogue: 'わしのっ、名前はっ、あしかがよしみつじゃ。',
         explanationTitle: '室町幕府三代将軍、足利義満',
         explanationDetail: '南北朝統一を成し遂げ、室町幕府の権力を確立した。また金閣寺を建国し、北山文化を開花させた。室町時代の政治、経済、文化の最盛期を築いた。',
     },
@@ -1361,51 +1355,51 @@ const questions = [
             {
                 questionText: 'あなたの仕事は？',
                 answerText: '将軍様じゃー！',
-                readText: 
+                readText: 'しょうぐんさまじゃー'
             },
             {
                 questionText: 'どこで生まれたの？',
                 answerText: '栃木県で生まれたよ。',
-                readText: 
+                readText: 'とちぎけんでうまれたよ'
             },
             {
                 questionText: '西暦何年生まれですか？',
                 answerText: '1338年生まれだよ',
-                readText: 
+                readText: '1338ねんうまれだよ'
             },
             {
                 questionText: 'あなたの異名は？',
                 answerText: '史上最大の逆賊って言われたり言われてなかったり・・・',
-                readText: 
+                readText: 'しじょうさいだいのぎゃくぞくっていわれたりいわれてなかったり'
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: '祖先に有名な人いる？',
                 answerText: '源義家っちだね',
-                readText: 
+                readText: 'みなもとのよしいえっちだね'
             },
             {
                 questionText: 'あなたのやっちゃった事件は？',
                 answerText: '力を合わせて政治をしてた弟を対立してしまった時に毒殺したんだな、、',
-                readText: 
+                readText: 'ちからをあわせてせいじをしてたおとうとをたいりつしてしまったときにどくさつしたんだな'
             },
             {
                 questionText: '関わった大きな戦とかってある？',
                 answerText: '元弘の乱だね',
-                readText: 
+                readText: 'げんこうのらんだね'
             },
             {
                 questionText: 'この前テレビに出てなかった？',
                 answerText: '大河ドラマの「太平記」にでとったわい！',
-                readText: 
+                readText: 'たいがどらまのたいへいきにでとったわい'
             },
         ],
         questionOptionsThird: [
             {
                 questionText: 'お父さん誰？',
                 answerText: '足利貞氏くんだよ',
-                readText: 
+                readText: 'あしかがたかうじくんだよ'
             },
             {
                 questionText: '',
@@ -1414,12 +1408,12 @@ const questions = [
             {
                 questionText: 'ここだけの話ってある？',
                 answerText: '元弘の乱に出陣するよう言われたけど、父の喪服中だったから断ったんだけど、幕府に許してもらえなかったんよ（太平記より）',
-                readText: 
+                readText: 'げんこうのらんにしゅつじんするよういわれたけど、ちちのふくもちゅうだったからことわったんだけど、ばくふにゆるしてもらえなかったよ'
             },
             {
                 questionText: '実はの話ってある？',
                 answerText: '最初は鎌倉幕府側の人間だったんだけど、途中で裏切って後醍醐天皇側についたんや〜',
-                readText: 
+                readText: 'さいしょはかまくらばくふがわのにんげんだったんだけど、とちゅうでうらぎってごだいごてんのうがわについたんや〜'
             },
         ],
         questionOptionsFourth: [
@@ -1438,30 +1432,30 @@ const questions = [
             {
                 questionText: 'あなたの偉業は？',
                 answerText: '室町幕府つくりましたー！！新田義貞、楠木正成、後醍醐天皇の新政府倒した後に、光明天皇をたててと色々苦労して幕府を作ったんよ。',
-                readText: 
+                readText: 'むろまちばくふつくりましたー！！にったよしさだ、くすのきまさしげ、ごだいごてんのうのしんせいふたおしたあとに、こうめいてんのうをたててといろいろくろうしてばくふをつくったんよ'
             },
         ],
         questionOptionsFifth: [
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
-            { 
-                questionText: '', 
-                answerText: '' 
+            {
+                questionText: '',
+                answerText: ''
             },
         ],
         image: require('../assets/img/足利尊氏.png'),
         dialogue: 'わしの名前は足利尊氏じゃ。',
-        readDialogue: 'わしのっ、名前はっ、足利尊氏じゃ。',
+        readDialogue: 'わしのっ、名前はっ、あしかがたかうじじゃ。',
         explanationTitle: '室町幕府初代征夷大将軍、足利尊氏',
         explanationDetail: '鎌倉時代末期から南北朝時代の武将。後醍醐天皇とともに鎌倉幕府を倒し、室町幕府を築いた。',
     },
@@ -1473,44 +1467,44 @@ const questions = [
             {
                 questionText: '西暦何年に生まれたの？',
                 answerText: '1494年やな！',
-                readText: 
+                readText: '1494年やな！',
             },
             {
                 questionText: 'どこで生まれたん？',
                 answerText: '京都どすえぇ',
-                readText: 
+                readText: '京都どすえぇ',
             },
             {
                 questionText: '10歳の時の名前なんなん？',
                 answerText: '法蓮、、蓮舫ちゃうぞうい！',
-                readText: 
+                readText: 'ほうれん、、れんほうちゃうぞうい！',
             },
             {
                 questionText: 'どんな人なの？',
                 answerText: 'ワイは人を平気で騙せる非常な人間やったわい',
-                readText: 
+                readText: 'ワイは人を平気で騙せる非常な人間やったわい',
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: 'なんか自慢できることある？',
                 answerText: 'パパと一緒に親子２代で、僧侶から油売り、ほんで大名に成り上がったんや！下克上最高！！',
-                readText: 
+                readText: 'パパと一緒に親子２代で、僧侶からあぶらうり、ほんでだいみょうに成り上がったんや！げこくじょう最高！！',
             },
             {
                 questionText: '名言ある？',
                 answerText: '「力で奪い取ったものは時を経て、力でもぎ取られる」と言ったな',
-                readText: 
+                readText: '「ちからで奪い取ったものは時を経て、ちからでもぎ取られる」と言ったな',
             },
             {
                 questionText: '何か自慢できることあり？',
                 answerText: '信長の城作りに影響を与えたんじゃ！',
-                readText: 
+                readText: 'のぶながのしろ作りに影響を与えたんじゃ！',
             },
             {
                 questionText: 'どんなことをしてたの？',
                 answerText: '武将をしちょったわい',
-                readText: 
+                readText: 'ぶしょうをしちょったわい',
             },
         ],
         questionOptionsThird: [
@@ -1525,12 +1519,12 @@ const questions = [
             {
                 questionText: 'なんか武勇伝ある？',
                 answerText: 'まあ、戦の最後死ぬ直前に遺言を書いて信長に自分の国をやったことやな',
-                readText: 
+                readText: 'まあ、いくさの最後死ぬ直前にゆいごんを書いてのぶながに自分の国をやったことやな',
             },
             {
                 questionText: '具体的にはどんなことをしてたの？',
-                answerText: '美濃国の戦国大名もしとった',
-                readText: 
+                answerText: '美濃国の戦国もしとった',
+                readText: 'みののくにのせんごくだいみょうもしとった',
             },
         ],
         questionOptionsFourth: [
@@ -1549,7 +1543,7 @@ const questions = [
             {
                 questionText: 'あだ名はある？',
                 answerText: '美濃のマムシって呼ばれとったわい！',
-                readText: 
+                readText: 'みののマムシって呼ばれとったわい！',
             },
         ],
         questionOptionsFifth: [
@@ -1572,9 +1566,9 @@ const questions = [
         ],
         image: require('../assets/img/斎藤道三.png'),
         dialogue: 'わしの名前は斎藤道三じゃ。',
-        readDialogue: 'わしのっ、名前はっ、斎藤道三じゃ。',
+        readDialogue: 'わしのっ、名前はっ、斎藤どうざんじゃ。',
         explanationTitle: '美濃の戦国大名、斎藤道三',
-        explanationDetail: '、、、',
+        explanationDetail: '規秀（道三）の代に長井家を倒し、守護代斎藤氏の家名を奪って、土岐氏を追放。長男の義龍と争って敗北した。',
     },
 ]
 export default questions;
