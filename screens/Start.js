@@ -171,67 +171,67 @@ export default function Start(props) {
             }}
           />
           {/* <Image source={require('../assets/img/歴史の壁.png')}
-                                style={{
-                                    // width: 300,
-                                    height: 90,
-                                    marginTop: 50,
-                                    marginLeft:'20%',
-                                    marginRight:'20%',
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    lignItems: 'center'
-                                }} />
+                style={{
+                    // width: 300,
+                    height: 90,
+                    marginTop: 50,
+                    marginLeft:'20%',
+                    marginRight:'20%',
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} />
               <Image source={require('../assets/img/タイトル.png')}
-                                style={{
-                                    // width: 300,
-                                    height: 90,
-                                    marginTop: 30,
-                                    marginLeft:'20%',
-                                    marginRight:'20%',
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    lignItems: 'center'
-                                }} /> */}
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            <Image source={require('../assets/img/歴史の壁.png')}
-              style={{
-                width: 300,
-                height: 90,
-                marginTop: 40,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                lignItems: 'center'
-              }} />
-            <Image source={require('../assets/img/タイトル.png')}
-              style={{
-                width: 300,
-                height: 90,
-                marginTop: 40,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                lignItems: 'center'
-              }} />
-            <Button
-              title="始める"
-              onPress={() => {
-                props.navigation.navigate('SelectNumber');
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, marginTop: 100, }}
-            />
-            <Button
-              title="ランキング"
-              onPress={getDatabaseData}
-              containerStyle={{ width: '50%' }}
-            />
-          </View>
-        </ImageBackground>
-      </View>
-    </ThemeProvider>
+                style={{
+                    // width: 300,
+                    height: 90,
+                    marginTop: 30,
+                    marginLeft:'20%',
+                    marginRight:'20%',
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} /> */}
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <Image source={require('../assets/img/歴史の壁.png')}
+                style={{
+                    width: 300,
+                    height: 90,
+                    marginTop: 40,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} />
+              <Image source={require('../assets/img/タイトル.png')}
+                style={{
+                    width: 300,
+                    height: 90,
+                    marginTop: 40,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} />
+              <Button
+                title="始める"
+                onPress={() => {
+                  props.navigation.navigate('SelectNumber');
+                }}
+                containerStyle={{ width: '50%', marginBottom: 50, marginTop:100, }}
+              />
+              <Button
+                title="ランキング"
+                onPress={getDatabaseData}
+                containerStyle={{ width: '50%' }}
+              />
+            </View>
+          </ImageBackground>
+        </View>
+      </ThemeProvider>
   )
 }

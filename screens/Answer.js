@@ -385,7 +385,7 @@ export default function Answer({ navigation }) {
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
-                                    lignItems: 'center'
+                                    alignItems: 'center'
                                 }} /> }
                     <Text h2>
                         {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
@@ -415,7 +415,7 @@ export default function Answer({ navigation }) {
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
-                                    lignItems: 'center'
+                                    alignItems: 'center'
                                 }} 
                             />
                             <Animated.Image

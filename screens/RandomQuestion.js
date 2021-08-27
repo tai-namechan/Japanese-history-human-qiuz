@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         padding: 24,
         marginTop: 10,
         backgroundColor: 'white',
+        width: "90%",
     },
 });
 
@@ -353,7 +354,7 @@ export default function SelectQuestion(props) {
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
-                                    lignItems: 'center'
+                                    alignItems: 'center'
                                 }} /> }
                         </View>
                         <Balloon
@@ -376,7 +377,9 @@ export default function SelectQuestion(props) {
                         <Text h3>質問</Text>
                         <View style={styles.container}>
                             {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
-                                <Button title={questionOption.questionText}
+                                <Button 
+                                    key={i} 
+                                    title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
                             ))}
