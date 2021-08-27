@@ -30,108 +30,193 @@ export default function Start(props) {
     appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
   }
   if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
-      firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
   }
 
-  const getDatabaseData = async() => {
+  const getDatabaseData = async () => {
+    // console.log("================");
+    // 総合スコアの降順の取得
     await firebase.firestore().collection("nicknameuser").orderBy('score', 'desc').limit(5).get().then((querySnapshot) => {
-      // console.log("bbb");
-      const docs = querySnapshot.docs.map(doc => doc.data());
-      // console.log("ccc");
-      // console.log(docs);
-      const info = docs;
-      // console.log(info[0].username);
-      return info;
-    }).then((info) => {
-      // console.log("eee");
-      props.navigation.navigate(
-        'Ranking', { 
-          username1: info[0].username, 
-          score1: info[0].score, 
-          username2: info[1].username, 
-          score2: info[1].score, 
-          username3: info[2].username, 
-          score3: info[2].score, 
-          username4: info[3].username, 
-          score4: info[3].score, 
-          username5: info[4].username, 
-          score5: info[4].score, 
-        });
-    });
+      console.log("bbb");
+      const scoreDocs = querySnapshot.docs.map(doc => doc.data());
+      //   console.log("ccc");
+      //   console.log(scoreDocs);
+      const scoreInfo = scoreDocs;
+      // console.log(scoreInfo[0].username);
+      return scoreInfo;
+    }).then((scoreInfo) => {
+      let uu = scoreInfo;
+      // console.log(uu);
+      return uu;
+    })
+      // 平均スコアの降順の取得
+      .then((uu) => {
+        firebase.firestore().collection("nicknameuser").orderBy('average', 'desc').limit(5).get().then((querySnapshot) => {
+          // console.log("bbbbb");
+          const averageDocs = querySnapshot.docs.map(doc => doc.data());
+          // console.log("ccc");
+          // console.log(averageDocs);
+          const averageInfo = averageDocs;
+          const rr = uu.concat(averageInfo);
+          console.log(rr);
+          // setRrr(rr);
+          return rr;
+        })
+          .then((rr) => {
+            const user = firebase.auth().currentUser;
+            // console.log(user);
+            if (user !== null) {
+              const userInfomation = firebase.firestore().collection('nicknameuser').doc(user.uid);
+
+              userInfomation.get().then((doc) => {
+                const data = doc.data();
+                const loginusername = data.username;
+                // console.log(datausername);
+
+                const loginscore = data.score;
+                // console.log(datascore);
+
+                const loginaverage = data.average;
+                // console.log(datatimes);
+
+                props.navigation.navigate(
+                  'Ranking', {
+                  // 遷移時に値を受け渡す
+                  username1: rr[0].username,
+                  score1: rr[0].score,
+                  username2: rr[1].username,
+                  score2: rr[1].score,
+                  username3: rr[2].username,
+                  score3: rr[2].score,
+                  username4: rr[3].username,
+                  score4: rr[3].score,
+                  username5: rr[4].username,
+                  score5: rr[4].score,
+
+                  average_username1: rr[5].username,
+                  average_score1: rr[5].average,
+                  average_username2: rr[6].username,
+                  average_score2: rr[6].average,
+                  average_username3: rr[7].username,
+                  average_score3: rr[7].average,
+                  average_username4: rr[8].username,
+                  average_score4: rr[8].average,
+                  average_username5: rr[9].username,
+                  average_score5: rr[9].average,
+
+                  login_username: loginusername,
+                  login_score: loginscore,
+                  login_average: loginaverage,
+                });
+              })
+            } else {
+              props.navigation.navigate(
+                'Ranking', {
+                // 遷移時に値を受け渡す
+                username1: rr[0].username,
+                score1: rr[0].score,
+                username2: rr[1].username,
+                score2: rr[1].score,
+                username3: rr[2].username,
+                score3: rr[2].score,
+                username4: rr[3].username,
+                score4: rr[3].score,
+                username5: rr[4].username,
+                score5: rr[4].score,
+
+                average_username1: rr[5].username,
+                average_score1: rr[5].average,
+                average_username2: rr[6].username,
+                average_score2: rr[6].average,
+                average_username3: rr[7].username,
+                average_score3: rr[7].average,
+                average_username4: rr[8].username,
+                average_score4: rr[8].average,
+                average_username5: rr[9].username,
+                average_score5: rr[9].average,
+
+                login_username: "（ログインしてね！）",
+                login_score: "??",
+                login_average: "??",
+              });
+            }
+          })
+      });
   }
 
   return (
     <ThemeProvider theme={theme}>
-        <View >
-          <ImageBackground
-            source={require('../assets/img/sakura-change.jpg')}
-            resizeMode="cover"
-            style={{ height: 1000, }}
-          >
-            <Header
-              // authは右にあった方がいい気がしたため、iconの左右入れ替えた
-              placement="left"
-              leftComponent={{ icon: 'menu', color: 'brown' }}
-              centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
+      <View >
+        <ImageBackground
+          source={require('../assets/img/sakura-change.jpg')}
+          resizeMode="cover"
+          style={{ height: 1000, }}
+        >
+          <Header
+            // authは右にあった方がいい気がしたため、iconの左右入れ替えた
+            placement="left"
+            leftComponent={{ icon: 'menu', color: 'brown' }}
+            centerComponent={{
+              text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
               // onPress: () => this.props.navigation.navigate('Signup')
             }}
-              rightComponent={{
-                icon: 'login',
-                color: 'brown',
-                onPress: () => props.navigation.navigate('Auth')
-              }}
-              containerStyle={{
-                backgroundColor: '',
-                justifyContent: 'space-around',
-              }}
-            />
-            {/* <Image source={require('../assets/img/歴史の壁.png')}
-                                style={{
-                                    // width: 300,
-                                    height: 90,
-                                    marginTop: 50,
-                                    marginLeft:'20%',
-                                    marginRight:'20%',
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} />
+            rightComponent={{
+              icon: 'login',
+              color: 'brown',
+              onPress: () => props.navigation.navigate('Auth')
+            }}
+            containerStyle={{
+              backgroundColor: '',
+              justifyContent: 'space-around',
+            }}
+          />
+          {/* <Image source={require('../assets/img/歴史の壁.png')}
+                style={{
+                    // width: 300,
+                    height: 90,
+                    marginTop: 50,
+                    marginLeft:'20%',
+                    marginRight:'20%',
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} />
               <Image source={require('../assets/img/タイトル.png')}
-                                style={{
-                                    // width: 300,
-                                    height: 90,
-                                    marginTop: 30,
-                                    marginLeft:'20%',
-                                    marginRight:'20%',
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} /> */}
+                style={{
+                    // width: 300,
+                    height: 90,
+                    marginTop: 30,
+                    marginLeft:'20%',
+                    marginRight:'20%',
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} /> */}
             <View style={{ flex: 1, alignItems: 'center' }}>
               <Image source={require('../assets/img/歴史の壁.png')}
-                                style={{
-                                    width: 300,
-                                    height: 90,
-                                    marginTop: 40,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} />
+                style={{
+                    width: 300,
+                    height: 90,
+                    marginTop: 40,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} />
               <Image source={require('../assets/img/タイトル.png')}
-                                style={{
-                                    width: 300,
-                                    height: 90,
-                                    marginTop: 40,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} />
+                style={{
+                    width: 300,
+                    height: 90,
+                    marginTop: 40,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }} />
               <Button
                 title="始める"
                 onPress={() => {
