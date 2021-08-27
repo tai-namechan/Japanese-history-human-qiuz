@@ -19,12 +19,14 @@ const theme = {
   },
 };
 
-  let questionRandom = Math.floor(Math.random() * questions.length);
+  //let questionRandom = Math.floor(Math.random() * questions.length);
+  let questionRandom = 0;
   console.log(questionRandom);
 
 export default function SelectEra(props) {
   random = () => {
-    questionRandom = Math.floor(Math.random() * questions.length);
+    //questionRandom = Math.floor(Math.random() * questions.length);
+    questionRandom = 0;
   };
 
   return (

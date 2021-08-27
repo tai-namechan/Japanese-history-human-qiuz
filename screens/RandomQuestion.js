@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
 });
+var temp_questions = questions;
+var temp_temp_question = questions;
 
 export default function SelectQuestion(props) {
     // 値を次のページに送る
@@ -41,11 +43,12 @@ export default function SelectQuestion(props) {
         const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);
          //setCurrentQuestion(1);
-        console.log(questionRandom);
-        console.log(period);
+        //console.log(questionRandom);
+        //console.log(period);
     },[]);
-
-    const [showQuestions, setShowQuestions] = useState(questions);
+    
+    const [showQuestions, setShowQuestions] = useState(temp_temp_question);
+    //console.log(showQuestions);
     //console.log(questionRandom);
     const [countQuestionOne, setCountQuestionOne] = useState(1);
     const [countQuestionTwo, setCountQuestionTwo] = useState(1);
@@ -68,12 +71,14 @@ export default function SelectQuestion(props) {
     // モーダルの表示
     const [visible, setVisible] = useState(false);
 
+    //var temp_questions = questions;
+
     // 質問ボタンを押した後
     const handleQuestionOptionClick = (questionOption, i) => {
         // 質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
         showAnswerText(setAnswerText);
-
+        console.log(temp_questions[currentQuestion].questionOptionsSecond);
         // expo speech
         Speech.speak(setAnswerText,
             {
@@ -129,8 +134,8 @@ export default function SelectQuestion(props) {
         }
 
         if(countQuestionButton == 1) {
-            var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
-            var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
+            var questionOptionsStock = temp_questions[currentQuestion].questionOptionsSecond[number];
+            var questionTextStock = temp_questions[currentQuestion].questionOptionsSecond[number].questionText;
 
             //var questionPreTextStock = questions[currentQuestion].questionOptions[number].questionText;
 
@@ -140,24 +145,24 @@ export default function SelectQuestion(props) {
 
         }
         else if(countQuestionButton == 2) {
-            var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
-            var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
+            var questionOptionsStock = temp_questions[currentQuestion].questionOptionsThird[number];
+            var questionTextStock = temp_questions[currentQuestion].questionOptionsThird[number].questionText;
 
             //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
         }
         else if(countQuestionButton == 3) {
-            var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
-            var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
+            var questionOptionsStock = temp_questions[currentQuestion].questionOptionsFourth[number];
+            var questionTextStock = temp_questions[currentQuestion].questionOptionsFourth[number].questionText;
 
             //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
             // console.log(questionOptionsStock);
             // console.log(countQuestionButton);
         }
         else {
-            var questionOptionsStock = questions[currentQuestion].questionOptionsFifth[number];
-            var questionTextStock = questions[currentQuestion].questionOptionsFifth[number].questionText;
+            var questionOptionsStock = temp_questions[currentQuestion].questionOptionsFifth[number];
+            var questionTextStock = temp_questions[currentQuestion].questionOptionsFifth[number].questionText;
 
             //var questionPreTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
             // console.log(questionOptionsStock);
@@ -278,7 +283,7 @@ export default function SelectQuestion(props) {
         const inputText = text;
         // humanに答えとなる人物を設定する
         //const human = '渋沢栄一';
-        const human = questions[currentQuestion].human;
+        const human = temp_questions[currentQuestion].human;
         //const number = questions[currentQuestion];
 
         // console.log(human);
@@ -301,7 +306,7 @@ export default function SelectQuestion(props) {
         // モーダルの非表示
         toggleOverlay();
         
-        Speech.speak(questions[currentQuestion].readDialogue,
+        Speech.speak(temp_questions[currentQuestion].readDialogue,
             {
                 
                 "language": "ja",
@@ -373,7 +378,7 @@ export default function SelectQuestion(props) {
                         {/* 質問 */}
                         <Text h3>質問</Text>
                         <View style={styles.container}>
-                            {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
+                            {temp_questions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
