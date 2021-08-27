@@ -40,7 +40,7 @@ export default function SelectQuestion(props) {
         // 選択された時代をSelectEraから受け取る
         const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);
-         //setCurrentQuestion(1);
+        //setCurrentQuestion(0);
         console.log(questionRandom);
         console.log(period);
     },[]);
