@@ -353,7 +353,7 @@ export default function SelectQuestion(props) {
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
-                                    lignItems: 'center'
+                                    alignItems: 'center'
                                 }} /> }
                         </View>
                         <Balloon
@@ -364,7 +364,7 @@ export default function SelectQuestion(props) {
                             triangleDirection='top'
                         >
                             <Animated.Text style={{
-                                height: 60,
+                                height: 60, fontSize:17,
                             }}>
                                 {answerText}
                             </Animated.Text>

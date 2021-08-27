@@ -21,8 +21,8 @@ const questions = [
             },
             { 
                 questionText: '何か自慢できることはある？', 
-                answerText: '私がもうじき１万円札の顔になるらしいぞ。', 
-                readText: '私がもうじき１万円さつの顔になるらしいぞ。' 
+                answerText: '私がもうじきお札の顔になるらしいぞ。', 
+                readText: '私がもうじきおさつの顔になるらしいぞ。' 
             },
         ],
         questionOptionsSecond: [

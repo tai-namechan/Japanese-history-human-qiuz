@@ -204,7 +204,7 @@ export default function Start(props) {
                 right: 0,
                 bottom: 0,
                 justifyContent: 'center',
-                lignItems: 'center'
+                alignItems: 'center'
               }} />
             <Image source={require('../assets/img/タイトル.png')}
               style={{
@@ -215,7 +215,7 @@ export default function Start(props) {
                 right: 0,
                 bottom: 0,
                 justifyContent: 'center',
-                lignItems: 'center'
+                alignItems: 'center'
               }} />
             <Button
               title="始める"

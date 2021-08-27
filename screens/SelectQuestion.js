@@ -359,7 +359,7 @@ export default function SelectQuestion(props) {
                                     right: 0,
                                     bottom: 0,
                                     justifyContent: 'center',
-                                    lignItems: 'center'
+                                    alignItems: 'center'
                                 }} /> }
                         </View>
                         <Balloon
