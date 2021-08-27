@@ -117,6 +117,9 @@ export default function Answer({ navigation }) {
     const average_username5 = navigation.state.params.average_username5;
     const average_score5 = navigation.state.params.average_score5;
 
+    const login_username = navigation.state.params.login_username;
+    const login_score = navigation.state.params.login_score;
+    const login_average = navigation.state.params.login_average;
 
     return (
         <ThemeProvider theme={theme}>
@@ -203,8 +206,8 @@ export default function Answer({ navigation }) {
                             {/* ログインユーザーの記録 */}
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>👤My data</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_username}</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_score}point</Animated.Text>
                             </View>
                         </View>
                         <View style={styles.container}>
@@ -252,8 +255,8 @@ export default function Answer({ navigation }) {
                             {/* ログインユーザーの記録 */}
                             <View style={styles.item1}>
                                 <Animated.Text style={{ opacity: fifthOpacity, }}>👤My data</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>ユーザー名</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>〇〇point</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_username}</Animated.Text>
+                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_average}point</Animated.Text>
                             </View>
                         </View>
                     </View>
