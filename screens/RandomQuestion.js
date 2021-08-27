@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         padding: 24,
         marginTop: 10,
         backgroundColor: 'white',
+        width: "90%",
     },
 });
 
@@ -376,7 +377,9 @@ export default function SelectQuestion(props) {
                         <Text h3>質問</Text>
                         <View style={styles.container}>
                             {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
-                                <Button key={i} title={questionOption.questionText}
+                                <Button 
+                                    key={i} 
+                                    title={questionOption.questionText}
                                     onPress={() => handleQuestionOptionClick(questionOption, i)}
                                 />
                             ))}

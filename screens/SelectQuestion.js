@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         padding: 24,
         marginTop: 10,
         backgroundColor: 'white',
+        width: "90%",
     },
 });
 
