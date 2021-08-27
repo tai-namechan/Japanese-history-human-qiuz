@@ -72,10 +72,12 @@ export default function SelectQuestion(props) {
     const handleQuestionOptionClick = (questionOption, i) => {
         // 質問ボタンを押したら、対応するanswerTextが吹き出しに表示する
         var setAnswerText = questionOption.answerText;
+        // テキスト読み上げ文
+        var setReadText = questionOption.readText;
         showAnswerText(setAnswerText);
 
         // expo speech
-        Speech.speak(setAnswerText,
+        Speech.speak(setReadText,
             {
                 "language": "ja",
                 // 低い声
