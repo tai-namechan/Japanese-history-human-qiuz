@@ -1566,7 +1566,7 @@ const questions = [
         ],
         image: require('../assets/img/斎藤道三.png'),
         dialogue: 'わしの名前は斎藤道三じゃ。',
-        readDialogue: 'わしのっ、名前はっ、斎藤どうざんじゃ。',
+        readDialogue: 'わしのっ、名前はっ、斎藤どうさんじゃ。',
         explanationTitle: '美濃の戦国大名、斎藤道三',
         explanationDetail: '規秀（道三）の代に長井家を倒し、守護代斎藤氏の家名を奪って、土岐氏を追放。長男の義龍と争って敗北した。',
     },
