@@ -1255,7 +1255,7 @@ const questions = [
                 readText: '京都どすえぇ〜'
             },
             {
-                questionText: '実はな話ってある？',
+                questionText: '実は◯◯な話ってある？',
                 answerText: '10歳で将軍になったって話かな',
                 readText: '10歳で将軍になったって話かな'
             },
@@ -1364,8 +1364,8 @@ const questions = [
             },
             {
                 questionText: '西暦何年生まれですか？',
-                answerText: '1338年生まれだよ',
-                readText: '1338ねんうまれだよ'
+                answerText: '1305年生まれだよ',
+                readText: '1305ねんうまれだよ'
             },
             {
                 questionText: 'あなたの異名は？',
@@ -1481,8 +1481,8 @@ const questions = [
             },
             {
                 questionText: 'どんな人なの？',
-                answerText: 'ワイは人を平気で騙せる非常な人間やったわい',
-                readText: 'ワイは人を平気で騙せる非常な人間やったわい',
+                answerText: 'ワイは人を平気で騙せる非情な人間やったわい',
+                readText: 'ワイは人を平気で騙せる非情な人間やったわい',
             },
         ],
         questionOptionsSecond: [
@@ -1523,7 +1523,7 @@ const questions = [
             },
             {
                 questionText: '具体的にはどんなことをしてたの？',
-                answerText: '美濃国の戦国もしとった',
+                answerText: '美濃国の戦国大名もしとった',
                 readText: 'みののくにのせんごくだいみょうもしとった',
             },
         ],
@@ -2826,7 +2826,7 @@ const questions = [
                 readText: '京都どすえぇ〜'
             },
             {
-                questionText: '実はな話ってある？',
+                questionText: '実は◯◯な話ってある？',
                 answerText: '10歳で将軍になったって話かな',
                 readText: '10歳で将軍になったって話かな'
             },
@@ -2935,8 +2935,8 @@ const questions = [
             },
             {
                 questionText: '西暦何年生まれですか？',
-                answerText: '1338年生まれだよ',
-                readText: '1338ねんうまれだよ'
+                answerText: '1305年生まれだよ',
+                readText: '1305ねんうまれだよ'
             },
             {
                 questionText: 'あなたの異名は？',
@@ -3052,8 +3052,8 @@ const questions = [
             },
             {
                 questionText: 'どんな人なの？',
-                answerText: 'ワイは人を平気で騙せる非常な人間やったわい',
-                readText: 'ワイは人を平気で騙せる非常な人間やったわい',
+                answerText: 'ワイは人を平気で騙せる非情な人間やったわい',
+                readText: 'ワイは人を平気で騙せる非情な人間やったわい',
             },
         ],
         questionOptionsSecond: [
@@ -3094,7 +3094,7 @@ const questions = [
             },
             {
                 questionText: '具体的にはどんなことをしてたの？',
-                answerText: '美濃国の戦国もしとった',
+                answerText: '美濃国の戦国大名もしとった',
                 readText: 'みののくにのせんごくだいみょうもしとった',
             },
         ],
@@ -4397,7 +4397,7 @@ const questions = [
                 readText: '京都どすえぇ〜'
             },
             {
-                questionText: '実はな話ってある？',
+                questionText: '実は◯◯な話ってある？',
                 answerText: '10歳で将軍になったって話かな',
                 readText: '10歳で将軍になったって話かな'
             },
@@ -4506,8 +4506,8 @@ const questions = [
             },
             {
                 questionText: '西暦何年生まれですか？',
-                answerText: '1338年生まれだよ',
-                readText: '1338ねんうまれだよ'
+                answerText: '1305年生まれだよ',
+                readText: '1305ねんうまれだよ'
             },
             {
                 questionText: 'あなたの異名は？',
@@ -4623,8 +4623,8 @@ const questions = [
             },
             {
                 questionText: 'どんな人なの？',
-                answerText: 'ワイは人を平気で騙せる非常な人間やったわい',
-                readText: 'ワイは人を平気で騙せる非常な人間やったわい',
+                answerText: 'ワイは人を平気で騙せる非情な人間やったわい',
+                readText: 'ワイは人を平気で騙せる非情な人間やったわい',
             },
         ],
         questionOptionsSecond: [
@@ -4665,7 +4665,7 @@ const questions = [
             },
             {
                 questionText: '具体的にはどんなことをしてたの？',
-                answerText: '美濃国の戦国もしとった',
+                answerText: '美濃国の戦国大名もしとった',
                 readText: 'みののくにのせんごくだいみょうもしとった',
             },
         ],
