@@ -4,9 +4,9 @@
     "slug": "rekisinokabe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/build/icon.jpg",
+    "icon": "./assets/build/icon",
     "splash": {
-      "image": "./assets/build/splash.jpg",
+      "image": "./assets/build/splash",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
