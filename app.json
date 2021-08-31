@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "quiz",
-    "slug": "quiz",
+    "name": "歴史の壁~正解を衝け~",
+    "slug": "rekisinokabe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/build/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/build/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.seed-k.rekisinokabe",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {

@@ -32,7 +32,6 @@ class SignupForm extends Component {
           .set({
             username,
             email,
-            password,
             score,
             times,
             average,
