@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
+import { View, ImageBackground, Animated, StyleSheet, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
@@ -321,7 +321,8 @@ export default function SelectQuestion(props) {
             <View >
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
                     style={{ height: 1000, }}>
-
+                    <SafeAreaView>
+                    <ScrollView>
                     <Header
                         // 問題画面にはstart.jsに戻るボタンはいらない？
                         // leftComponent={{
@@ -413,6 +414,8 @@ export default function SelectQuestion(props) {
                             </Overlay>
                         </View>
                     </View>
+                    </ScrollView>
+                    </SafeAreaView>
                 </ImageBackground>
             </View>
         </ThemeProvider>

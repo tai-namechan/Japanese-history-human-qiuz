@@ -1,5 +1,5 @@
 import React, { Component, useEffect} from 'react';
-import { View, ImageBackground } from 'react-native';
+import { View, ImageBackground, ScrollView } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import questions from './question';
 
@@ -7,10 +7,10 @@ import questions from './question';
 const theme = {
   Button: {
     containerStyle: {
-      margin: '6%',
+      margin: '5%',
     },
     titleStyle: {
-      fontSize: 40
+      fontSize: 35
     },
     raised: true,
   },
@@ -33,8 +33,9 @@ export default function SelectEra(props) {
         <ImageBackground
           source={require('../assets/img/background.png')}
           resizeMode="cover"
-          style={{ height: 1000, }}
+          style={{ height: '100%' }}
         >
+          <ScrollView >
           <Header
             placement="left"
             rightComponent={{ icon: 'menu', color: 'brown' }}
@@ -56,11 +57,11 @@ export default function SelectEra(props) {
             {/* <Text h1>時代の選択</Text> */}
             <Text
             h1
-            style={{ marginTop:30 }}
+            style={{ marginTop:20 }}
             >
               時代を選べ！
             </Text>
-
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop:30}}>
             <Button
               title="ランダム"
               onPress={() => {
@@ -70,9 +71,10 @@ export default function SelectEra(props) {
                 props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
                 random();
               }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
+              containerStyle={{ width: '50%'}}
             />
-
+            </View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <Button
               title="大正時代"
               onPress={() => {
@@ -83,8 +85,10 @@ export default function SelectEra(props) {
                 );
                 random();
               }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
+              containerStyle={{ width: '50%' }}
             />
+            </View>
+            <View style={{ flex: 1, alignItems: 'center',justifyContent: 'center' }}>
             <Button
               title="明治時代"
               onPress={() => {
@@ -95,8 +99,10 @@ export default function SelectEra(props) {
                 );
                 random();
               }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
+              containerStyle={{ width: '50%',  }}
             />
+            </View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Button
               title="江戸時代"
               onPress={() => {
@@ -107,8 +113,10 @@ export default function SelectEra(props) {
                 );
                 random();
               }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
+              containerStyle={{ width: '50%', }}
             />
+            </View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <Button
               title="室町・戦国時代"
               onPress={() => {
@@ -119,9 +127,11 @@ export default function SelectEra(props) {
                 );
                 random();
               }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
+              containerStyle={{ width: '50%', }}
             />
+            </View>
           </View>
+          </ScrollView>
         </ImageBackground>
       </View>
     </ThemeProvider>
