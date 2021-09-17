@@ -16,8 +16,6 @@ import SelectEra from './screens/SelectEra';
 // import Tokumei from './auth/Tokumei.js';
 import Ranking from './screens/Ranking.js';
 
-
-
 // setting main nav
 const MainStack = createStackNavigator(
   {

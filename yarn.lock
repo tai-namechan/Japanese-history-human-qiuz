@@ -2041,6 +2041,20 @@
   "resolved" "https://registry.npmjs.org/asap/-/asap-2.0.6.tgz"
   "version" "2.0.6"
 
+"assign-deep@^0.4.5":
+  "integrity" "sha512-uxqXJCnNZDEjPnsaLKVzmh/ST5+Pqoz0wi06HDfHKx1ASNpSbbvz2qW2Gl8ZyHwr5jnm11X2S5eMQaP1lMZmCg=="
+  "resolved" "https://registry.npmjs.org/assign-deep/-/assign-deep-0.4.8.tgz"
+  "version" "0.4.8"
+  dependencies:
+    "assign-symbols" "^0.1.1"
+    "is-primitive" "^2.0.0"
+    "kind-of" "^5.0.2"
+
+"assign-symbols@^0.1.1":
+  "integrity" "sha1-ywJZRO9OyKNpPwhunhEsdOOg/tk="
+  "resolved" "https://registry.npmjs.org/assign-symbols/-/assign-symbols-0.1.1.tgz"
+  "version" "0.1.1"
+
 "assign-symbols@^1.0.0":
   "integrity" "sha1-WWZ/QfrdTyDMvCu5a41Pf3jsA2c="
   "resolved" "https://registry.npmjs.org/assign-symbols/-/assign-symbols-1.0.0.tgz"
@@ -3845,6 +3859,11 @@
   dependencies:
     "isobject" "^3.0.1"
 
+"is-primitive@^2.0.0":
+  "integrity" "sha1-IHurkWOEmcB7Kt8kCkGochADRXU="
+  "resolved" "https://registry.npmjs.org/is-primitive/-/is-primitive-2.0.0.tgz"
+  "version" "2.0.0"
+
 "is-stream@^1.0.1", "is-stream@^1.1.0":
   "integrity" "sha1-EtSj3U5o4Lec6428hBc66A2RykQ="
   "resolved" "https://registry.npmjs.org/is-stream/-/is-stream-1.1.0.tgz"
@@ -4109,6 +4128,11 @@
     "is-buffer" "^1.1.5"
 
 "kind-of@^5.0.0":
+  "integrity" "sha512-NGEErnH6F2vUuXDh+OlbcKW7/wOcfdRHaZ7VWtqCztfHri/++YKmP51OdWeGPuqCOba6kk2OTe5d02VmTB80Pw=="
+  "resolved" "https://registry.npmjs.org/kind-of/-/kind-of-5.1.0.tgz"
+  "version" "5.1.0"
+
+"kind-of@^5.0.2":
   "integrity" "sha512-NGEErnH6F2vUuXDh+OlbcKW7/wOcfdRHaZ7VWtqCztfHri/++YKmP51OdWeGPuqCOba6kk2OTe5d02VmTB80Pw=="
   "resolved" "https://registry.npmjs.org/kind-of/-/kind-of-5.1.0.tgz"
   "version" "5.1.0"
@@ -5251,6 +5275,19 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-native-app-intro-slider@^4.0.4":
+  "integrity" "sha512-Zkjaol6X3BbZkHUpVDj2LjdidpS6rCgKi0fx80xgGKa0pHxBRd4swWTv2bHnnvu5k1/HXwYk0mY2TbK+2jHl5w=="
+  "resolved" "https://registry.npmjs.org/react-native-app-intro-slider/-/react-native-app-intro-slider-4.0.4.tgz"
+  "version" "4.0.4"
+
+"react-native-app-intro@^1.1.5":
+  "integrity" "sha1-NKLSJlstZU0xuudDxASFbDdEhpI="
+  "resolved" "https://registry.npmjs.org/react-native-app-intro/-/react-native-app-intro-1.1.5.tgz"
+  "version" "1.1.5"
+  dependencies:
+    "assign-deep" "^0.4.5"
+    "react-native-swiper" "git+https://github.com/FuYaoDe/react-native-swiper.git"
+
 "react-native-balloon@^1.0.0":
   "integrity" "sha512-EB0NIQWnxO2t4eoY8Vt6aGKMfofhqjVF30nFptZLuHOBx37+6qPMgKfBYHv0XSkTndJ09zBxoT9kX2/jAF/L8Q=="
   "resolved" "https://registry.npmjs.org/react-native-balloon/-/react-native-balloon-1.0.0.tgz"
@@ -5329,6 +5366,12 @@
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz"
   "version" "0.3.1"
 
+"react-native-swiper@git+https://github.com/FuYaoDe/react-native-swiper.git":
+  "resolved" "git+ssh://git@github.com/FuYaoDe/react-native-swiper.git#a6417ff41a8b2d490bdcc4541015ab35736d4595"
+  "version" "1.4.4"
+  dependencies:
+    "react-timer-mixin" "^0.13.3"
+
 "react-native-web@~0.13.12":
   "integrity" "sha512-WR/0ECAmwLQ2+2cL2Ur+0/swXFAtcSM0URoADJmG6D4MnY+wGc91JO8LoOTlgY0USBOY+qG/beRrjFa+RAuOiA=="
   "resolved" "https://registry.npmjs.org/react-native-web/-/react-native-web-0.13.18.tgz"
@@ -5398,7 +5441,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.4.3.tgz"
   "version" "0.4.3"
 
-"react-timer-mixin@^0.13.4":
+"react-timer-mixin@^0.13.3", "react-timer-mixin@^0.13.4":
   "integrity" "sha512-4+ow23tp/Tv7hBM5Az5/Be/eKKF7DIvJ09voz5LyHGQaqqz9WV8YMs31eFvcYQs7d451LSg7kDJV70XYN/Ug/Q=="
   "resolved" "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"
