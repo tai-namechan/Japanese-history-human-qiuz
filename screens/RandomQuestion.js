@@ -23,12 +23,36 @@ const theme = {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+    },
+    header: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    commentContainer: {
+        flex: 3,
+        alignItems: 'center',
+    },
+    buttons: {
         marginVertical: 'auto',
         marginHorizontal: 'auto',
         padding: 24,
         marginTop: 10,
         backgroundColor: 'white',
         width: "90%",
+        height: "100%",
+    },
+    image: {
+        width: 200,
+        height: 200,
+    },
+    buttonContainer: {
+        flex: 3,
+        alignItems: 'center',
+    },
+    textInputButtonContainer: {
+        flex: 1,
+        alignItems: 'center',
     },
 });
 
@@ -318,10 +342,11 @@ export default function SelectQuestion(props) {
 
     return (
         <ThemeProvider theme={theme}>
-            <View >
-                <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
-                    style={{ height: 1000, }}>
-
+            <View style={styles.container}>
+                <ImageBackground 
+                    source={require('../assets/img/background.png')} resizeMode="cover"
+                    style={{ height: "100%", }}
+                >
                     <Header
                         // 問題画面にはstart.jsに戻るボタンはいらない？
                         // leftComponent={{
@@ -335,28 +360,26 @@ export default function SelectQuestion(props) {
                             backgroundColor: '',
                             justifyContent: 'space-around',
                         }}
+                        style={styles.header}
                     />
                     {/* <Text>インプット：{text}</Text> */}
-                    <View style={{ flex: 1, alignItems: 'center' }}>
-                        <View style={{
-                            marginLeft: '25%',
-                            marginRight: '25%',
-                            marginTop: 15,
-                        }}>
-                            <Text h3 style={{ display: "none", }}>家光コメント</Text>
-                            { <Image
-                                source={require('../assets/img/kuromaku.jpg')}
-                                style={{
-                                    width: 225,
-                                    height: 225,
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} /> }
-                        </View>
+                    {/* <View style={{ flex: 1, alignItems: 'center' }}> */}
+                    <View style={styles.commentContainer}>
+                        {/* <Text h3 style={{ display: "none", }}>家光コメント</Text> */}
+                        <Image
+                            source={require('../assets/img/kuromaku.jpg')}
+                            // style={{
+                            //     width: 225,
+                            //     height: 225,
+                            //     top: 0,
+                            //     left: 0,
+                            //     right: 0,
+                            //     bottom: 0,
+                            //     justifyContent: 'center',
+                            //     alignItems: 'center'
+                            // }} 
+                            style={styles.image}
+                        />
                         <Balloon
                             borderColor="#CCC"
                             backgroundColor="#FFF"
@@ -364,18 +387,20 @@ export default function SelectQuestion(props) {
                             borderRadius={10}
                             triangleDirection='top'
                         >
-                            <Animated.Text style={{
-                                height: 60,
-                            }}>
+                            <Animated.Text 
+                                style={{
+                                    height: 60,
+                                }}
+                            >
                                 {answerText}
                             </Animated.Text>
                         </Balloon>
-
+                    </View>
+                    <View style={styles.buttonContainer}>
                         <Text>スコア：{score}</Text>
-
                         {/* 質問 */}
                         <Text h3>質問</Text>
-                        <View style={styles.container}>
+                        <View style={styles.buttons}>
                             {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button 
                                     key={i} 
@@ -384,37 +409,42 @@ export default function SelectQuestion(props) {
                                 />
                             ))}
                         </View>
-                        <View style={{ marginTop: 30 }}>
-                            <Button
-                                title="わかった！"
-                                onPress={toggleOverlay}
-                            />
-                            <Overlay isVisible={visible}>
-                                {/* 回答フォーム */}
-                                <TextInput
-                                    style={{ height: 55, width: 160}}
-                                    placeholder="ここに入力するのじゃ！"
-                                    placeholderTextColor="#4A4444"
-                                    // 入力された値をtextに代入する
-                                    onChangeText={text => setText(text)}
-                                    defaultValue={text}
-                                />
-                                <View
-                                    style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-                                    <Button
-                                        title="閉じる" onPress={toggleOverlay}
-                                        // style={{ marginRight: 30, }}
-                                    />
-                                    <Button
-                                        title="回答"
-                                        onPress={showScoreScreen}
-                                    />
-                                </View>
-                            </Overlay>
-                        </View>
                     </View>
+                    <View 
+                        // style={{ marginTop: 30 }}
+                        style={styles.textInputButtonContainer}
+                    >
+                        <Button
+                            title="わかった！"
+                            onPress={toggleOverlay}
+                        />
+                        
+                    </View>
+                    {/* </View> */}
                 </ImageBackground>
             </View>
+            <Overlay isVisible={visible}>
+                {/* 回答フォーム */}
+                <TextInput
+                    style={{ height: 55, width: 160}}
+                    placeholder="ここに入力するのじゃ！"
+                    placeholderTextColor="#4A4444"
+                    // 入力された値をtextに代入する
+                    onChangeText={text => setText(text)}
+                    defaultValue={text}
+                />
+                <View
+                    style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <Button
+                        title="閉じる" onPress={toggleOverlay}
+                        // style={{ marginRight: 30, }}
+                    />
+                    <Button
+                        title="回答"
+                        onPress={showScoreScreen}
+                    />
+                </View>
+            </Overlay>
         </ThemeProvider>
     )
 }
