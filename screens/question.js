@@ -1,6 +1,234 @@
 const questions = [
     {
         id: 1,
+        period: '江戸時代',
+        human: '徳川慶喜',
+        questionOptions: [
+            {
+                questionText: '幼少期の話を聞かせてください',
+                answerText: '厳しい父親の方針で、私の寝相を直す為に枕の両側に剃刀の刃を立てて寝かせられていたよ',
+                readText: '厳しい父親の方針で、私のねぞうを直す為に枕の両側にカミソリの刃を立てて寝かせられていたよ'
+            },
+            {
+                questionText: '人生のターニングポイントはいつですか？',
+                answerText: '11歳の時に養子縁組に入ったことかな',
+                readText: '11歳の時にようしえんぐみに入ったことかな'
+            },
+            {
+                questionText: '色恋事情を教えて？',
+                answerText: '隠棲生活をするにあたり20人ほどいた側室を2人に絞り皆で一緒に暮らしたよ。側室の2人が女同士で仲が良かったんだ',
+                readText: 'いんせい生活をするにあたり20人ほどいたそくしつを2人に絞り皆で一緒に暮らしたよ。そくしつの2人が女同士で仲が良かったんだ',
+            },
+            {
+                questionText: '趣味はなんですか？',
+                answerText: '後半生はカメラにはまっていたよ',
+                readText: 'こうはんせいはカメラにはまっていたよ'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '何か自慢できることありますか？',
+                answerText: '大河ドラマでSMAPの草彅くんが私を演じてくれたらしいな',
+                readText: 'たいがドラマでスマップのくさなぎくんが私を演じてくれたらしいな'
+            },
+            {
+                questionText: 'あなたがやっていることは現代の職業で言ったら何になりますか？',
+                answerText: '総理大臣かなぁ',
+                readText: 'そうりだいじんかなぁ'
+            },
+            {
+                questionText: 'どんな人って言われますか？',
+                answerText: '先見の才があり優秀だと言われる一方で臆病者とも言われるよ',
+                readText: 'せんけんのさいがあり優秀だと言われる一方でおくびょうものとも言われるよ'
+            },
+            {
+                questionText: '黒歴史を教えて？',
+                answerText: '敵を目の前にして、家臣を置いて逃げてしまったことだ',
+                readText: '敵を目の前にして、カシンを置いて逃げてしまったことだ'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: 'あなたが関わる大きな出来事はなんですか？',
+                answerText: '大政奉還であるな',
+                readText: 'たいせいほうかんであるな'
+            },
+            {
+                questionText: 'どんな政策を出しましたか？',
+                answerText: 'ヨーロッパの行政組織を参考にした「慶應の改革」を推進したよ',
+                readText: 'ヨーロッパのぎょうせいそしきを参考にした「けいおうの改革」を推進したよ'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: 'あなたを一言で表すなら？',
+                answerText: '徳川家最後の将軍であるな',
+                readText: 'とくがわけさいごのしょうぐんであるな'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/徳川慶喜.png'),
+        dialogue: 'わしの名前は徳川慶喜じゃ。',
+        readDialogue: 'わしのっ、名前はっ、とくがわよしのぶじゃ。',
+        explanationTitle: '江戸幕府15代将軍、徳川慶喜',
+        explanationDetail: '水戸藩主徳川斉昭の7男。1874年に一橋家を継ぎ、将軍継嗣問題で一橋派におされたが実現せず。文久の改革では将軍後見職につき、1864年に朝廷を守る禁裏御守衛総督・摂海防禦指揮に任命された。1866年、将軍に就任、翌年、大政奉還を行った。',
+    },
+
+    {
+        id: 1,
+        period: '戦国時代',
+        human: '織田信長',
+        questionOptions: [
+            {
+                questionText: '西暦何年生まれですか？',
+                answerText: '1534年に生まれたよ',
+                readText: '1534年に生まれたよ'
+            },
+            {
+                questionText: 'あなたの人生におけるライバルを教えてください',
+                answerText: '若い頃ではあるがお兄ちゃんかなぁ',
+                readText: '若い頃ではあるがお兄ちゃんかなぁ'
+            },
+            {
+                questionText: '名言を教えてください',
+                answerText: '「器用というのは他人の思惑の逆をする者だ。」周りと異なることをするには勇気がいるが、是非君にも自分のやりたいことに挑戦してみてほしい。',
+                readText: '「器用というのは他人のしわくの逆をする者だ。」周りと異なることをするには勇気がいるが、是非キミにも自分のやりたいことに挑戦してみてほしい。'
+            },
+            {
+                questionText: 'あなたは何をしている人ですか？',
+                answerText: '武将だよ',
+                readText: 'ぶしょうだよ'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '知り合いを1人教えてください',
+                answerText: 'ポルトガルのルイス・フロイスは知り合いだよ',
+                readText: 'ポルトガルのルイス・フロイスは知り合いだよ'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '趣味を教えてください。',
+                answerText: '鷹狩りとか馬乗り、他にもたくさんあるよ。',
+                readText: 'たかがりとかうまのり、他にもたくさんあるよ。'
+            },
+            {
+                questionText: '戦い方のコツを教えてください。',
+                answerText: '敵に戦闘の準備をする時間を与えずに攻撃するようにしていたよ',
+                readText: '敵にせんとうの準備をする時間を与えずに攻撃するようにしていたよ'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: '実は〇〇な話ありますか？',
+                answerText: '実は男色を好んでいたよ',
+                readText: '実はなんしょくを好んでいたよ'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: 'どんな政策を出しましたか？',
+                answerText: '商業を盛んにさせるための政策を出したよ',
+                readText: '商業をさかんにさせるための政策を出したよ'
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '死因は何ですか？',
+                answerText: '自分もまさかとは思ったが家臣に謀反されて死んだよ',
+                readText: '自分もまさかとは思ったがカシンにむほんされて死んだよ'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '具体的な政策名を教えてください',
+                answerText: '関所撤廃や楽市楽座だな',
+                readText: 'せきしょてっぱいやらくいちらくざだな'
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/織田信長.png'),
+        dialogue: 'わしの名前は織田信長じゃ。',
+        readDialogue: 'わしのっ、名前はっ、おだのぶながじゃ。',
+        explanationTitle: '尾張の戦国大名、織田信長',
+        explanationDetail: '尾張の守護大名織田氏は岩倉織田家と清洲織田家に分裂していたが、信長は清洲織田家の奉行織田信秀の子。1560年、桶狭間で今川義元を討ち、「天下布武」の印判を用いつつ、全国統一の事業を進めた。1573年、室町幕府を滅ぼし、畿内平定を達成したが、82年、本能寺の変に倒れた。',
+    },
+    {
+        id: 1,
         period: '明治時代',
         human: '渋沢栄一',
         questionOptions: [
@@ -1572,6 +1800,234 @@ const questions = [
     },
     {
         id: 1,
+        period: '江戸時代',
+        human: '徳川慶喜',
+        questionOptions: [
+            {
+                questionText: '幼少期の話を聞かせてください',
+                answerText: '厳しい父親の方針で、私の寝相を直す為に枕の両側に剃刀の刃を立てて寝かせられていたよ',
+                readText: '厳しい父親の方針で、私のねぞうを直す為に枕の両側にカミソリの刃を立てて寝かせられていたよ'
+            },
+            {
+                questionText: '人生のターニングポイントはいつですか？',
+                answerText: '11歳の時に養子縁組に入ったことかな',
+                readText: '11歳の時にようしえんぐみに入ったことかな'
+            },
+            {
+                questionText: '色恋事情を教えて？',
+                answerText: '隠棲生活をするにあたり20人ほどいた側室を2人に絞り皆で一緒に暮らしたよ。側室の2人が女同士で仲が良かったんだ',
+                readText: 'いんせい生活をするにあたり20人ほどいたそくしつを2人に絞り皆で一緒に暮らしたよ。そくしつの2人が女同士で仲が良かったんだ',
+            },
+            {
+                questionText: '趣味はなんですか？',
+                answerText: '後半生はカメラにはまっていたよ',
+                readText: 'こうはんせいはカメラにはまっていたよ'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '何か自慢できることありますか？',
+                answerText: '大河ドラマでSMAPの草彅くんが私を演じてくれたらしいな',
+                readText: 'たいがドラマでスマップのくさなぎくんが私を演じてくれたらしいな'
+            },
+            {
+                questionText: 'あなたがやっていることは現代の職業で言ったら何になりますか？',
+                answerText: '総理大臣かなぁ',
+                readText: 'そうりだいじんかなぁ'
+            },
+            {
+                questionText: 'どんな人って言われますか？',
+                answerText: '先見の才があり優秀だと言われる一方で臆病者とも言われるよ',
+                readText: 'せんけんのさいがあり優秀だと言われる一方でおくびょうものとも言われるよ'
+            },
+            {
+                questionText: '黒歴史を教えて？',
+                answerText: '敵を目の前にして、家臣を置いて逃げてしまったことだ',
+                readText: '敵を目の前にして、カシンを置いて逃げてしまったことだ'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: 'あなたが関わる大きな出来事はなんですか？',
+                answerText: '大政奉還であるな',
+                readText: 'たいせいほうかんであるな'
+            },
+            {
+                questionText: 'どんな政策を出しましたか？',
+                answerText: 'ヨーロッパの行政組織を参考にした「慶應の改革」を推進したよ',
+                readText: 'ヨーロッパのぎょうせいそしきを参考にした「けいおうの改革」を推進したよ'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: 'あなたを一言で表すなら？',
+                answerText: '徳川家最後の将軍であるな',
+                readText: 'とくがわけさいごのしょうぐんであるな'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/徳川慶喜.png'),
+        dialogue: 'わしの名前は徳川慶喜じゃ。',
+        readDialogue: 'わしのっ、名前はっ、とくがわよしのぶじゃ。',
+        explanationTitle: '江戸幕府15代将軍、徳川慶喜',
+        explanationDetail: '水戸藩主徳川斉昭の7男。1874年に一橋家を継ぎ、将軍継嗣問題で一橋派におされたが実現せず。文久の改革では将軍後見職につき、1864年に朝廷を守る禁裏御守衛総督・摂海防禦指揮に任命された。1866年、将軍に就任、翌年、大政奉還を行った。',
+    },
+
+    {
+        id: 1,
+        period: '戦国時代',
+        human: '織田信長',
+        questionOptions: [
+            {
+                questionText: '西暦何年生まれですか？',
+                answerText: '1534年に生まれたよ',
+                readText: '1534年に生まれたよ'
+            },
+            {
+                questionText: 'あなたの人生におけるライバルを教えてください',
+                answerText: '若い頃ではあるがお兄ちゃんかなぁ',
+                readText: '若い頃ではあるがお兄ちゃんかなぁ'
+            },
+            {
+                questionText: '名言を教えてください',
+                answerText: '「器用というのは他人の思惑の逆をする者だ。」周りと異なることをするには勇気がいるが、是非君にも自分のやりたいことに挑戦してみてほしい。',
+                readText: '「器用というのは他人のしわくの逆をする者だ。」周りと異なることをするには勇気がいるが、是非キミにも自分のやりたいことに挑戦してみてほしい。'
+            },
+            {
+                questionText: 'あなたは何をしている人ですか？',
+                answerText: '武将だよ',
+                readText: 'ぶしょうだよ'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '知り合いを1人教えてください',
+                answerText: 'ポルトガルのルイス・フロイスは知り合いだよ',
+                readText: 'ポルトガルのルイス・フロイスは知り合いだよ'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '趣味を教えてください。',
+                answerText: '鷹狩りとか馬乗り、他にもたくさんあるよ。',
+                readText: 'たかがりとかうまのり、他にもたくさんあるよ。'
+            },
+            {
+                questionText: '戦い方のコツを教えてください。',
+                answerText: '敵に戦闘の準備をする時間を与えずに攻撃するようにしていたよ',
+                readText: '敵にせんとうの準備をする時間を与えずに攻撃するようにしていたよ'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: '実は〇〇な話ありますか？',
+                answerText: '実は男色を好んでいたよ',
+                readText: '実はなんしょくを好んでいたよ'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: 'どんな政策を出しましたか？',
+                answerText: '商業を盛んにさせるための政策を出したよ',
+                readText: '商業をさかんにさせるための政策を出したよ'
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '死因は何ですか？',
+                answerText: '自分もまさかとは思ったが家臣に謀反されて死んだよ',
+                readText: '自分もまさかとは思ったがカシンにむほんされて死んだよ'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '具体的な政策名を教えてください',
+                answerText: '関所撤廃や楽市楽座だな',
+                readText: 'せきしょてっぱいやらくいちらくざだな'
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/織田信長.png'),
+        dialogue: 'わしの名前は織田信長じゃ。',
+        readDialogue: 'わしのっ、名前はっ、おだのぶながじゃ。',
+        explanationTitle: '尾張の戦国大名、織田信長',
+        explanationDetail: '尾張の守護大名織田氏は岩倉織田家と清洲織田家に分裂していたが、信長は清洲織田家の奉行織田信秀の子。1560年、桶狭間で今川義元を討ち、「天下布武」の印判を用いつつ、全国統一の事業を進めた。1573年、室町幕府を滅ぼし、畿内平定を達成したが、82年、本能寺の変に倒れた。',
+    },
+    {
+        id: 1,
         period: '明治時代',
         human: '渋沢栄一',
         questionOptions: [
@@ -3140,6 +3596,234 @@ const questions = [
         readDialogue: 'わしのっ、名前はっ、斎藤どうさんじゃ。',
         explanationTitle: '美濃の戦国大名、斎藤道三',
         explanationDetail: '規秀（道三）の代に長井家を倒し、守護代斎藤氏の家名を奪って、土岐氏を追放。長男の義龍と争って敗北した。',
+    },
+    {
+        id: 1,
+        period: '江戸時代',
+        human: '徳川慶喜',
+        questionOptions: [
+            {
+                questionText: '幼少期の話を聞かせてください',
+                answerText: '厳しい父親の方針で、私の寝相を直す為に枕の両側に剃刀の刃を立てて寝かせられていたよ',
+                readText: '厳しい父親の方針で、私のねぞうを直す為に枕の両側にカミソリの刃を立てて寝かせられていたよ'
+            },
+            {
+                questionText: '人生のターニングポイントはいつですか？',
+                answerText: '11歳の時に養子縁組に入ったことかな',
+                readText: '11歳の時にようしえんぐみに入ったことかな'
+            },
+            {
+                questionText: '色恋事情を教えて？',
+                answerText: '隠棲生活をするにあたり20人ほどいた側室を2人に絞り皆で一緒に暮らしたよ。側室の2人が女同士で仲が良かったんだ',
+                readText: 'いんせい生活をするにあたり20人ほどいたそくしつを2人に絞り皆で一緒に暮らしたよ。そくしつの2人が女同士で仲が良かったんだ',
+            },
+            {
+                questionText: '趣味はなんですか？',
+                answerText: '後半生はカメラにはまっていたよ',
+                readText: 'こうはんせいはカメラにはまっていたよ'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '何か自慢できることありますか？',
+                answerText: '大河ドラマでSMAPの草彅くんが私を演じてくれたらしいな',
+                readText: 'たいがドラマでスマップのくさなぎくんが私を演じてくれたらしいな'
+            },
+            {
+                questionText: 'あなたがやっていることは現代の職業で言ったら何になりますか？',
+                answerText: '総理大臣かなぁ',
+                readText: 'そうりだいじんかなぁ'
+            },
+            {
+                questionText: 'どんな人って言われますか？',
+                answerText: '先見の才があり優秀だと言われる一方で臆病者とも言われるよ',
+                readText: 'せんけんのさいがあり優秀だと言われる一方でおくびょうものとも言われるよ'
+            },
+            {
+                questionText: '黒歴史を教えて？',
+                answerText: '敵を目の前にして、家臣を置いて逃げてしまったことだ',
+                readText: '敵を目の前にして、カシンを置いて逃げてしまったことだ'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: 'あなたが関わる大きな出来事はなんですか？',
+                answerText: '大政奉還であるな',
+                readText: 'たいせいほうかんであるな'
+            },
+            {
+                questionText: 'どんな政策を出しましたか？',
+                answerText: 'ヨーロッパの行政組織を参考にした「慶應の改革」を推進したよ',
+                readText: 'ヨーロッパのぎょうせいそしきを参考にした「けいおうの改革」を推進したよ'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: 'あなたを一言で表すなら？',
+                answerText: '徳川家最後の将軍であるな',
+                readText: 'とくがわけさいごのしょうぐんであるな'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/徳川慶喜.png'),
+        dialogue: 'わしの名前は徳川慶喜じゃ。',
+        readDialogue: 'わしのっ、名前はっ、とくがわよしのぶじゃ。',
+        explanationTitle: '江戸幕府15代将軍、徳川慶喜',
+        explanationDetail: '水戸藩主徳川斉昭の7男。1874年に一橋家を継ぎ、将軍継嗣問題で一橋派におされたが実現せず。文久の改革では将軍後見職につき、1864年に朝廷を守る禁裏御守衛総督・摂海防禦指揮に任命された。1866年、将軍に就任、翌年、大政奉還を行った。',
+    },
+
+    {
+        id: 1,
+        period: '戦国時代',
+        human: '織田信長',
+        questionOptions: [
+            {
+                questionText: '西暦何年生まれですか？',
+                answerText: '1534年に生まれたよ',
+                readText: '1534年に生まれたよ'
+            },
+            {
+                questionText: 'あなたの人生におけるライバルを教えてください',
+                answerText: '若い頃ではあるがお兄ちゃんかなぁ',
+                readText: '若い頃ではあるがお兄ちゃんかなぁ'
+            },
+            {
+                questionText: '名言を教えてください',
+                answerText: '「器用というのは他人の思惑の逆をする者だ。」周りと異なることをするには勇気がいるが、是非君にも自分のやりたいことに挑戦してみてほしい。',
+                readText: '「器用というのは他人のしわくの逆をする者だ。」周りと異なることをするには勇気がいるが、是非キミにも自分のやりたいことに挑戦してみてほしい。'
+            },
+            {
+                questionText: 'あなたは何をしている人ですか？',
+                answerText: '武将だよ',
+                readText: 'ぶしょうだよ'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '知り合いを1人教えてください',
+                answerText: 'ポルトガルのルイス・フロイスは知り合いだよ',
+                readText: 'ポルトガルのルイス・フロイスは知り合いだよ'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '趣味を教えてください。',
+                answerText: '鷹狩りとか馬乗り、他にもたくさんあるよ。',
+                readText: 'たかがりとかうまのり、他にもたくさんあるよ。'
+            },
+            {
+                questionText: '戦い方のコツを教えてください。',
+                answerText: '敵に戦闘の準備をする時間を与えずに攻撃するようにしていたよ',
+                readText: '敵にせんとうの準備をする時間を与えずに攻撃するようにしていたよ'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: '実は〇〇な話ありますか？',
+                answerText: '実は男色を好んでいたよ',
+                readText: '実はなんしょくを好んでいたよ'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: 'どんな政策を出しましたか？',
+                answerText: '商業を盛んにさせるための政策を出したよ',
+                readText: '商業をさかんにさせるための政策を出したよ'
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '死因は何ですか？',
+                answerText: '自分もまさかとは思ったが家臣に謀反されて死んだよ',
+                readText: '自分もまさかとは思ったがカシンにむほんされて死んだよ'
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '具体的な政策名を教えてください',
+                answerText: '関所撤廃や楽市楽座だな',
+                readText: 'せきしょてっぱいやらくいちらくざだな'
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/織田信長.png'),
+        dialogue: 'わしの名前は織田信長じゃ。',
+        readDialogue: 'わしのっ、名前はっ、おだのぶながじゃ。',
+        explanationTitle: '尾張の戦国大名、織田信長',
+        explanationDetail: '尾張の守護大名織田氏は岩倉織田家と清洲織田家に分裂していたが、信長は清洲織田家の奉行織田信秀の子。1560年、桶狭間で今川義元を討ち、「天下布武」の印判を用いつつ、全国統一の事業を進めた。1573年、室町幕府を滅ぼし、畿内平定を達成したが、82年、本能寺の変に倒れた。',
     },
     {
         id: 1,
