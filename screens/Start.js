@@ -3,31 +3,7 @@ import { View, ImageBackground, StyleSheet, SafeAreaView, } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
 import IntroModal from './introModal';
-import AppIntroSlider from 'react-native-app-intro-slider';
-// Home Screen
-// const HomeScreen = ({ route, navigation }) => {
-//   const [isVisible, setIsVisible] = useState(false)
-//   console.log('route', route)
-//   // const { welcome } = route.params;
-//   useEffect(()=> {
 
-//   },[])
-
-
-//   const _dismissModal = () => {
-//     setIsVisible(false)
-//   }
-
-//   return (
-//     <View style={{ flex: 1, background: '#76dead', alignItems: 'center', justifyContent: 'center' }}>
-
-//       {/* // Modalの設置 */}
-//       <IntroModal isVisible={isVisible} dismissModal={_dismissModal}/>
-//       <Text>This is Home Screen</Text>
-//       <Button title="modal" onPress={() => {setIsVisible(true)}}/>
-//     </View>
-//   );
-// }
 const theme = {
   Button: {
     containerStyle: {
