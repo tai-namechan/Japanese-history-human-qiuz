@@ -1,7 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
-import { View, ImageBackground } from 'react-native';
+import { View, ImageBackground, StyleSheet, SafeAreaView, } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
+import IntroModal from './introModal';
 
 const theme = {
   Button: {
@@ -19,6 +20,19 @@ const theme = {
 };
 
 export default function Start(props) {
+
+  const [isVisible, setIsVisible] = useState(false)
+  // console.log('route', route)
+  // const { welcome } = route.params;
+  useEffect(() => {
+
+  }, [])
+
+
+  const _dismissModal = () => {
+    setIsVisible(false)
+  }
+
   const firebaseConfig = {
     // 各自生成された値を入れる
     apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
@@ -194,44 +208,51 @@ export default function Start(props) {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }} /> */}
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              <Image source={require('../assets/img/歴史の壁.png')}
-                style={{
-                    width: 300,
-                    height: 90,
-                    marginTop: 40,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }} />
-              <Image source={require('../assets/img/タイトル.png')}
-                style={{
-                    width: 300,
-                    height: 90,
-                    marginTop: 40,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }} />
-              <Button
-                title="始める"
-                onPress={() => {
-                  props.navigation.navigate('SelectNumber');
-                }}
-                containerStyle={{ width: '50%', marginBottom: 50, marginTop:100, }}
-              />
-              <Button
-                title="ランキング"
-                onPress={getDatabaseData}
-                containerStyle={{ width: '50%' }}
-              />
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <Image source={require('../assets/img/歴史の壁.png')}
+              style={{
+                width: 300,
+                height: 90,
+                marginTop: 40,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }} />
+            <Image source={require('../assets/img/タイトル.png')}
+              style={{
+                width: 300,
+                height: 90,
+                marginTop: 40,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }} />
+            <Button
+              title="始める"
+              onPress={() => {
+                props.navigation.navigate('SelectNumber');
+              }}
+              containerStyle={{ width: '50%', marginBottom: 50, marginTop: 100, }}
+            />
+            <Button
+              title="ランキング"
+              onPress={getDatabaseData}
+              containerStyle={{ width: '50%' }}
+            />
+
+            <View style={{  background: '#76dead', alignItems: 'center', justifyContent: 'center' }}>
+              {/* // Modalの設置 */}
+              <IntroModal isVisible={isVisible} dismissModal={_dismissModal} />
+              <Button title="使い方" onPress={() => { setIsVisible(true) }} />
             </View>
-          </ImageBackground>
-        </View>
-      </ThemeProvider>
+
+          </View>
+        </ImageBackground>
+      </View>
+    </ThemeProvider>
   )
 }
