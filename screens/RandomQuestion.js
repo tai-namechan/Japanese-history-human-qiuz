@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     commentContainer: {
         flex: 3,
         alignItems: 'center',
+        justifyContent: 'center',
     },
     buttons: {
         marginVertical: 'auto',
