@@ -73,7 +73,7 @@ export default function SelectEra(props) {
               containerStyle={{ width: '50%', marginBottom: 50, }}
             />
 
-            <Button
+            {/* <Button
               title="大正時代"
               onPress={() => {
                 props.navigation.navigate('SelectQuestion', {
@@ -120,7 +120,7 @@ export default function SelectEra(props) {
                 random();
               }}
               containerStyle={{ width: '50%', marginBottom: 50, }}
-            />
+            /> */}
           </View>
         </ImageBackground>
       </View>
