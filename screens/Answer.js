@@ -127,8 +127,8 @@ export default function Answer({ navigation }) {
         container: {
             marginVertical: 'auto',
             marginHorizontal: 'auto',
-            padding: 24,
-            marginTop: 10,
+            padding: 19,
+            // marginTop: 10,
             //backgroundColor: 'peru',
             //backgroundColor: 'darkgoldenrod',
             //backgroundColor: 'rosybrown',
@@ -346,13 +346,13 @@ export default function Answer({ navigation }) {
 
     return (
         <ThemeProvider theme={theme}>
-            <View>
+            <View style={{ flex: 1 }}>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
-                    style={{ height: 1000, }}>
+                    style={{ height: "100%", }}>
 
                     <Header
                         placement="left"
-                        leftComponent={{ icon: 'menu', color: 'brown' }}
+                        // leftComponent={{ icon: 'menu', color: 'brown' }}
                         centerComponent={{ text: '日本史の壁〜正解を衝け〜', style: { color: 'brown' } }}
                         //ホームボタン
                         rightComponent={{
@@ -365,32 +365,24 @@ export default function Answer({ navigation }) {
                             justifyContent: 'space-around',
                         }}
                     />
-                    
-                    {/* <Text>
-                        正誤：{correctness}
-                    </Text>
-                    <Text>
-                        コメント：{answerText}
-                    </Text> */}
-                    
-                    
-                    <View style={{ flex: 1, alignItems: 'center' }}>
-                    { <Image
-                                source={correctImg}
-                                style={{
-                                    width:220,
-                                    height: 150,
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} /> }
-                    <Text h2>
-                        {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
-                        {lastScore}点/15点中
-                    </Text>
+                    <View style={{ flex: 2, alignItems: 'center' }}>
+                        <Image
+                            source={correctImg}
+                            style={{
+                                width:220,
+                                height: 110,
+                                // top: 0,
+                                // left: 0,
+                                // right: 0,
+                                // bottom: 0,
+                                // justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        /> 
+                        <Text h2>
+                            {/* 不正解の場合は0,正解の場合はscoreと同じ点 */}
+                            {lastScore}点/15点中
+                        </Text>
                         {/* 偉人の名前 */}
                         {/* <Animated.Text
                             style={{
@@ -408,13 +400,13 @@ export default function Answer({ navigation }) {
                                 //白黒
                                 source={require('../assets/img/kuromaku.jpg')}
                                 style={{
-                                    width: 300,
-                                    height: 300,
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
+                                    width: 250,
+                                    height: 250,
+                                    // top: 0,
+                                    // left: 0,
+                                    // right: 0,
+                                    // bottom: 0,
+                                    // justifyContent: 'center',
                                     alignItems: 'center'
                                 }} 
                             />
@@ -422,15 +414,15 @@ export default function Answer({ navigation }) {
                                 //カラー
                                 source = {image}
                                 style={{
-                                    width: 300,
-                                    height: 300,
+                                    width: 250,
+                                    height: 250,
                                     opacity,
                                     position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    justifyContent: 'center',
+                                    // top: 0,
+                                    // left: 0,
+                                    // right: 0,
+                                    // bottom: 0,
+                                    // justifyContent: 'center',
                                     alignItems: 'center'
                                 }} 
                             />
@@ -471,7 +463,8 @@ export default function Answer({ navigation }) {
                                 title="出現させる"
                             />
                         </TouchableOpacity> */}
-
+                    </View>
+                    <View style={{ flex: 1, alignItems: 'center', justifyContent: "center" }}>
                         {/* 解説文 */}
                         <View style={styles.container} >
                             <Animated.View

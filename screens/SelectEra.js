@@ -33,15 +33,19 @@ export default function SelectEra(props) {
         <ImageBackground
           source={require('../assets/img/background.png')}
           resizeMode="cover"
-          style={{ height: 1000, }}
+          style={{ height: "100%", }}
         >
           <Header
             placement="left"
-            rightComponent={{ icon: 'menu', color: 'brown' }}
+            leftComponent={{ 
+              icon: 'chevron-left', 
+              color: 'brown',
+              onPress: () => props.navigation.navigate('SelectNumber') 
+            }}
             centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
             // onPress: () => this.props.navigation.navigate('Signup')
           }}
-            leftComponent={{
+            rightComponent={{
               icon: 'home',
               color: 'brown',
               onPress: () => props.navigation.navigate('Start')
@@ -51,76 +55,73 @@ export default function SelectEra(props) {
               justifyContent: 'space-around',
             }}
           />
-
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            {/* <Text h1>時代の選択</Text> */}
-            <Text
-            h1
-            style={{ marginTop:30 }}
-            >
-              時代を選べ！
-            </Text>
-
-            <Button
-              title="ランダム"
-              onPress={() => {
-                //props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
-                //↑ランダム ↓とりあえずSelectEra.js
-                // 画面遷移先はボタンに応じるように変更（どちらも同じ処理が走るようにしているため, RandomQuestion.js内の処理も正常に動くコードにしておきたいため）by.Daisuke 8/26
-                props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
-                random();
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
-            />
-
-            {/* <Button
-              title="大正時代"
-              onPress={() => {
-                props.navigation.navigate('SelectQuestion', {
-                  questionRandom: questionRandom,
-                  period: '大正時代'
-                }
-                );
-                random();
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
-            />
-            <Button
-              title="明治時代"
-              onPress={() => {
-                props.navigation.navigate('SelectQuestion', {
-                  questionRandom: questionRandom,
-                  period: '明治時代'
-                }
-                );
-                random();
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
-            />
-            <Button
-              title="江戸時代"
-              onPress={() => {
-                props.navigation.navigate('SelectQuestion', {
-                  questionRandom: questionRandom,
-                  period: '江戸時代'
-                }
-                );
-                random();
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
-            />
-            <Button
-              title="室町・戦国時代"
-              onPress={() => {
-                props.navigation.navigate('SelectQuestion', {
-                  questionRandom: questionRandom,
-                  period: '室町・戦国時代'
-                }
-                );
-                random();
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, }}
-            /> */}
+          <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+              <Text h1 style={{ marginTop:30 }}>
+                時代を選べ！
+              </Text>
+            </View>
+            <View style={{ flex: 4, alignItems: "center" }}>
+              <Button
+                title="ランダム"
+                onPress={() => {
+                  //props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
+                  //↑ランダム ↓とりあえずSelectEra.js
+                  // 画面遷移先はボタンに応じるように変更（どちらも同じ処理が走るようにしているため, RandomQuestion.js内の処理も正常に動くコードにしておきたいため）by.Daisuke 8/26
+                  props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
+                  random();
+                }}
+                containerStyle={{ width: '50%' }}
+              />
+              {/* <Button
+                title="大正時代"
+                onPress={() => {
+                  props.navigation.navigate('SelectQuestion', {
+                    questionRandom: questionRandom,
+                    period: '大正時代'
+                  }
+                  );
+                  random();
+                }}
+                containerStyle={{ width: '50%' }}
+              />
+              <Button
+                title="明治時代"
+                onPress={() => {
+                  props.navigation.navigate('SelectQuestion', {
+                    questionRandom: questionRandom,
+                    period: '明治時代'
+                  }
+                  );
+                  random();
+                }}
+                containerStyle={{ width: '50%' }}
+              />
+              <Button
+                title="江戸時代"
+                onPress={() => {
+                  props.navigation.navigate('SelectQuestion', {
+                    questionRandom: questionRandom,
+                    period: '江戸時代'
+                  }
+                  );
+                  random();
+                }}
+                containerStyle={{ width: '50%' }}
+              />
+              <Button
+                title="室町・戦国時代"
+                onPress={() => {
+                  props.navigation.navigate('SelectQuestion', {
+                    questionRandom: questionRandom,
+                    period: '室町・戦国時代'
+                  }
+                  );
+                  random();
+                }}
+                containerStyle={{ width: '50%' }}
+              /> */}
+            </View>
           </View>
         </ImageBackground>
       </View>

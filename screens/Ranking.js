@@ -19,16 +19,16 @@ const styles = StyleSheet.create({
         marginVertical: 'auto',
         marginHorizontal: 'auto',
         padding: 24,
-        marginTop: 18,
+        marginBottom: 18,
         width: '75%',
-        height: '35%',
+        flex:1,
         backgroundColor: 'white',
     },
     category: {
         alignItems: 'center',
     },
     item1: {
-        marginTop: 20,
+        // marginTop: 15,
         justifyContent: 'space-between',
         flexDirection: 'row',
     },
@@ -125,12 +125,12 @@ export default function Answer({ navigation }) {
         <ThemeProvider theme={theme}>
             <View>
                 <ImageBackground source={require('../assets/img/background.png')} resizeMode="cover"
-                    style={{ height: 1000, }}>
+                    style={{ height: "100%", }}>
 
                     <Header
                         placement="left"
-                        leftComponent={{ icon: 'menu', color: 'brown' }}
-                        centerComponent={{ text: '日本史', style: { color: 'brown' } }}
+                        // leftComponent={{ icon: 'menu', color: 'brown' }}
+                        centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' } }}
                         //ホームボタン
                         rightComponent={{
                             icon: 'home',
@@ -143,7 +143,7 @@ export default function Answer({ navigation }) {
                         }}
                     />
 
-                    <View style={{ flex: 1, alignItems: 'center' }}>
+                    <View style={{ flex: 1, alignItems: 'center', }}>
                         {/* 紙吹雪 */}
 
                         {/* <Button 
@@ -156,12 +156,12 @@ export default function Answer({ navigation }) {
                             style={{
                                 opacity,
                                 alignItems: 'center',
-                                marginTop: 20,
+                                marginTop: 18,
+                                marginBottom: 18,
                                 fontSize: 35
                             }}>👑ランキング</Animated.Text>
 
                         <View style={styles.container}>
-
                             <View style={styles.category}>
                                 <Animated.Text
                                     style={{
@@ -171,44 +171,46 @@ export default function Answer({ navigation }) {
                                     }}>総獲得ポイント
                                 </Animated.Text>
                             </View>
-                            
-                            <View style={styles.item1}>
-                                <Text></Text>
-                                <Text>名前</Text>
-                                <Text>点数</Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>🥇1位</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>{username1}</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>{score1}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>🥈2位</Animated.Text>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>{username2}</Animated.Text>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>{score2}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>🥉3位</Animated.Text>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>{username3}</Animated.Text>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>{score3}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>💮4位</Animated.Text>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>{username4}</Animated.Text>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>{score4}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>💮5位</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{username5}</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{score5}point</Animated.Text>
-                            </View>
+                            <View style={{justifyContent: "space-around", height: "90%"}}>
+                                <View style={styles.item1}>
+                                    <Text></Text>
+                                    <Text>名前</Text>
+                                    <Text>点数</Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: firstOpacity, }}>🥇1位</Animated.Text>
+                                    <Animated.Text style={{ opacity: firstOpacity, }}>{username1}</Animated.Text>
+                                    <Animated.Text style={{ opacity: firstOpacity, }}>{score1}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: secondOpacity, }}>🥈2位</Animated.Text>
+                                    <Animated.Text style={{ opacity: secondOpacity, }}>{username2}</Animated.Text>
+                                    <Animated.Text style={{ opacity: secondOpacity, }}>{score2}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: thirdOpacity, }}>🥉3位</Animated.Text>
+                                    <Animated.Text style={{ opacity: thirdOpacity, }}>{username3}</Animated.Text>
+                                    <Animated.Text style={{ opacity: thirdOpacity, }}>{score3}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: fourthOpacity, }}>💮4位</Animated.Text>
+                                    <Animated.Text style={{ opacity: fourthOpacity, }}>{username4}</Animated.Text>
+                                    <Animated.Text style={{ opacity: fourthOpacity, }}>{score4}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>💮5位</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{username5}</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{score5}point</Animated.Text>
+                                </View>
 
-                            {/* ログインユーザーの記録 */}
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>👤My data</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_username}</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_score}point</Animated.Text>
+                                {/* ログインユーザーの記録 */}
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>👤My data</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{login_username}</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{login_score}point</Animated.Text>
+                                </View>
                             </View>
+                            
                         </View>
                         <View style={styles.container}>
 
@@ -221,43 +223,46 @@ export default function Answer({ navigation }) {
                                     }}>平均ポイント
                                 </Animated.Text>
                             </View>
-                            <View style={styles.item1}>
-                                <Text></Text>
-                                <Text>お名前</Text>
-                                <Text>Score</Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>🥇1位</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>{average_username1}</Animated.Text>
-                                <Animated.Text style={{ opacity: firstOpacity, }}>{average_score1}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>🥈2位</Animated.Text>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>{average_username2}</Animated.Text>
-                                <Animated.Text style={{ opacity: secondOpacity, }}>{average_score2}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>🥉3位</Animated.Text>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>{average_username3}</Animated.Text>
-                                <Animated.Text style={{ opacity: thirdOpacity, }}>{average_score3}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>💮4位</Animated.Text>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>{average_username4}</Animated.Text>
-                                <Animated.Text style={{ opacity: fourthOpacity, }}>{average_score4}point</Animated.Text>
-                            </View>
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>💮5位</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{average_username5}</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{average_score5}point</Animated.Text>
-                            </View>
+                            <View style={{justifyContent: "space-around", height: "90%"}}>
+                                <View style={styles.item1}>
+                                    <Text></Text>
+                                    <Text>お名前</Text>
+                                    <Text>Score</Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: firstOpacity, }}>🥇1位</Animated.Text>
+                                    <Animated.Text style={{ opacity: firstOpacity, }}>{average_username1}</Animated.Text>
+                                    <Animated.Text style={{ opacity: firstOpacity, }}>{average_score1}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: secondOpacity, }}>🥈2位</Animated.Text>
+                                    <Animated.Text style={{ opacity: secondOpacity, }}>{average_username2}</Animated.Text>
+                                    <Animated.Text style={{ opacity: secondOpacity, }}>{average_score2}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: thirdOpacity, }}>🥉3位</Animated.Text>
+                                    <Animated.Text style={{ opacity: thirdOpacity, }}>{average_username3}</Animated.Text>
+                                    <Animated.Text style={{ opacity: thirdOpacity, }}>{average_score3}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: fourthOpacity, }}>💮4位</Animated.Text>
+                                    <Animated.Text style={{ opacity: fourthOpacity, }}>{average_username4}</Animated.Text>
+                                    <Animated.Text style={{ opacity: fourthOpacity, }}>{average_score4}point</Animated.Text>
+                                </View>
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>💮5位</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{average_username5}</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{average_score5}point</Animated.Text>
+                                </View>
 
-                            {/* ログインユーザーの記録 */}
-                            <View style={styles.item1}>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>👤My data</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_username}</Animated.Text>
-                                <Animated.Text style={{ opacity: fifthOpacity, }}>{login_average}point</Animated.Text>
+                                {/* ログインユーザーの記録 */}
+                                <View style={styles.item1}>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>👤My data</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{login_username}</Animated.Text>
+                                    <Animated.Text style={{ opacity: fifthOpacity, }}>{login_average}point</Animated.Text>
+                                </View>
                             </View>
+                            
                         </View>
                     </View>
 

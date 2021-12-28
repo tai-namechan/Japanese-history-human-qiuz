@@ -25,35 +25,30 @@ const theme = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height: "100%"
     },
     header: {
         flex: 1,
         alignItems: 'center',
     },
     commentContainer: {
-        flex: 3,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     buttons: {
-        marginVertical: 'auto',
-        marginHorizontal: 'auto',
-        padding: 24,
-        marginTop: 10,
-        backgroundColor: 'white',
-        width: "90%",
-        height: "100%",
+        paddingTop: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        width: "100%"
     },
     image: {
         width: 200,
         height: 200,
     },
     buttonContainer: {
-        flex: 3,
-        alignItems: 'center',
-    },
-    textInputButtonContainer: {
         flex: 1,
+        justifyContent: "center",
         alignItems: 'center',
     },
 });
@@ -308,23 +303,9 @@ export default function SelectQuestion(props) {
                         }}
                         style={styles.header}
                     />
-                    {/* <Text>インプット：{text}</Text> */}
-                    {/* <View style={{ flex: 1, alignItems: 'center' }}> */}
-                    
                     <View style={styles.commentContainer}>
-                        {/* <Text h3 style={{ display: "none", }}>家光コメント</Text> */}
                         <Image
                             source={require('../assets/img/kuromaku.jpg')}
-                            // style={{
-                            //     width: 225,
-                            //     height: 225,
-                            //     top: 0,
-                            //     left: 0,
-                            //     right: 0,
-                            //     bottom: 0,
-                            //     justifyContent: 'center',
-                            //     alignItems: 'center'
-                            // }} 
                             style={styles.image}
                         />
                         <Balloon
@@ -344,9 +325,7 @@ export default function SelectQuestion(props) {
                         </Balloon>
                     </View>
                     <View style={styles.buttonContainer}>
-                        <Text>スコア：{score}</Text>
-                        {/* 質問 */}
-                        <Text h3>質問</Text>
+                        <Text h4>スコア：{score}点</Text>
                         <View style={styles.buttons}>
                             {showQuestions[currentQuestion].questionOptions.map((questionOption, i) => (
                                 <Button 
@@ -356,23 +335,15 @@ export default function SelectQuestion(props) {
                                 />
                             ))}
                         </View>
-                    </View>
-                    <View 
-                        // style={{ marginTop: 30 }}
-                        style={styles.textInputButtonContainer}
-                    >
                         <Button
                             title="わかった！"
                             onPress={toggleOverlay}
                         />
-                        
                     </View>
-                    {/* </View> */}
                 </ImageBackground>
             </View>
             <Overlay isVisible={visible}>
                 {/* 回答フォーム */}
-                
                 <Controller
                     control={control}
                     rules={{
@@ -398,10 +369,10 @@ export default function SelectQuestion(props) {
                     defaultValue=""
                 />
                 <View
-                    style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    style={{ flexDirection: 'row', justifyContent: 'space-around' }}
+                >
                     <Button
                         title="閉じる" onPress={toggleOverlay}
-                        // style={{ marginRight: 30, }}
                     />
                     <Button
                         title="回答"

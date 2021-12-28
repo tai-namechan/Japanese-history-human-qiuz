@@ -27,9 +27,9 @@ const IntroModal = ({isVisible, dismissModal}) => {
     setViewableItemIndex(viewableItems[0].index);
     // 一番最後のスライドならボタンのテキストを変える
     if (viewableItems[0].index === SLIDES.length - 1) {
-      setButtonText('Done');
+      setButtonText('トップへ戻る');
     } else {
-      setButtonText('Next');
+      setButtonText('次へ');
     }
   });
 // buttonを押したら次のViewへ飛ぶ
@@ -91,7 +91,7 @@ const IntroModal = ({isVisible, dismissModal}) => {
 
 export default IntroModal;
 
-const {width} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -104,14 +104,15 @@ const styles = StyleSheet.create({
   },
   slideInner: {
     width: width,
+    height: "90%",
     justifyContent: 'center',
-    paddingBottom: 80,
+    // paddingBottom: 80,
     alignItems: 'center',
     paddingHorizontal: '5%',
   },
   img: {
-    width: 250,
-    height: 500,
+    width: 200,
+    height: 400,
     marginBottom: 30,
   },
   title: {
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
   },
   bottomWrapper: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 30,
     alignItems: 'center',
   },
   dotWrapper: {
