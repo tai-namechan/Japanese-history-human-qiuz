@@ -95,7 +95,7 @@ class SignupForm extends Component {
         </View>
         <View>
           <TextInput
-            placeholder="user@gmail.com"
+            placeholder="user@gmail.com(架空のアドレスでOK)"
             autoCorrect={false}
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
