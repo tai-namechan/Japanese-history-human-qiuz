@@ -68,7 +68,7 @@ class SignupScreen extends React.Component {
           <Text style={styles.title}>新規登録</Text>
           <SafeAreaView>
           <View style={styles.container}>
-            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "登録しろよ"}</Text>
+            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "登録してね"}</Text>
           </View>
           {this.renderForm()}
           
