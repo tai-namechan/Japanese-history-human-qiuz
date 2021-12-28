@@ -1,8 +1,9 @@
 import React, { Component, useState, useEffect } from 'react';
-import { View, ImageBackground, StyleSheet, SafeAreaView, } from 'react-native';
+import { View, ImageBackground, StyleSheet, SafeAreaView, Platform } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
 import IntroModal from './introModal';
+import { BottomBannerAds } from '../Advertisement/Ads';
 
 const theme = {
   Button: {
@@ -20,14 +21,7 @@ const theme = {
 };
 
 export default function Start(props) {
-
   const [isVisible, setIsVisible] = useState(false)
-  // console.log('route', route)
-  // const { welcome } = route.params;
-  useEffect(() => {
-
-  }, [])
-
 
   const _dismissModal = () => {
     setIsVisible(false)
@@ -164,7 +158,7 @@ export default function Start(props) {
         <ImageBackground
           source={require('../assets/img/sakura-change.jpg')}
           resizeMode="cover"
-          style={{ height: 1000, }}
+          style={{ height: "100%", }}
         >
           <Header
             // authは右にあった方がいい気がしたため、iconの左右入れ替えた
@@ -199,6 +193,7 @@ export default function Start(props) {
                   justifyContent: 'center',
                 }} />
             </View>
+            
             <View style={{flex: 2.5}}>
               <Button
                 title="始める"
@@ -215,6 +210,7 @@ export default function Start(props) {
                 onPress={() => { setIsVisible(true) }} 
               />
             </View>
+            <BottomBannerAds/>
             <View style={{  background: '#76dead', alignItems: 'center', justifyContent: 'center' }}>
               {/* // Modalの設置 */}
               <IntroModal isVisible={isVisible} dismissModal={_dismissModal} />
