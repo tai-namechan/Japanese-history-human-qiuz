@@ -53,20 +53,18 @@ const IntroModal = ({isVisible, dismissModal}) => {
   return (
     <Modal visible={isVisible} animationType="fade" transparent={true}>
       <View style={styles.container}>
-        <View style={styles.topWrapper}>
-          <FlatList
-            data={SLIDES}
-            horizontal={true}
-            renderItem={_renderItem}
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={_keyExtractor}
-            // ref で参照を指定
-            ref={flatListRef}
-            // 見えているViewが変われば呼ばれる
-            onViewableItemsChanged={onViewRef.current}
-          />
-        </View>
+        <FlatList
+          data={SLIDES}
+          horizontal={true}
+          renderItem={_renderItem}
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={_keyExtractor}
+          // ref で参照を指定
+          ref={flatListRef}
+          // 見えているViewが変われば呼ばれる
+          onViewableItemsChanged={onViewRef.current}
+        />
         <View style={styles.bottomWrapper}>
         {/* pagenation */}
           <View style={styles.dotWrapper}>
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
   },
   slideInner: {
     width: width,
-    // height: "100%",
+    height: "90%",
     justifyContent: 'center',
     // paddingBottom: 80,
     alignItems: 'center',
@@ -118,7 +116,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#fff',
-    // marginTop: 30,
     marginBottom: 10,
   },
   text: {
@@ -127,16 +124,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 30,
   },
-  topWrapper: {
-    // height: "80%"
-    flex: 4,
-  },
   bottomWrapper: {
     width: "100%",
-    // height: "10%",
-    flex: 1,
+    height: "5%",
+    // flex: 1,
     position: 'absolute',
-    bottom: "5%",
+    bottom: "4%",
     justifyContent: "center",
     alignItems: 'center',
   },
@@ -170,7 +163,7 @@ const styles = StyleSheet.create({
 const SLIDES = [
     {
       key: '1',
-      title: "日本史の壁正解を衝けへ                  ようこそ！✨",
+      title: "日本史の壁正解を衝けへ                       ようこそ！✨",
       text: "このアプリは、質問をして偉人が誰か当てるクイズアプリです",
       image: require('../assets/img/sentaku.png'),
     },
