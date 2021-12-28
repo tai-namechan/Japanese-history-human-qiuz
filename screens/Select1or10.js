@@ -32,15 +32,15 @@ export default function SelectNumber(props) {
         <ImageBackground
             source={require('../assets/img/background.png')}
             resizeMode="cover"
-            style={{ height: 1000, }}
+            style={{ height: "100%", }}
         >
             <Header
             placement="left"
-            rightComponent={{ icon: 'menu', color: 'brown' }}
+            // leftComponent={{ icon: 'menu', color: 'brown' }}
             centerComponent={{ text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
             // onPress: () => this.props.navigation.navigate('Signup')
             }}
-            leftComponent={{
+            rightComponent={{
                 icon: 'home',
                 color: 'brown',
                 onPress: () => props.navigation.navigate('Start')
@@ -50,25 +50,29 @@ export default function SelectNumber(props) {
                 justifyContent: 'space-around',
             }}
             />
-
-            <View style={{ flex: 1, alignItems: 'center' }}>
-                        <Text h1 style={{ marginTop: 30 }}>問題数を選択！</Text>
-             {/* <Text h1 style={{ marginTop:20 }}>選べ！1問 or 10問</Text> */}
-            <Button
-                title="1問"
-                onPress={() => {
-                    props.navigation.navigate('SelectEra');
-                }}
-                containerStyle={{ width: '50%', marginBottom: 50, marginTop:100 }}
-            />
-            {/* <Button
-                title="10問"
-                onPress={() => {
-                    props.navigation.navigate('Question', { questionRandom: questionRandom });
-                    random();
-                }}
-                containerStyle={{ width: '50%' }}
-            /> */}
+            <View style={{ flex: 1 }}>
+                <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                    <Text h1>問題数を選択！</Text>
+                    {/* <Text h1 style={{ marginTop:20 }}>選べ！1問 or 10問</Text> */}
+                </View>
+                <View style={{ flex: 4, alignItems: "center" }}>
+                    <Button
+                        title="1問"
+                        onPress={() => {
+                            props.navigation.navigate('SelectEra');
+                        }}
+                        containerStyle={{ width: '50%', }}
+                    />
+                    {/* <Button
+                        title="10問"
+                        onPress={() => {
+                            props.navigation.navigate('Question', { questionRandom: questionRandom });
+                            random();
+                        }}
+                        containerStyle={{ width: '50%' }}
+                    /> */}
+                </View>
+            
             </View>
         </ImageBackground>
         </View>

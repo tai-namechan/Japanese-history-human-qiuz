@@ -27,9 +27,9 @@ const IntroModal = ({isVisible, dismissModal}) => {
     setViewableItemIndex(viewableItems[0].index);
     // 一番最後のスライドならボタンのテキストを変える
     if (viewableItems[0].index === SLIDES.length - 1) {
-      setButtonText('Done');
+      setButtonText('トップへ戻る');
     } else {
-      setButtonText('Next');
+      setButtonText('次へ');
     }
   });
 // buttonを押したら次のViewへ飛ぶ
@@ -65,7 +65,6 @@ const IntroModal = ({isVisible, dismissModal}) => {
           // 見えているViewが変われば呼ばれる
           onViewableItemsChanged={onViewRef.current}
         />
-
         <View style={styles.bottomWrapper}>
         {/* pagenation */}
           <View style={styles.dotWrapper}>
@@ -91,7 +90,7 @@ const IntroModal = ({isVisible, dismissModal}) => {
 
 export default IntroModal;
 
-const {width} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -99,28 +98,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(85, 122, 80, 0.9)'
   },
-  space: {
-    paddingTop: 40,
-  },
   slideInner: {
     width: width,
+    height: "90%",
     justifyContent: 'center',
-    paddingBottom: 80,
+    // paddingBottom: 80,
     alignItems: 'center',
     paddingHorizontal: '5%',
   },
   img: {
-    width: 250,
-    height: 500,
-    marginBottom: 30,
+    width: 200,
+    height: 400,
+    marginBottom: 10,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#fff',
-    marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 10,
   },
   text: {
     fontSize: 19,
@@ -129,8 +125,12 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
   bottomWrapper: {
+    width: "100%",
+    height: "5%",
+    // flex: 1,
     position: 'absolute',
-    bottom: 50,
+    bottom: "4%",
+    justifyContent: "center",
     alignItems: 'center',
   },
   dotWrapper: {
@@ -140,9 +140,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dot: {
-    width: 16,
-    height: 16,
-    borderRadius: 8,
+    width: 14,
+    height: 14,
+    borderRadius: 7,
     marginHorizontal: 6,
   },
   colorDot: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#5d627b',
   },
   button: {
-    marginTop: 18,
+    marginTop: 10,
   },
   buttonText: {
     fontSize: 19,
@@ -163,14 +163,14 @@ const styles = StyleSheet.create({
 const SLIDES = [
     {
       key: '1',
-      title: "日本史の壁正解を衝けへ             ようこそ！✨",
+      title: "日本史の壁正解を衝けへ                       ようこそ！✨",
       text: "このアプリは、質問をして偉人が誰か当てるクイズアプリです",
       image: require('../assets/img/sentaku.png'),
     },
     {
       key: '2',
       title: "偉人へ質問😎",
-      text: "問題画面でシルエットのかかった偉人に対しボタンを押して質問します。質問ボタンを押すと、そのボタンは次の質問内容に　　　　　　切り替わります",
+      text: "問題画面でシルエットのかかった偉人に対しボタンを押して質問します。質問ボタンを押すと、そのボタンは次の質問内容に切り替わります",
       image: require('../assets/img/shitumon.png'),
     },
     {

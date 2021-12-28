@@ -10,7 +10,7 @@ const theme = {
       margin: '6%',
     },
     titleStyle: {
-      fontSize: 40
+      fontSize: 35
     },
     raised: true,
   },
@@ -160,7 +160,7 @@ export default function Start(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <View >
+      <View>
         <ImageBackground
           source={require('../assets/img/sakura-change.jpg')}
           resizeMode="cover"
@@ -169,7 +169,7 @@ export default function Start(props) {
           <Header
             // authは右にあった方がいい気がしたため、iconの左右入れ替えた
             placement="left"
-            leftComponent={{ icon: 'menu', color: 'brown' }}
+            // leftComponent={{ icon: 'menu', color: 'brown' }}
             centerComponent={{
               text: '歴史の壁〜正解を衝け〜', style: { color: 'brown' },
               // onPress: () => this.props.navigation.navigate('Signup')
@@ -184,72 +184,41 @@ export default function Start(props) {
               justifyContent: 'space-around',
             }}
           />
-          {/* <Image source={require('../assets/img/歴史の壁.png')}
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <View style={{flex: 1, justifyContent: "center",}}>
+              <Image source={require('../assets/img/歴史の壁.png')}
                 style={{
-                    // width: 300,
-                    height: 90,
-                    marginTop: 50,
-                    marginLeft:'20%',
-                    marginRight:'20%',
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    justifyContent: 'center',
-                    alignItems: 'center'
+                  width: 300,
+                  height: 90,
+                  justifyContent: 'center',
                 }} />
               <Image source={require('../assets/img/タイトル.png')}
                 style={{
-                    // width: 300,
-                    height: 90,
-                    marginTop: 30,
-                    marginLeft:'20%',
-                    marginRight:'20%',
-                    bottom: 0,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }} /> */}
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            <Image source={require('../assets/img/歴史の壁.png')}
-              style={{
-                width: 300,
-                height: 90,
-                marginTop: 40,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                alignItems: 'center'
-              }} />
-            <Image source={require('../assets/img/タイトル.png')}
-              style={{
-                width: 300,
-                height: 90,
-                marginTop: 40,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                alignItems: 'center'
-              }} />
-            <Button
-              title="始める"
-              onPress={() => {
-                props.navigation.navigate('SelectNumber');
-              }}
-              containerStyle={{ width: '50%', marginBottom: 50, marginTop: 100, }}
-            />
-            <Button
-              title="ランキング"
-              onPress={getDatabaseData}
-              containerStyle={{ width: '50%' }}
-            />
-
+                  width: 300,
+                  height: 90,
+                  justifyContent: 'center',
+                }} />
+            </View>
+            <View style={{flex: 2.5}}>
+              <Button
+                title="始める"
+                onPress={() => {
+                  props.navigation.navigate('SelectNumber');
+                }}
+              />
+              <Button
+                title="ランキング"
+                onPress={getDatabaseData}
+              />
+              <Button 
+                title="使い方" 
+                onPress={() => { setIsVisible(true) }} 
+              />
+            </View>
             <View style={{  background: '#76dead', alignItems: 'center', justifyContent: 'center' }}>
               {/* // Modalの設置 */}
               <IntroModal isVisible={isVisible} dismissModal={_dismissModal} />
-              <Button title="使い方" onPress={() => { setIsVisible(true) }} />
             </View>
-
           </View>
         </ImageBackground>
       </View>
