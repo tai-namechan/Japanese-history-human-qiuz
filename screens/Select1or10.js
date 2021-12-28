@@ -61,14 +61,14 @@ export default function SelectNumber(props) {
                 }}
                 containerStyle={{ width: '50%', marginBottom: 50, marginTop:100 }}
             />
-            <Button
+            {/* <Button
                 title="10問"
                 onPress={() => {
                     props.navigation.navigate('Question', { questionRandom: questionRandom });
                     random();
                 }}
                 containerStyle={{ width: '50%' }}
-            />
+            /> */}
             </View>
         </ImageBackground>
         </View>
