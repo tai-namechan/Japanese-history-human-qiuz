@@ -341,6 +341,7 @@ export default function SelectQuestion(props) {
                             <Animated.Text 
                                 style={{
                                     height: 60,
+                                    fontSize: 13,
                                 }}
                             >
                                 {answerText}
