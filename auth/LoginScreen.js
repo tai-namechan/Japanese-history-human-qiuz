@@ -70,7 +70,7 @@ class LoginScreen extends React.Component {
       >
         <SafeAreaView>
           <View style={styles.container}>
-            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしろよ"}</Text>
+            <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしてね"}</Text>
           </View>
           {this.renderForm()}
           
