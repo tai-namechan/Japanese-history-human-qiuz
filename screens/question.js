@@ -790,6 +790,7 @@ const questions = [
         id: 1,
         period: '鎌倉時代',
         human: 'フビライハン',
+        human2: 'フビライ・ハン',
         questionOptions: [
             {
                 questionText: '西暦何年生まれですか？',
@@ -2589,6 +2590,7 @@ const questions = [
         id: 1,
         period: '鎌倉時代',
         human: 'フビライハン',
+        human2: 'フビライ・ハン',
         questionOptions: [
             {
                 questionText: '西暦何年生まれですか？',
@@ -4388,6 +4390,7 @@ const questions = [
         id: 1,
         period: '鎌倉時代',
         human: 'フビライハン',
+        human2: 'フビライ・ハン',
         questionOptions: [
             {
                 questionText: '西暦何年生まれですか？',
