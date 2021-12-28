@@ -150,13 +150,13 @@ export default function Answer({ navigation }) {
 
     const firebaseConfig = {
         // 各自生成された値を入れる
-        apiKey: "AIzaSyDr1rqtIwynxlItQpfcYCf_bwn_velxlrI",
-        authDomain: "japanese-history-quiz-518c2.firebaseapp.com",
-        databaseURL: "https://japanese-history-quiz-518c2-default-rtdb.firebaseio.com",
-        projectId: "japanese-history-quiz-518c2",
-        storageBucket: "japanese-history-quiz-518c2.appspot.com",
-        messagingSenderId: "833552253127",
-        appId: "1:833552253127:web:9371bd16b0047699fb3ee2"
+        apiKey: "AIzaSyB4gb0RQJL824KzTp14-YJv88qKcowYWpw",
+        authDomain: "hinako-birthday.firebaseapp.com",
+        databaseURL: "https://hinako-birthday-default-rtdb.firebaseio.com",
+        projectId: "hinako-birthday",
+        storageBucket: "hinako-birthday.appspot.com",
+        messagingSenderId: "338098170578",
+        appId: "1:338098170578:web:4031fe4ffed2852e845b0b"
     }
     if (!firebase.apps.length) { // これをいれないとエラーになったのでいれてます。
         firebase.initializeApp(firebaseConfig);
