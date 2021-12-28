@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, ImageBackground, Animated, StyleSheet, TextInput } from 'react-native';
+import { View, ImageBackground, Animated, StyleSheet, TextInput, Dimensions } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
 import questions from './question';
 import { useForm, Controller } from "react-hook-form";
 
+const {width, height} = Dimensions.get('window');
+
 // スタイルシート関連
 const theme = {
     Button: {
         containerStyle: {
-            marginBottom: 20
+            marginBottom: 15
         },
         titleStyle: {
             fontSize: 19
@@ -25,14 +27,14 @@ const theme = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: "100%"
+        height: height,
     },
     header: {
         flex: 1,
         alignItems: 'center',
     },
     commentContainer: {
-        flex: 1,
+        flex: 0.8,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -43,8 +45,8 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     image: {
-        width: 200,
-        height: 200,
+        width: 170,
+        height: 170,
     },
     buttonContainer: {
         flex: 1,

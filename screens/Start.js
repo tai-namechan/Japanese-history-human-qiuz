@@ -10,7 +10,7 @@ const theme = {
       margin: '6%',
     },
     titleStyle: {
-      fontSize: 40
+      fontSize: 35
     },
     raised: true,
   },
@@ -199,7 +199,7 @@ export default function Start(props) {
                   justifyContent: 'center',
                 }} />
             </View>
-            <View style={{flex: 2}}>
+            <View style={{flex: 2.5}}>
               <Button
                 title="始める"
                 onPress={() => {

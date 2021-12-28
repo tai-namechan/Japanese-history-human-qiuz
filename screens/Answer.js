@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 // usestateが使える
-import { View, ImageBackground, StyleSheet, Animated } from 'react-native';
+import { View, ImageBackground, StyleSheet, Animated, SafeAreaView, ScrollView, } from 'react-native';
 import { Button, Text, Image, Overlay, Input, Header, ThemeProvider } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
@@ -365,17 +365,12 @@ export default function Answer({ navigation }) {
                             justifyContent: 'space-around',
                         }}
                     />
-                    <View style={{ flex: 2, alignItems: 'center' }}>
+                    <View style={{ alignItems: 'center' }}>
                         <Image
                             source={correctImg}
                             style={{
-                                width:220,
-                                height: 110,
-                                // top: 0,
-                                // left: 0,
-                                // right: 0,
-                                // bottom: 0,
-                                // justifyContent: 'center',
+                                width: 180,
+                                height: 90,
                                 alignItems: 'center'
                             }}
                         /> 
@@ -390,91 +385,82 @@ export default function Answer({ navigation }) {
                                 alignItems: 'center',
                                 fontSize: 30
                             }}>A.{questions[number].human}</Animated.Text> */}
-
-                        {/* 偉人の画像 */}
-                        <View style={{
-                            marginLeft: '25%',
-                            marginRight: '25%',
-                        }}>
-                            <Animated.Image
-                                //白黒
-                                source={require('../assets/img/kuromaku.jpg')}
-                                style={{
-                                    width: 250,
-                                    height: 250,
-                                    // top: 0,
-                                    // left: 0,
-                                    // right: 0,
-                                    // bottom: 0,
-                                    // justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} 
-                            />
-                            <Animated.Image
-                                //カラー
-                                source = {image}
-                                style={{
-                                    width: 250,
-                                    height: 250,
-                                    opacity,
-                                    position: 'absolute',
-                                    // top: 0,
-                                    // left: 0,
-                                    // right: 0,
-                                    // bottom: 0,
-                                    // justifyContent: 'center',
-                                    alignItems: 'center'
-                                }} 
-                            />
-                        </View>
-
-                        {/* 関数を入れる */}
-                        {/* 吹き出し */}
-                        <Balloon
-                            borderColor="#CCC"
-                            backgroundColor="#FFF"
-                            borderWidth={1}
-                            borderRadius={10}
-                            triangleDirection='top'
-                            
-                        >
-                            <Animated.Text style={{
-                                fontSize: 22,
-                                height: 27,
-                                
-                                //吹き出し内の文字をフェードインさせる
-                                opacity
-                            }}
-                            >
-                                {questions[number].dialogue}
-                            </Animated.Text>
-                        </Balloon>
-
-                        {/* <TouchableOpacity
-                            style={{ flexDirection: 'row', }}>
-                            <Button
-                                //「消す」ボタンを押すと白黒に変わる
-                                style={{ marginRight: 10, }}
-                                title="消す" onPress={fadeOutBall}
-                            />
-                            <Button
-                                //「出現させる」ボタンを押すとカラーに変わる
-                                style={{ marginLeft: 30, }}
-                                title="出現させる"
-                            />
-                        </TouchableOpacity> */}
                     </View>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: "center" }}>
-                        {/* 解説文 */}
-                        <View style={styles.container} >
-                            <Animated.View
-                                //解説文をフェードインさせる
-                                style={{ opacity, }}>
-                                <Text style={{ color: 'white' }}>{questions[number].explanationTitle}</Text>
-                                <Text style={{ color: 'white' }}>{questions[number].explanationDetail}
-                                </Text>
-                            </Animated.View>
-                        </View>
+                    <View style={{flex: 2, alignItems: "center", justifyContent: "center"}}>
+                        <SafeAreaView>
+                            <ScrollView>
+                                {/* 偉人の画像 */}
+                                <View style={{ alignItems: "center", marginTop: 15 }}>
+                                    <Animated.Image
+                                        //白黒
+                                        source={require('../assets/img/kuromaku.jpg')}
+                                        style={{
+                                            width: 230,
+                                            height: 230,
+                                            alignItems: 'center'
+                                        }} 
+                                    />
+                                    <Animated.Image
+                                        //カラー
+                                        source = {image}
+                                        style={{
+                                            width: 230,
+                                            height: 230,
+                                            opacity,
+                                            position: 'absolute',
+                                            alignItems: 'center'
+                                        }} 
+                                    />
+                                </View>
+
+                                {/* 関数を入れる */}
+                                {/* 吹き出し */}
+                                <View style={{ alignItems: "center", justifyContent: "center" }}>
+                                    <Balloon
+                                        borderColor="#CCC"
+                                        backgroundColor="#FFF"
+                                        borderWidth={1}
+                                        borderRadius={10}
+                                        triangleDirection='top'
+                                    >
+                                        <Animated.Text style={{
+                                            fontSize: 22,
+                                            height: 27,
+                                            
+                                            //吹き出し内の文字をフェードインさせる
+                                            opacity
+                                        }}
+                                        >
+                                            {questions[number].dialogue}
+                                        </Animated.Text>
+                                    </Balloon>
+                                </View>
+                                {/* <TouchableOpacity
+                                    style={{ flexDirection: 'row', }}>
+                                    <Button
+                                        //「消す」ボタンを押すと白黒に変わる
+                                        style={{ marginRight: 10, }}
+                                        title="消す" onPress={fadeOutBall}
+                                    />
+                                    <Button
+                                        //「出現させる」ボタンを押すとカラーに変わる
+                                        style={{ marginLeft: 30, }}
+                                        title="出現させる"
+                                    />
+                                </TouchableOpacity> */}
+                                <View style={styles.container} >
+                                    <Animated.View
+                                        //解説文をフェードインさせる
+                                        style={{ opacity, }}>
+                                        <Text style={{ color: 'white' }}>{questions[number].explanationTitle}</Text>
+                                        <Text style={{ color: 'white' }}>{questions[number].explanationDetail}
+                                        </Text>
+                                    </Animated.View>
+                                </View>
+                            </ScrollView>
+                        </SafeAreaView>
+                    </View>
+                    <View style={{alignItems: "center", height: "12%"}}>
                         <Button
                             title="ランキング"
                             onPress={getDatabaseData}
