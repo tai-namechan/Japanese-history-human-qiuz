@@ -254,9 +254,13 @@ export default function SelectQuestion(props) {
         // Textinputで入力されtextに代入された値をinputTextに代入
         const inputText = value.answer_text;
         const human = questions[currentQuestion].human;
+        const human2 = questions[currentQuestion].human2;
 
         // 入力した値が答えと一致している場合
         if (inputText == human) {
+            var correctness = '正解';
+        }
+        else if (inputText == human2) {
             var correctness = '正解';
         }
         // 入力した値が答えと不一致の場合
