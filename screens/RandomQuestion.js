@@ -4,6 +4,7 @@ import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-nativ
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
 import questions from './question';
+import { useForm, Controller } from "react-hook-form";
 
 // スタイルシート関連
 const theme = {
@@ -66,13 +67,9 @@ export default function SelectQuestion(props) {
         // 選択された時代をSelectEraから受け取る
         const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);
-         //setCurrentQuestion(1);
-        console.log(questionRandom);
-        console.log(period);
     },[]);
 
     const [showQuestions, setShowQuestions] = useState(questions);
-    //console.log(questionRandom);
     const [countQuestionOne, setCountQuestionOne] = useState(1);
     const [countQuestionTwo, setCountQuestionTwo] = useState(1);
     const [countQuestionThree, setCountQuestionThree] = useState(1);
@@ -114,92 +111,54 @@ export default function SelectQuestion(props) {
         );
 
         // 質問ボタンの切り替え
-        // console.log(i);
-        //setNewQuestionText(questionOption, i);
         let number = i;
 
-
         if(i === 0) {
-            //console.log(countQuestionOne);
             setCountQuestionOne(countQuestionOne + 1);
-             //console.log(countQuestionOne);
             var countQuestionButton = countQuestionOne;
-
-             //console.log(countQuestionButton);
             var A_temp = aButton + 1;
-            //console.log("A"+A_temp);
         }
 
 
         else if(i === 1) {
             setCountQuestionTwo(countQuestionTwo + 1);
-            // console.log(countQuestionTwo);
             var countQuestionButton = countQuestionTwo;
-
             var B_temp = bButton + 1;
-            //console.log("B"+B_temp);
         }
 
         else if(i === 2) {
             setCountQuestionThree(countQuestionThree + 1);
-            // console.log(countQuestionThree);
             var countQuestionButton = countQuestionThree;
-
             var C_temp = cButton + 1;
-            //console.log("C"+C_temp);
         }
         else if(i === 3) {
             setCountQuestionFour(countQuestionFour + 1);
-            // console.log(countQuestionFour);
             var countQuestionButton = countQuestionFour;
             var D_temp = dButton + 1;
-            //console.log("D"+D_temp);
         }
 
         if(countQuestionButton == 1) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsSecond[number];
             var questionTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
-
-            //var questionPreTextStock = questions[currentQuestion].questionOptions[number].questionText;
-
-
-            // console.log(questionOptionsStock);
-            // console.log(countQuestionButton);
-
         }
         else if(countQuestionButton == 2) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsThird[number];
             var questionTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
-
-            //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
-            // console.log(questionOptionsStock);
-            // console.log(countQuestionButton);
         }
         else if(countQuestionButton == 3) {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFourth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFourth[number].questionText;
-
-            //var questionPreTextStock = questions[currentQuestion].questionOptionsSecond[number].questionText;
-            // console.log(questionOptionsStock);
-            // console.log(countQuestionButton);
         }
         else {
             var questionOptionsStock = questions[currentQuestion].questionOptionsFifth[number];
             var questionTextStock = questions[currentQuestion].questionOptionsFifth[number].questionText;
-
-            //var questionPreTextStock = questions[currentQuestion].questionOptionsThird[number].questionText;
-            // console.log(questionOptionsStock);
         }
 
         if (questionTextStock == '') {
-            //showQuestions[currentQuestion].questionOptions.splice(number, 1);
             setShowQuestions(showQuestions);
-            //console.log(showQuestions[currentQuestion].questionOptions);
         } else {
             showQuestions[currentQuestion].questionOptions.splice(number, 1, questionOptionsStock);
-            // console.log(questions[currentQuestion].questionOptions);
             setShowQuestions(showQuestions);
-            // console.log(showQuestions[currentQuestion].questionOptions);
         }
 
 
@@ -228,7 +187,6 @@ export default function SelectQuestion(props) {
 
         if (i === 1){
             if (B_temp == 1) {
-                //console.log('ok');
                 if (score > 1) {
                     // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
                     var currectScore = score - 1;
@@ -246,9 +204,6 @@ export default function SelectQuestion(props) {
             }
         }
 
-
-
-
         if (i === 2){
             if (C_temp == 1) {
                 //console.log('ok');
@@ -259,7 +214,6 @@ export default function SelectQuestion(props) {
                     setScore(currectScore);
                 }
                 if (questionTextStock == '') {
-                    //setAButton(1);
                     setCButton(1);
                 } else {
                     setCButton(0);
@@ -270,11 +224,8 @@ export default function SelectQuestion(props) {
             }
         }
 
-
-
         if (i === 3){
             if (D_temp == 1) {
-                //console.log('ok');
                 if (score > 1) {
                     // 質問ボタンを押した数だけスコアが計算される（＝初期スコア5から、質問ボタンを押した数）
                     var currectScore = score - 1;
@@ -282,7 +233,6 @@ export default function SelectQuestion(props) {
                     setScore(currectScore);
                 }
                 if (questionTextStock == '') {
-                    //setAButton(1);
                     setDButton(1);
                 } else {
                     setDButton(0);
@@ -292,7 +242,6 @@ export default function SelectQuestion(props) {
                 setDButton(D_temp);
             }
         }
-
     }
 
     // モーダルの表示・非表示
@@ -301,28 +250,19 @@ export default function SelectQuestion(props) {
     }
 
     // 正誤判定とスコア画面への値送信
-    const showScoreScreen = () => {
+    const showScoreScreen = (value) => {
         // Textinputで入力されtextに代入された値をinputTextに代入
-        const inputText = text;
-        // humanに答えとなる人物を設定する
-        //const human = '渋沢栄一';
+        const inputText = value.answer_text;
         const human = questions[currentQuestion].human;
-        //const number = questions[currentQuestion];
-
-        // console.log(human);
-        // console.log(inputText);
 
         // 入力した値が答えと一致している場合
         if (inputText == human) {
             var correctness = '正解';
-            console.log(correctness);
         }
         // 入力した値が答えと不一致の場合
         else {
             var correctness = '不正解';
-            console.log(correctness);
         }
-        console.log(score);
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
         navigation.navigate('Answer', { correctness: correctness, score: score, number: number});
 
@@ -331,7 +271,6 @@ export default function SelectQuestion(props) {
         
         Speech.speak(questions[currentQuestion].readDialogue,
             {
-                
                 "language": "ja",
                 // 低い声
                 "pitch": -1,
@@ -340,6 +279,12 @@ export default function SelectQuestion(props) {
             }
         );
     }
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors, isValid },
+    } = useForm({mode: 'onChange'});
 
     return (
         <ThemeProvider theme={theme}>
@@ -365,6 +310,7 @@ export default function SelectQuestion(props) {
                     />
                     {/* <Text>インプット：{text}</Text> */}
                     {/* <View style={{ flex: 1, alignItems: 'center' }}> */}
+                    
                     <View style={styles.commentContainer}>
                         {/* <Text h3 style={{ display: "none", }}>家光コメント</Text> */}
                         <Image
@@ -426,13 +372,30 @@ export default function SelectQuestion(props) {
             </View>
             <Overlay isVisible={visible}>
                 {/* 回答フォーム */}
-                <TextInput
-                    style={{ height: 55, width: 160}}
-                    placeholder="ここに入力するのじゃ！"
-                    placeholderTextColor="#4A4444"
-                    // 入力された値をtextに代入する
-                    onChangeText={text => setText(text)}
-                    defaultValue={text}
+                
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <View>
+                            <View style={styles.form_birth_input_wrapper}>
+                                <View style={styles.birthday_input_box}>
+                                    <TextInput
+                                        style={{ height: 55, width: 160}}
+                                        placeholder="ここに入力するのじゃ！"
+                                        placeholderTextColor="#4A4444"
+                                        onChangeText={(value) => onChange(value)}
+                                        onBlur={onBlur}
+                                        value={value}
+                                    />
+                                </View>
+                            </View>
+                        </View>
+                    )}
+                    name="answer_text"
+                    defaultValue=""
                 />
                 <View
                     style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
@@ -442,7 +405,9 @@ export default function SelectQuestion(props) {
                     />
                     <Button
                         title="回答"
-                        onPress={showScoreScreen}
+                        disabled={!isValid}
+                        style={{ opacity: isValid ? 1 : 0.4 }}
+                        onPress={handleSubmit(showScoreScreen)}
                     />
                 </View>
             </Overlay>
