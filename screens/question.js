@@ -1798,6 +1798,125 @@ const questions = [
         explanationDetail: '規秀（道三）の代に長井家を倒し、守護代斎藤氏の家名を奪って、土岐氏を追放。長男の義龍と争って敗北した。',
     },
     {
+        id: 17,
+        period: '平安時代',
+        human: '紫式部',
+        questionOptions: [
+            {
+                questionText: '今はどこにいるの？ ',
+                answerText: '真実は内緒だが、鎌倉時代の人たちには地獄に落ちたと言われていたよ。その時代は仏教の影響で「創作という嘘を広めること」は罪深いとされていたらしい。 ',
+                readText: '真実は内緒だが、鎌倉時代の人たちには地獄に落ちたと言われていたよ。その時代は仏教の影響で「創作という嘘を広めること」は罪深いとされていたらしい。 '
+            },
+          {
+                questionText: '趣味はなんですか？ ',
+                answerText: '詩を詠むことかな。「めぐり逢ひて みしやそれとも わかぬ間に 雲がくれにし 夜半の月かな」',
+                readText: 'しをよむことかな。「めぐりあいて みしやそれとも わかぬまに 雲がくれにし よはの月かな」'
+            },
+            {
+                questionText: '有名な人ですか？ ',
+                answerText: '私を知らない日本人はほとんどいないと思うな。お札にも載ったことがあるよ。 ',
+                readText: '私を知らない日本人はほとんどいないと思うな。おさつにも載ったことがあるよ。 '
+            },
+            {
+                questionText: 'いつ生まれましたか？ ',
+                answerText: '970年代に生まれたよ。 ',
+                readText: '970年代に生まれたよ。 '
+            },
+        ],
+        questionOptionsSecond: [
+              {
+                questionText: 'どんな性格ですか？ ',
+                answerText: '今で言う陰キャであるな。ネガティブ思考で引きこもりを経験したことがあるよ。 ',
+                readText: '今で言うインキャであるな。ネガティブ思考で引きこもりを経験したことがあるよ。 '
+            },
+            {
+                questionText: '自慢できることはありますか？ ',
+                answerText: '天皇に漢学を教えたことがあるよ。 ',
+                readText: '天皇にかんがくを教えたことがあるよ。 '
+            },
+            {
+                questionText: 'ゆかりの地を教えてください。 ',
+                answerText: '大津にある石山寺であるかな。美しい風景からたくさんインスパイアされたよ。君も是非行ってみてくれ。',
+                readText: 'おおつにあるいしやまでらであるかな。美しい風景からたくさんインスパイアされたよ。君も是非行ってみてくれ。'
+            },
+            {
+                questionText: '有名な親戚はいますか？ ',
+                answerText: '父が藤原為時であるよ。 ',
+                readText: '父がふじわらのためときであるよ。 '
+            },
+        ],
+        questionOptionsThird: [
+           {
+                questionText: 'あだ名はありますか？ ',
+                answerText: '「日本紀のおつぼね」と言われていたよ。当時、女性が知識をひけらかすことはダサいこととされていて、皮肉で言われていたよ。',
+                readText: '「にほんきのおつぼね」と言われていたよ。当時、女性が知識をひけらかすことはダサいこととされていて、皮肉で言われていたよ。'
+            },
+            {
+                questionText: '',
+                answerText: '',
+		readText: ''
+            },
+            {
+                questionText: 'お仕事はなんですか？ ',
+                answerText: '今で言う家庭教師や家政婦であるかな。 ',
+                readText: '今で言う家庭教師やかせいふであるかな。 '
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: 'あなたを誰でもわかるように一言で表してください。 ',
+                answerText: '光源氏を主人公とした源氏物語の作者であるよ。',
+		        readText: '光源氏を主人公とした源氏物語の作者であるよ。'
+
+            },
+            {
+                questionText: '',
+                answerText: '',
+		        readText: ''
+                
+            },
+            {
+                questionText: 'ライバルを教えてください。 ',
+                answerText: '清少納言であるな。日記であやつを何度も批判してやったよ。',
+		        readText: 'せいしょうなごんであるな。日記であやつを何度も批判してやったよ。 '
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: '',
+		        readText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/紫式部.png'),
+        dialogue: 'わしの名前は紫式部じゃ。',
+        readDialogue: 'わしのっ、名前はっ、むらさきしきぶじゃ。',
+        explanationTitle: '平安時代中期の作家・歌人・女房、紫式部',
+        explanationDetail: '天禄元年（970年）から天元元年（978年）の間に生まれ、寛仁3年（1019年）までは存命したとされる。『源氏物語』の作者とされ、藤原道長の要請で宮中に上がった際に宮中の様子を書いた『紫式部日記』も残している。',
+    },
+    {
         id: 1,
         period: '江戸時代',
         human: '徳川慶喜',
@@ -3596,6 +3715,125 @@ const questions = [
         explanationDetail: '規秀（道三）の代に長井家を倒し、守護代斎藤氏の家名を奪って、土岐氏を追放。長男の義龍と争って敗北した。',
     },
     {
+        id: 17,
+        period: '平安時代',
+        human: '紫式部',
+        questionOptions: [
+            {
+                questionText: '今はどこにいるの？ ',
+                answerText: '真実は内緒だが、鎌倉時代の人たちには地獄に落ちたと言われていたよ。その時代は仏教の影響で「創作という嘘を広めること」は罪深いとされていたらしい。 ',
+                readText: '真実は内緒だが、鎌倉時代の人たちには地獄に落ちたと言われていたよ。その時代は仏教の影響で「創作という嘘を広めること」は罪深いとされていたらしい。 '
+            },
+          {
+                questionText: '趣味はなんですか？ ',
+                answerText: '詩を詠むことかな。「めぐり逢ひて みしやそれとも わかぬ間に 雲がくれにし 夜半の月かな」',
+                readText: 'しをよむことかな。「めぐりあいて みしやそれとも わかぬまに 雲がくれにし よはの月かな」'
+            },
+            {
+                questionText: '有名な人ですか？ ',
+                answerText: '私を知らない日本人はほとんどいないと思うな。お札にも載ったことがあるよ。 ',
+                readText: '私を知らない日本人はほとんどいないと思うな。おさつにも載ったことがあるよ。 '
+            },
+            {
+                questionText: 'いつ生まれましたか？ ',
+                answerText: '970年代に生まれたよ。 ',
+                readText: '970年代に生まれたよ。 '
+            },
+        ],
+        questionOptionsSecond: [
+              {
+                questionText: 'どんな性格ですか？ ',
+                answerText: '今で言う陰キャであるな。ネガティブ思考で引きこもりを経験したことがあるよ。 ',
+                readText: '今で言うインキャであるな。ネガティブ思考で引きこもりを経験したことがあるよ。 '
+            },
+            {
+                questionText: '自慢できることはありますか？ ',
+                answerText: '天皇に漢学を教えたことがあるよ。 ',
+                readText: '天皇にかんがくを教えたことがあるよ。 '
+            },
+            {
+                questionText: 'ゆかりの地を教えてください。 ',
+                answerText: '大津にある石山寺であるかな。美しい風景からたくさんインスパイアされたよ。君も是非行ってみてくれ。',
+                readText: 'おおつにあるいしやまでらであるかな。美しい風景からたくさんインスパイアされたよ。君も是非行ってみてくれ。'
+            },
+            {
+                questionText: '有名な親戚はいますか？ ',
+                answerText: '父が藤原為時であるよ。 ',
+                readText: '父がふじわらのためときであるよ。 '
+            },
+        ],
+        questionOptionsThird: [
+           {
+                questionText: 'あだ名はありますか？ ',
+                answerText: '「日本紀のおつぼね」と言われていたよ。当時、女性が知識をひけらかすことはダサいこととされていて、皮肉で言われていたよ。',
+                readText: '「にほんきのおつぼね」と言われていたよ。当時、女性が知識をひけらかすことはダサいこととされていて、皮肉で言われていたよ。'
+            },
+            {
+                questionText: '',
+                answerText: '',
+		readText: ''
+            },
+            {
+                questionText: 'お仕事はなんですか？ ',
+                answerText: '今で言う家庭教師や家政婦であるかな。 ',
+                readText: '今で言う家庭教師やかせいふであるかな。 '
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: 'あなたを誰でもわかるように一言で表してください。 ',
+                answerText: '光源氏を主人公とした源氏物語の作者であるよ。',
+		        readText: '光源氏を主人公とした源氏物語の作者であるよ。'
+
+            },
+            {
+                questionText: '',
+                answerText: '',
+		        readText: ''
+                
+            },
+            {
+                questionText: 'ライバルを教えてください。 ',
+                answerText: '清少納言であるな。日記であやつを何度も批判してやったよ。',
+		        readText: 'せいしょうなごんであるな。日記であやつを何度も批判してやったよ。 '
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: '',
+		        readText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/紫式部.png'),
+        dialogue: 'わしの名前は紫式部じゃ。',
+        readDialogue: 'わしのっ、名前はっ、むらさきしきぶじゃ。',
+        explanationTitle: '平安時代中期の作家・歌人・女房、紫式部',
+        explanationDetail: '天禄元年（970年）から天元元年（978年）の間に生まれ、寛仁3年（1019年）までは存命したとされる。『源氏物語』の作者とされ、藤原道長の要請で宮中に上がった際に宮中の様子を書いた『紫式部日記』も残している。',
+    },
+    {
         id: 1,
         period: '江戸時代',
         human: '徳川慶喜',
@@ -5392,6 +5630,125 @@ const questions = [
         readDialogue: 'わしのっ、名前はっ、斎藤どうさんじゃ。',
         explanationTitle: '美濃の戦国大名、斎藤道三',
         explanationDetail: '規秀（道三）の代に長井家を倒し、守護代斎藤氏の家名を奪って、土岐氏を追放。長男の義龍と争って敗北した。',
+    },
+    {
+        id: 17,
+        period: '平安時代',
+        human: '紫式部',
+        questionOptions: [
+            {
+                questionText: '今はどこにいるの？ ',
+                answerText: '真実は内緒だが、鎌倉時代の人たちには地獄に落ちたと言われていたよ。その時代は仏教の影響で「創作という嘘を広めること」は罪深いとされていたらしい。 ',
+                readText: '真実は内緒だが、鎌倉時代の人たちには地獄に落ちたと言われていたよ。その時代は仏教の影響で「創作という嘘を広めること」は罪深いとされていたらしい。 '
+            },
+          {
+                questionText: '趣味はなんですか？ ',
+                answerText: '詩を詠むことかな。「めぐり逢ひて みしやそれとも わかぬ間に 雲がくれにし 夜半の月かな」',
+                readText: 'しをよむことかな。「めぐりあいて みしやそれとも わかぬまに 雲がくれにし よはの月かな」'
+            },
+            {
+                questionText: '有名な人ですか？ ',
+                answerText: '私を知らない日本人はほとんどいないと思うな。お札にも載ったことがあるよ。 ',
+                readText: '私を知らない日本人はほとんどいないと思うな。おさつにも載ったことがあるよ。 '
+            },
+            {
+                questionText: 'いつ生まれましたか？ ',
+                answerText: '970年代に生まれたよ。 ',
+                readText: '970年代に生まれたよ。 '
+            },
+        ],
+        questionOptionsSecond: [
+              {
+                questionText: 'どんな性格ですか？ ',
+                answerText: '今で言う陰キャであるな。ネガティブ思考で引きこもりを経験したことがあるよ。 ',
+                readText: '今で言うインキャであるな。ネガティブ思考で引きこもりを経験したことがあるよ。 '
+            },
+            {
+                questionText: '自慢できることはありますか？ ',
+                answerText: '天皇に漢学を教えたことがあるよ。 ',
+                readText: '天皇にかんがくを教えたことがあるよ。 '
+            },
+            {
+                questionText: 'ゆかりの地を教えてください。 ',
+                answerText: '大津にある石山寺であるかな。美しい風景からたくさんインスパイアされたよ。君も是非行ってみてくれ。',
+                readText: 'おおつにあるいしやまでらであるかな。美しい風景からたくさんインスパイアされたよ。君も是非行ってみてくれ。'
+            },
+            {
+                questionText: '有名な親戚はいますか？ ',
+                answerText: '父が藤原為時であるよ。 ',
+                readText: '父がふじわらのためときであるよ。 '
+            },
+        ],
+        questionOptionsThird: [
+           {
+                questionText: 'あだ名はありますか？ ',
+                answerText: '「日本紀のおつぼね」と言われていたよ。当時、女性が知識をひけらかすことはダサいこととされていて、皮肉で言われていたよ。',
+                readText: '「にほんきのおつぼね」と言われていたよ。当時、女性が知識をひけらかすことはダサいこととされていて、皮肉で言われていたよ。'
+            },
+            {
+                questionText: '',
+                answerText: '',
+		readText: ''
+            },
+            {
+                questionText: 'お仕事はなんですか？ ',
+                answerText: '今で言う家庭教師や家政婦であるかな。 ',
+                readText: '今で言う家庭教師やかせいふであるかな。 '
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: 'あなたを誰でもわかるように一言で表してください。 ',
+                answerText: '光源氏を主人公とした源氏物語の作者であるよ。',
+		        readText: '光源氏を主人公とした源氏物語の作者であるよ。'
+
+            },
+            {
+                questionText: '',
+                answerText: '',
+		        readText: ''
+                
+            },
+            {
+                questionText: 'ライバルを教えてください。 ',
+                answerText: '清少納言であるな。日記であやつを何度も批判してやったよ。',
+		        readText: 'せいしょうなごんであるな。日記であやつを何度も批判してやったよ。 '
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: '',
+		        readText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/紫式部.png'),
+        dialogue: 'わしの名前は紫式部じゃ。',
+        readDialogue: 'わしのっ、名前はっ、むらさきしきぶじゃ。',
+        explanationTitle: '平安時代中期の作家・歌人・女房、紫式部',
+        explanationDetail: '天禄元年（970年）から天元元年（978年）の間に生まれ、寛仁3年（1019年）までは存命したとされる。『源氏物語』の作者とされ、藤原道長の要請で宮中に上がった際に宮中の様子を書いた『紫式部日記』も残している。',
     },
 ]
 
