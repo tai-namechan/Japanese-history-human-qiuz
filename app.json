@@ -2,7 +2,7 @@
   "expo": {
     "name": "歴史の壁~正解を衝け~",
     "slug": "rekisinokabe",
-    "version": "1.1",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/build/icon.png",
     "splash": {
