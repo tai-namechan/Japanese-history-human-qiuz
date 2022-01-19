@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import { View, ImageBackground, StyleSheet, SafeAreaView, } from 'react-native';
+import { View, ImageBackground, StyleSheet, SafeAreaView, Linking} from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
 import IntroModal from './introModal';
@@ -7,10 +7,10 @@ import IntroModal from './introModal';
 const theme = {
   Button: {
     containerStyle: {
-      margin: '6%',
+      margin: '4%',
     },
     titleStyle: {
-      fontSize: 35
+      fontSize: 30
     },
     raised: true,
   },
@@ -199,7 +199,7 @@ export default function Start(props) {
                   justifyContent: 'center',
                 }} />
             </View>
-            <View style={{flex: 2.5}}>
+            <View style={{flex: 3}}>
               <Button
                 title="始める"
                 onPress={() => {
@@ -211,9 +211,17 @@ export default function Start(props) {
                 onPress={getDatabaseData}
               />
               <Button 
+                title="問題を提供する" 
+                onPress={() => {
+                  Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSe58xMOzKNCp-8a3FPfkWE4UUvsmF-deZhEDlqkRa5ipbl6hw/viewform?usp=sf_link');
+                  //Linking.openURL(url).catch(err => console.error('An error occurred', err));
+                }}
+              />
+              <Button 
                 title="使い方" 
                 onPress={() => { setIsVisible(true) }} 
               />
+              
             </View>
             <View style={{  background: '#76dead', alignItems: 'center', justifyContent: 'center' }}>
               {/* // Modalの設置 */}
