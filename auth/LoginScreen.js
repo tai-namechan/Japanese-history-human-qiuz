@@ -1,7 +1,8 @@
 import React from 'react';
 import firebase from 'firebase';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView , ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView, ImageBackground } from 'react-native';
 import LoginForm from './LoginForm.js';
+import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
 
 class LoginScreen extends React.Component {
   // どっちかわからん
@@ -10,7 +11,7 @@ class LoginScreen extends React.Component {
     password: '',
   }
   state = { loggedIn: null };
-  
+
   componentDidMount() {
     const firebaseConfig = {
       // 各自生成された値を入れる
@@ -66,14 +67,16 @@ class LoginScreen extends React.Component {
       <ImageBackground
         source={require('../assets/img/auth_background.png')}
         resizeMode="cover"
-        style={{ height: '100%', }}
+        style={{ height: '100%', width: '100%', }}
       >
         <SafeAreaView>
           <View style={styles.container}>
+
             <Text style={styles.buttonTitle}>{this.state.loggedIn ? "ログイン中です" : "ログインしてね"}</Text>
           </View>
           {this.renderForm()}
-          
+
+
           {/* ログイン後Topページに戻るボタン */}
           <TouchableOpacity style={styles.button2} onPress={() => {
             this.props.navigation.navigate('Start')
@@ -83,6 +86,11 @@ class LoginScreen extends React.Component {
             </Text>
           </TouchableOpacity>
         </SafeAreaView>
+
+        <View style={{ position: "absolute", bottom: 0, width: '100%', alignItems: 'center', }}>
+          {/* バナー広告 */}
+          <BottomBannerAds style={{}} />
+        </View>
       </ImageBackground>
     );
   }
@@ -126,6 +134,10 @@ const styles = {
     fontSize: 18,
     color: 'white',
   },
+  ads: {
+    marginTop: '73%',
+    alignItems: "center",
+  }
 }
 
 export default LoginScreen;

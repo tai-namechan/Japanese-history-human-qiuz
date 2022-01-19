@@ -3,7 +3,7 @@ import { View, ImageBackground, StyleSheet, SafeAreaView, Platform } from 'react
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
 import IntroModal from './introModal';
-import { BottomBannerAds } from '../Advertisement/Ads';
+import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
 
 const theme = {
   Button: {
@@ -210,6 +210,7 @@ export default function Start(props) {
                 onPress={() => { setIsVisible(true) }} 
               />
             </View>
+
             <BottomBannerAds/>
             <View style={{  background: '#76dead', alignItems: 'center', justifyContent: 'center' }}>
               {/* // Modalの設置 */}

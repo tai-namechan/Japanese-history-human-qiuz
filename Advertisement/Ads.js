@@ -25,3 +25,22 @@ export const BottomBannerAds = () => (
     }}
   />
 );
+
+export const InterstitialAds = async() => {
+  
+  // AdMobInterstitial.setAdUnitID("ca-app-pub-3488366423563341/9380212758");
+  // AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId]);
+  // AdMobInterstitial.requestAd().then(() => AdMobInterstitial.showAd());
+
+  if(__DEV__){
+    AdMobInterstitial.setAdUnitID('ca-app-pub-3488366423563341/9380212758'); // テスト広告
+  }else{
+    if(Platform.OS === 'ios'){
+      AdMobInterstitial.setAdUnitID('ca-app-pub-3488366423563341/9380212758'); //iOS
+    }else{
+      AdMobInterstitial.setAdUnitID('広告ユニットID'); //android
+    }
+  }
+  await AdMobInterstitial.requestAdAsync();
+  await AdMobInterstitial.showAdAsync();
+}
