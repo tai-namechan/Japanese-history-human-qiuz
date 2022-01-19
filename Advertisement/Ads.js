@@ -13,7 +13,7 @@ export const BottomBannerAds = () => (
   <AdMobBanner
     bannerSize="banner"
     adUnitID={
-        __DEV__ ? "ca-app-pub-3940256099942544/6300978111" // テスト広告
+        __DEV__ ? "ca-app-pub-3488366423563341/5687545601" // テスト広告
         : Platform.select({
           ios: "ca-app-pub-3488366423563341/5687545601" , // iOS
           android:"広告ユニットID" , // android 
