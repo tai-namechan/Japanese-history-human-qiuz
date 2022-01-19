@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import { View, ImageBackground, StyleSheet, SafeAreaView, Linking Platform } from 'react-native';
+import { View, ImageBackground, StyleSheet, SafeAreaView, Linking, Platform } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
 import IntroModal from './introModal';
