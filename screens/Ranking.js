@@ -6,6 +6,7 @@ import Balloon from "react-native-balloon";
 import { TouchableOpacity } from 'react-native';
 import questions from './question';
 import firebase from 'firebase';
+import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
 
 
 const theme = {

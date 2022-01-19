@@ -10,6 +10,7 @@ import questions from './question';
 // import Confetti from 'react-confetti'
 // import ConfettiCannon from 'react-native-confetti-cannon';
 import firebase from 'firebase';
+import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
 
 const theme = {
     colors: {
@@ -233,6 +234,11 @@ export default function Answer({ navigation }) {
         // console.log(datauseraverage);
 
 
+        const ads3150 = async() => {
+            InterstitialAds ()
+            navigation.navigate('Start')
+        }
+
         const getDatabaseData = async() => {
             // console.log("================");
             // 総合スコアの降順の取得
@@ -340,6 +346,8 @@ export default function Answer({ navigation }) {
                         login_average : "??",
                     });
                 }
+            }).then(()=>{
+                InterstitialAds ()
             })
         });
     }
@@ -358,7 +366,7 @@ export default function Answer({ navigation }) {
                         rightComponent={{
                             icon: 'home',
                             color: 'brown',
-                            onPress: () => navigation.navigate('Start')
+                            onPress: () => ads3150()
                         }}
                         containerStyle={{
                             backgroundColor: '',

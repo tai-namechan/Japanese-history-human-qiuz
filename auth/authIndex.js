@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, SafeAreaView , ImageBackground } from 're
 import firebase from 'firebase';
 import LoginForm from './LoginForm.js';
 import { Button, Image, Header, ThemeProvider } from 'react-native-elements';
+import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
 
 class App extends Component {
 
@@ -40,6 +41,11 @@ class App extends Component {
             </Text>
           </TouchableOpacity>
         </SafeAreaView>
+        <View style={ styles.ads }>
+            {/* バナー広告 */}
+            <BottomBannerAds style={{}} />
+          </View>
+
       </ImageBackground>
     )
   }
@@ -89,6 +95,10 @@ const styles = {
     fontSize: 18,
     color: 'white',
   },
+  ads: {
+    marginTop: '56%',
+    alignItems: "center",
+  }
 }
 
 export default App;

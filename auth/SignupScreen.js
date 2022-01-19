@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, SafeAreaView , ImageBackground } from 'react-native';
 import { Button, Image, Overlay, Input, Header, ThemeProvider } from 'react-native-elements';
 import SignupForm from './SignupForm.js';
+import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
 
 class SignupScreen extends React.Component {
   state = { username: '', email: '', password: '', error: '', loading: false };
@@ -81,6 +82,10 @@ class SignupScreen extends React.Component {
             </Text>
           </TouchableOpacity>
         </SafeAreaView>
+        </View>
+        <View style={{ position: "absolute", bottom: 0, width: '100%', alignItems: 'center', }}>
+          {/* バナー広告 */}
+          <BottomBannerAds style={{}} />
         </View>
       </ImageBackground>
     );

@@ -18,8 +18,9 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.seedk.rekisinokabe",
-      "buildNumber": "1.0.1"
+      "bundleIdentifier": "com.seed-k.rekisinokabe",
+      "buildNumber": "1.0.0",
+      "googleMobileAdsAppId": "ca-app-pub-3488366423563341~2811521700"
     },
     "android": {
       "adaptiveIcon": {
