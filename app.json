@@ -2,7 +2,7 @@
   "expo": {
     "name": "歴史の壁~正解を衝け~",
     "slug": "rekisinokabe",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/build/icon.png",
     "splash": {
@@ -18,9 +18,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.seed-k.rekisinokabe",
-      "buildNumber": "1.0.0",
-      "googleMobileAdsAppId": "ca-app-pub-3488366423563341~2811521700"
+      "bundleIdentifier": "com.seedk.rekisinokabe",
+      "buildNumber": "1.0.2",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-3488366423563341~2811521700"
+      }
     },
     "android": {
       "adaptiveIcon": {
