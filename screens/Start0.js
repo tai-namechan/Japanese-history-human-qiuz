@@ -26,11 +26,11 @@ export default function Start0(props) {
 
 
   let id=[];
-  //for(i=0;i<questions.length;i++){
-  for(i=0;i<4;i++){
+  for(i=0;i<questions.length;i++){
+  //for(i=0;i<4;i++){
     id.push(i);
   }
-  console.log(id);
+  //console.log(id);
 
   function arrayShuffle(array) {
     for(var i = (array.length - 1); 0 < i; i--){
