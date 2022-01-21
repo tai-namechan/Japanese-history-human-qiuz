@@ -24,11 +24,15 @@ const theme = {
 };
 
 export default function Answer({ navigation }) {
+
+    let id = props.navigation.state.params.id;
+    let idCount = props.navigation.state.params.idCount;
     //question.jsからcorrectness(正誤)とscore(5点満点)の値を受け取る
     const correctness = navigation.state.params.correctness;
     const score = navigation.state.params.score;
     //const human = navigation.state.params.human;
     const number = navigation.state.params.number;
+
 
 
     const [lastScore, setlastScore] = useState("");
@@ -236,7 +240,7 @@ export default function Answer({ navigation }) {
 
         const ads3150 = async() => {
             InterstitialAds ()
-            navigation.navigate('Start')
+            navigation.navigate('Start',id,idCount)
         }
 
         const getDatabaseData = async() => {
@@ -313,6 +317,9 @@ export default function Answer({ navigation }) {
                             login_username: loginusername,
                             login_score: loginscore,
                             login_average : loginaverage,
+
+                            id: id,
+                            id: idCount,
                         });
                     })
                 } else {
@@ -344,6 +351,9 @@ export default function Answer({ navigation }) {
                         login_username: "（ログインしてね！）",
                         login_score: "??",
                         login_average : "??",
+
+                        id: id,
+                        idCount: idCount,
                     });
                 }
             }).then(()=>{

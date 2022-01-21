@@ -21,12 +21,15 @@ const theme = {
 };
 
 export default function Start(props) {
+  let id = props.navigation.state.params.id;
+  let idCount = props.navigation.state.params.idCount;
   const [isVisible, setIsVisible] = useState(false)
 
   const _dismissModal = () => {
     setIsVisible(false)
   }
-
+  //console.log(idCount);
+  //console.log(id);
   const firebaseConfig = {
     // 各自生成された値を入れる
     apiKey: "AIzaSyB4gb0RQJL824KzTp14-YJv88qKcowYWpw",
@@ -198,7 +201,7 @@ export default function Start(props) {
               <Button
                 title="始める"
                 onPress={() => {
-                  props.navigation.navigate('SelectNumber');
+                  props.navigation.navigate('SelectNumber',{id,idCount});
                 }}
               />
               <Button
