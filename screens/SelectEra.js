@@ -17,22 +17,12 @@ const theme = {
   colors: {
     primary: 'brown',
   },
-};
-
-  //let questionRandom = Math.floor(Math.random() * questions.length);
-  //let questionRandom = 1;
-  // console.log(questionRandom);
-  
+};  
 
 export default function SelectEra(props) {
 
   let id = props.navigation.state.params.id;
   let idCount = props.navigation.state.params.idCount;
-  // random = () => {
-  //   //questionRandom = Math.floor(Math.random() * questions.length);
-  //   questionRandom = 0;
-  //   console.log(questionRandom);
-  // };
 
   return (
     <ThemeProvider theme={theme}>

@@ -25,8 +25,8 @@ const theme = {
 
 export default function Answer({ navigation }) {
 
-    let id = props.navigation.state.params.id;
-    let idCount = props.navigation.state.params.idCount;
+    let id = navigation.state.params.id;
+    let idCount = navigation.state.params.idCount;
     //question.jsからcorrectness(正誤)とscore(5点満点)の値を受け取る
     const correctness = navigation.state.params.correctness;
     const score = navigation.state.params.score;
@@ -240,7 +240,8 @@ export default function Answer({ navigation }) {
 
         const ads3150 = async() => {
             InterstitialAds ()
-            navigation.navigate('Start',id,idCount)
+            navigation.navigate('Start',{id,idCount})
+            //console.log(id[idCount]);
         }
 
         const getDatabaseData = async() => {

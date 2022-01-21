@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { View, ImageBackground, StyleSheet, SafeAreaView, Linking, Platform } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
-import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
+import questions from './question';
 
 const theme = {
   Button: {
@@ -24,7 +24,13 @@ export default function Start0(props) {
     setIsVisible(false)
   }
 
-  let id = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+
+  let id=[];
+  //for(i=0;i<questions.length;i++){
+  for(i=0;i<4;i++){
+    id.push(i);
+  }
+  console.log(id);
 
   function arrayShuffle(array) {
     for(var i = (array.length - 1); 0 < i; i--){
@@ -42,46 +48,22 @@ export default function Start0(props) {
 
   arrayShuffle(id);
   
-  let idCount = 0; 
-  
+  let idCount = 0;
+  console.log(id);
+  setTimeout(() => {
+    props.navigation.navigate('Start',{idCount,id});
+  }, 1);
 
   return (
     <ThemeProvider theme={theme}>
       <View>
         <ImageBackground
-          source={require('../assets/img/sakura-change.jpg')}
+          source={require('../assets/splash.png')}
           resizeMode="cover"
           style={{ height: "100%", }}
         >
           
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            <View style={{flex: 1, justifyContent: "center",}}>
-              <Image source={require('../assets/img/歴史の壁.png')}
-                style={{
-                  width: 300,
-                  height: 90,
-                  justifyContent: 'center',
-                }} />
-              <Image source={require('../assets/img/タイトル.png')}
-                style={{
-                  width: 300,
-                  height: 90,
-                  justifyContent: 'center',
-                }} />
-            </View>
-            
-            <View style={{flex: 2.5}}>
-              <Button
-                title="始める"
-                onPress={() => {
-                  props.navigation.navigate('Start',{idCount,id});
-                }}
-              />
-            </View>
-
-            <BottomBannerAds/>
-            
-          </View>
+          
         </ImageBackground>
       </View>
     </ThemeProvider>

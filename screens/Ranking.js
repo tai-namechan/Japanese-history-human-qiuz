@@ -95,6 +95,9 @@ export default function Answer({ navigation }) {
         useNativeDriver: true
     }).start()
 
+    let id = navigation.state.params.id;
+    let idCount = navigation.state.params.idCount;
+
     // 前の画面（Start.js,Answer.js）からランキング上位5位を取得
     const username1 = navigation.state.params.username1;
     const score1 = navigation.state.params.score1;
@@ -136,7 +139,7 @@ export default function Answer({ navigation }) {
                         rightComponent={{
                             icon: 'home',
                             color: 'brown',
-                            onPress: () => navigation.navigate('Start')
+                            onPress: () => navigation.navigate('Start',{id,idCount})
                         }}
                         containerStyle={{
                             backgroundColor: '',

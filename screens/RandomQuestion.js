@@ -61,8 +61,10 @@ export default function SelectQuestion(props) {
     let idCount = props.navigation.state.params.idCount;
     const { navigation } = props;
     const number = id[idCount];
+    
     useEffect(() => {
         const questionRandom = id[idCount];
+        //console.log(questionRandom);
         // 選択された時代をSelectEraから受け取る
         const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);

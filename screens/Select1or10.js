@@ -19,15 +19,9 @@ const theme = {
     },
 };
 
-    // let questionRandom = Math.floor(Math.random() * questions.length);
-    // console.log(questionRandom);
-
 export default function SelectNumber(props) {
     let id = props.navigation.state.params.id;
     let idCount = props.navigation.state.params.idCount;
-    // const random = () => {
-    //     questionRandom = Math.floor(Math.random() * questions.length);
-    // };
 
     return (
     <ThemeProvider theme={theme}>
