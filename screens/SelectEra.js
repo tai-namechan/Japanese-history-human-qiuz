@@ -17,17 +17,12 @@ const theme = {
   colors: {
     primary: 'brown',
   },
-};
-
-  let questionRandom = Math.floor(Math.random() * questions.length);
-  //let questionRandom = 16;
-  console.log(questionRandom);
+};  
 
 export default function SelectEra(props) {
-  random = () => {
-    questionRandom = Math.floor(Math.random() * questions.length);
-    //questionRandom = 16;
-  };
+
+  let id = props.navigation.state.params.id;
+  let idCount = props.navigation.state.params.idCount;
 
   return (
     <ThemeProvider theme={theme}>
@@ -70,8 +65,8 @@ export default function SelectEra(props) {
                   //props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
                   //↑ランダム ↓とりあえずSelectEra.js
                   // 画面遷移先はボタンに応じるように変更（どちらも同じ処理が走るようにしているため, RandomQuestion.js内の処理も正常に動くコードにしておきたいため）by.Daisuke 8/26
-                  props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
-                  random();
+                  props.navigation.navigate('RandomQuestion', {id,idCount});
+                  //random();
                 }}
                 containerStyle={{ width: '50%' }}
               />

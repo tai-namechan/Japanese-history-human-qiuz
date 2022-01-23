@@ -57,10 +57,14 @@ const styles = StyleSheet.create({
 
 export default function SelectQuestion(props) {
     // 値を次のページに送る
+    let id = props.navigation.state.params.id;
+    let idCount = props.navigation.state.params.idCount;
     const { navigation } = props;
-    const number = props.navigation.state.params.questionRandom;
+    const number = id[idCount];
+    
     useEffect(() => {
-        const questionRandom = props.navigation.state.params.questionRandom;
+        const questionRandom = id[idCount];
+        //console.log(questionRandom);
         // 選択された時代をSelectEraから受け取る
         const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);
@@ -264,8 +268,10 @@ export default function SelectQuestion(props) {
         else {
             var correctness = '不正解';
         }
+        //1人人物解くとidCountが一つ増える（同じ問題が出ないようにする）
+        idCount = idCount + 1;
         // answer.jsに遷移、「正解・不正解」「スコア」をanswer.jsに送信
-        navigation.navigate('Answer', { correctness: correctness, score: score, number: number});
+        navigation.navigate('Answer', { correctness: correctness, score: score, number: number, id: id, idCount: idCount});
 
         // モーダルの非表示
         toggleOverlay();

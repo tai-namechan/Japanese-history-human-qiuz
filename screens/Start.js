@@ -1,9 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
-import { View, ImageBackground, StyleSheet, SafeAreaView, Linking, Platform } from 'react-native';
+import { View, ImageBackground, StyleSheet, SafeAreaView, Linking, Platform, Alert } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
 import firebase from 'firebase';
 import IntroModal from './introModal';
 import { BottomBannerAds, InterstitialAds } from '../Advertisement/Ads';
+import questions from './question';
 
 const theme = {
   Button: {
@@ -21,6 +22,18 @@ const theme = {
 };
 
 export default function Start(props) {
+  let id = props.navigation.state.params.id;
+  let idCount = props.navigation.state.params.idCount;
+
+  //問題文がspliceされてしまっているため
+  if(idCount>id.length-1){
+    alert('申し訳ございませんが、アプリの再起動をお願い致します。');
+  }
+  if(idCount===id.length){
+    idCount = 0;
+  }
+
+  //console.log(id[idCount]);
   const [isVisible, setIsVisible] = useState(false)
 
   const _dismissModal = () => {
@@ -198,7 +211,7 @@ export default function Start(props) {
               <Button
                 title="始める"
                 onPress={() => {
-                  props.navigation.navigate('SelectNumber');
+                  props.navigation.navigate('SelectNumber',{id,idCount});
                 }}
               />
               <Button

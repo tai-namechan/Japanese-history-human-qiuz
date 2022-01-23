@@ -15,10 +15,12 @@ import SelectNumber from './screens/Select1or10';
 import SelectEra from './screens/SelectEra';
 // import Tokumei from './auth/Tokumei.js';
 import Ranking from './screens/Ranking.js';
+import Start0 from './screens/Start0.js';
 
 // setting main nav
 const MainStack = createStackNavigator(
   {
+    Start0: Start0,
     Start: Start,
     SelectNumber: SelectNumber,
     SelectEra: SelectEra,
@@ -49,3 +51,4 @@ export default class App extends Component {
     )
   }
 }
+
