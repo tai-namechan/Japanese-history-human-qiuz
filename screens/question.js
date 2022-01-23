@@ -1917,6 +1917,121 @@ const questions = [
         explanationTitle: '平安時代中期の作家・歌人・女房、紫式部',
         explanationDetail: '天禄元年（970年）から天元元年（978年）の間に生まれ、寛仁3年（1019年）までは存命したとされる。『源氏物語』の作者とされ、藤原道長の要請で宮中に上がった際に宮中の様子を書いた『紫式部日記』も残している。',
     },
+    {
+        id: 18,
+        period: '明治時代',
+        human: '大隈重信',
+        questionOptions: [
+            {
+                questionText: '実は〇〇な話教えて？',
+                answerText: '爆弾テロで右足がなくなってしまったのである。その右足は今も出身で展示されてるのだ。',
+                readText: '爆弾テロで右足がなくなってしまったのである。その右足は今も出身で展示されてるのだ。'
+            },
+            {
+                questionText: 'どこで生まれましたか？',
+                answerText: '佐賀県である。武士の長男として生まれたのである。',
+                readText: '佐賀県である。武士の長男として生まれたのである。'
+            },
+            {
+                questionText: '好きなものは何ですか？',
+                answerText: 'メロンが好きである💚',
+                readText: 'メロンが好きである',
+            },
+            {
+                questionText: '苦手なことはありますか？',
+                answerText: '人の話を聞くのが苦手で、話し合いになるとついつい自分の話ばかりしてしまうのである。',
+                readText: '人の話を聞くのが苦手で、話し合いになるとついつい自分の話ばかりしてしまうのである。'
+            },
+        ],
+        questionOptionsSecond: [
+            {
+                questionText: '知り合いを教えてください。',
+                answerText: '福沢諭吉殿である。お酒の席で学校を作ってみたらと提案されて自分の学校を創るに至ったのであーる。',
+                readText: 'ふくざわゆきちどのである。お酒の席で学校を作ってみたらと提案されて自分の学校をつくるに至ったのであーる。'
+            },
+            {
+                questionText: 'あなたの人生におけるライバルは？',
+                answerText: '伊藤博文である。最初は仲が良かったが徐々に意見が合わず対立していったのである。',
+                readText: 'いとうひろふみである。最初は仲が良かったが徐々に意見が合わず対立していったのである。'
+            },
+            {
+                questionText: '人生のターニングポイントは？',
+                answerText: '1868年、明治維新後長崎の管理を任されてた時に外国についての事務をしていた井上馨に推薦されて外国との交渉をするようになったことである。その後政府の仕事が増えたのだ。',
+                readText: '1868年、めいじいしんご長崎の管理を任されてた時に外国についての事務をしていたいのうえかおるに推薦されて外国との交渉をするようになったことである。そのあとセイジの仕事が増えたのだ。'
+            },
+            {
+                questionText: '何か自慢できることはありますか？',
+                answerText: '日本の野球で最初の始球式をしたのであるんであーる。',
+                readText: '日本の野球で最初のしきゅうしきをしたのであるんであーる。'
+            },
+        ],
+        questionOptionsThird: [
+            {
+                questionText: '何の学校を作りましたか？',
+                answerText: 'かの有名な早稲田大学を作ったのであるんであーる。',
+                readText: 'かの有名なワセダ大学を作ったのであるんであーる。'
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '何か成し遂げたことはありますか？',
+                answerText: '日本初の政党内閣を組閣して日本の政党政治の礎を築いたのである。また日本初の鉄道建設に尽力したのである。',
+                readText: '日本初の政党内閣をそかくして日本の政党政治のいしずえを築いたのである。また日本初の鉄道建設にじんりょくしたのである。'
+            },
+            {
+                questionText: 'あなたは何のお仕事をしている人ですか？',
+                answerText: '総理大臣を２度したことがあるんである。',
+                readText: '総理大臣を２度したことがあるんである。'
+            },
+        ],
+        questionOptionsFourth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: '',
+                readText: ''
+            },
+        ],
+        questionOptionsFifth: [
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+            {
+                questionText: '',
+                answerText: ''
+            },
+        ],
+        image: require('../assets/img/大隈重信.png'),
+        dialogue: 'わしの名前は大隈重信である。',
+        readDialogue: 'わしのっ、名前はっ、おおくましげのぶである。',
+        explanationTitle: '第8代・17代内閣総理大臣、大隈重信',
+        explanationDetail: '1838~1922。佐賀県出身。大蔵卿・参議を歴任。1881年、国会開設意見書を左大臣に提出し、国会の早期開設を主張。明治十四年の政変で下野し、立憲改進党の総理となる。黒田内閣の外相として条約改正に尽力。1898年第一次内閣を組織。第二次内閣の時、第一次世界大戦に参戦。存野時代の1882年に東京専門学校を創立。',
+    },
+
 ]
 
     
