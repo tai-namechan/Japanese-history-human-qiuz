@@ -25,7 +25,7 @@ export default function Start0(props) {
   }
 
 
-   let id=[];
+  let id=[];
   for(i=0;i<questions.length;i++){
   //for(i=0;i<4;i++){
     id.push(i);
