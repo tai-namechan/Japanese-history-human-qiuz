@@ -1134,63 +1134,67 @@ const questions = [
                 readText: 'ワシは574年にうまれた',
             },
             {
-                questionText: 'なんと呼ばれていましたか？',
-                answerText: '厩戸皇子と呼ばれていたぜ',
-                readText: 'うまやどのおうじと呼ばれていたぜ',
+                questionText: 'あなたの逸話を教えてください。',
+                answerText: '眉間から光を放ったんだ。信じるかどうかは君次第。',
+                readText: 'みけんから光を放ったんだ。信じるかどうかは君しだい。',
             },
-            {
-                questionText: 'あなたはどんな書物を残したの？',
-                answerText: '蘇我馬子と共同で『天皇紀』と『国記』を編纂したよ',
-                readText: 'そがのうまこと共同でてんのうきと、こきを編纂したよ',
-            },
+            
             {
                 questionText: 'あなたは社会にどのような影響を与えましたか？',
                 answerText: '倭の国が日本になるための土台を作ったな',
                 readText: 'わの国が日本になるための土台を作ったな',
             },
+            {
+                questionText: 'あなたの仕事は？',
+                answerText: '政治の補佐じゃな',
+                readText: '政治の補佐じゃな',
+            },
         ],
         questionOptionsSecond: [
             {
-                questionText: 'あなたが関わる大きな出来事はなんですか？',
-                answerText: '寺を作ったな',
-                readText: '寺を作ったな',
+                questionText: 'あなたのゆかりの地はどこですか？',
+                answerText: '大阪の天王寺であるな。四天王を安置する寺院を建立したんだ。',
+                readText: '大阪のてんのうじであるな。してんのうをあんちするじいんをこんりゅうしたんだ。',
             },
             {
-                questionText: 'あなたは誰の知り合いですか',
-                answerText: '蘇我馬子じゃ',
-                readText: 'そがのうまこじゃ',
+                questionText: 'あなたはどんな書物を残したの？',
+                answerText: '蘇我馬子と共同で『天皇記』と『国記』を編纂したよ',
+                readText: 'そがのうまこと共同でてんのうきと、こきを編纂したよ',
             },
+            
             {
                 questionText: '何か成し遂げたことはありますか？',
                 answerText: '603年に冠位十二階の制という出世システムを作りだした',
                 readText: '603年にかんいじゅうにかいのせいという出世システムを作りだした',
             },
             {
-                questionText: '何か自慢できることある？',
-                answerText: '10人の話を同時に聞けたんじゃ',
-                readText: '10人の話を同時に聞けたんじゃ',
-            },
-        ],
-        questionOptionsThird: [
-            {
-                questionText: 'あなたの仕事は？',
-                answerText: '政治の補佐じゃな',
-                readText: '政治の補佐じゃな',
-            },
-            {
                 questionText: '誰の右腕として活躍しましたか？',
                 answerText: '推古天皇だな',
                 readText: 'すいこ天皇だな',
             },
+        ],
+        questionOptionsThird: [
+            
+            {
+                questionText: '異名はありますか？',
+                answerText: '厩戸皇子と呼ばれていたぜ',
+                readText: 'うまやどのおうじと呼ばれていたぜ',
+            },
+            {
+                questionText: '何か自慢できることある？',
+                answerText: '10人の話を同時に聞けたんじゃ',
+                readText: '10人の話を同時に聞けたんじゃ',
+            },
             {
                 questionText: '他には何成し遂げた？',
-                answerText: '604年に我が国初の成文法、憲法十七条を制定した',
-                readText: '604年に我が国、初のせいぶんほう、けんぽうじゅうななじょうを制定した',
+                answerText: '604年に我が国初の成文法、憲法十七条を制定したよ',
+                readText: '604年に我が国、初のせいぶんほう、けんぽうじゅうななじょうを制定したよ',
             },
             {
                 questionText: '',
                 answerText: ''
             },
+            
         ],
         questionOptionsFourth: [
             {
@@ -1256,21 +1260,21 @@ const questions = [
                 readText: 'いろいろやったが、てんもんがくしゃもやったなぁ',
             },
             {
-                questionText: '何かエピソードある？',
-                answerText: '今でいうと定年退職後に大学に入学するようなことをやっていたのお',
-                readText: '今でいうと定年退職後に大学に入学するようなことをやっていたのお',
+                questionText: '人生のターニングポイントはいつですか？',
+                answerText: '四十九歳に隠居をして江戸に移り住んだ時かな',
+                readText: '四十九歳に隠居をしてえどに移りすんだ時かな',
             },
         ],
         questionOptionsSecond: [
             {
                 questionText: 'どんな性格だったの？',
-                answerText: '厳格な性格じゃったよ',
-                readText: '厳格な性格じゃったよ',
+                answerText: '厳格な性格で仕事の期間はメンバーに禁酒も命じていたよ',
+                readText: '厳格な性格で仕事の期間はメンバーに禁酒も命じていたよ',
             },
             {
-                questionText: '実は〇〇、もっと聞きたい！',
-                answerText: 'あることをするために3.5万キロ歩いたことがあるのじゃ',
-                readText: 'あることをするためにさんてんご万キロ歩いたことがあるのじゃ',
+                questionText: '人生で最も過酷だと思ったことは？',
+                answerText: 'あることをするために3.5万キロ歩いたんだがそれはもう過酷であった',
+                readText: 'あることをするためにさんてんご万キロ歩いたんだがそれはもうかこくであった',
             },
             {
                 questionText: '天文学で有名になった人？',
@@ -1278,16 +1282,15 @@ const questions = [
                 readText: 'わしは別のことで有名じゃな',
             },
             {
-                questionText: 'それって具体的にどんなこと？',
-                answerText: '四十九歳に隠居をして江戸に移り住んだんじゃ',
-                readText: '四十九歳に隠居をしてえどに移りすんだんじゃ',
+                questionText: '江戸に移り住んでなにしてた？',
+                answerText: '19歳年下のやつから天文学を教わったのう',
+                readText: '19歳年下のやつからてんもんがくを教わったのう',
             },
         ],
         questionOptionsThird: [
             {
-                questionText: '偉業はなんかある？',
-                answerText: '大日本沿海輿地全図を作ったことじゃ。（伊能図とも言われてる）',
-                readText: 'だいにほんえんかいよちぜんずを作ったことじゃ。',
+                questionText: '',
+                answerText: ''
             },
             {
                 questionText: 'なんのために歩いたの？',
@@ -1300,9 +1303,9 @@ const questions = [
                 readText: '距離を測ったりするという意味では関係あるのう',
             },
             {
-                questionText: '江戸に移り住んでなにしてた？',
-                answerText: '19歳年下のやつから天文学を教わったのう',
-                readText: '19歳年下のやつからてんもんがくを教わったのう',
+                questionText: '誰に天文学を教わったの？',
+                answerText: '高橋至時くんじゃ',
+                readText: 'たかはしよしときくんじゃ',
             },
         ],
         questionOptionsFourth: [
@@ -1315,14 +1318,13 @@ const questions = [
                 answerText: ''
             },
             {
-                questionText: '距離を測ってなにしてたの？',
-                answerText: '日本中を歩き回って測量したのお',
-                readText: '日本中を歩き回って測量したのお',
+                questionText: '',
+                answerText: ''
             },
             {
-                questionText: '誰に天文学を教わったの？',
-                answerText: '高橋至時くんじゃ',
-                readText: 'たかはしよしときくんじゃ',
+                questionText: 'あなたの偉業を教えて？',
+                answerText: '大日本沿海輿地全図を作ったことじゃ。',
+                readText: 'だいにほんえんかいよちぜんずを作ったことじゃ。',
             },
         ],
         questionOptionsFifth: [
@@ -1490,7 +1492,7 @@ const questions = [
         ],
         questionOptionsSecond: [
             {
-                questionText: '誰かに尊敬とかされたことある？',
+                questionText: '誰かに尊敬されたことある？',
                 answerText: 'だいぶ後の人やけど、織田信長くんに尊敬されちゃったみたいやな',
                 readText: 'だいぶあとの人やけど、織田信長くんに尊敬されちゃったみたいやな'
             },
@@ -1613,19 +1615,19 @@ const questions = [
                 readText: 'ちからをあわせてせいじをしてたおとうとをたいりつしてしまったときにどくさつしたんだな'
             },
             {
-                questionText: '関わった大きな戦とかってある？',
+                questionText: 'あなたが関わった大きな戦はありますか？',
                 answerText: '元弘の乱だね',
                 readText: 'げんこうのらんだね'
             },
             {
                 questionText: 'この前テレビに出てなかった？',
-                answerText: '大河ドラマの「太平記」にでとったわい！',
-                readText: 'たいがどらまのたいへいきにでとったわい'
+                answerText: '大河ドラマの「太平記」に出てたよ',
+                readText: 'たいがどらまのたいへいきに出てたよ'
             },
         ],
         questionOptionsThird: [
             {
-                questionText: 'お父さん誰？',
+                questionText: 'お父さんは誰ですか？',
                 answerText: '足利貞氏だよ',
                 readText: 'あしかがさだうじだよ'
             },
@@ -1635,7 +1637,7 @@ const questions = [
             },
             {
                 questionText: 'ここだけの話ってある？',
-                answerText: '元弘の乱に出陣するよう言われたけど、父の喪中だったから断ったんじゃ。しかし結局は幕府に許してもらえなかったんじゃ（太平記より）',
+                answerText: '元弘の乱に出陣するよう言われたけど、父の喪中だったから断ったんじゃ。しかし結局は幕府に許してもらえなかったんじゃ。',
                 readText: 'げんこうのらんにしゅつじんするよういわれたけど、ちちのもちゅうだったからことわったんじゃ。しかしけっきょくはばくふにゆるしてもらえなかったんじゃ'
             },
             {
@@ -1703,7 +1705,7 @@ const questions = [
                 readText: '京都どすえ',
             },
             {
-                questionText: '10歳の時の名前なんなん？',
+                questionText: '若い時の名前は何ですか？',
                 answerText: '法蓮、、蓮舫ちゃうぞうい！',
                 readText: 'ほうれん、、れんほうちゃうぞうい！',
             },
@@ -1715,17 +1717,17 @@ const questions = [
         ],
         questionOptionsSecond: [
             {
-                questionText: 'なんか自慢できることある？',
+                questionText: 'どのような生涯でしたか？',
                 answerText: 'パパと一緒に親子２代で、僧侶から油売り、そして大名に成り上がったんや！下克上最高！！',
                 readText: 'パパと一緒に親子２代で、僧侶からあぶらうり、そしてだいみょうに成り上がったんや！げこくじょう最高！！',
             },
             {
-                questionText: '名言ある？',
+                questionText: '名言を教えて？',
                 answerText: '「力で奪い取ったものは時を経て、力でもぎ取られる」と言ったな',
                 readText: '「ちからで奪い取ったものは時を経て、ちからでもぎ取られる」と言ったな',
             },
             {
-                questionText: '何か自慢できることあり？',
+                questionText: '何か自慢できることはありますか？',
                 answerText: '信長の城作りに影響を与えたんじゃ！',
                 readText: 'のぶながのしろ作りに影響を与えたんじゃ！',
             },
@@ -1745,9 +1747,9 @@ const questions = [
                 answerText: ''
             },
             {
-                questionText: 'なんか武勇伝ある？',
-                answerText: 'まあ、戦の最後死ぬ直前に遺言を書いて信長に自分の国をやったことじゃな',
-                readText: 'まあ、いくさの最後死ぬ直前にゆいごんを書いてのぶながに自分の国をやったことじゃな',
+                questionText: '武勇伝語っていいよ',
+                answerText: '戦の最後死ぬ直前に遺言を書いて信長に自分の国をやったんじゃ',
+                readText: 'いくさの最後死ぬ直前にゆいごんを書いてのぶながに自分の国をやったんじゃ',
             },
             {
                 questionText: '具体的にはどんなことをしてたの？',
@@ -1770,8 +1772,8 @@ const questions = [
             },
             {
                 questionText: 'あだ名はある？',
-                answerText: '美濃のマムシって呼ばれとったわい！',
-                readText: 'みののマムシって呼ばれとったわい！',
+                answerText: '美濃のマムシって呼ばれとったわい',
+                readText: 'みののマムシって呼ばれとったわい',
             },
         ],
         questionOptionsFifth: [
@@ -1924,13 +1926,13 @@ const questions = [
         questionOptions: [
             {
                 questionText: '実は〇〇な話教えて？',
-                answerText: '爆弾テロで右足がなくなってしまったのである。その右足は今も出身で展示されてるのだ。',
-                readText: '爆弾テロで右足がなくなってしまったのである。その右足は今も出身で展示されてるのだ。'
+                answerText: '爆弾テロで右足がなくなってしまったのである。わしはその足をホルマリン漬けにして来客者に見せびらかしていたのである。今でも我が出身地で展示されてるのだ。',
+                readText: '爆弾テロで右足がなくなってしまったのである。わしはその足をホルマリン漬けにして来客者に見せびらかしていたのである。今でも我が出身地で展示されてるのだ。'
             },
             {
                 questionText: 'どこで生まれましたか？',
-                answerText: '佐賀県である。武士の長男として生まれたのである。',
-                readText: '佐賀県である。武士の長男として生まれたのである。'
+                answerText: '佐賀県である。上流武士の長男として生まれたのである。小さい頃から英才教育を受けていたのである。',
+                readText: '佐賀県である。じょうりゅう武士の長男として生まれたのである。小さい頃から英才教育を受けていたのである'
             },
             {
                 questionText: '好きなものは何ですか？',
@@ -1961,8 +1963,8 @@ const questions = [
             },
             {
                 questionText: '何か自慢できることはありますか？',
-                answerText: '日本の野球で最初の始球式をしたのであるんであーる。',
-                readText: '日本の野球で最初のしきゅうしきをしたのであるんであーる。'
+                answerText: '日本の野球で最初の始球式をしたのであるんであーる。始球式でバッターが空振りするという伝統は、わしに敬意を払ってくれたことから始まったのだ。',
+                readText: '日本の野球で最初のしきゅうしきをしたのであるんであーる。始球式でバッターが空振りするという伝統は、わしにけいいを払ってくれたことから始まったのだ。'
             },
         ],
         questionOptionsThird: [
@@ -1983,8 +1985,8 @@ const questions = [
             },
             {
                 questionText: 'あなたは何のお仕事をしている人ですか？',
-                answerText: '総理大臣を２度したことがあるんである。',
-                readText: '総理大臣を２度したことがあるんである。'
+                answerText: '8代と17代の内閣総理大臣を務めたのである。',
+                readText: '8代と17代の内閣総理大臣を務めたのである。'
             },
         ],
         questionOptionsFourth: [

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, ImageBackground, Animated, StyleSheet, TextInput, Dimensions } from 'react-native';
+import { View, ImageBackground, Animated, StyleSheet, TextInput, Dimensions, ScrollView } from 'react-native';
 import { Button, Text, Image, Overlay, ThemeProvider, Header } from 'react-native-elements';
 import Balloon from "react-native-balloon";
 import * as Speech from 'expo-speech';
 import questions from './question';
 import { useForm, Controller } from "react-hook-form";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const {width, height} = Dimensions.get('window');
 
@@ -53,7 +54,32 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center',
     },
+    balloonSelf: {
+        borderRadius: 10,
+        backgroundColor: '#fff',
+        padding: 10,
+        position: 'relative',
+        height: 70,
+        width: 300,
+        marginTop: 15,
+    },
+    balloonSelfTriangle: {
+        borderBottomWidth: 12,
+        borderBottomColor: '#fff',
+        borderRightWidth: 12,
+        borderRightColor: 'transparent',
+        borderLeftWidth: 12,
+        borderLeftColor: 'transparent',
+        //content: '',
+        marginLeft: -10,
+        position: 'absolute',
+        top: -12,
+        left: '50%',
+
+    }
 });
+
+
 
 export default function SelectQuestion(props) {
     // 値を次のページに送る
@@ -320,12 +346,13 @@ export default function SelectQuestion(props) {
                             source={require('../assets/img/kuromaku.jpg')}
                             style={styles.image}
                         />
-                        <Balloon
+                        {/* <Balloon
                             borderColor="#CCC"
                             backgroundColor="#FFF"
                             borderWidth={1}
                             borderRadius={10}
                             triangleDirection='top'
+                            height={100}
                         >
                             <Animated.Text 
                                 style={{
@@ -335,7 +362,22 @@ export default function SelectQuestion(props) {
                             >
                                 {answerText}
                             </Animated.Text>
-                        </Balloon>
+                        </Balloon> */}
+
+                        <View style={styles.balloonSelf}>
+                            <ScrollView>
+                                <Animated.Text 
+                                    style={{
+                                        height: 80,
+                                        fontSize: 13,
+                                    }}
+                                >
+                                    {answerText}
+                                </Animated.Text>
+                            </ScrollView>
+                            <View style={styles.balloonSelfTriangle}></View>
+                        </View>
+                        
                     </View>
                     <View style={styles.buttonContainer}>
                         <Text h4>スコア：{score}点</Text>
