@@ -30,7 +30,7 @@ export default function Start0(props) {
   //for(i=0;i<4;i++){
     id.push(i);
   }
-  //id[0]=17;
+  //id[0]=10;
   //console.log(id);
 
   function arrayShuffle(array) {
