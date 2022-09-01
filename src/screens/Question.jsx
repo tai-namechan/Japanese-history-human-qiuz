@@ -22,6 +22,7 @@ import ButtonQuestion from "../components/questionComponents/ButtonQuestion";
 import ButtonBrownSmall from "../components/button/ButtonBrownSmall";
 import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
+import * as Speech from 'expo-speech';
 
 export default function Question(props) {
   const navigation = useNavigation();
@@ -90,7 +91,7 @@ export default function Question(props) {
 
     setAnswerText(currentAnswerText); // 吹き出しにanswerTextを表示する
     onChangeScore(); // ボタンが押下されたらスコアが1点ずつ減っていく処理
-    // setSpeech(currentAnswerText); // answerTextの読み上げ
+    setSpeech(currentAnswerText); // answerTextの読み上げ
 
     switch (i) {
       case 0:
@@ -198,6 +199,15 @@ export default function Question(props) {
       return 2
     }
   } 
+
+  // 音声読み上げ
+  const setSpeech = (text) => {
+    Speech.speak(text, {
+      language: "ja",
+      pitch: -1, // 低い声
+      // "pitch": 1, // 高い声
+    });
+  };
 
   return (
     <ImageBackground
