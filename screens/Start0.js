@@ -26,9 +26,10 @@ export default function Start0(props) {
 
 
   let id=[];
-  for(i=0;i<questions.length;i++){
+  for(i = 4; i < 4 + 10 * 2; i = i + 10){
   //for(i=0;i<4;i++){
     id.push(i);
+    console.log('idの配列：'+ id)
   }
   //id[0]=10;
   //console.log(id);
@@ -50,7 +51,7 @@ export default function Start0(props) {
   arrayShuffle(id);
   
   let idCount = 0;
-  console.log(id);
+  console.log("id："+id);
   setTimeout(() => {
     props.navigation.navigate('Start',{idCount,id});
   }, 1);

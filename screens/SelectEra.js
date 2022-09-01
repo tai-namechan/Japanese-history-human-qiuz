@@ -1,28 +1,23 @@
 import React, { Component, useEffect} from 'react';
 import { View, ImageBackground } from 'react-native';
 import { Button, Text, Image, Header, ThemeProvider } from 'react-native-elements';
-import questions from './question';
-
-
-const theme = {
-  Button: {
-    containerStyle: {
-      margin: '6%',
-    },
-    titleStyle: {
-      fontSize: 40
-    },
-    raised: true,
-  },
-  colors: {
-    primary: 'brown',
-  },
-};  
+import axios from 'axios';
 
 export default function SelectEra(props) {
-
   let id = props.navigation.state.params.id;
   let idCount = props.navigation.state.params.idCount;
+
+  const fetchQuestions = async () => {
+    try {
+      await axios.get(`http://rekishino-kabe-api.herokuapp.com/api/question/${number}`)
+      .then((res)=>{
+        // console.log(res.data)
+        setQuestion(res.data)
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -62,10 +57,11 @@ export default function SelectEra(props) {
               <Button
                 title="ランダム"
                 onPress={() => {
-                  //props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
+                  // props.navigation.navigate('RandomQuestion', { questionRandom: questionRandom });
                   //↑ランダム ↓とりあえずSelectEra.js
                   // 画面遷移先はボタンに応じるように変更（どちらも同じ処理が走るようにしているため, RandomQuestion.js内の処理も正常に動くコードにしておきたいため）by.Daisuke 8/26
-                  props.navigation.navigate('RandomQuestion', {id,idCount});
+                  // props.navigation.navigate('RandomQuestion', {id,idCount});
+                  props.navigation.navigate('Samplee', {id,idCount});
                   //random();
                 }}
                 containerStyle={{ width: '50%' }}
@@ -125,3 +121,18 @@ export default function SelectEra(props) {
     </ThemeProvider>
   )
 }
+
+const theme = {
+  Button: {
+    containerStyle: {
+      margin: '6%',
+    },
+    titleStyle: {
+      fontSize: 40
+    },
+    raised: true,
+  },
+  colors: {
+    primary: 'brown',
+  },
+}; 

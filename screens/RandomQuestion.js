@@ -6,6 +6,7 @@ import * as Speech from 'expo-speech';
 import questions from './question';
 import { useForm, Controller } from "react-hook-form";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import axios from 'axios';
 
 const {width, height} = Dimensions.get('window');
 
@@ -86,7 +87,11 @@ export default function SelectQuestion(props) {
     let id = props.navigation.state.params.id;
     let idCount = props.navigation.state.params.idCount;
     const { navigation } = props;
+
     const number = id[idCount];
+    // const number = 4;
+
+    // console.log("番号："+number)
     
     useEffect(() => {
         const questionRandom = id[idCount];
@@ -94,6 +99,8 @@ export default function SelectQuestion(props) {
         // 選択された時代をSelectEraから受け取る
         const period = props.navigation.state.params.period;
         setCurrentQuestion(questionRandom);
+
+        fetchQuestions()
     },[]);
 
     const [showQuestions, setShowQuestions] = useState(questions);
@@ -105,7 +112,7 @@ export default function SelectQuestion(props) {
     const [bButton,setBButton] = useState(0);
     const [cButton,setCButton] = useState(0);
     const [dButton,setDButton] = useState(0);
-
+    const [question, setQuestion] = useState([]);
 
     // 質問した数の初期値
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -139,6 +146,7 @@ export default function SelectQuestion(props) {
 
         // 質問ボタンの切り替え
         let number = i;
+        console.log("キー："+i)
 
         if(i === 0) {
             setCountQuestionOne(countQuestionOne + 1);
@@ -318,6 +326,18 @@ export default function SelectQuestion(props) {
         handleSubmit,
         formState: { errors, isValid },
     } = useForm({mode: 'onChange'});
+
+    const fetchQuestions = async () => {
+        try {
+          await axios.get(`http://rekishino-kabe-api.herokuapp.com/api/question/${number}`)
+          .then((res)=>{
+            console.log(res.data)
+            setQuestion(res.data)
+          })
+        } catch (error) {
+          console.error(error)
+        }
+      }
 
     return (
         <ThemeProvider theme={theme}>
