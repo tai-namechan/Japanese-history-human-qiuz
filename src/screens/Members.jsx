@@ -1,12 +1,6 @@
-import React, { useState, useEffect, useRef, } from 'react';
-import { View, ImageBackground, StyleSheet, SafeAreaView, Linking, Platform, Alert, Image, Text } from 'react-native';
-import {
-  NavigationContainer,
-  NavigatorScreenParams,
-  RouteProp,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Members(props) {
   const navigation = useNavigation();

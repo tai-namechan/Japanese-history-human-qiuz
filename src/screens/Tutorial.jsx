@@ -1,8 +1,9 @@
-import React, {useState,useRef} from 'react'
+import React, { useState,useRef } from 'react'
 import {View, Text, Modal, Image, StyleSheet, TouchableOpacity, FlatList, Dimensions} from 'react-native'
-import {
-    useNavigation,
-  } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { brown, beige, black, white, gray, shadow_color } from "../constants/color";
+
+const {width, height} = Dimensions.get('window');
 
 const Tutorial = ({isVisible, dismissModal}) => {
   const [viewableItemIndex, setViewableItemIndex] = useState(0);
@@ -100,7 +101,6 @@ const Tutorial = ({isVisible, dismissModal}) => {
 
 export default  Tutorial;
 
-const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   top_wrapper: {
     height: "85%",
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#fff',
+    color: white,
   },
   slideInner_image_wrapper: {
     justifyContent: "center",
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 19,
-    color: '#fff',
+    color: white,
     lineHeight: 30,
   },
   bottomWrapper: {
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 19,
-    color: '#fff',
+    color: white,
     
   },
 })

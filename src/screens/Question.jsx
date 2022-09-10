@@ -1,32 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  View,
-  ImageBackground,
-  StyleSheet,
-  SafeAreaView,
-  Linking,
-  Platform,
-  Alert,
-  Image,
-  Text,
-  ScrollView,
-  Modal,
-  TouchableOpacity,
-  TextInput,
-  KeyboardAvoidingView,
-} from "react-native";
-import {
-  useNavigation,
-} from '@react-navigation/native';
+import React, { useState, useEffect } from "react";
+import { View, ImageBackground, StyleSheet, Alert, Image, Text, ScrollView, Modal, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import ButtonQuestion from "../components/questionComponents/ButtonQuestion";
 import ButtonBrownSmall from "../components/button/ButtonBrownSmall";
 import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
 import * as Speech from 'expo-speech';
+import { brown, beige, black, white, gray, shadow_color } from "../constants/color";
+import { useSoundContext } from "../context/SoundContext";
+import Loading from "../components/loading/Loading";
 
 export default function Question(props) {
   const navigation = useNavigation();
   const { questionId } = props.route.params;
+
+  const { isSoundOn, setIsSoundOn } = useSoundContext();
 
   const defaultQuestionText = "（読み込み中じゃ）";
   const defaultQuestion = {
@@ -53,6 +41,7 @@ export default function Question(props) {
   const [score, setScore] = useState(16);
   const [modalVisible, setModalVisible] = useState(false);
   const [gottenScore, setGottenScore] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchQuestions();
@@ -75,6 +64,7 @@ export default function Question(props) {
         .then((res) => {
           console.log(res.data);
           setQuestion(res.data);
+          setLoading(false)
         });
     } catch (error) {
       console.error(error);
@@ -177,7 +167,7 @@ export default function Question(props) {
     const correctAnswer = question.name; 
     // console.log(inputtedAnswer, correctAnswer)
 
-    const isCorrect =isCorrectAnswer(inputtedAnswer, correctAnswer)
+    const isCorrect = isCorrectAnswer(inputtedAnswer, correctAnswer);
 
     setModalVisible(!modalVisible)
     navigation.navigate("答え", {
@@ -202,144 +192,152 @@ export default function Question(props) {
 
   // 音声読み上げ
   const setSpeech = (text) => {
-    Speech.speak(text, {
-      language: "ja",
-      pitch: -1, // 低い声
-      // "pitch": 1, // 高い声
-    });
+    if (isSoundOn) {
+      Speech.speak(text, {
+        language: "ja",
+        pitch: -1, // 低い声
+        // "pitch": 1, // 高い声
+      });
+    } 
   };
 
-  return (
-    <ImageBackground
-      source={require("../../assets/img/backgrounds/BaseBackground.png")}
-      resizeMode="cover"
-      style={{ height: "100%" }}
-    >
-      <View style={styles.container}>
-        <View style={styles.image_container}>
-          <Image
-            source={require("../../assets/img/people/kuromaku.jpg")}
-            style={styles.image}
-          />
-        </View>
-        <View style={styles.response_container}>
-          <View style={styles.balloon_self}>
-            <ScrollView showsVerticalScrollIndicator={true}>
-              <Text style={styles.response_text}>{answerText}</Text>
-            </ScrollView>
-            <View style={styles.balloon_self_triangle}></View>
-          </View>
-        </View>
-        <View style={styles.score_container}>
-          <Text>スコア：{score}点</Text>
-          {/* <View style={styles.scoer_image_wrapper}>
-              <Text>★</Text>
-            </View>
-            <View style={styles.scoer_image_wrapper}>
-              <Text>★</Text>
-            </View>
-            <View style={styles.scoer_image_wrapper}>
-              <Text>★</Text>
-            </View>
-            <View style={styles.scoer_image_wrapper}>
-              <Text>★</Text>
-            </View>
-            <View style={styles.scoer_image_wrapper}>
-              <Text>★</Text>
-            </View> */}
-        </View>
-        <View style={styles.question_buttons_container}>
-          {question.questionOptions.map((questionOption, i) => (
-            <ButtonQuestion
-              key={i}
-              text={questionOption.questionText}
-              onPress={() => handleQuestionOptionClick(questionOption, i)}
-              disabled={disabled[i]}
-              style={{ opacity: disabled[i] ? 0.4 : 1 }}
-            />
-          ))}
-        </View>
-        <View style={styles.answer_button_container}>
-          <ButtonBrownSmall
-            text={"わかった！"}
-            onPress={() => setModalVisible(true)}
-          />
-        </View>
-      </View>
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
+  if (loading) {
+    return (
+      <Loading />
+    );
+  } else {
+    return (
+      <ImageBackground
+        source={require("../../assets/img/backgrounds/BaseBackground.png")}
+        resizeMode="cover"
+        style={{ height: "100%" }}
       >
-        <KeyboardAvoidingView style={{ height: "100%" }} behavior="height">
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <View style={styles.modal_title_wrapper}>
-                <Text style={styles.modal_title}>わしが誰だか分かったか？</Text>
-              </View>
-              <View style={styles.modal_textinput_wrapper}>
-                <Controller
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                      style={styles.modal_textinput}
-                      placeholder="ここに入力するのじゃ！"
-                      placeholderTextColor="#4A4444"
-                      onChangeText={(value) => onChange(value)}
-                      onBlur={onBlur}
-                      value={value}
-                    />
-                  )}
-                  name="inputted_answer"
-                  defaultValue=""
-                />
-              </View>
-              <View style={styles.modal_button_wrapper}>
-                <TouchableOpacity
-                  style={[styles.modal_button, styles.button_left]}
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Text
-                    style={[
-                      styles.modal_button_text,
-                      styles.modal_button_text_left,
-                    ]}
-                  >
-                    閉じる
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[
-                    styles.modal_button,
-                    styles.button_right,
-                    { opacity: isValid ? 1 : 0.5 },
-                  ]}
-                  onPress={handleSubmit(submitAnswer)}
-                  disabled={!isValid}
-                >
-                  <Text
-                    style={[
-                      styles.modal_button_text,
-                      styles.modal_button_text_right,
-                    ]}
-                  >
-                    提出する
-                  </Text>
-                </TouchableOpacity>
-              </View>
+        <View style={styles.container}>
+          <View style={styles.image_container}>
+            <Image
+              source={require("../../assets/img/people/kuromaku.jpg")}
+              style={styles.image}
+            />
+          </View>
+          <View style={styles.response_container}>
+            <View style={styles.balloon_self}>
+              <ScrollView showsVerticalScrollIndicator={true}>
+                <Text style={styles.response_text}>{answerText}</Text>
+              </ScrollView>
+              <View style={styles.balloon_self_triangle}></View>
             </View>
           </View>
-        </KeyboardAvoidingView>
-      </Modal>
-    </ImageBackground>
-  );
+          <View style={styles.score_container}>
+            <Text>スコア：{score}点</Text>
+            {/* <View style={styles.scoer_image_wrapper}>
+                <Text>★</Text>
+              </View>
+              <View style={styles.scoer_image_wrapper}>
+                <Text>★</Text>
+              </View>
+              <View style={styles.scoer_image_wrapper}>
+                <Text>★</Text>
+              </View>
+              <View style={styles.scoer_image_wrapper}>
+                <Text>★</Text>
+              </View>
+              <View style={styles.scoer_image_wrapper}>
+                <Text>★</Text>
+              </View> */}
+          </View>
+          <View style={styles.question_buttons_container}>
+            {question.questionOptions.map((questionOption, i) => (
+              <ButtonQuestion
+                key={i}
+                text={questionOption.questionText}
+                onPress={() => handleQuestionOptionClick(questionOption, i)}
+                disabled={disabled[i]}
+                style={{ opacity: disabled[i] ? 0.4 : 1 }}
+              />
+            ))}
+          </View>
+          <View style={styles.answer_button_container}>
+            <ButtonBrownSmall
+              text={"わかった！"}
+              onPress={() => setModalVisible(true)}
+            />
+          </View>
+        </View>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <KeyboardAvoidingView style={{ height: "100%" }} behavior="height">
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <View style={styles.modal_title_wrapper}>
+                  <Text style={styles.modal_title}>わしが誰だか分かったか？</Text>
+                </View>
+                <View style={styles.modal_textinput_wrapper}>
+                  <Controller
+                    control={control}
+                    rules={{
+                      required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <TextInput
+                        style={styles.modal_textinput}
+                        placeholder="ここに入力するのじゃ！"
+                        placeholderTextColor="#4A4444"
+                        onChangeText={(value) => onChange(value)}
+                        onBlur={onBlur}
+                        value={value}
+                      />
+                    )}
+                    name="inputted_answer"
+                    defaultValue=""
+                  />
+                </View>
+                <View style={styles.modal_button_wrapper}>
+                  <TouchableOpacity
+                    style={[styles.modal_button, styles.button_left]}
+                    onPress={() => setModalVisible(!modalVisible)}
+                  >
+                    <Text
+                      style={[
+                        styles.modal_button_text,
+                        styles.modal_button_text_left,
+                      ]}
+                    >
+                      閉じる
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      styles.modal_button,
+                      styles.button_right,
+                      { opacity: isValid ? 1 : 0.5 },
+                    ]}
+                    onPress={handleSubmit(submitAnswer)}
+                    disabled={!isValid}
+                  >
+                    <Text
+                      style={[
+                        styles.modal_button_text,
+                        styles.modal_button_text_right,
+                      ]}
+                    >
+                      提出する
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </KeyboardAvoidingView>
+        </Modal>
+      </ImageBackground>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -384,7 +382,7 @@ const styles = StyleSheet.create({
   },
   balloon_self: {
     borderRadius: 10,
-    backgroundColor: "#fff",
+    backgroundColor: white,
     paddingVertical: 10,
     paddingHorizontal: 14,
     position: "relative",
@@ -394,7 +392,7 @@ const styles = StyleSheet.create({
   },
   balloon_self_triangle: {
     borderBottomWidth: 12,
-    borderBottomColor: "#fff",
+    borderBottomColor: white,
     borderRightWidth: 12,
     borderRightColor: "transparent",
     borderLeftWidth: 12,
@@ -412,11 +410,11 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: "space-between",
     marginHorizontal: 36,
-    backgroundColor: "white",
+    backgroundColor: white,
     borderRadius: 10,
     padding: 24,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: shadow_color,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -439,16 +437,16 @@ const styles = StyleSheet.create({
   modal_textinput: {
     width: "100%",
     padding: 10,
-    borderBottomColor: "#000",
+    borderBottomColor: shadow_color,
     borderBottomWidth: 1,
     fontSize: 18,
   },
   modal_button: {
     width: "47%",
-    backgroundColor: "#76130D",
+    backgroundColor: brown,
     paddingVertical: 5,
     borderRadius: 4,
-    borderColor: "#76130D",
+    borderColor: brown,
     borderWidth: 1.5,
   },
   modal_button_text: {
@@ -456,15 +454,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button_left: {
-    backgroundColor: "#fff",
+    backgroundColor: white,
   },
   button_right: {
-    backgroundColor: "#76130D",
+    backgroundColor: brown,
   },
   modal_button_text_left: {
-    color: "#76130D",
+    color: brown,
   },
   modal_button_text_right: {
-    color: "#fff",
+    color: white,
   },
 });

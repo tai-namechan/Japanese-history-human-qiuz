@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, Dimensions } from "react-native"
+import { brown, beige, black, white } from '../../constants/color';
 
 const { width } = Dimensions.get("window")
 
@@ -16,14 +17,14 @@ export default function ButtonBrownSmall(props) {
 
 const styles = StyleSheet.create({
   button_wrapper: {
-    backgroundColor: "#76130D",
+    backgroundColor: brown,
     paddingHorizontal: 20,
     paddingVertical: 10,
     width: "50%",
     borderRadius: 5,
   },
   button_text: {
-    color: "#ffffff",
+    color: white,
     fontSize: 18,
     textAlign: "center"
   },

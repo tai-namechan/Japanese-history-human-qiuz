@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   ImageBackground,
@@ -8,11 +8,21 @@ import {
   Image,
   ScrollView,
   Modal,
-  TouchableOpacity,
+  Animated
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ButtonBrownBorderSmall from "../components/button/ButtonBrownBorderSmall";
 import ButtonBrown from "../components/button/ButtonBrown";
+import {
+  brown,
+  beige,
+  black,
+  white,
+  gray,
+  shadow_color,
+} from "../constants/color";
+import { useAuthContext } from "../context/AuthContext";
+import firebase from "firebase/compat";
 
 const { width, height } = Dimensions.get("window");
 
@@ -20,33 +30,97 @@ export default function Answer(props) {
   const navigation = useNavigation();
   const { isCorrect, score, image, name, period, explanation } =
     props.route.params;
-  // console.log("答え画面：", image);
+
+  const { user } = useAuthContext();
+  const { loginUserData } = useAuthContext();
+  const { setUpdating } = useAuthContext();
 
   const [correctness, setCorrectness] = useState();
   const [gottenScore, setGottenScore] = useState();
   const [modalVisible, setModalVisible] = useState(true);
-
-  // console.log(correctness)
-  // console.log(correctness,gottenScore)
 
   useEffect(() => {
     isCorrectness();
   }, []);
 
   const isCorrectness = () => {
+    const updated_score = loginUserData.score + score;
+    const updated_times = loginUserData.times + 1;
+    // TODO:平均スコア
+    const updated_average = loginUserData.average;
+    const updated_monthly_score = loginUserData.monthly_score + 11;
+
     // 正解なら1
     if (isCorrect == 1) {
       setCorrectness(true);
       setGottenScore(score);
       // console.log("正解",gottenScore)
+      updateScore(updated_score, updated_times, updated_average, updated_monthly_score);
     }
     // 不正解なら2
     else if (isCorrect == 2) {
       setCorrectness(false);
       setGottenScore(0);
       // console.log("不正解",gottenScore)
+      updateTimes(updated_times);
     }
   };
+
+  const updateScore = (updated_score, updated_times, updated_average, updated_monthly_score) => {
+    // 正解かつログインユーザーの場合、firestoreのscore、average、timesを更新
+    if (user) {
+      // firebaseのデータ更新（スコアの更新）
+      firebase
+        .firestore()
+        .collection("nicknameuser")
+        .doc(user.uid)
+        .update({
+          score: updated_score,
+          times: updated_times,
+          average: updated_average,
+          monthly_score: updated_monthly_score,
+        })
+        .then(() => {
+          // AuthContext.jsのuseEffectを更新するトリガー
+          setUpdating(true);
+          // console.log('Add Firestore Success');
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    }
+  };
+
+  const updateTimes = (updated_times) => {
+    // 不正解かつログインユーザーの場合、firestoreのtimesを更新
+    if (user) {
+      // firebaseのデータ更新（スコアの更新）
+      firebase
+        .firestore()
+        .collection("nicknameuser")
+        .doc(user.uid)
+        .update({
+          times: updated_times,
+        })
+        .then(() => {
+          // AuthContext.jsのuseEffectを更新するトリガー
+          setUpdating(true);
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    }
+  };
+
+  // 画像フェードインアウト
+  const opacity = useState(new Animated.Value(0))[0]
+
+  // 遷移したら自動的に黒幕が姿あらわす
+  Animated.timing(opacity, {
+    toValue: 1,
+    duration: 3000,
+    useNativeDriver: true
+  }).start()
 
   return (
     <ImageBackground
@@ -80,33 +154,38 @@ export default function Answer(props) {
                 )}
               </View>
               <View style={styles.modal_image_container}>
+                <Image
+                  //黒幕
+                  source={require("../../assets/img/people/kuromaku.jpg")}
+                  style={styles.modal_image}
+                />
                 {image == null ? (
-                  <Image
+                  <Animated.Image
                     source={require("../../assets/img/logo/rekishinokabe_logo.jpg")}
-                    style={styles.modal_image}
+                    style={[styles.modal_image, {opacity, position: "absolute"}]}
                   />
                 ) : (
-                  <Image
+                  <Animated.Image
                     source={{
                       uri: image,
                     }}
-                    style={styles.modal_image}
+                    style={[styles.modal_image, {opacity, position: "absolute"}]}
                   />
                 )}
                 <View style={styles.balloon_self}>
-                  <Text style={styles.balloon_text}>
+                  <Animated.Text style={[styles.balloon_text, {opacity}]}>
                     わしの名前は
                     <Text style={[styles.text_bold, { fontSize: 20 }]}>
                       {name}
                     </Text>
                     じゃ
-                  </Text>
+                  </Animated.Text>
                   <View style={styles.balloon_self_triangle}></View>
                 </View>
               </View>
               <View style={styles.modal_detail_container}>
                 <ScrollView showsVerticalScrollIndicator={true}>
-                  <Text style={styles.modal_detail_text}>{explanation}</Text>
+                  <Animated.Text style={[styles.modal_detail_text, {opacity}]}>{explanation}</Animated.Text>
                 </ScrollView>
               </View>
               <View style={styles.modal_button_wrapper}>
@@ -185,7 +264,7 @@ export default function Answer(props) {
             <Text style={styles.score_text}>総獲得スコア　</Text>
             <Text style={styles.score_text_big}>
               <Text style={[styles.text_bold, { color: "red" }]}>
-                {gottenScore}
+                {loginUserData.score}
               </Text>
               点❗️
             </Text>
@@ -236,12 +315,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   explanation_container: {
-    backgroundColor: "#fff",
+    backgroundColor: white,
     height: "40%",
     flexDirection: "column",
     paddingHorizontal: 24,
     paddingVertical: 18,
-    shadowColor: "#000",
+    shadowColor: shadow_color,
     shadowOffset: {
       width: 3,
       height: 3,
@@ -275,11 +354,11 @@ const styles = StyleSheet.create({
   },
   explanation_bottom_wrapper: {
     height: "49%",
-    backgroundColor: "#fff",
+    backgroundColor: white,
     marginTop: "2%",
     paddingVertical: 12,
     paddingHorizontal: 14,
-    shadowColor: "#000",
+    shadowColor: shadow_color,
     shadowOffset: {
       width: 1,
       height: 1,
@@ -297,7 +376,7 @@ const styles = StyleSheet.create({
     left: "48%",
     zIndex: 100,
     transform: [{ rotate: "-10deg" }],
-    shadowColor: "#000",
+    shadowColor: shadow_color,
     shadowOffset: {
       width: 1,
       height: 1,
@@ -309,15 +388,15 @@ const styles = StyleSheet.create({
   image: {
     height: "100%",
     width: 130,
-    backgroundColor: "#fff",
+    backgroundColor: white,
   },
   explanation_text: {
     fontSize: 16,
-    // color: "#fff",
+    // color: white,
   },
   balloon_self: {
     borderRadius: 10,
-    backgroundColor: "#fff",
+    backgroundColor: white,
     paddingVertical: 10,
     paddingHorizontal: 14,
     position: "relative",
@@ -327,7 +406,7 @@ const styles = StyleSheet.create({
   },
   balloon_self_triangle: {
     borderBottomWidth: 12,
-    borderBottomColor: "#fff",
+    borderBottomColor: white,
     borderRightWidth: 12,
     borderRightColor: "transparent",
     borderLeftWidth: 12,
@@ -360,7 +439,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 24,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: shadow_color,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -383,10 +462,10 @@ const styles = StyleSheet.create({
   modal_image: {
     height: 180,
     width: 180,
-    backgroundColor: "#fff",
+    backgroundColor: white,
   },
   modal_detail_container: {
-    backgroundColor: "#76130D",
+    backgroundColor: brown,
     height: "30%",
     width: "100%",
     paddingHorizontal: 20,
@@ -395,7 +474,7 @@ const styles = StyleSheet.create({
   },
   modal_detail_text: {
     fontSize: 15,
-    color: "#fff",
+    color: white,
     lineHeight: 20,
   },
   modal_button_wrapper: {

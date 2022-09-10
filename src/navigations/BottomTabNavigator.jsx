@@ -1,43 +1,42 @@
 import React from "react";
-import {
-  createBottomTabNavigator,
-  NavigationContainer,
-} from "@react-navigation/bottom-tabs";
-import BottomTabs from "../components/bottomTabs/BottomTabs";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useNavigation } from '@react-navigation/native';
 import SelectQuestions from "../screens/SelectEra";
 import Ranking from "../screens/Ranking";
 import Menu from "../screens/Menu";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Octicons } from '@expo/vector-icons'; 
+import { brown, beige, black, white, gray } from "../constants/color";
 
 const Tab = createBottomTabNavigator();
 
 export const BottomTabNavigator = () => {
+  const navigation = useNavigation();
+
+  const icon_size = 28;
+
   return (
     <Tab.Navigator
     initialRouteName="SelectQuestions"
     screenOptions={{
-        tabBarActiveTintColor: "#76130D",
-        tabBarInactiveTintColor: "#D4AB72",
+        tabBarActiveTintColor: brown,
+        tabBarInactiveTintColor: beige,
       }}
     >
       <Tab.Screen
         name="問題"
         component={SelectQuestions}
-        options={() => ({
+        options={(user) => ({
           headerStyle: {
-            backgroundColor: "#76130D",
+            backgroundColor: brown,
           },
-          headerTintColor: "#fff",
+          headerTintColor: white,
           headerBackTitleVisible: false,
           headerTitleStyle: {
-            color: "#FFFFFF",
+            color: white,
           },
           tabBarIcon: ({ focused }) => (
-            <Icon
-                name='pencil'
-                color={focused ? "#76130D" : "#D4AB72"}
-                size={focused ? 32 : 26}
-            />
+            <Octicons name="note" size={icon_size} color={focused ? brown : beige} />
           ),
         })}
       />
@@ -46,19 +45,15 @@ export const BottomTabNavigator = () => {
         component={Ranking}
         options={() => ({
           headerStyle: {
-            backgroundColor: "#76130D",
+            backgroundColor: brown,
           },
-          headerTintColor: "#fff",
+          headerTintColor: white,
           headerBackTitleVisible: false,
           headerTitleStyle: {
-            color: "#FFFFFF",
+            color: white,
           },
           tabBarIcon: ({ focused }) => (
-            <Icon
-                name='star'
-                color={focused ? "#76130D" : "#D4AB72"}
-                size={focused ? 32 : 26}
-            />
+            <Ionicons name="people" size={icon_size} color={focused ? brown : beige} />
           ),
         })}
       />
@@ -67,19 +62,15 @@ export const BottomTabNavigator = () => {
         component={Menu}
         options={() => ({
           headerStyle: {
-            backgroundColor: "#76130D",
+            backgroundColor: brown,
           },
-          headerTintColor: "#fff",
+          headerTintColor: white,
           headerBackTitleVisible: false,
           headerTitleStyle: {
-            color: "#FFFFFF",
+            color: white,
           },
           tabBarIcon: ({ focused }) => (
-            <Icon
-                name='dots-horizontal'
-                color={focused ? "#76130D" : "#D4AB72"}
-                size={focused ? 36 : 30}
-            />
+            <Ionicons name="menu" size={icon_size} color={focused ? brown : beige} />
           ),
         })}
       />

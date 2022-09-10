@@ -1,13 +1,8 @@
-import React, { useState, useEffect, useRef, } from 'react';
-import { View, ImageBackground, StyleSheet, SafeAreaView, Linking, Platform, Alert, Image, Text } from 'react-native';
-import {
-  NavigationContainer,
-  NavigatorScreenParams,
-  RouteProp,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import React from 'react';
+import { View, ImageBackground, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ButtonBrown from '../components/button/ButtonBrown';
+import LoginModal from '../components/modal/LoginModal';
 
 export default function SelectEra(props) {
   const navigation = useNavigation();
@@ -19,6 +14,7 @@ export default function SelectEra(props) {
       questionId: questionId
     })
   } 
+
   return (
     <View>
       <ImageBackground
@@ -33,8 +29,9 @@ export default function SelectEra(props) {
           />  
           {/* <ButtonBrown
             text={"江戸"}
-            onPress={props.navigation.navigate("答え")}
+            // onPress={props.navigation.navigate("答え")}
           /> */}
+          <LoginModal/>
         </View>     
       </ImageBackground>
     </View>
@@ -46,6 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     height: "100%",
-
+    paddingHorizontal: 24,
   },
 })
